@@ -2,6 +2,38 @@
 
 Status: DRAFT (results sections are filled as evidence lands; see JOURNAL.md).
 
+## Answer
+
+**On the normal handshake, yes: OpenSSH 10.0p1, Dropbear 2025.88 and Go x/crypto/ssh 0.58.0 agree exactly.**
+Key exchange, service request, public-key authentication, channel open and rekey after authentication produce the same outputs on all three (`results/final/verified_B_only.md`, row 11).
+
+**Off the normal path they disagree a lot, and systematically.**
+Learned models and three-server replays give 39 distinct divergence points, all deterministic and none explained by the test harness, in nine classes (table below; `results/final/verified_all.md`).
+Each server applies one consistent policy to a message in the wrong place:
+- Go closes the connection without a word;
+- OpenSSH answers UNIMPLEMENTED and carries on;
+- Dropbear tends to accept.
+
+**Who follows the RFCs:**
+- Measured against MUSTs, Go and Dropbear met every one we tested.
+- OpenSSH breaks the letter of two:
+  - RFC 4252 §6: it does not disconnect on connection-protocol messages before authentication (D2).
+  - RFC 4253 §9: it refuses a client rekey before authentication (D3).
+  We found no security impact for either: the messages are not parsed, and the refusal is deliberate.
+- Against SHOULDs:
+  - Dropbear is the only one that silently ignores authentication requests after success (D4).
+  - OpenSSH is the only one that sends a DISCONNECT message when it disconnects (D6).
+- Most other differences (D1, D5, D7, D8, D9) are in territory the RFCs leave unspecified, and D7/D8 disappear when strict KEX is negotiated.
+
+**Are they real?**
+- Every class was replayed against all three servers (5 to 10 repetitions, 0 nondeterministic runs).
+- A skeptical-review agent tried and failed to explain each as a harness artifact, using an independent client (stock paramiko, other key exchange, strict KEX on and off) and the servers' own logs and source.
+- Along the way the harness itself produced artifacts that would have looked like findings: a wrong exchange-hash input, a crashing input, and a corrupted encrypted stream after a misplaced NEWKEYS. Those were caught, fixed or filtered, and are listed under Method.
+
+**Old findings still hold.**
+NDSS 2023's Dropbear "authentication without service request" (D1) and SPIN 2017's OpenSSH "no rekey before authentication" (D3) are unchanged in the 2025 releases.
+Dropbear's learned model is identical across 2020.81, 2022.83 and 2025.88.
+
 ## Question
 
 Do independent open-source implementations of the SSH transport (RFC 4253) and user-authentication (RFC 4252) handshake agree on their protocol state machine?
