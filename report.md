@@ -206,3 +206,22 @@ OpenSSH cost about 5x more learning time than Dropbear or Go for the same alphab
 
 `docker builder prune -af` on a shared box; `pkill -f` matching its own shell; a broken run-script edit that briefly took the three current servers down; small local `python3` runs against the project rule (twice by the lead, once by a reviewer); a replay-tool edit that dropped all but the last sequence (caught by a test before use).
 All are in JOURNAL.md.
+
+---
+
+# v2 (from 2026-11-07 16:00; v1 above is frozen at tag `submission-1700`)
+
+Status: INTERIM. Streams A (harness differential) and B1 (more servers) ran 16:10-16:30 with replay-based comparisons; streams B2 (version sweep) and C (mapper gaps) were not run (see JOURNAL.md 16:10).
+Findings below are labelled CONFIRMED only after a skeptic review; otherwise PENDING REVIEW.
+
+## v2-A: two independently built harnesses on the same servers
+
+V2A_PLACEHOLDER
+
+## v2-B1: more implementations
+
+V2B1_PLACEHOLDER
+
+## v2: what we cannot conclude (additions)
+
+- No learned models for the new implementations or for the teammate harness in this interim: comparisons are on replayed concrete sequences (D1-D9 representatives and the 39 v1 divergence points), so states not reached by those sequences are not compared.
