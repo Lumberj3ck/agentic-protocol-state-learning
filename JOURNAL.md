@@ -111,3 +111,9 @@ Every result, decision and exchange with the team, with links to the outputs.
   - Paramiko 5.1.0: CONN-BEFORE-AUTH (CH_OPEN_FAILURE instead of disconnect), UA-BEFORE-SR-AUTH.
   - **wolfSSH 1.6.0: KEX-SERVER-SENDS-NON-KEX** — after its own rekey KEXINIT and before NEWKEYS it answers a user-auth request with USERAUTH_FAILURE (RFC 4253 §7.1 MUST NOT for the sender); also UA-BEFORE-SR-AUTH. Candidate, needs source verification.
   Learner: added a pre-auth-rekey seed path and `--seeds` (refuted witnesses as extra tests); Go relearn `golang-xcrypto-v4vm` started on the VM.
+- Codex wolfSSH verification run was stopped by OpenAI's safeguard ("flagged for possible cybersecurity risk"), most likely by the prompt's request for attack/impact analysis (Terrapin, rogue session). Kept as `logs/agents/codex-verify-wolfssh.flagged.*`.
+  Not circumvented: re-run as a narrower RFC-conformance task (reproduce, trace the dispatcher in source, conformance verdict only, no attack analysis): `logs/agents/codex-conformance-wolfssh.*`.
+- Codex conformance run (not flagged): `findings/CANDIDATE-003-wolfssh-non-kex-during-rekey.md`.
+  Confirmed RFC 4253 §7.1 MUST NOT violation: wolfSSH 1.6.0 sends USERAUTH_FAILURE between its rekey KEXINIT and NEWKEYS (also after a successful SERVICE_REQUEST); OpenSSH (refuses rekey) and Go (closes) do not.
+  Root cause: `IsMessageAllowedServer` checks the keying state only for messages 1–49 (`src/internal.c:806–807`, v1.6.0-stable). Severity not assessed (attack analysis out of scope).
+  Correction adopted: auth without SERVICE_REQUEST is behaviour, not a normative violation; the catalogue's SHOULD level for UA-BEFORE-SR-AUTH is a modelling choice (stated in README).

@@ -52,7 +52,13 @@ State lives in files: [`TASKS.md`](TASKS.md) (prioritized queue),
   OpenSSH resets its counter and continues, russh ignores it, nine implementations disconnect,
   and **libssh 0.12.2** enters a terminal session error without sending DISCONNECT, leaving the socket to the application
   ([`findings/CANDIDATE-002`](findings/CANDIDATE-002-libssh-stray-newkeys.md), traced in source by a Codex agent; informational / low).
-- **Low-severity deviation:** AsyncSSH 2.17.0 authenticates and opens a channel without a prior `ssh-userauth` service request (Dropbear does the same, documented as intended).
+- **RFC 4253 §7.1 MUST NOT violation in wolfSSH 1.6.0** ([`findings/CANDIDATE-003`](findings/CANDIDATE-003-wolfssh-non-kex-during-rekey.md)):
+  during a key re-exchange the server answers a user-auth request with USERAUTH_FAILURE before its NEWKEYS;
+  found by the RFC catalogue on the learned model, confirmed by replay, and traced in source by a Codex agent
+  (the dispatcher's keying-state gate only covers messages 1–49). Conformance verdict only; severity not assessed.
+- **Every catalogue hit is replayed on the real target** ([`src/smlearn/verify.py`](src/smlearn/verify.py)): of the first 8 hits, 7 were confirmed and 1 refuted —
+  an apparent channel open without authentication in Go x/crypto/ssh came from two states the learner had merged; the real server closes the connection.
+- **Low-severity deviation:** AsyncSSH 2.17.0 authenticates and opens a channel without a prior `ssh-userauth` service request (Dropbear, Paramiko and wolfSSH do the same; Dropbear documents it as intended. No RFC sentence makes this a MUST or SHOULD: the catalogue's `UA-BEFORE-SR-AUTH` level is our modelling choice).
 
 ## Where it got stuck
 
