@@ -51,3 +51,7 @@
   Control: the UNPATCHED upstream mapper (only P3) gives the same answers (results/replay/dropbear2022_upstream_mapper_check.json), so none of our patches cause it.
   Remaining explanations (not separable today): the published run's from-source Dropbear build vs our Alpine package, its environment, or the published hypothesis being unconverged (12 h timeout). Recorded as an unexplained, bounded residual.
   Recreate the upstream-mapper control: copy vendor/ssh-fuzzer/ssh-mapper to scratch/upstream_mapper and restore manualparamiko/transport.py from upstream commit (vendor/ssh-fuzzer.COMMIT).
+- 13:38 A_dropbear with the rekey-aware oracle: 9 states (same as with state-prefix).
+- 13:39 Decision: OpenSSH is the slowest SUT (answers out-of-order messages with UNIMPL and keeps the connection, so few NO_CONN sink shortcuts; A_openssh needed ~20 min for its first hypothesis). Stopped A_openssh after hypothesis 1 (9 states) and started B_openssh (rekey oracle, 15 walks/state).
+  Final cross-server comparison uses the B models and their restriction to the A alphabet (B contains A).
+  Learner now checkpoints its cache every 50 fresh queries. My first stop attempt used `pkill -f` with a pattern that matched its own shell, killing the follow-up commands; redone.

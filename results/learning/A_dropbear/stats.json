@@ -9,20 +9,20 @@
  ],
  "states": 9,
  "learning_rounds": 2,
- "aalpy_queries_learning": 281,
- "aalpy_steps_learning": 4399,
- "aalpy_queries_eq_oracle": 225,
- "aalpy_steps_eq_oracle": 2895,
+ "aalpy_queries_learning": 1092,
+ "aalpy_steps_learning": 9251,
+ "aalpy_queries_eq_oracle": 811,
+ "aalpy_steps_eq_oracle": 4894,
  "sut": {
-  "sut_queries": 162,
-  "sut_steps": 860,
-  "random_repeats": 18,
-  "cache_hits": 1008,
-  "sink_shortcuts": 1824
+  "cache_hits": 1387,
+  "sink_shortcuts": 2432,
+  "sut_queries": 59,
+  "sut_steps": 455,
+  "random_repeats": 7
  },
- "seconds": 734.8,
+ "seconds": 391.3,
  "eq_oracle": {
-  "type": "stateprefix",
+  "type": "rekey",
   "walks_per_round": 150,
   "walks_per_state": 25,
   "len": [
@@ -30,8 +30,8 @@
    10
   ]
  },
- "cache_in": null,
+ "cache_in": "results/learning/A_dropbear_cache_stateprefix.json",
  "repeat_prob": 0.1,
  "seed": 1,
- "finished": "2026-11-07 13:25:25"
+ "finished": "2026-11-07 13:35:11"
 }

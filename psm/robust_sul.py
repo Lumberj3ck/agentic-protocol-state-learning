@@ -14,7 +14,7 @@ from aalpy.base import SUL
 
 class RobustSUL(SUL):
     def __init__(self, client, log_dir, repeats: int = 4, repeat_prob: float = 0.1,
-                 sink: str = "NO_CONN", seed: int = 0):
+                 sink: str = "NO_CONN", seed: int = 0, checkpoint_path=None):
         super().__init__()
         self.client, self.repeats, self.repeat_prob, self.sink = client, repeats, repeat_prob, sink
         self.rng = random.Random(seed)
@@ -25,6 +25,7 @@ class RobustSUL(SUL):
         self.word: list = []
         self.outs: list = []
         self.live = False
+        self.checkpoint_path = checkpoint_path
 
     # ---- cache -------------------------------------------------------------------
     def _store(self, word, outs):
@@ -61,6 +62,8 @@ class RobustSUL(SUL):
     def _exec(self, word, attempts: int = 3):
         for i in range(attempts):
             self.stats["sut_queries"] += 1
+            if self.checkpoint_path and self.stats["sut_queries"] % 50 == 0:
+                self.save_cache(self.checkpoint_path)
             self.stats["sut_steps"] += len(word)
             try:
                 return tuple(self.client.query(list(word)))

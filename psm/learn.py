@@ -41,7 +41,8 @@ def main():
     run_dir = Path("results/learning") / a.name
     run_dir.mkdir(parents=True, exist_ok=True)
     (run_dir / "nondet.jsonl").unlink(missing_ok=True)
-    sul = RobustSUL(MapperClient("127.0.0.1", a.port), log_dir=run_dir, repeat_prob=a.repeat_prob, seed=a.seed)
+    sul = RobustSUL(MapperClient("127.0.0.1", a.port), log_dir=run_dir, repeat_prob=a.repeat_prob, seed=a.seed,
+                    checkpoint_path=run_dir / "cache.json")
     import random
     random.seed(a.seed)
     if a.cache_in:
