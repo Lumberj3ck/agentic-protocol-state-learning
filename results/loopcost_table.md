@@ -8,6 +8,9 @@
 | A_dropbear (stateprefix) | 5 | 9 | 2 | stateprefix | 281 | 225 | 162 | 860 | 2832 | 0 | 0 | 12.2 |
 | A_gossh | 5 | 12 | 3 | rekey | 1937 | 1368 | 53 | 441 | 5991 | 0 | 0 | 6.2 |
 | A_gossh (stateprefix) | 5 | 8 | 1 | stateprefix | 205 | 200 | 75 | 299 | 2625 | 0 | 0 | 3.9 |
+| A_openssh | 5 | 9 | 1 | rekey | 702 | 472 | 341 | 3133 | 1609 | 0 | 0 | 46.4 |
+| B_dropbear | 7 | 13 | 2 | rekey | 2798 | 2057 | 327 | 2443 | 5748 | 0 | 0 | 34.3 |
+| B_gossh | 7 | 16 | 3 | rekey | 4586 | 3323 | 172 | 1252 | 8884 | 0 | 0 | 16.5 |
 | dropbear2020 | 5 | 9 | 2 | stateprefix | 281 | 225 | 66 | 481 | 2925 | 0 | 0 | 6.9 |
 | dropbear2022 | 5 | 9 | 2 | stateprefix | 281 | 225 | 162 | 860 | 2832 | 0 | 0 | 12.2 |
 
@@ -17,7 +20,7 @@
 |---|---|---|---|
 | all | 3 | 3 | 2 |
 | dropbear2020 | 1 | 0 | 0 |
-| openssh | 1 | 0 | 0 |
+| openssh | 1 | 1 | 0 |
 
 | time | SUT | kind | who | what |
 |---|---|---|---|---|
@@ -31,3 +34,4 @@
 | 13:25 | all | mapper_fix | agent (reviewer subagent found it) | P5: IGNORE/CH_* inputs blocked 30 s then crashed the mapper (clear_to_send never set upstream) |
 | 13:20 | all | harness_fix | agent | Equivalence oracle too weak (random words; then state-prefix): first Dropbear and Go models under-learned; added rekey-aware targeted oracle |
 | 13:16 | all | harness_fix | agent | Learner died on mapper crash; RobustSUL now logs, reconnects, retries |
+| 15:01 | openssh | harness_fix | agent | Scheduling: OpenSSH learning ~5x slower than Dropbear/Go (keeps connections open after errors, so few NO_CONN sink shortcuts); B alphabet abandoned for OpenSSH, covered by replays |
