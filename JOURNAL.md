@@ -36,3 +36,8 @@
   Diagnosis: OpenSSH answers the 2nd KEXINIT with UNIMPL and keeps the 1st for the exchange hash; the mapper drew a fresh cookie per KEXINIT and hashed the 2nd. Harness artifact.
   Fix P4 (vendor/PATCHES.md): one cookie per connection. Verified by replay (results/replay/p4_double_kexinit_openssh.json): handshake + auth now complete after a duplicate KEXINIT.
   Also: RobustSUL now survives mapper crashes (logs results/learning/<sut>/harness_errors.jsonl, reconnects to the auto-restarted mapper, retries). A_openssh relaunched from scratch.
+- 13:20 Dropbear 2020.81 v2 (state-prefix oracle): 9 states, 2 rounds, 7 min, 66 fresh SUT queries. Predicts all 8 replayed traces incl. the 4 published (results/checks/dropbear2020_v2.json, 0 mismatches).
+  Diff vs the published (unfinished, 12 h timeout) Dropbear 2022.83 model: only 2 transitions differ, both after an initial KEX30 (results/diff/dropbear2020_vs_published2022.json); our predictions replay 5/5 on 2020.81 (results/replay/dropbear2020_vs_published_diffs.json).
+  To tell version change from published-model gap, learning Dropbear 2022.83 (Alpine 3.17 dropbear=2022.83-r1, port 2222) too.
+- 13:21 A_gossh (state-prefix): 8 states, 4 min. Its post-auth rekey leads back into the pre-auth branch: the same merge pattern that was wrong for Dropbear v1.
+  Added psm/oracles.py RekeyAwareOracle: from every state, (no rekey | KEXINIT KEX30 NEWKEYS) + all suffixes of length <= 2, then state-prefix random walks. Rerunning A_gossh with it (cache seeded).

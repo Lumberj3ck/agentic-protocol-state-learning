@@ -1,3 +1,56 @@
 seeded cache with 152 entries from results/learning/dropbear2020/cache.json
 Hypothesis 1: 7 states.
 Hypothesis 2: 9 states.
+-----------------------------------
+Learning Finished.
+Learning Rounds:  2
+Number of states: 9
+Time (in seconds)
+  Total                : 412.48
+  Learning algorithm   : 216.02
+  Conformance checking : 196.46
+Learning Algorithm
+ # Membership Queries  : 281
+ # Steps               : 4399
+Equivalence Query
+ # Membership Queries  : 225
+ # Steps               : 2895
+-----------------------------------
+Model saved to results/models/dropbear2020.dot.
+{
+ "name": "dropbear2020",
+ "alphabet": [
+  "KEXINIT",
+  "KEX30",
+  "NEWKEYS",
+  "SR_AUTH",
+  "UA_PK_OK"
+ ],
+ "states": 9,
+ "learning_rounds": 2,
+ "aalpy_queries_learning": 281,
+ "aalpy_steps_learning": 4399,
+ "aalpy_queries_eq_oracle": 225,
+ "aalpy_steps_eq_oracle": 2895,
+ "sut": {
+  "cache_hits": 1094,
+  "sink_shortcuts": 1831,
+  "sut_queries": 66,
+  "sut_steps": 481,
+  "random_repeats": 8
+ },
+ "seconds": 412.5,
+ "eq_oracle": {
+  "type": "stateprefix",
+  "walks_per_round": 150,
+  "walks_per_state": 25,
+  "len": [
+   3,
+   10
+  ]
+ },
+ "cache_in": "results/learning/dropbear2020/cache.json",
+ "repeat_prob": 0.1,
+ "seed": 1,
+ "finished": "2026-11-07 13:16:58"
+}

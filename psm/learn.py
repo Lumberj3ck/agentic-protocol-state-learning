@@ -16,6 +16,7 @@ from aalpy.oracles import RandomWordEqOracle, StatePrefixEqOracle
 from aalpy.utils import save_automaton_to_file
 
 from psm.mapper_client import MapperClient
+from psm.oracles import RekeyAwareOracle
 from psm.robust_sul import RobustSUL
 
 
@@ -30,8 +31,9 @@ def main():
     ap.add_argument("--repeat-prob", type=float, default=0.1)
     ap.add_argument("--max-rounds", type=int, default=None)
     ap.add_argument("--seed", type=int, default=1)
-    ap.add_argument("--oracle", choices=["random", "stateprefix"], default="stateprefix")
+    ap.add_argument("--oracle", choices=["random", "stateprefix", "rekey"], default="stateprefix")
     ap.add_argument("--walks-per-state", type=int, default=25)
+    ap.add_argument("--rekey-depth", type=int, default=2)
     ap.add_argument("--cache-in", help="cache.json of an earlier run against the SAME SUT+mapper config")
     a = ap.parse_args()
 
@@ -51,6 +53,8 @@ def main():
                                 reset_after_cex=True)
     else:
         eq = StatePrefixEqOracle(alphabet, sul, walks_per_state=a.walks_per_state, walk_len=a.max_len)
+    if a.oracle == "rekey":
+        eq = RekeyAwareOracle(alphabet, sul, fallback=eq, depth=a.rekey_depth)
     t0 = time.time()
     model, data = run_Lstar(alphabet, sul, eq, automaton_type="mealy", cache_and_non_det_check=False,
                             max_learning_rounds=a.max_rounds, return_data=True, print_level=2)

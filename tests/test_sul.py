@@ -134,3 +134,31 @@ def test_mapper_crash_is_logged_and_query_retried(tmp_path):
     assert sul.query(("a", "b")) == ["KEXINIT", "KEX31+NEWKEYS"]
     assert sul.stats["harness_errors"] == 1
     assert "mapper closed" in (tmp_path / "harness_errors.jsonl").read_text()
+
+
+def test_rekey_aware_oracle_finds_deep_merge(tmp_path):
+    """Machine where a 'rekey' (r) after 'auth' (a) keeps you authenticated; a learner that only sees short words
+    merges the post-rekey state with the pre-auth state. The targeted oracle must expose that."""
+    from psm.oracles import RekeyAwareOracle
+    pre, authed, sink = MealyState("pre"), MealyState("authed"), MealyState("sink")
+    pre.transitions.update(a=authed, r=pre, p=pre)
+    pre.output_fun.update(a="UA_SUCCESS", r="NEWKEYS", p="NO_RESP")
+    authed.transitions.update(a=authed, r=authed, p=sink)
+    authed.output_fun.update(a="NO_RESP", r="NEWKEYS", p="CH_OPEN_CONF")
+    sink.transitions.update(a=sink, r=sink, p=sink)
+    sink.output_fun.update(a="NO_CONN", r="NO_CONN", p="NO_CONN")
+    truth = MealyMachine(pre, [pre, authed, sink])
+    # Wrong hypothesis: after rekey you are back to 'pre'.
+    h_pre, h_auth, h_sink = MealyState("p"), MealyState("au"), MealyState("s")
+    h_pre.transitions.update(a=h_auth, r=h_pre, p=h_pre)
+    h_pre.output_fun.update(a="UA_SUCCESS", r="NEWKEYS", p="NO_RESP")
+    h_auth.transitions.update(a=h_auth, r=h_pre, p=h_sink)
+    h_auth.output_fun.update(a="NO_RESP", r="NEWKEYS", p="CH_OPEN_CONF")
+    h_sink.transitions.update(a=h_sink, r=h_sink, p=h_sink)
+    h_sink.output_fun.update(a="NO_CONN", r="NO_CONN", p="NO_CONN")
+    hyp = MealyMachine(h_pre, [h_pre, h_auth, h_sink])
+    fm = FakeMapper(truth)
+    sul = RobustSUL(MapperClient("127.0.0.1", fm.port), log_dir=tmp_path, repeat_prob=0.0)
+    oracle = RekeyAwareOracle(["a", "p", "r"], sul, rekey=("r",), depth=1)
+    cex = oracle.find_cex(hyp)
+    assert cex is not None and cex[-1] in ("a", "p") and "r" in cex
