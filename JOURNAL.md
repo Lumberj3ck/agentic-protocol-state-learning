@@ -90,3 +90,5 @@
 - 14:58 A_openssh (rekey oracle) CONVERGED: 9 states, 46 min (before the 15:45 condition). Full encrypted handshake now learned for all three current servers.
   All three A models predict every replayed trace on their alphabet (results/checks/A_*_vs_replays.json, 0 mismatches).
   Three-way A diff (results/diff/A_threeway.json, normalised): 53 distinguishing sequences; replaying the 40 not yet replayed (results/replay/A_threeway_replay.json).
+- 15:01 Stopped B_openssh (hypothesis 1 = 16 states at 14:50; the rekey-aware equivalence phase would need ~1800 words at ~8 fresh OpenSSH queries/min, far past the 16:30 freeze, and it loads the 1-CPU OpenSSH container used by the final replays).
+  OpenSSH has NO converged B model; its SR_CONN / CH_OPEN behaviour is established by three-server replays only (results/final/verified_B_only.md). Cache kept: results/learning/B_openssh/cache_at_stop.json.
