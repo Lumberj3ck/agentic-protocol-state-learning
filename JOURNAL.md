@@ -74,3 +74,4 @@
 - 14:12 B_dropbear: 13 states, 34 min. Learning-stability check: B models restricted to alphabet A are EQUIVALENT to the independently learned A models, for Dropbear and Go (results/diff/B_vs_A_*_restricted.json).
   B diff Dropbear vs Go (results/diff/B_dropbear_vs_gossh.json): 8 coarse classes = the 7 A classes + SR_CONN after auth (Dropbear SR_ACCEPT, Go closes). Pre-auth SR_CONN and CH_OPEN: both close (agree).
 - 14:06 Started A_openssh with the rekey oracle on its own mapper (8121), cache seeded from B_openssh's 14:04 checkpoint, as insurance for the 14:30 gate. Third reviewer (results/review/remaining_classes.md) on classes C1-C5.
+- 14:12 Note on timestamps: entries between 12:50 and ~13:30 (and the matching results/loopcost.jsonl times) were written from my own estimate before checking the clock and run ~5-10 min late; order is correct.
