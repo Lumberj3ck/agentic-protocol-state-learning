@@ -10,3 +10,11 @@ ours:A_openssh                           REKEY-KEXINIT-REPLY                  CO
 ours:A_openssh                           STRICT-KEX-FIRST-KEXINIT             CONFIRMED not applicable: our mapper never negotiates strict KEX
 ours:A_openssh                           STRICT-KEX-NON-KEX-MSG               CONFIRMED not applicable: our mapper never negotiates strict KEX
 ours:A_openssh                           STRICT-KEX-REPEATED-MSG              CONFIRMED not applicable: our mapper never negotiates strict KEX
+ours:A_openssh                           D3-REKEY-PREAUTH-REFUSED             CONFIRMED 
+ours:A_openssh                           D4-UA-AFTER-SUCCESS-NOT-IGNORED      CONFIRMED 
+ours:A_openssh                           D7-KEX-ERROR-TOLERATED               CONFIRMED 
+ours:A_openssh                           D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED  CONFIRMED 
+ours:A_openssh                           D9-OUT-OF-PLACE-KEX-MSG-TOLERATED    CONFIRMED 
+ours:B_dropbear                          STRICT-KEX-FIRST-KEXINIT             CONFIRMED not applicable: our mapper never negotiates strict KEX
+ours:B_dropbear                          STRICT-KEX-REPEATED-MSG              CONFIRMED not applicable: our mapper never negotiates strict KEX
+ours:B_dropbear                          UA-BEFORE-SR-AUTH                    CONFIRMED 

@@ -149,3 +149,54 @@ Their prescribed fix (refuted witnesses as `--seeds`) was run: `results/v2/A/tm_
 
 Our mapper cannot negotiate strict KEX, so every extra class here is a strict-vs-non-strict comparison by construction.
 Counts and replays: `results/v2/A/xdiff_<sut>_strict.json`, `results/v2/A/xdiff_replay_<sut>_strict.json`; their own strict-vs-non-strict model diffs: `results/v2/A/tm_<sut>_strict_vs_nonstrict.json` (Go equivalent; Dropbear 3 classes; OpenSSH 21 coarse classes, all initial-KEX errors (DISCONNECT) or a stray NEWKEYS, after which OpenSSH resets its receive sequence number under strict KEX, their CANDIDATE-001, so the next packet fails its MAC: CLOSED).
+
+## Part 3: catalogues
+
+Checker: the teammate's `smlearn.catalogue.check`, unchanged (`scripts_v2/run_catalogues.py`).
+Our models are converted to their vocabulary first (`psm.xharness.ours_to_theirs`: UNIMPL -> UNIMPLEMENTED, SR_ACCEPT -> SERVICE_ACCEPT, UA_PK_OK -> UA_PW_OK, first-step server KEXINIT removed).
+Patterns: their 15 (`vendor/.../catalogue/ssh/`) and our 9 v1 classes written as candidate patterns in their JSON format (`catalogue-v2/D1-*.json` ... `D9-*.json`; each has the RFC quote, level, and a rationale that says it is a behaviour witness, not necessarily a bug).
+Results: `results/v2/A/catalogue_results.json`; live replay of every witness found on a model of one of our servers, with the harness that produced the model, 3 reps: `results/v2/A/catalogue_verified.json`.
+
+### Their catalogue on our servers
+
+| server | hits on our model (v1, converted) | hits on their model of our server | their reported hits (their models, other versions) |
+|---|---|---|---|
+| OpenSSH 10.0p1 | REKEY-KEXINIT-REPLY (A has no CH_OPEN, so CONN-BEFORE-AUTH cannot fire) | CONN-BEFORE-AUTH, REKEY-KEXINIT-REPLY (strict and non-strict) | 9.2p1: CH-CLOSE-REPLY, CONN-BEFORE-AUTH, REKEY-KEXINIT-REPLY; 10.6p2: CONN-BEFORE-AUTH, REKEY-KEXINIT-REPLY |
+| Dropbear 2025.88 | UA-BEFORE-SR-AUTH | UA-BEFORE-SR-AUTH (strict and non-strict) | no converged model; ground-truth replay: auth without SR_AUTH (same) |
+| Go 0.58.0 | none | none | v3vm: UNAUTH-CHANNEL-OPEN, which they themselves REFUTED by replay |
+
+The three STRICT-KEX-* patterns also fire on every non-strict model (ours, and theirs with strict_kex=False).
+They are **not applicable** there: they assume strict KEX was negotiated, and our mapper never offers it.
+On their strict models of our servers they do not fire; the CCS 2025 Dropbear late-window violation needs IGNORE/DEBUG inputs, which are outside this alphabet.
+
+### Our D1-D9 patterns
+
+| model | D1 | D2 | D3 | D4 | D5 | D6 | D7 | D8 | D9 |
+|---|---|---|---|---|---|---|---|---|---|
+| ours A_openssh (10.0p1) | | n/a | x | x | | n/a | x | x | x |
+| theirs, our OpenSSH, non-strict | | x | x | x | | | x | x | x |
+| theirs, our OpenSSH, strict | | x | x | x | | | | x | x |
+| ours B_dropbear (2025.88) | x | | | | x | x | x | x | |
+| theirs, our Dropbear, non-strict | x | | | | x | x | x | x | |
+| theirs, our Dropbear, strict | x | | | | x | x | | x | |
+| ours B_gossh (0.58.0) | | | | x | | x | | | |
+| theirs, our Go, non-strict / strict | | | | x | | x | | | |
+| theirs published: OpenSSH 9.2p1 (strict) | | x | x | x | | | | x | x |
+| theirs published: OpenSSH 10.6p2 (strict) | | x | x | x | | | | x | x |
+| theirs published: Go x/crypto 0.58.0 (strict) | | | | x | | x | | | |
+| theirs published: Paramiko | x | x | | | x | | | | x |
+| theirs published: wolfSSH 1.6.0 | x | | | x | | | | | |
+| theirs published: Erlang/OTP 29 | | | x | x | | | | | |
+| theirs published: Apache MINA SSHD 2.20.1 | | x | | x | x | | | | |
+| theirs published: russh | | x | | | | | | | |
+
+(n/a: input not in our OpenSSH alphabet A. Their published AsyncSSH, Dropbear and OpenSSH `v1-random-eq` models are the ones they rejected as incomplete; their hits are in the JSON and are not used.)
+
+- On our three servers the D-patterns give **the same implementation set on our models and on theirs** in every column where both alphabets contain the inputs, and the result matches the v1 report table: D1, D5 Dropbear; D2, D3, D9 OpenSSH; D4 OpenSSH and Go; D6 Dropbear and Go; D7, D8 OpenSSH and Dropbear.
+- With strict KEX, D7 disappears on both OpenSSH and Dropbear, as v1 predicted. D8 stays, because the pattern looks only at the answer to the first packet (UNIMPLEMENTED); the strict disconnect comes one packet later.
+- Their published OpenSSH 9.2p1 and 10.6p2 models give the same D-profile as their model of our 10.0p1 under strict KEX: D2, D3, D4, D8, D9.
+- New implementations, model-level only (no live replay: we do not run their targets):
+  - D2 (channel open before auth answered without disconnect): Paramiko, MINA, russh; consistent with their own CONN-BEFORE-AUTH hits, which they confirmed by replay.
+  - D3 (pre-auth rekey refused): Erlang/OTP, consistent with their confirmed REKEY-KEXINIT-REPLY.
+  - D4 (SHOULD: repeated auth after success not silently ignored): Erlang, MINA, wolfSSH.
+  - D1/D5 (permissive service layer): Paramiko, wolfSSH, MINA.

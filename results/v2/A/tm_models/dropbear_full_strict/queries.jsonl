@@ -860,3 +860,192 @@
 {"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UNIMPLEMENTED", "CH_OPEN"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "NO_RESP", "CLOSED"]}
 {"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "KEXINIT", "KEX30", "NEWKEYS", "CH_OPEN"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "KEXINIT", "KEX31+NEWKEYS", "NO_RESP", "CLOSED"]}
 {"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "KEXINIT", "DEBUG"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "KEXINIT", "NO_RESP"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "KEXINIT", "KEXINIT"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "KEXINIT", "CLOSED"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "KEXINIT", "KEX30"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "KEXINIT", "KEX31+NEWKEYS"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "KEX30", "DEBUG"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "CLOSED", "NO_CONN"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "NEWKEYS", "DEBUG"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "CLOSED", "NO_CONN"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "SR_AUTH", "DEBUG"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "SERVICE_ACCEPT", "NO_RESP"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "SR_AUTH", "KEXINIT"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "SERVICE_ACCEPT", "KEXINIT"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "SR_AUTH", "CH_OPEN"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "SERVICE_ACCEPT", "CH_OPEN_SUCCESS"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "SR_CONN", "DEBUG"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "SERVICE_ACCEPT", "NO_RESP"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "SR_CONN", "KEXINIT"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "SERVICE_ACCEPT", "KEXINIT"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "SR_CONN", "CH_OPEN"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "SERVICE_ACCEPT", "CH_OPEN_SUCCESS"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "UA_PW_OK", "DEBUG"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_RESP", "NO_RESP"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "UA_PW_OK", "KEXINIT"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_RESP", "KEXINIT"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "UA_PW_OK", "CH_OPEN"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_RESP", "CH_OPEN_SUCCESS"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "UA_PW_NOK", "DEBUG"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_RESP", "NO_RESP"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "UA_PW_NOK", "KEXINIT"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_RESP", "KEXINIT"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "UA_PW_NOK", "CH_OPEN"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_RESP", "CH_OPEN_SUCCESS"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "UA_NONE", "DEBUG"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_RESP", "NO_RESP"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "UA_NONE", "KEXINIT"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_RESP", "KEXINIT"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "UA_NONE", "CH_OPEN"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_RESP", "CH_OPEN_SUCCESS"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "CH_OPEN", "DEBUG"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "CH_OPEN_SUCCESS", "NO_RESP"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "CH_OPEN", "KEXINIT"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "CH_OPEN_SUCCESS", "KEXINIT"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "CH_OPEN", "CH_OPEN"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "CH_OPEN_SUCCESS", "CH_OPEN_SUCCESS"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "CH_CLOSE", "DEBUG"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_CHANNEL", "NO_RESP"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "CH_CLOSE", "KEXINIT"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_CHANNEL", "KEXINIT"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "CH_CLOSE", "CH_OPEN"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_CHANNEL", "CH_OPEN_SUCCESS"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "CH_EOF", "DEBUG"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_CHANNEL", "NO_RESP"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "CH_EOF", "KEXINIT"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_CHANNEL", "KEXINIT"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "CH_EOF", "CH_OPEN"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_CHANNEL", "CH_OPEN_SUCCESS"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "CH_DATA", "DEBUG"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_CHANNEL", "NO_RESP"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "CH_DATA", "KEXINIT"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_CHANNEL", "KEXINIT"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "CH_DATA", "CH_OPEN"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_CHANNEL", "CH_OPEN_SUCCESS"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "CH_REQUEST_EXEC", "DEBUG"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_CHANNEL", "NO_RESP"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "CH_REQUEST_EXEC", "KEXINIT"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_CHANNEL", "KEXINIT"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "CH_REQUEST_EXEC", "CH_OPEN"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_CHANNEL", "CH_OPEN_SUCCESS"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "IGNORE", "DEBUG"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_RESP", "NO_RESP"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "IGNORE", "KEXINIT"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_RESP", "KEXINIT"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "IGNORE", "CH_OPEN"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_RESP", "CH_OPEN_SUCCESS"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "DEBUG", "DEBUG"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_RESP", "NO_RESP"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "DEBUG", "KEXINIT"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_RESP", "KEXINIT"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "DEBUG", "CH_OPEN"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_RESP", "CH_OPEN_SUCCESS"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "UNIMPLEMENTED", "DEBUG"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_RESP", "NO_RESP"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "UNIMPLEMENTED", "KEXINIT"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_RESP", "KEXINIT"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "UNIMPLEMENTED", "CH_OPEN"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_RESP", "CH_OPEN_SUCCESS"]}
+{"kind": "mq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "DISCONNECT", "DEBUG"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["CH_DATA", "CH_REQUEST_EXEC"], "out": ["NO_CHANNEL", "NO_CHANNEL"]}
+{"kind": "eq", "in": ["IGNORE", "DISCONNECT"], "out": ["NO_RESP", "CLOSED"]}
+{"kind": "eq", "in": ["KEX30", "SR_AUTH"], "out": ["UNIMPLEMENTED", "CLOSED"]}
+{"kind": "eq", "in": ["NEWKEYS", "UA_PW_NOK"], "out": ["UNIMPLEMENTED", "CLOSED"]}
+{"kind": "eq", "in": ["UA_PW_NOK", "DEBUG"], "out": ["CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["CH_DATA", "UA_PW_OK", "CH_DATA"], "out": ["NO_CHANNEL", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["CH_EOF", "UA_NONE", "UA_PW_OK"], "out": ["NO_CHANNEL", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["CH_OPEN", "KEXINIT", "SR_CONN"], "out": ["CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["CH_REQUEST_EXEC", "UA_PW_OK", "UA_PW_OK"], "out": ["NO_CHANNEL", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["DISCONNECT", "UA_NONE", "CH_EOF"], "out": ["CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["IGNORE", "CH_DATA", "CH_EOF"], "out": ["NO_RESP", "NO_CHANNEL", "NO_CHANNEL"]}
+{"kind": "eq", "in": ["IGNORE", "KEX30", "DISCONNECT"], "out": ["NO_RESP", "UNIMPLEMENTED", "CLOSED"]}
+{"kind": "eq", "in": ["IGNORE", "KEX30", "KEX30"], "out": ["NO_RESP", "UNIMPLEMENTED", "UNIMPLEMENTED"]}
+{"kind": "eq", "in": ["IGNORE", "SR_AUTH", "SR_AUTH"], "out": ["NO_RESP", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["KEX30", "CH_EOF", "UA_NONE"], "out": ["UNIMPLEMENTED", "NO_CHANNEL", "CLOSED"]}
+{"kind": "eq", "in": ["KEX30", "NEWKEYS", "KEXINIT"], "out": ["UNIMPLEMENTED", "UNIMPLEMENTED", "CLOSED"]}
+{"kind": "eq", "in": ["KEXINIT", "CH_DATA", "CH_REQUEST_EXEC"], "out": ["NO_RESP", "NO_CHANNEL", "NO_CHANNEL"]}
+{"kind": "eq", "in": ["KEXINIT", "CH_EOF", "CH_DATA"], "out": ["NO_RESP", "NO_CHANNEL", "NO_CHANNEL"]}
+{"kind": "eq", "in": ["KEXINIT", "CH_EOF", "KEX30"], "out": ["NO_RESP", "NO_CHANNEL", "KEX31+NEWKEYS"]}
+{"kind": "eq", "in": ["KEXINIT", "CH_EOF", "UNIMPLEMENTED"], "out": ["NO_RESP", "NO_CHANNEL", "CLOSED"]}
+{"kind": "eq", "in": ["KEXINIT", "CH_OPEN", "UNIMPLEMENTED"], "out": ["NO_RESP", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "CH_REQUEST_EXEC", "IGNORE"], "out": ["NO_RESP", "NO_CHANNEL", "CLOSED"]}
+{"kind": "eq", "in": ["KEXINIT", "DEBUG", "SR_CONN"], "out": ["NO_RESP", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "NEWKEYS", "CH_REQUEST_EXEC"], "out": ["NO_RESP", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "SR_CONN", "DISCONNECT"], "out": ["NO_RESP", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "UNIMPLEMENTED", "CH_CLOSE"], "out": ["NO_RESP", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["SR_AUTH", "CH_DATA", "NEWKEYS"], "out": ["CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["SR_AUTH", "SR_AUTH", "CH_EOF"], "out": ["CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["SR_AUTH", "SR_CONN", "UNIMPLEMENTED"], "out": ["CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["SR_AUTH", "UA_PW_NOK", "CH_CLOSE"], "out": ["CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["SR_CONN", "DISCONNECT", "SR_CONN"], "out": ["CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["SR_CONN", "SR_CONN", "KEX30"], "out": ["CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["UA_NONE", "UNIMPLEMENTED", "KEXINIT"], "out": ["CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["CH_CLOSE", "DEBUG", "KEXINIT", "SR_AUTH"], "out": ["NO_CHANNEL", "NO_RESP", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["CH_OPEN", "DEBUG", "CH_DATA", "CH_REQUEST_EXEC"], "out": ["CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["CH_OPEN", "SR_CONN", "KEX30", "CH_DATA"], "out": ["CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["CH_REQUEST_EXEC", "CH_OPEN", "SR_AUTH", "CH_EOF"], "out": ["NO_CHANNEL", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["DEBUG", "DEBUG", "UNIMPLEMENTED", "KEXINIT"], "out": ["NO_RESP", "NO_RESP", "NO_RESP", "CLOSED"]}
+{"kind": "eq", "in": ["DISCONNECT", "UA_PW_NOK", "CH_CLOSE", "UNIMPLEMENTED"], "out": ["CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["IGNORE", "CH_EOF", "CH_EOF", "CH_REQUEST_EXEC"], "out": ["NO_RESP", "NO_CHANNEL", "NO_CHANNEL", "NO_CHANNEL"]}
+{"kind": "eq", "in": ["IGNORE", "CH_REQUEST_EXEC", "CH_OPEN", "CH_REQUEST_EXEC"], "out": ["NO_RESP", "NO_CHANNEL", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["IGNORE", "DISCONNECT", "UA_PW_NOK", "KEXINIT"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "CH_CLOSE", "SR_CONN", "CH_OPEN"], "out": ["NO_RESP", "NO_CHANNEL", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "CH_EOF", "IGNORE", "CH_DATA"], "out": ["NO_RESP", "NO_CHANNEL", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "IGNORE", "CH_EOF", "SR_AUTH"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "CH_CLOSE", "CH_CLOSE"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_CHANNEL", "NO_CHANNEL"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "CH_DATA", "UA_NONE"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_CHANNEL", "CLOSED"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "CH_EOF", "CH_CLOSE"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_CHANNEL", "NO_CHANNEL"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "CH_EOF", "CH_REQUEST_EXEC"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_CHANNEL", "NO_CHANNEL"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "CH_OPEN", "UA_PW_OK"], "out": ["NO_RESP", "KEX31+NEWKEYS", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "CH_REQUEST_EXEC", "UA_PW_NOK"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_CHANNEL", "CLOSED"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "IGNORE", "CH_DATA"], "out": ["NO_RESP", "KEX31+NEWKEYS", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "IGNORE", "SR_AUTH"], "out": ["NO_RESP", "KEX31+NEWKEYS", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "UA_NONE", "SR_CONN"], "out": ["NO_RESP", "KEX31+NEWKEYS", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEXINIT", "DEBUG", "NEWKEYS"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEXINIT", "UA_NONE", "KEX30"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEXINIT", "UNIMPLEMENTED", "CH_CLOSE"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "NEWKEYS", "CH_EOF", "UNIMPLEMENTED"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "NEWKEYS", "CH_OPEN", "CH_OPEN"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "SR_AUTH", "NEWKEYS", "DISCONNECT"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "SR_CONN", "SR_CONN", "CH_DATA"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "UA_PW_NOK", "KEX30", "UA_PW_NOK"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "UA_PW_NOK", "UNIMPLEMENTED", "DISCONNECT"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "UNIMPLEMENTED", "UA_NONE", "NEWKEYS"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["NEWKEYS", "CH_REQUEST_EXEC", "UA_NONE", "DEBUG"], "out": ["UNIMPLEMENTED", "NO_CHANNEL", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["NEWKEYS", "DEBUG", "SR_AUTH", "CH_EOF"], "out": ["UNIMPLEMENTED", "NO_RESP", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["SR_AUTH", "CH_EOF", "UA_PW_NOK", "KEXINIT"], "out": ["CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["SR_AUTH", "SR_AUTH", "SR_AUTH", "UA_PW_NOK"], "out": ["CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["SR_AUTH", "UA_PW_NOK", "DISCONNECT", "CH_CLOSE"], "out": ["CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["SR_AUTH", "UNIMPLEMENTED", "CH_EOF", "KEXINIT"], "out": ["CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["SR_AUTH", "UNIMPLEMENTED", "UA_PW_OK", "KEXINIT"], "out": ["CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["UA_NONE", "KEXINIT", "IGNORE", "NEWKEYS"], "out": ["CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["UA_PW_OK", "KEX30", "CH_DATA", "IGNORE"], "out": ["CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["UA_PW_OK", "NEWKEYS", "KEX30", "CH_CLOSE"], "out": ["CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["UNIMPLEMENTED", "IGNORE", "UNIMPLEMENTED", "KEX30"], "out": ["NO_RESP", "NO_RESP", "NO_RESP", "UNIMPLEMENTED"]}
+{"kind": "eq", "in": ["UNIMPLEMENTED", "NEWKEYS", "NEWKEYS", "SR_AUTH"], "out": ["NO_RESP", "UNIMPLEMENTED", "UNIMPLEMENTED", "CLOSED"]}
+{"kind": "eq", "in": ["CH_CLOSE", "CH_REQUEST_EXEC", "UA_NONE", "IGNORE", "CH_EOF"], "out": ["NO_CHANNEL", "NO_CHANNEL", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["DEBUG", "CH_DATA", "DEBUG", "UA_NONE", "KEXINIT"], "out": ["NO_RESP", "NO_CHANNEL", "NO_RESP", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["DISCONNECT", "DISCONNECT", "DEBUG", "DEBUG", "KEX30"], "out": ["CLOSED", "NO_CONN", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["IGNORE", "DISCONNECT", "KEXINIT", "UA_PW_OK", "UNIMPLEMENTED"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["IGNORE", "KEX30", "UA_PW_OK", "SR_AUTH", "DISCONNECT"], "out": ["NO_RESP", "UNIMPLEMENTED", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["IGNORE", "NEWKEYS", "CH_EOF", "CH_REQUEST_EXEC", "NEWKEYS"], "out": ["NO_RESP", "UNIMPLEMENTED", "NO_CHANNEL", "NO_CHANNEL", "UNIMPLEMENTED"]}
+{"kind": "eq", "in": ["IGNORE", "UA_NONE", "CH_EOF", "DISCONNECT", "SR_CONN"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["IGNORE", "UA_NONE", "UNIMPLEMENTED", "UA_NONE", "CH_CLOSE"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["IGNORE", "UNIMPLEMENTED", "CH_CLOSE", "KEX30", "SR_AUTH"], "out": ["NO_RESP", "NO_RESP", "NO_CHANNEL", "UNIMPLEMENTED", "CLOSED"]}
+{"kind": "eq", "in": ["KEXINIT", "CH_DATA", "SR_CONN", "CH_DATA", "CH_CLOSE"], "out": ["NO_RESP", "NO_CHANNEL", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "CH_EOF", "UNIMPLEMENTED", "NEWKEYS", "NEWKEYS"], "out": ["NO_RESP", "NO_CHANNEL", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "CH_OPEN", "UA_PW_NOK", "SR_AUTH", "SR_CONN"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "DISCONNECT", "KEXINIT", "IGNORE", "UA_PW_OK"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "CH_EOF", "SR_CONN", "NEWKEYS"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_CHANNEL", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "CH_REQUEST_EXEC", "UNIMPLEMENTED", "DEBUG"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_CHANNEL", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "IGNORE", "UA_PW_NOK", "NEWKEYS"], "out": ["NO_RESP", "KEX31+NEWKEYS", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "KEX30", "CH_REQUEST_EXEC", "UA_PW_OK"], "out": ["NO_RESP", "KEX31+NEWKEYS", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "CH_DATA", "KEXINIT"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "NO_CHANNEL", "KEXINIT"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "CH_REQUEST_EXEC", "UA_PW_NOK"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "NO_CHANNEL", "UA_FAILURE"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "DEBUG", "CH_DATA"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "NO_RESP", "NO_CHANNEL"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "NEWKEYS", "UA_PW_OK"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_NOK", "IGNORE"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_FAILURE", "NO_RESP"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "KEXINIT"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "KEXINIT"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "UA_PW_OK"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_RESP"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UA_PW_OK", "UNIMPLEMENTED"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "UA_SUCCESS", "NO_RESP"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "UNIMPLEMENTED", "SR_CONN"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "NO_RESP", "CLOSED"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "SR_AUTH", "UNIMPLEMENTED", "SR_CONN"], "out": ["NO_RESP", "KEX31+NEWKEYS", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "SR_CONN", "KEX30", "KEXINIT"], "out": ["NO_RESP", "KEX31+NEWKEYS", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "UA_PW_OK", "UA_PW_NOK", "IGNORE"], "out": ["NO_RESP", "KEX31+NEWKEYS", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEXINIT", "IGNORE", "IGNORE", "CH_DATA"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "NEWKEYS", "SR_AUTH", "CH_CLOSE", "SR_CONN"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "UA_PW_NOK", "UA_NONE", "NEWKEYS", "IGNORE"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "UNIMPLEMENTED", "DEBUG", "CH_REQUEST_EXEC", "CH_DATA"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "UNIMPLEMENTED", "KEX30", "NEWKEYS", "KEXINIT"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["NEWKEYS", "DEBUG", "UA_NONE", "CH_EOF", "UA_NONE"], "out": ["UNIMPLEMENTED", "NO_RESP", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["SR_AUTH", "KEXINIT", "NEWKEYS", "IGNORE", "UA_PW_OK"], "out": ["CLOSED", "NO_CONN", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["SR_AUTH", "UA_PW_OK", "IGNORE", "CH_REQUEST_EXEC", "UA_PW_NOK"], "out": ["CLOSED", "NO_CONN", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["SR_AUTH", "UNIMPLEMENTED", "CH_OPEN", "UA_PW_OK", "KEX30"], "out": ["CLOSED", "NO_CONN", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["UA_PW_NOK", "SR_CONN", "NEWKEYS", "CH_EOF", "KEX30"], "out": ["CLOSED", "NO_CONN", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["UNIMPLEMENTED", "CH_CLOSE", "UA_PW_OK", "NEWKEYS", "DEBUG"], "out": ["NO_RESP", "NO_CHANNEL", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["UNIMPLEMENTED", "DISCONNECT", "CH_DATA", "UA_PW_NOK", "DISCONNECT"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["UNIMPLEMENTED", "KEXINIT", "SR_AUTH", "IGNORE", "DEBUG"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["CH_EOF", "SR_CONN", "IGNORE", "CH_EOF", "UA_PW_NOK", "NEWKEYS"], "out": ["NO_CHANNEL", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["CH_OPEN", "IGNORE", "DISCONNECT", "UNIMPLEMENTED", "UNIMPLEMENTED", "CH_REQUEST_EXEC"], "out": ["CLOSED", "NO_CONN", "NO_CONN", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["CH_OPEN", "UA_PW_NOK", "KEXINIT", "KEX30", "CH_CLOSE", "UA_PW_OK"], "out": ["CLOSED", "NO_CONN", "NO_CONN", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["DEBUG", "UA_PW_NOK", "KEXINIT", "UA_NONE", "UA_PW_OK", "KEXINIT"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["DISCONNECT", "CH_CLOSE", "KEX30", "UA_PW_NOK", "CH_OPEN", "IGNORE"], "out": ["CLOSED", "NO_CONN", "NO_CONN", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["DISCONNECT", "SR_AUTH", "IGNORE", "KEXINIT", "CH_DATA", "CH_CLOSE"], "out": ["CLOSED", "NO_CONN", "NO_CONN", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["IGNORE", "CH_EOF", "SR_CONN", "DISCONNECT", "CH_EOF", "UA_PW_OK"], "out": ["NO_RESP", "NO_CHANNEL", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["IGNORE", "CH_REQUEST_EXEC", "CH_REQUEST_EXEC", "CH_CLOSE", "UNIMPLEMENTED", "UA_PW_OK"], "out": ["NO_RESP", "NO_CHANNEL", "NO_CHANNEL", "NO_CHANNEL", "NO_RESP", "CLOSED"]}
+{"kind": "eq", "in": ["IGNORE", "DEBUG", "CH_CLOSE", "KEX30", "CH_REQUEST_EXEC", "CH_DATA"], "out": ["NO_RESP", "NO_RESP", "NO_CHANNEL", "UNIMPLEMENTED", "NO_CHANNEL", "NO_CHANNEL"]}
+{"kind": "eq", "in": ["IGNORE", "IGNORE", "CH_REQUEST_EXEC", "UA_PW_OK", "SR_AUTH", "NEWKEYS"], "out": ["NO_RESP", "NO_RESP", "NO_CHANNEL", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["IGNORE", "UA_NONE", "UA_PW_OK", "CH_REQUEST_EXEC", "NEWKEYS", "CH_CLOSE"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "CH_CLOSE", "UA_PW_OK", "KEX30", "CH_OPEN", "SR_CONN"], "out": ["NO_RESP", "NO_CHANNEL", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "CH_CLOSE", "UA_PW_OK", "SR_AUTH", "IGNORE", "DEBUG"], "out": ["NO_RESP", "NO_CHANNEL", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "CH_EOF", "CH_DATA", "DISCONNECT", "UA_PW_OK", "CH_REQUEST_EXEC"], "out": ["NO_RESP", "NO_CHANNEL", "NO_CHANNEL", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "CH_OPEN", "UNIMPLEMENTED", "CH_EOF", "UA_PW_OK", "UA_PW_NOK"], "out": ["NO_RESP", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "CH_DATA", "KEXINIT", "DEBUG", "CH_EOF"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_CHANNEL", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "CH_DATA", "UNIMPLEMENTED", "UNIMPLEMENTED", "UA_NONE"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_CHANNEL", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "CH_EOF", "CH_CLOSE", "CH_REQUEST_EXEC", "UNIMPLEMENTED"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_CHANNEL", "NO_CHANNEL", "NO_CHANNEL", "CLOSED"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "CH_EOF", "CH_CLOSE", "IGNORE", "CH_DATA"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_CHANNEL", "NO_CHANNEL", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "DISCONNECT", "CH_CLOSE", "UA_NONE", "KEX30"], "out": ["NO_RESP", "KEX31+NEWKEYS", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "DISCONNECT", "NEWKEYS", "KEXINIT", "IGNORE"], "out": ["NO_RESP", "KEX31+NEWKEYS", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "IGNORE", "DISCONNECT", "CH_CLOSE", "CH_OPEN"], "out": ["NO_RESP", "KEX31+NEWKEYS", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "IGNORE", "SR_AUTH", "KEX30", "UA_NONE"], "out": ["NO_RESP", "KEX31+NEWKEYS", "CLOSED", "NO_CONN", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "CH_DATA", "DISCONNECT", "CH_DATA"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "NO_CHANNEL", "CLOSED", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "CH_OPEN", "CH_EOF", "CH_REQUEST_EXEC"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "CH_OPEN", "CH_OPEN", "UA_PW_NOK"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "CLOSED", "NO_CONN", "NO_CONN"]}
+{"kind": "eq", "in": ["KEXINIT", "KEX30", "NEWKEYS", "CH_OPEN", "DISCONNECT", "KEX30"], "out": ["NO_RESP", "KEX31+NEWKEYS", "NO_RESP", "CLOSED", "NO_CONN", "NO_CONN"]}
