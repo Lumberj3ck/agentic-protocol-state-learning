@@ -106,3 +106,4 @@
   Key setup differences vs ours: strict KEX on by default, password auth (UA_PW_OK), Codex-written RFC mapper, AALpy KV, different output names.
 - 16:10 Started stream A (harness differential) and stream B1 (new servers) as background agents with quotas and ports per PROMPT.md v2 layout.
   Version-sweep (B2) agent started with a truncated brief (my message was cut off) and was stopped before it ran anything. Streams B2 and C are NOT running.
+- 16:14 User lifted the 5-job box limit ('forget 5 limit, finish asap'). Raised streams A and B1 to 4 concurrent heavy jobs each (3 threads/job, disk floor unchanged).
