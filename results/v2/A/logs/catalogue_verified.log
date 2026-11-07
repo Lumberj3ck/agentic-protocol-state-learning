@@ -23,3 +23,14 @@ ours:B_dropbear                          D5-SR-AFTER-AUTH-ACCEPTED            CO
 ours:B_dropbear                          D6-SR-CONN-PREAUTH-SILENT-CLOSE      CONFIRMED 
 ours:B_dropbear                          D7-KEX-ERROR-TOLERATED               CONFIRMED 
 ours:B_dropbear                          D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED  CONFIRMED 
+ours:B_gossh                             D4-UA-AFTER-SUCCESS-NOT-IGNORED      CONFIRMED 
+ours:B_gossh                             D6-SR-CONN-PREAUTH-SILENT-CLOSE      CONFIRMED 
+theirs-on-our-SUTs:dropbear_nonstrict    STRICT-KEX-FIRST-KEXINIT             CONFIRMED 
+theirs-on-our-SUTs:dropbear_nonstrict    STRICT-KEX-REPEATED-MSG              CONFIRMED 
+theirs-on-our-SUTs:dropbear_nonstrict    UA-BEFORE-SR-AUTH                    CONFIRMED 
+theirs-on-our-SUTs:dropbear_nonstrict    D1-UA-SUCCESS-WITHOUT-SR             CONFIRMED 
+theirs-on-our-SUTs:dropbear_nonstrict    D5-SR-AFTER-AUTH-ACCEPTED            CONFIRMED 
+theirs-on-our-SUTs:dropbear_nonstrict    D6-SR-CONN-PREAUTH-SILENT-CLOSE      CONFIRMED 
+theirs-on-our-SUTs:dropbear_nonstrict    D7-KEX-ERROR-TOLERATED               CONFIRMED 
+theirs-on-our-SUTs:dropbear_nonstrict    D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED  CONFIRMED 
+theirs-on-our-SUTs:dropbear_strict       UA-BEFORE-SR-AUTH                    CONFIRMED 

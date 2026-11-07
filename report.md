@@ -216,11 +216,11 @@ Findings below are labelled CONFIRMED only after a skeptic review; otherwise PEN
 
 ## v2-A: two independently built harnesses on the same servers
 
-V2A_PLACEHOLDER
+Results: `results/v2/A/harness_disagreements.md` (method, counts and per-class verdicts), `results/v2/A/alphabet_map.json`, `catalogue-v2/`, `results/v2/A/catalogue_results.json`.
 
 ## v2-B1: more implementations
 
-V2B1_PLACEHOLDER
+Results: `results/v2/B1/class_matrix.md` (9 implementations x D1-D9), `results/v2/class_matrix_servers.md`, server versions in `suts/*/VERSION.md`.
 
 ## v2-B2: version sweep (UNREVIEWED)
 

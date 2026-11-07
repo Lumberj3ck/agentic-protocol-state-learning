@@ -1,2 +1,55 @@
 Hypothesis 1: 6 states.
 Hypothesis 2: 8 states.
+-----------------------------------
+Learning Finished.
+Learning Rounds:  2
+Number of states: 8
+Time (in seconds)
+  Total                : 855.97
+  Learning algorithm   : 380.7
+  Conformance checking : 475.27
+Learning Algorithm
+ # Membership Queries  : 952
+ # Steps               : 7876
+Equivalence Query
+ # Membership Queries  : 701
+ # Steps               : 4062
+-----------------------------------
+Model saved to results/models/b2_dropbear-2017.dot.
+{
+ "name": "b2_dropbear-2017.75_A",
+ "alphabet": [
+  "KEXINIT",
+  "KEX30",
+  "NEWKEYS",
+  "SR_AUTH",
+  "UA_PK_OK"
+ ],
+ "states": 8,
+ "learning_rounds": 2,
+ "aalpy_queries_learning": 952,
+ "aalpy_steps_learning": 7876,
+ "aalpy_queries_eq_oracle": 701,
+ "aalpy_steps_eq_oracle": 4062,
+ "sut": {
+  "sut_queries": 181,
+  "sut_steps": 1039,
+  "random_repeats": 20,
+  "cache_hits": 1095,
+  "sink_shortcuts": 2097
+ },
+ "seconds": 856.0,
+ "eq_oracle": {
+  "type": "rekey",
+  "walks_per_round": 150,
+  "walks_per_state": 25,
+  "len": [
+   3,
+   10
+  ]
+ },
+ "cache_in": null,
+ "repeat_prob": 0.1,
+ "seed": 1,
+ "finished": "2026-11-07 16:30:36"
+}
