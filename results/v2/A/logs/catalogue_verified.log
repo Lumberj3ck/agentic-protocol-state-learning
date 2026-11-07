@@ -59,3 +59,4 @@ theirs-on-our-SUTs:openssh_strict        D2-CONN-MSG-PREAUTH-KEPT             CO
 theirs-on-our-SUTs:openssh_strict        D3-REKEY-PREAUTH-REFUSED             CONFIRMED 
 theirs-on-our-SUTs:openssh_strict        D4-UA-AFTER-SUCCESS-NOT-IGNORED      CONFIRMED 
 theirs-on-our-SUTs:openssh_strict        D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED  CONFIRMED 
+theirs-on-our-SUTs:openssh_strict        D9-OUT-OF-PLACE-KEX-MSG-TOLERATED    CONFIRMED 

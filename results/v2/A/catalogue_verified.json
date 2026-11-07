@@ -1,0 +1,2255 @@
+[
+ {
+  "model": "ours:A_dropbear",
+  "pattern": "STRICT-KEX-FIRST-KEXINIT",
+  "word": [
+   "KEX30",
+   "KEX30",
+   "NEWKEYS",
+   "KEXINIT"
+  ],
+  "model_out": [
+   "UNIMPLEMENTED",
+   "KEX31+NEWKEYS+EXT_INFO",
+   "NO_RESP",
+   "KEXINIT"
+  ],
+  "live": [
+   [
+    "UNIMPLEMENTED",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "KEXINIT"
+   ],
+   [
+    "UNIMPLEMENTED",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "KEXINIT"
+   ],
+   [
+    "UNIMPLEMENTED",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "KEXINIT"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": "not applicable: our mapper never negotiates strict KEX"
+ },
+ {
+  "model": "ours:A_dropbear",
+  "pattern": "STRICT-KEX-REPEATED-MSG",
+  "word": [
+   "KEXINIT",
+   "NEWKEYS"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": "not applicable: our mapper never negotiates strict KEX"
+ },
+ {
+  "model": "ours:A_dropbear",
+  "pattern": "UA-BEFORE-SR-AUTH",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "UA_PW_OK"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS+EXT_INFO",
+   "NO_RESP",
+   "UA_SUCCESS"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "ours:A_dropbear",
+  "pattern": "D1-UA-SUCCESS-WITHOUT-SR",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "UA_PW_OK"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS+EXT_INFO",
+   "NO_RESP",
+   "UA_SUCCESS"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "ours:A_dropbear",
+  "pattern": "D5-SR-AFTER-AUTH-ACCEPTED",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "SR_AUTH",
+   "UA_PW_OK",
+   "SR_AUTH"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS+EXT_INFO",
+   "NO_RESP",
+   "SERVICE_ACCEPT",
+   "UA_SUCCESS",
+   "SERVICE_ACCEPT"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "SERVICE_ACCEPT"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "SERVICE_ACCEPT"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "SERVICE_ACCEPT"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "ours:A_dropbear",
+  "pattern": "D7-KEX-ERROR-TOLERATED",
+  "word": [
+   "KEXINIT",
+   "NEWKEYS"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "ours:A_dropbear",
+  "pattern": "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED",
+  "word": [
+   "KEX30"
+  ],
+  "model_out": [
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "UNIMPLEMENTED"
+   ],
+   [
+    "UNIMPLEMENTED"
+   ],
+   [
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "ours:A_gossh",
+  "pattern": "D4-UA-AFTER-SUCCESS-NOT-IGNORED",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "SR_AUTH",
+   "UA_PW_OK",
+   "UA_PW_OK"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS+EXT_INFO",
+   "NO_RESP",
+   "SERVICE_ACCEPT",
+   "UA_SUCCESS",
+   "NO_CONN"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "NO_CONN"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "NO_CONN"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "NO_CONN"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "ours:A_openssh",
+  "pattern": "REKEY-KEXINIT-REPLY",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "KEXINIT"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS+EXT_INFO",
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "ours:A_openssh",
+  "pattern": "STRICT-KEX-FIRST-KEXINIT",
+  "word": [
+   "KEX30",
+   "KEXINIT"
+  ],
+  "model_out": [
+   "UNIMPLEMENTED",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "UNIMPLEMENTED",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "UNIMPLEMENTED",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "UNIMPLEMENTED",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": "not applicable: our mapper never negotiates strict KEX"
+ },
+ {
+  "model": "ours:A_openssh",
+  "pattern": "STRICT-KEX-NON-KEX-MSG",
+  "word": [
+   "KEXINIT",
+   "SR_AUTH"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": "not applicable: our mapper never negotiates strict KEX"
+ },
+ {
+  "model": "ours:A_openssh",
+  "pattern": "STRICT-KEX-REPEATED-MSG",
+  "word": [
+   "KEXINIT",
+   "KEXINIT"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": "not applicable: our mapper never negotiates strict KEX"
+ },
+ {
+  "model": "ours:A_openssh",
+  "pattern": "D3-REKEY-PREAUTH-REFUSED",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "KEXINIT"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS+EXT_INFO",
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "ours:A_openssh",
+  "pattern": "D4-UA-AFTER-SUCCESS-NOT-IGNORED",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "SR_AUTH",
+   "UA_PW_OK",
+   "UA_PW_OK"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS+EXT_INFO",
+   "NO_RESP",
+   "SERVICE_ACCEPT",
+   "UA_SUCCESS+GLOBAL_REQUEST",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "ours:A_openssh",
+  "pattern": "D7-KEX-ERROR-TOLERATED",
+  "word": [
+   "KEXINIT",
+   "NEWKEYS"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "ours:A_openssh",
+  "pattern": "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED",
+  "word": [
+   "KEX30"
+  ],
+  "model_out": [
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "UNIMPLEMENTED"
+   ],
+   [
+    "UNIMPLEMENTED"
+   ],
+   [
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "ours:A_openssh",
+  "pattern": "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED",
+  "word": [
+   "KEXINIT",
+   "KEXINIT"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "ours:B_dropbear",
+  "pattern": "STRICT-KEX-FIRST-KEXINIT",
+  "word": [
+   "KEX30",
+   "KEX30",
+   "NEWKEYS",
+   "KEXINIT"
+  ],
+  "model_out": [
+   "UNIMPLEMENTED",
+   "KEX31+NEWKEYS+EXT_INFO",
+   "NO_RESP",
+   "KEXINIT"
+  ],
+  "live": [
+   [
+    "UNIMPLEMENTED",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "KEXINIT"
+   ],
+   [
+    "UNIMPLEMENTED",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "KEXINIT"
+   ],
+   [
+    "UNIMPLEMENTED",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "KEXINIT"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": "not applicable: our mapper never negotiates strict KEX"
+ },
+ {
+  "model": "ours:B_dropbear",
+  "pattern": "STRICT-KEX-REPEATED-MSG",
+  "word": [
+   "KEXINIT",
+   "NEWKEYS"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": "not applicable: our mapper never negotiates strict KEX"
+ },
+ {
+  "model": "ours:B_dropbear",
+  "pattern": "UA-BEFORE-SR-AUTH",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "UA_PW_OK"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS+EXT_INFO",
+   "NO_RESP",
+   "UA_SUCCESS"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "ours:B_dropbear",
+  "pattern": "D1-UA-SUCCESS-WITHOUT-SR",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "UA_PW_OK"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS+EXT_INFO",
+   "NO_RESP",
+   "UA_SUCCESS"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "ours:B_dropbear",
+  "pattern": "D5-SR-AFTER-AUTH-ACCEPTED",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "SR_AUTH",
+   "UA_PW_OK",
+   "SR_AUTH"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS+EXT_INFO",
+   "NO_RESP",
+   "SERVICE_ACCEPT",
+   "UA_SUCCESS",
+   "SERVICE_ACCEPT"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "SERVICE_ACCEPT"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "SERVICE_ACCEPT"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "SERVICE_ACCEPT"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "ours:B_dropbear",
+  "pattern": "D6-SR-CONN-PREAUTH-SILENT-CLOSE",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "SR_CONN"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS+EXT_INFO",
+   "NO_RESP",
+   "NO_CONN"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "NO_CONN"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "NO_CONN"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "NO_CONN"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "ours:B_dropbear",
+  "pattern": "D7-KEX-ERROR-TOLERATED",
+  "word": [
+   "KEXINIT",
+   "NEWKEYS"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "ours:B_dropbear",
+  "pattern": "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED",
+  "word": [
+   "KEX30"
+  ],
+  "model_out": [
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "UNIMPLEMENTED"
+   ],
+   [
+    "UNIMPLEMENTED"
+   ],
+   [
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "ours:B_gossh",
+  "pattern": "D4-UA-AFTER-SUCCESS-NOT-IGNORED",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "SR_AUTH",
+   "UA_PW_OK",
+   "UA_PW_OK"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS+EXT_INFO",
+   "NO_RESP",
+   "SERVICE_ACCEPT",
+   "UA_SUCCESS",
+   "NO_CONN"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "NO_CONN"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "NO_CONN"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "NO_CONN"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "ours:B_gossh",
+  "pattern": "D6-SR-CONN-PREAUTH-SILENT-CLOSE",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "SR_CONN"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS+EXT_INFO",
+   "NO_RESP",
+   "NO_CONN"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "NO_CONN"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "NO_CONN"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "NO_CONN"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:dropbear_nonstrict",
+  "pattern": "STRICT-KEX-FIRST-KEXINIT",
+  "word": [
+   "KEX30",
+   "KEXINIT"
+  ],
+  "model_out": [
+   "UNIMPLEMENTED",
+   "NO_RESP"
+  ],
+  "live": [
+   [
+    "UNIMPLEMENTED",
+    "NO_RESP"
+   ],
+   [
+    "UNIMPLEMENTED",
+    "NO_RESP"
+   ],
+   [
+    "UNIMPLEMENTED",
+    "NO_RESP"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:dropbear_nonstrict",
+  "pattern": "STRICT-KEX-REPEATED-MSG",
+  "word": [
+   "KEXINIT",
+   "NEWKEYS"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:dropbear_nonstrict",
+  "pattern": "UA-BEFORE-SR-AUTH",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "UA_PW_OK"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "UA_SUCCESS"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:dropbear_nonstrict",
+  "pattern": "D1-UA-SUCCESS-WITHOUT-SR",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "UA_PW_OK"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "UA_SUCCESS"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:dropbear_nonstrict",
+  "pattern": "D5-SR-AFTER-AUTH-ACCEPTED",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "SR_AUTH",
+   "UA_PW_OK",
+   "SR_AUTH"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "SERVICE_ACCEPT",
+   "UA_SUCCESS",
+   "SERVICE_ACCEPT"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "SERVICE_ACCEPT"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "SERVICE_ACCEPT"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "SERVICE_ACCEPT"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:dropbear_nonstrict",
+  "pattern": "D6-SR-CONN-PREAUTH-SILENT-CLOSE",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "SR_CONN"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "CLOSED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "CLOSED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "CLOSED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "CLOSED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:dropbear_nonstrict",
+  "pattern": "D7-KEX-ERROR-TOLERATED",
+  "word": [
+   "KEXINIT",
+   "NEWKEYS"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:dropbear_nonstrict",
+  "pattern": "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED",
+  "word": [
+   "KEX30"
+  ],
+  "model_out": [
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "UNIMPLEMENTED"
+   ],
+   [
+    "UNIMPLEMENTED"
+   ],
+   [
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:dropbear_strict",
+  "pattern": "UA-BEFORE-SR-AUTH",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "UA_PW_OK"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "UA_SUCCESS"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:dropbear_strict",
+  "pattern": "D1-UA-SUCCESS-WITHOUT-SR",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "UA_PW_OK"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "UA_SUCCESS"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:dropbear_strict",
+  "pattern": "D5-SR-AFTER-AUTH-ACCEPTED",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "SR_AUTH",
+   "UA_PW_OK",
+   "SR_AUTH"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "SERVICE_ACCEPT",
+   "UA_SUCCESS",
+   "SERVICE_ACCEPT"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "SERVICE_ACCEPT"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "SERVICE_ACCEPT"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "SERVICE_ACCEPT"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:dropbear_strict",
+  "pattern": "D6-SR-CONN-PREAUTH-SILENT-CLOSE",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "SR_CONN"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "CLOSED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "CLOSED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "CLOSED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "CLOSED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:dropbear_strict",
+  "pattern": "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED",
+  "word": [
+   "KEX30"
+  ],
+  "model_out": [
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "UNIMPLEMENTED"
+   ],
+   [
+    "UNIMPLEMENTED"
+   ],
+   [
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:gossh_nonstrict",
+  "pattern": "D4-UA-AFTER-SUCCESS-NOT-IGNORED",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "SR_AUTH",
+   "UA_PW_OK",
+   "UA_PW_OK"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "SERVICE_ACCEPT",
+   "UA_SUCCESS",
+   "CLOSED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "CLOSED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "CLOSED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "CLOSED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:gossh_nonstrict",
+  "pattern": "D6-SR-CONN-PREAUTH-SILENT-CLOSE",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "SR_CONN"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "CLOSED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "CLOSED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "CLOSED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "CLOSED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:gossh_strict",
+  "pattern": "D4-UA-AFTER-SUCCESS-NOT-IGNORED",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "SR_AUTH",
+   "UA_PW_OK",
+   "UA_PW_OK"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "SERVICE_ACCEPT",
+   "UA_SUCCESS",
+   "CLOSED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "CLOSED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "CLOSED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS",
+    "CLOSED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:gossh_strict",
+  "pattern": "D6-SR-CONN-PREAUTH-SILENT-CLOSE",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "SR_CONN"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "CLOSED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "CLOSED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "CLOSED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "CLOSED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:openssh_nonstrict",
+  "pattern": "CONN-BEFORE-AUTH",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "CH_OPEN"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:openssh_nonstrict",
+  "pattern": "REKEY-KEXINIT-REPLY",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "KEXINIT"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:openssh_nonstrict",
+  "pattern": "STRICT-KEX-FIRST-KEXINIT",
+  "word": [
+   "KEX30",
+   "KEXINIT"
+  ],
+  "model_out": [
+   "UNIMPLEMENTED",
+   "NO_RESP"
+  ],
+  "live": [
+   [
+    "UNIMPLEMENTED",
+    "NO_RESP"
+   ],
+   [
+    "UNIMPLEMENTED",
+    "NO_RESP"
+   ],
+   [
+    "UNIMPLEMENTED",
+    "NO_RESP"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:openssh_nonstrict",
+  "pattern": "STRICT-KEX-NON-KEX-MSG",
+  "word": [
+   "KEXINIT",
+   "SR_AUTH"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:openssh_nonstrict",
+  "pattern": "STRICT-KEX-REPEATED-MSG",
+  "word": [
+   "KEXINIT",
+   "KEXINIT"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:openssh_nonstrict",
+  "pattern": "D2-CONN-MSG-PREAUTH-KEPT",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "CH_OPEN"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:openssh_nonstrict",
+  "pattern": "D3-REKEY-PREAUTH-REFUSED",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "KEXINIT"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:openssh_nonstrict",
+  "pattern": "D4-UA-AFTER-SUCCESS-NOT-IGNORED",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "SR_AUTH",
+   "UA_PW_OK",
+   "UA_PW_OK"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "SERVICE_ACCEPT",
+   "UA_SUCCESS+GLOBAL_REQUEST",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:openssh_nonstrict",
+  "pattern": "D7-KEX-ERROR-TOLERATED",
+  "word": [
+   "KEXINIT",
+   "NEWKEYS"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:openssh_nonstrict",
+  "pattern": "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED",
+  "word": [
+   "KEX30"
+  ],
+  "model_out": [
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "UNIMPLEMENTED"
+   ],
+   [
+    "UNIMPLEMENTED"
+   ],
+   [
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:openssh_nonstrict",
+  "pattern": "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED",
+  "word": [
+   "KEXINIT",
+   "KEXINIT"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:openssh_strict",
+  "pattern": "CONN-BEFORE-AUTH",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "CH_OPEN"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:openssh_strict",
+  "pattern": "REKEY-KEXINIT-REPLY",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "KEXINIT"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:openssh_strict",
+  "pattern": "D2-CONN-MSG-PREAUTH-KEPT",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "CH_OPEN"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:openssh_strict",
+  "pattern": "D3-REKEY-PREAUTH-REFUSED",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "KEXINIT"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:openssh_strict",
+  "pattern": "D4-UA-AFTER-SUCCESS-NOT-IGNORED",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "SR_AUTH",
+   "UA_PW_OK",
+   "UA_PW_OK"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "SERVICE_ACCEPT",
+   "UA_SUCCESS+GLOBAL_REQUEST",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SERVICE_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:openssh_strict",
+  "pattern": "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED",
+  "word": [
+   "KEX30"
+  ],
+  "model_out": [
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "UNIMPLEMENTED"
+   ],
+   [
+    "UNIMPLEMENTED"
+   ],
+   [
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ },
+ {
+  "model": "theirs-on-our-SUTs:openssh_strict",
+  "pattern": "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED",
+  "word": [
+   "KEXINIT",
+   "KEX30",
+   "NEWKEYS",
+   "KEX30"
+  ],
+  "model_out": [
+   "NO_RESP",
+   "KEX31+NEWKEYS",
+   "NO_RESP",
+   "UNIMPLEMENTED"
+  ],
+  "live": [
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ],
+   [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPLEMENTED"
+   ]
+  ],
+  "deterministic": true,
+  "verdict": "CONFIRMED",
+  "note": ""
+ }
+]

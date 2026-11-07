@@ -40,4 +40,5 @@ Vocabulary map: `results/v2/A/alphabet_map.json`.
 - Part 1 replays sequences our harness chose, so it measures replication, not coverage; Part 2 is bounded by both equivalence oracles.
 - Both harnesses were built from the same field knowledge (RFCs, published SSH learning work): "independent" means a different author, code base, agent, key exchange and auth method, not a different method.
 - The third client matches each harness's message order but uses its own key exchange method (code review finding 7).
-- Unchecked: seeded Go re-learn; full-alphabet strict models; remaining catalogue witnesses; witnesses on their other targets.
+- Seeded Go re-learn (their refuted-witness `--seeds` fix): done, 11 states; the 2 "theirs wrong" classes disappear (`results/v2/A/xdiff_gossh_nonstrict_seeded.json`).
+- Unchecked: full-alphabet strict models; remaining catalogue witnesses (`results/v2/A/catalogue_verified.json` is partial); witnesses on their other targets.
