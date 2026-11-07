@@ -152,3 +152,5 @@ Every result, decision and exchange with the team, with links to the outputs.
 - Pulled the teammate's report fix (filled v2-B1, final status) via `git subtree pull`.
 - Submitted: https://github.com/xemantic/claude-impact-lab-2026/issues/4 (team Plov: @Lumberj3ck, @TheWingTheWong), body = `submission/ISSUE.md` in the form's field format.
   Filed without the `submission` label: it does not exist in that repository (the other submission, #3, has none either). Checked for duplicates before filing; exactly one issue.
+- Demo page `index.html` (both arms: answer, cross-validation, candidates, calibration, D1–D9, differential, lessons, 5-minute demo script). The Artifact tool was unavailable in this session, so it is not yet published on claude.ai.
+- Correction: "12 implementations onboarded by one Codex agent each" was wrong; Codex onboarded 8, Claude set up 4 (OpenSSH ×2, Dropbear, AsyncSSH). Fixed in README, SYNTHESIS, and the submission issue #4 (edited in place, not re-filed).

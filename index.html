@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plov SSH Findings</title>
+<meta name="description" content="Team Plov, Claude Impact Lab Berlin 2026: agent-built vs published mappers for differential state machine learning of SSH implementations — findings and demo notes.">
+<style>
+:root {
+  --bg: #fbfaf7; --surface: #ffffff; --surface-2: #f3f1ec; --text: #1d1c1a; --muted: #5f5b53;
+  --border: #e3dfd6; --accent: #b4532a; --accent-soft: #f6e6dc; --ok: #2f7a4d; --ok-soft: #e2f1e7;
+  --warn: #9a6a00; --warn-soft: #f8efd5; --bad: #b3261e; --bad-soft: #f9e1df; --info: #2d5f9a; --info-soft: #e1ebf7;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #151412; --surface: #1d1c19; --surface-2: #262420; --text: #ece8df; --muted: #a8a196;
+    --border: #36332d; --accent: #e8875a; --accent-soft: #3a2519; --ok: #6cc690; --ok-soft: #1c3226;
+    --warn: #e0b54d; --warn-soft: #362b12; --bad: #f08a80; --bad-soft: #3b1e1b; --info: #8ab4ea; --info-soft: #1b2a3d;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #151412; --surface: #1d1c19; --surface-2: #262420; --text: #ece8df; --muted: #a8a196;
+  --border: #36332d; --accent: #e8875a; --accent-soft: #3a2519; --ok: #6cc690; --ok-soft: #1c3226;
+  --warn: #e0b54d; --warn-soft: #362b12; --bad: #f08a80; --bad-soft: #3b1e1b; --info: #8ab4ea; --info-soft: #1b2a3d;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 var(--sans); }
+main { max-width: 1040px; margin: 0 auto; padding: 32px 16px 80px; }
+a { color: var(--accent); }
+code { font-family: var(--mono); font-size: 0.88em; background: var(--surface-2); padding: 1px 5px; border-radius: 4px; }
+h1 { font-size: clamp(28px, 5vw, 42px); line-height: 1.15; margin: 8px 0 12px; letter-spacing: -0.01em; }
+h2 { font-size: 24px; margin: 56px 0 6px; padding-top: 8px; border-top: 1px solid var(--border); }
+h3 { font-size: 17px; margin: 0 0 6px; }
+.lede { font-size: 19px; color: var(--muted); max-width: 760px; }
+.eyebrow { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.sub { color: var(--muted); margin: 0 0 18px; }
+nav { position: sticky; top: 0; z-index: 5; background: var(--bg); border-bottom: 1px solid var(--border); }
+nav .inner { max-width: 1040px; margin: 0 auto; padding: 8px 16px; display: flex; gap: 14px; overflow-x: auto; white-space: nowrap; font-size: 14px; }
+nav a { color: var(--muted); text-decoration: none; }
+nav a:hover { color: var(--accent); }
+.answer { background: var(--accent-soft); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 10px; padding: 18px 20px; margin: 22px 0; font-size: 18px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 22px 0; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.stat .n { font-size: 30px; font-weight: 700; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.stat .l { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+.card p { margin: 6px 0; }
+.card ul { margin: 6px 0; padding-left: 20px; }
+.who { font-size: 13px; color: var(--muted); }
+.tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; margin-right: 6px; vertical-align: middle; }
+.t-ok { background: var(--ok-soft); color: var(--ok); }
+.t-bad { background: var(--bad-soft); color: var(--bad); }
+.t-warn { background: var(--warn-soft); color: var(--warn); }
+.t-info { background: var(--info-soft); color: var(--info); }
+.t-acc { background: var(--accent-soft); color: var(--accent); }
+.tablewrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { background: var(--surface-2); font-weight: 600; white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td.num { font-variant-numeric: tabular-nums; text-align: right; }
+.finding { border-left: 4px solid var(--accent); }
+.finding .src { font-size: 13px; color: var(--muted); margin-top: 8px; }
+.bar { display: flex; height: 26px; border-radius: 6px; overflow: hidden; margin: 10px 0 6px; border: 1px solid var(--border); }
+.bar span { display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: var(--bg); }
+.legend { font-size: 13px; color: var(--muted); }
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; counter-reset: step; }
+.flow .card { position: relative; padding-top: 30px; }
+.flow .card::before { counter-increment: step; content: counter(step); position: absolute; top: 10px; left: 18px; font-size: 12px; font-weight: 700; color: var(--accent); }
+.demo ol { padding-left: 22px; }
+.demo li { margin: 8px 0; }
+.demo .min { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+footer { margin-top: 56px; font-size: 14px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 16px; }
+@media (max-width: 560px) { body { font-size: 15px; } .answer { font-size: 16px; } }
+</style>
+</head>
+<body>
+<nav><div class="inner">
+  <a href="#answer">Answer</a><a href="#arms">Two arms</a><a href="#cross">Cross-check</a>
+  <a href="#candidates">New findings</a><a href="#calibration">Calibration</a><a href="#classes">D1–D9</a>
+  <a href="#differential">Differential</a><a href="#lessons">Lessons</a><a href="#demo">Demo script</a><a href="#links">Links</a>
+</div></nav>
+<main>
+
+<div class="eyebrow">Team Plov · Claude Impact Lab Berlin 2026</div>
+<h1>Can agents build the mapper that state machine learning needs?</h1>
+<p class="lede">Black-box state machine learning finds protocol bugs, but every study pays weeks of expert work per <em>mapper</em>: the adapter that turns abstract inputs into real, encrypted packets. That is why studies cover 3–19 implementations. We ran both arms of the experiment on SSH in one day.</p>
+
+<div class="answer" id="answer"><strong>Yes, and it can be trusted if every claim is replayed.</strong> An agent-built mapper, written by Codex against tests written first, matched the published hand-built mapper on every server behaviour the two share, carried fewer harness errors into its models, and scaled to 12 implementations. It found a current RFC 4253 MUST NOT violation in wolfSSH and three more candidate behaviours. Both arms also produced plausible but wrong models; only live replay caught them.</div>
+
+<div class="stats">
+  <div class="stat"><div class="n">0</div><div class="l">server-level disagreements between the two independent harnesses</div></div>
+  <div class="stat"><div class="n">2 vs 26</div><div class="l">model-error classes: agent-built vs published mapper</div></div>
+  <div class="stat"><div class="n">12</div><div class="l">SSH implementations in the agent-built arm (8 onboarded by Codex agents)</div></div>
+  <div class="stat"><div class="n">39</div><div class="l">verified divergence points, 9 classes, in the published-mapper arm</div></div>
+  <div class="stat"><div class="n">62/62</div><div class="l">catalogue witnesses confirmed live on the other arm's models</div></div>
+  <div class="stat"><div class="n">4</div><div class="l">candidate findings, source-traced</div></div>
+</div>
+
+<h2 id="arms">Two arms, one question</h2>
+<p class="sub">Independent authors, code bases, agents, key exchange and authentication; merged into one repository.</p>
+<div class="grid2">
+  <div class="card">
+    <span class="tag t-acc">Arm 1</span><h3 style="display:inline">Agent-built mapper</h3>
+    <div class="who">Alan Yuldashev (@Lumberj3ck) · repository root</div>
+    <ul>
+      <li>Claude wrote the spec and validation tests first; <strong>Codex wrote the SSH mapper from the RFCs</strong>, no SSH library (~330 lines).</li>
+      <li>One Codex agent per implementation onboarded 8 targets in two parallel waves; all 12 targets pass one 16-test suite.</li>
+      <li>RFC catalogue: 15 bug patterns as automata, each with its quoted MUST/SHOULD, written by a Claude subagent.</li>
+      <li>AALpy KV learner, protocol-seeded parallel equivalence oracle, 32-vCPU cloud VM.</li>
+      <li>Every catalogue hit replayed 3× on a fresh container; refuted hits fed back to the learner.</li>
+      <li>curve25519, password auth, strict KEX on.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <span class="tag t-info">Arm 2</span><h3 style="display:inline">Published mapper</h3>
+    <div class="who">Ansorjon Juraev (@TheWingTheWong) · <code>reference-harness/</code></div>
+    <ul>
+      <li>Reuses Fiterau-Brostean et al.'s ssh-fuzzer (SPIN 2017 / NDSS 2023) with 5 documented patches.</li>
+      <li><strong>Validated first:</strong> the original authors' published traces replay symbol for symbol.</li>
+      <li>OpenSSH 10.0p1, Dropbear 2025.88, Go x/crypto 0.58.0; 39 divergence points in 9 classes, each replayed and attacked by skeptic-review subagents and an independent paramiko client.</li>
+      <li>Seven more servers and an 18-version replay sweep (observations, not yet skeptic-reviewed).</li>
+      <li>Measured the cost of the loop: where an agent sufficed, where a human was needed.</li>
+      <li>DH group14, public-key auth, strict KEX off.</li>
+    </ul>
+  </div>
+</div>
+
+<h3 style="margin-top:22px">The agent-built loop</h3>
+<div class="flow">
+  <div class="card"><strong>Read</strong><br>RFCs → 15 automata with quoted MUSTs; prior work → predictions</div>
+  <div class="card"><strong>Specify</strong><br>Mapper contract + failing tests, before any code</div>
+  <div class="card"><strong>Build</strong><br>Codex writes the mapper; one agent per server onboards it</div>
+  <div class="card"><strong>Learn</strong><br>Mealy machines on 32 vCPUs, seeded with protocol paths</div>
+  <div class="card"><strong>Check</strong><br>Catalogue + pairwise diff; replay every hit live</div>
+  <div class="card"><strong>Correct</strong><br>Refuted hits → counterexamples → relearn; source-trace candidates</div>
+</div>
+
+<h2 id="cross">Cross-validation of the two harnesses</h2>
+<p class="sub">Both harnesses on the same OpenSSH 10.0p1, Dropbear 2025.88 and Go x/crypto 0.58.0 containers (<code>reference-harness/results/v2/A/summary.md</code>).</p>
+<div class="card">
+  <p><strong>32 learned-model disagreement classes</strong>, each replayed live with both mappers and attributed:</p>
+  <div class="bar" role="img" aria-label="26 published mapper, 4 setup, 2 agent-built">
+    <span style="flex:26;background:var(--info)">published mapper 26</span>
+    <span style="flex:4;background:var(--warn)">setup 4</span>
+    <span style="flex:2;background:var(--accent)">2</span>
+  </div>
+  <div class="legend">Published mapper: a close reported one step late, stream corruption after a stray NEWKEYS, a one-channel cap (documented limits). Setup: automatic KEXINIT. Agent-built: one Go model merged states across a pre-auth rekey — caught by our own replay step and removed by relearning with the refuted witness as a seed.</div>
+  <ul>
+    <li><strong>0 server-level disagreements</strong>: the harnesses never disagreed about what a server did with the same bytes; 120 of 120 KEXINIT-first replay pairs agree at every step.</li>
+    <li>Every published-arm class D1–D9 is reproduced by the agent-built harness; with strict KEX, D7 and the initial-KEX part of D9 disappear, as predicted.</li>
+    <li>The agent-built RFC catalogue picks out the same implementations as the hand-written D1–D9 classes; 62 of 62 witnesses confirmed live.</li>
+  </ul>
+</div>
+
+<h2 id="candidates">New findings (candidates)</h2>
+<p class="sub">Found by the agent-built arm, confirmed by deterministic replay, root cause traced in source by a Codex agent. Severity is low or not assessed; none is an on-path attack.</p>
+<div class="grid2">
+  <div class="card finding">
+    <span class="tag t-bad">RFC 4253 §7.1 MUST NOT</span><span class="tag t-acc">current master</span>
+    <h3>CANDIDATE-003 · wolfSSH 1.6.0</h3>
+    <p>During a key re-exchange — after its own KEXINIT, before its NEWKEYS — wolfSSH answers authentication requests (USERAUTH_FAILURE and even <strong>USERAUTH_SUCCESS</strong>) and opens channels. OpenSSH and MINA hold the reply until after NEWKEYS; Go and russh disconnect.</p>
+    <p>Still present on wolfSSH master <code>d043c69</code>. Cause: the dispatcher's keying-state gate only covers messages 1–49.</p>
+    <div class="src">Found by the RFC catalogue on the learned model → replayed → source-traced. <code>findings/CANDIDATE-003-*.md</code></div>
+  </div>
+  <div class="card finding">
+    <span class="tag t-warn">spec ambiguity</span><span class="tag t-acc">since 9.6 (2023)</span>
+    <h3>CANDIDATE-001 · OpenSSH 9.2p1 and 10.6</h3>
+    <p>Under strict KEX, a NEWKEYS received outside any key exchange resets the receive sequence number while the old keys stay; sshd answers UNIMPLEMENTED and continues. Nine other implementations disconnect.</p>
+    <p>Root cause: <code>packet.c</code> resets the counter before dispatch decides the message is unexpected. Needs a misbehaving peer; informational/low.</p>
+    <div class="src">Codex refused to force a failing test green and reported it; confirmed by a three-way experiment and upstream source.</div>
+  </div>
+  <div class="card finding">
+    <span class="tag t-info">informational</span>
+    <h3>CANDIDATE-002 · libssh 0.12.2</h3>
+    <p>A stray NEWKEYS puts the session into a terminal error state without DISCONNECT; later packets are dropped before decryption. In our server the socket stayed open ≥ 120 s; other connections were unaffected.</p>
+    <div class="src"><code>findings/CANDIDATE-002-*.md</code></div>
+  </div>
+  <div class="card finding">
+    <span class="tag t-warn">RFC 4254 §5.3</span>
+    <h3>CANDIDATE-004 · Apache MINA SSHD 2.20.1</h3>
+    <p>After authentication, a SERVICE_REQUEST for <code>ssh-connection</code> is accepted and replaces the connection service: the open channel is orphaned and its CHANNEL_CLOSE is never answered. A new channel works.</p>
+    <div class="src"><code>findings/CANDIDATE-004-*.md</code></div>
+  </div>
+</div>
+
+<h2 id="calibration">Calibration: known bugs, found blind</h2>
+<p class="sub">Before claiming anything new, both arms checked that they rediscover what is already known.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Known result</th><th>Arm</th><th>Outcome</th></tr></thead>
+<tbody>
+<tr><td>Original authors' published Dropbear traces (NDSS 2023 harness)</td><td>Published</td><td><span class="tag t-ok">reproduced</span>symbol for symbol, 4 of 4 traces, 3 of 3 reps</td></tr>
+<tr><td>Dropbear "auth without SERVICE_REQUEST" (NDSS 2023, v2020.81)</td><td>Both</td><td><span class="tag t-ok">still holds</span>in 2025.88; Dropbear model identical 2020.81 → 2025.88</td></tr>
+<tr><td>OpenSSH refuses rekey before auth (SPIN 2017, 6.9p1)</td><td>Both</td><td><span class="tag t-ok">still holds</span>in 9.2p1, 10.0p1 and 10.6</td></tr>
+<tr><td>Dropbear strict-KEX late-window violation (CCS 2025)</td><td>Agent-built</td><td><span class="tag t-ok">reproduced</span>on our exact Dropbear 2024.85</td></tr>
+<tr><td>Terrapin precondition (strict KEX off vs on)</td><td>Agent-built</td><td><span class="tag t-ok">control passes</span>on all three first servers</td></tr>
+<tr><td>Erlang/OTP CVE-2025-32433 (fixed in 27.3.3)</td><td>Agent-built</td><td><span class="tag t-ok">flagged blind</span>27.3.2 tolerates CH_OPEN during strict KEX before auth; patched OTP 29 disconnects</td></tr>
+<tr><td>wolfSSH auth before service request (fixed on master 2026-10-12, unreleased)</td><td>Agent-built</td><td><span class="tag t-ok">rediscovered</span>on 1.6.0; gone on master — independent rediscovery</td></tr>
+</tbody></table></div>
+
+<h2 id="classes">Published-mapper arm: how OpenSSH, Dropbear and Go disagree</h2>
+<p class="sub">On the normal handshake the three agree exactly. Off the normal path: 39 divergence points in 9 classes, each replayed 5–10× (0 nondeterministic), skeptic-reviewed and reproduced with an independent client.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Class</th><th>Situation</th><th>OpenSSH 10.0p1</th><th>Dropbear 2025.88</th><th>Go 0.58.0</th><th>RFC verdict</th></tr></thead>
+<tbody>
+<tr><td>D1</td><td>Auth request with no SERVICE_REQUEST</td><td>UNIMPL</td><td><strong>UA_SUCCESS</strong></td><td>closes</td><td>No MUST; Dropbear outlier (design choice)</td></tr>
+<tr><td>D2</td><td>Channel open before auth</td><td><strong>UNIMPL, kept</strong></td><td>closes</td><td>closes</td><td>RFC 4252 §6 MUST disconnect: OpenSSH violates the letter, no impact</td></tr>
+<tr><td>D3</td><td>Client rekey before auth</td><td><strong>refuses</strong></td><td>rekeys</td><td>rekeys</td><td>RFC 4253 §9 MUST respond: OpenSSH deliberate deviation</td></tr>
+<tr><td>D4</td><td>Auth request after success</td><td>UNIMPL</td><td>ignored</td><td><strong>closes session</strong></td><td>RFC 4252 §5.1 SHOULD ignore: only Dropbear</td></tr>
+<tr><td>D5</td><td>Second / post-auth SERVICE_REQUEST</td><td>mixed</td><td>accepts</td><td>closes</td><td>Unspecified</td></tr>
+<tr><td>D6</td><td>"ssh-connection" requested before auth</td><td>DISCONNECT</td><td>closes silently</td><td>closes silently</td><td>All meet MUST; only OpenSSH the SHOULD</td></tr>
+<tr><td>D7</td><td>Errors inside a key exchange</td><td>UNIMPL</td><td>UNIMPL</td><td>closes</td><td>Unspecified; strict KEX: all disconnect</td></tr>
+<tr><td>D8</td><td>KEX message before client KEXINIT</td><td>KEXINIT+UNIMPL</td><td>mixed</td><td>closes</td><td>Unspecified; strict KEX: all disconnect</td></tr>
+<tr><td>D9</td><td>Messages out of place around a KEX (18 points)</td><td>UNIMPL, kept</td><td>closes</td><td>closes</td><td>§7.1 binds only the sender</td></tr>
+</tbody></table></div>
+<p class="sub" style="margin-top:12px"><strong>The pattern:</strong> Go fails closed, silently. OpenSSH ignores and reports (UNIMPLEMENTED) — one design choice explains its two letter-of-the-RFC deviations. Dropbear is permissive at the service/auth layer and strict in key exchange. Beyond these three, D1 is accepted by five of ten servers; the 18-version sweep shows OpenSSH D1–D8 unchanged from 7.5p1 to 10.0p1 (sweep not yet skeptic-reviewed).</p>
+
+<h2 id="differential">One message, four behaviours</h2>
+<p class="sub">A NEWKEYS sent outside any key exchange, after a completed handshake, across all 12 implementations of the agent-built arm (<code>results/seqnr/</code>).</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Reaction</th><th>Implementations</th></tr></thead>
+<tbody>
+<tr><td><span class="tag t-warn">reset counter, continue</span></td><td>OpenSSH 9.2p1, OpenSSH 10.6p2 (CANDIDATE-001)</td></tr>
+<tr><td><span class="tag t-ok">disconnect</span></td><td>Dropbear, AsyncSSH, Paramiko, Go x/crypto, Erlang/OTP 29 and 27.3.2, wolfSSH, Apache MINA SSHD</td></tr>
+<tr><td><span class="tag t-info">ignore</span></td><td>russh (no-op match arm)</td></tr>
+<tr><td><span class="tag t-bad">silent error, socket open</span></td><td>libssh 0.12.2 (CANDIDATE-002)</td></tr>
+</tbody></table></div>
+<p class="sub" style="margin-top:12px">The published mapper filters exactly this situation out as "stream corruption"; the agent-built mapper handles it, which is how the OpenSSH behaviour surfaced.</p>
+
+<h2 id="lessons">What went wrong, and what it taught us</h2>
+<div class="grid2">
+  <div class="card"><h3>Plausible models can be wrong</h3><p>Our catalogue reported an <strong>authentication bypass in Go x/crypto/ssh</strong>. Replay refuted it: the learner never queried that path and merged two states. The published arm hit the same failure twice. Lesson: trust replayed sequences, never raw models.</p></div>
+  <div class="card"><h3>Agents that stop are worth more</h3><p>Three times a Codex agent refused to make a failing test pass and reported a real behaviour instead: AsyncSSH's interleaved IGNOREs, OpenSSH's counter reset, and Go/libssh omitting the strict-KEX marker on rekey.</p></div>
+  <div class="card"><h3>The loop found bugs in itself</h3><p>Our mapper re-used keys after a refused rekey, dropped strict KEX on rekey, and missed an algorithm name. Two catalogue patterns were too strict. All were caught by replays and fixed against tests.</p></div>
+  <div class="card"><h3>Open at submission</h3><p>Dropbear and AsyncSSH accept unlimited channels, so their models never converged; the one-channel bound is specified but not implemented. Strict-KEX handshake conformance of 10 servers is already published (CCS 2025) — our novelty is scale, the auth/connection/rekey layers and new implementations.</p></div>
+</div>
+
+<h2 id="demo">Demo script (about 5 minutes)</h2>
+<div class="card demo"><ol>
+  <li><span class="min">0:00</span> <strong>The bottleneck.</strong> Mappers cost weeks per implementation, so studies stop at 3–19. Can an agent build one — and can we trust it?</li>
+  <li><span class="min">0:45</span> <strong>Two arms.</strong> Same question, two teammates: Codex builds the mapper from the RFCs vs the published expert mapper, validated against its authors' own traces.</li>
+  <li><span class="min">1:30</span> <strong>The headline.</strong> 0 server-level disagreements; model errors 2 (agent) vs 26 (published); 62/62 witnesses confirmed. Show the bar.</li>
+  <li><span class="min">2:15</span> <strong>Calibration.</strong> Known bugs found blind: Erlang CVE-2025-32433 (vulnerable vs patched), CCS 2025 Dropbear, a wolfSSH bug fixed upstream 26 days ago.</li>
+  <li><span class="min">3:00</span> <strong>The new finding.</strong> wolfSSH answers auth and opens channels in the middle of a rekey — RFC 4253 §7.1 MUST NOT, still on master. Live: <code>scripts/replay.py wolfssh "KEXINIT KEX30 NEWKEYS SR_AUTH UA_PW_OK KEXINIT CH_OPEN"</code>.</li>
+  <li><span class="min">3:45</span> <strong>Honesty.</strong> The fake Go auth bypass, refuted by replay. Agents that stopped instead of cheating. What did not converge.</li>
+  <li><span class="min">4:30</span> <strong>Next.</strong> One-channel bound, post-quantum KEX, a second protocol (MQTT 5 / CoAP), and reports to maintainers.</li>
+</ol></div>
+
+<h2 id="links">Links</h2>
+<div class="card"><ul>
+  <li>Repository: <a href="https://github.com/Lumberj3ck/agentic-protocol-state-learning">github.com/Lumberj3ck/agentic-protocol-state-learning</a> — start with <code>SYNTHESIS.md</code></li>
+  <li>Published-mapper arm: <code>reference-harness/report.md</code> (from <a href="https://github.com/TheWingTheWong/proto-sm">TheWingTheWong/proto-sm</a>)</li>
+  <li>Submission: <a href="https://github.com/xemantic/claude-impact-lab-2026/issues/4">xemantic/claude-impact-lab-2026#4</a></li>
+  <li>Results table: <code>results/SUMMARY.md</code> · Findings: <code>findings/</code> · Day logs: <code>JOURNAL.md</code>, <code>reference-harness/JOURNAL.md</code></li>
+</ul></div>
+
+<footer>Team Plov — Alan Yuldashev (@Lumberj3ck), Ansorjon Juraev (@TheWingTheWong). Claude Impact Lab x Foresight Institute, Berlin, 7 November 2026. Code Apache 2.0, text CC BY 4.0. All servers ran as local containers; no third-party host was contacted.</footer>
+</main>
+</body>
+</html>

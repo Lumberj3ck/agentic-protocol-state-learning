@@ -40,7 +40,7 @@ State lives in files: [`TASKS.md`](TASKS.md) (prioritized queue),
 
 ## What it found so far
 
-- **Mapper:** written by Codex in ~330 lines; **12 implementations onboarded by one Codex agent each** (OpenSSH 9.2p1 and 10.6p2, Dropbear, AsyncSSH, Paramiko, Go x/crypto, libssh, Erlang/OTP 29 and 27.3.2, russh, wolfSSH, Apache MINA SSHD), all passing the same validation suite; deterministic at 0.4 s timeouts.
+- **Mapper:** written by Codex in ~330 lines; **12 implementations, all passing the same validation suite**: 8 onboarded by one Codex agent each (Paramiko, Go x/crypto, libssh, Erlang/OTP 29 and 27.3.2, russh, wolfSSH, Apache MINA SSHD), 4 set up by Claude (OpenSSH 9.2p1 and 10.6p2, Dropbear, AsyncSSH); deterministic at 0.4 s timeouts.
   Twice the agent *stopped instead of editing a test* and reported a real behaviour that contradicted the test
   (AsyncSSH interleaving IGNORE packets; OpenSSH's sequence-number reset below).
 - **Ground truth reproduced** ([`results/ground-truth/checks.json`](results/ground-truth/checks.json), [`scripts/ground_truth_checks.py`](scripts/ground_truth_checks.py)):

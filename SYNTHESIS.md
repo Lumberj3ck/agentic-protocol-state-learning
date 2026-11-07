@@ -8,7 +8,7 @@ The team ran both arms of that experiment on the same day, with independent code
 | Mapper | Written by Codex from the RFCs against tests written first; no SSH library | Fiterau-Brostean et al.'s ssh-fuzzer (Paramiko-based, SPIN 2017 / NDSS 2023) with 5 small patches |
 | Key exchange, auth | curve25519-sha256, password, strict KEX by default | DH group14, public key, non-strict |
 | Learner | AALpy KV, protocol-seeded parallel oracle, 32-vCPU VM | AALpy L*, state-prefix + rekey oracle |
-| Breadth | 12 implementations onboarded by one agent each; 10 models | 3 servers (+ Dropbear 2020.81/2022.83 for validation); 18-version replay sweep |
+| Breadth | 12 implementations (8 onboarded by one Codex agent each, 4 set up by Claude); 10 models | 3 servers (+ Dropbear 2020.81/2022.83 for validation); 18-version replay sweep |
 | Ground truth | Literature predictions replayed; CCS 2025 Dropbear finding, Erlang CVE-2025-32433 control | Original authors' published traces replayed symbol for symbol |
 | Checks | Every catalogue hit replayed (`src/smlearn/verify.py`) | Every divergence replayed on all servers + skeptic-review subagents |
 | Output | RFC catalogue (15 patterns), 4 candidate findings | 39 divergence points in 9 classes (D1–D9) |
