@@ -71,3 +71,6 @@
   OpenSSH 10.0p1: every message >= 80 before auth (90, 80, 94, 98) -> UNIMPLEMENTED, connection kept until LoginGraceTime (auth2.c do_authentication2 -> dispatch_protocol_error). Violates the letter of RFC 4252 §6 MUST-disconnect; no security impact (payload never parsed, no channel code pre-auth). Same in SPIN 2017's 6.9p1 model and in the CCS 2025 9.9p2 model, unclassified there.
   Dropbear ("Exit before auth: Received message 90 before userauth") and Go ("unexpected message type 90") meet the MUST but send no DISCONNECT ("preferably").
   Reviewer notes: P5 doc corrected (TCP_FORWARD_* never gated); other CH_* inputs crash mapper on Python 3 (unused); CH_MAX artifact confirmed.
+- 14:12 B_dropbear: 13 states, 34 min. Learning-stability check: B models restricted to alphabet A are EQUIVALENT to the independently learned A models, for Dropbear and Go (results/diff/B_vs_A_*_restricted.json).
+  B diff Dropbear vs Go (results/diff/B_dropbear_vs_gossh.json): 8 coarse classes = the 7 A classes + SR_CONN after auth (Dropbear SR_ACCEPT, Go closes). Pre-auth SR_CONN and CH_OPEN: both close (agree).
+- 14:06 Started A_openssh with the rekey oracle on its own mapper (8121), cache seeded from B_openssh's 14:04 checkpoint, as insurance for the 14:30 gate. Third reviewer (results/review/remaining_classes.md) on classes C1-C5.
