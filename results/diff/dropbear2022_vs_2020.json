@@ -1,0 +1,44 @@
+{
+  "names": [
+    "ours_2022.83",
+    "ours_2020.81"
+  ],
+  "alphabets": {
+    "ours_2022.83": [
+      "KEX30",
+      "KEXINIT",
+      "NEWKEYS",
+      "SR_AUTH",
+      "UA_PK_OK"
+    ],
+    "ours_2020.81": [
+      "KEX30",
+      "KEXINIT",
+      "NEWKEYS",
+      "SR_AUTH",
+      "UA_PK_OK"
+    ]
+  },
+  "alphabets_identical": true,
+  "alphabet_only_in": {
+    "ours_2022.83": [],
+    "ours_2020.81": []
+  },
+  "diffed_inputs": [
+    "KEX30",
+    "KEXINIT",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK"
+  ],
+  "n_states": [
+    9,
+    9
+  ],
+  "equivalent": true,
+  "equivalent_on_common_inputs": true,
+  "normalize": null,
+  "n_disagreements": 0,
+  "classes": [],
+  "coarse_classes": []
+}

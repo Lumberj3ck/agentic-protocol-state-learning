@@ -46,3 +46,8 @@
 - 13:29 With P5 (results/replay/p5_ch_open_ignore.json): CH_OPEN after auth -> CH_OPEN_SUCCESS on all three; IGNORE -> NO_RESP on all three.
   CANDIDATE D2: CH_OPEN BEFORE auth: OpenSSH UNIMPL (connection kept), Dropbear NO_CONN, Go NO_CONN. RFC 4252 §6 says MUST disconnect. Sent to a second skeptical reviewer (results/review/ch_open_preauth.md).
 - 13:29 A_dropbear (state-prefix): 9 states, 12 min. A_gossh with rekey-aware oracle: 8 -> 12 states (the state-prefix model was under-learned, as suspected). Rerunning A_dropbear with the rekey oracle (cache seeded) so all A models share one oracle.
+- 13:33 Dropbear 2022.83 (same version as the published model): 9 states, 12 min; EQUIVALENT to our 2020.81 model (results/diff/dropbear2022_vs_2020.json); predicts the 4 published traces (results/checks/dropbear2022_vs_published_traces.json).
+  Versus the published 2022.83 model: the same 2 transitions after an initial KEX30 differ (results/diff/dropbear2022_vs_published2022.json). Our side replays 10/10 (results/replay/dropbear2022_vs_published_diffs.json).
+  Control: the UNPATCHED upstream mapper (only P3) gives the same answers (results/replay/dropbear2022_upstream_mapper_check.json), so none of our patches cause it.
+  Remaining explanations (not separable today): the published run's from-source Dropbear build vs our Alpine package, its environment, or the published hypothesis being unconverged (12 h timeout). Recorded as an unexplained, bounded residual.
+  Recreate the upstream-mapper control: copy vendor/ssh-fuzzer/ssh-mapper to scratch/upstream_mapper and restore manualparamiko/transport.py from upstream commit (vendor/ssh-fuzzer.COMMIT).
