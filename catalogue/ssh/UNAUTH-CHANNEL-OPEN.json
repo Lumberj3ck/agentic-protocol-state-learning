@@ -1,0 +1,16 @@
+{
+  "id": "UNAUTH-CHANNEL-OPEN",
+  "title": "Channel opened without successful authentication",
+  "source": "RFC 4252 §6, §5.3",
+  "quote": "Message numbers of 80 and higher are reserved for protocols running after this authentication protocol, so receiving one of them before authentication is complete is an error, to which the server MUST respond by disconnecting, preferably with a proper disconnect message sent to ease troubleshooting. / Authentication is complete when the server has responded with SSH_MSG_USERAUTH_SUCCESS.",
+  "level": "MUST",
+  "rationale": "Violation: any output containing CH_OPEN_SUCCESS while no earlier or same output contained UA_SUCCESS, in any state (also before or during KEX). This is the authentication-bypass subset of CONN-BEFORE-AUTH and has essentially no false positives.",
+  "automaton": {
+    "initial": "s0",
+    "accept": ["bug"],
+    "transitions": [
+      {"from": "s0", "to": "s0", "out_lacks": ["UA_SUCCESS", "CH_OPEN_SUCCESS"]},
+      {"from": "s0", "to": "bug", "out_has": ["CH_OPEN_SUCCESS"], "out_lacks": ["UA_SUCCESS"]}
+    ]
+  }
+}

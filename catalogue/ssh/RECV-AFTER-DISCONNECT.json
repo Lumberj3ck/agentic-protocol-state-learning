@@ -1,0 +1,27 @@
+{
+  "id": "RECV-AFTER-DISCONNECT",
+  "title": "Server processes client messages after the client's DISCONNECT",
+  "source": "RFC 4253 §11.1",
+  "quote": "This message causes immediate termination of the connection. / The sender MUST NOT send or receive any data after this message, and the recipient MUST NOT accept any data after receiving this message.",
+  "level": "MUST",
+  "rationale": "The client DISCONNECT is sent from a clean point (before or during the canonical initial KEX, or after it with ordinary traffic) so the server can read it. If the connection stays open and a later input draws any server message other than DISCONNECT, the server accepted data after DISCONNECT. A server that merely lingers silently is not flagged.",
+  "automaton": {
+    "initial": "init",
+    "accept": ["bug"],
+    "transitions": [
+      {"from": "init", "to": "ki", "in": "KEXINIT", "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "ki", "to": "kr", "in": "KEX30", "out_has": ["NEWKEYS"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "ki", "to": "kw", "in": "KEX30", "out_has": ["KEX31"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET", "NEWKEYS"]},
+      {"from": "kr", "to": "post", "in": "NEWKEYS", "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "kw", "to": "post", "in": "NEWKEYS", "out_has": ["NEWKEYS"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "post", "to": "post", "in_not": ["KEXINIT", "KEX30", "NEWKEYS", "DISCONNECT", "UNIMPLEMENTED"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET", "KEXINIT"]},
+      {"from": "init", "to": "d", "in": "DISCONNECT", "out_lacks": ["CLOSED", "NO_CONN", "BAD_PACKET"]},
+      {"from": "ki", "to": "d", "in": "DISCONNECT", "out_lacks": ["CLOSED", "NO_CONN", "BAD_PACKET"]},
+      {"from": "kr", "to": "d", "in": "DISCONNECT", "out_lacks": ["CLOSED", "NO_CONN", "BAD_PACKET"]},
+      {"from": "kw", "to": "d", "in": "DISCONNECT", "out_lacks": ["CLOSED", "NO_CONN", "BAD_PACKET"]},
+      {"from": "post", "to": "d", "in": "DISCONNECT", "out_lacks": ["CLOSED", "NO_CONN", "BAD_PACKET"]},
+      {"from": "d", "to": "d", "out_lacks": ["IGNORE", "UNIMPLEMENTED", "DEBUG", "SERVICE_ACCEPT", "EXT_INFO", "KEXINIT", "NEWKEYS", "KEX31", "UA_FAILURE", "UA_SUCCESS", "UA_BANNER", "GLOBAL_REQUEST", "REQUEST_SUCCESS", "REQUEST_FAILURE", "CH_OPEN_SUCCESS", "CH_OPEN_FAILURE", "CH_WINDOW_ADJUST", "CH_DATA", "CH_EXTENDED_DATA", "CH_EOF", "CH_CLOSE", "CH_REQUEST", "CH_SUCCESS", "CH_FAILURE"]},
+      {"from": "d", "to": "bug", "out_has": ["IGNORE", "UNIMPLEMENTED", "DEBUG", "SERVICE_ACCEPT", "EXT_INFO", "KEXINIT", "NEWKEYS", "KEX31", "UA_FAILURE", "UA_SUCCESS", "UA_BANNER", "GLOBAL_REQUEST", "REQUEST_SUCCESS", "REQUEST_FAILURE", "CH_OPEN_SUCCESS", "CH_OPEN_FAILURE", "CH_WINDOW_ADJUST", "CH_DATA", "CH_EXTENDED_DATA", "CH_EOF", "CH_CLOSE", "CH_REQUEST", "CH_SUCCESS", "CH_FAILURE"]}
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "IGNORE-DEBUG-TOLERATED",
+  "title": "IGNORE or DEBUG after the initial key exchange is rejected",
+  "source": "RFC 4253 §11.2, §11.3",
+  "quote": "All implementations MUST understand (and ignore) this message at any time (after receiving the identification string). / All implementations MUST understand this message, but they are allowed to ignore it.",
+  "level": "MUST",
+  "rationale": "After a completed initial KEX (strict KEX overrides §11 only during the initial exchange) and ordinary traffic, IGNORE or DEBUG answered with UNIMPLEMENTED, DISCONNECT or a connection close is a violation. Unrelated asynchronous output (e.g. channel data) is not flagged.",
+  "automaton": {
+    "initial": "init",
+    "accept": ["bug"],
+    "transitions": [
+      {"from": "init", "to": "ki", "in": "KEXINIT", "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "ki", "to": "kr", "in": "KEX30", "out_has": ["NEWKEYS"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "ki", "to": "kw", "in": "KEX30", "out_has": ["KEX31"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET", "NEWKEYS"]},
+      {"from": "kr", "to": "post", "in": "NEWKEYS", "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "kw", "to": "post", "in": "NEWKEYS", "out_has": ["NEWKEYS"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "post", "to": "post", "in_not": ["KEXINIT", "KEX30", "NEWKEYS", "DISCONNECT", "UNIMPLEMENTED"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET", "KEXINIT"]},
+      {"from": "post", "to": "bug", "in": ["IGNORE", "DEBUG"], "out_has": ["UNIMPLEMENTED", "DISCONNECT", "CLOSED"]}
+    ]
+  }
+}

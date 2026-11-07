@@ -1,0 +1,19 @@
+{
+  "id": "CH-CLOSE-REPLY",
+  "title": "CHANNEL_CLOSE not answered with CHANNEL_CLOSE",
+  "source": "RFC 4254 §5.3",
+  "quote": "Upon receiving this message, a party MUST send back an SSH_MSG_CHANNEL_CLOSE unless it has already sent this message for the channel.",
+  "level": "MUST",
+  "rationale": "After CH_OPEN succeeded and while the server has not sent CH_CLOSE itself, a CH_CLOSE input whose output lacks CH_CLOSE while the connection stays up is a violation. If the server already closed the channel the mapper reports NO_CHANNEL, which is the 'already sent' exemption; tearing down the whole connection instead is not flagged.",
+  "automaton": {
+    "initial": "s0",
+    "accept": ["bug"],
+    "transitions": [
+      {"from": "s0", "to": "s0", "out_lacks": ["CH_OPEN_SUCCESS"]},
+      {"from": "s0", "to": "open", "in": "CH_OPEN", "out_has": ["CH_OPEN_SUCCESS"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET", "CH_CLOSE"]},
+      {"from": "open", "to": "open", "in_not": ["CH_CLOSE", "KEXINIT", "KEX30", "NEWKEYS", "DISCONNECT"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET", "CH_CLOSE"]},
+      {"from": "open", "to": "s0", "out_has": ["CH_CLOSE"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "open", "to": "bug", "in": "CH_CLOSE", "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET", "CH_CLOSE", "NO_CHANNEL"]}
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "KEX-SERVER-SENDS-NON-KEX",
+  "title": "Server sends a service, auth or connection message while inside a key exchange",
+  "source": "RFC 4253 §7.1",
+  "quote": "Once a party has sent a SSH_MSG_KEXINIT message for key exchange or re-exchange, until it has sent a SSH_MSG_NEWKEYS message (Section 7.3), it MUST NOT send any messages other than: o Transport layer generic messages (1 to 19) (but SSH_MSG_SERVICE_REQUEST and SSH_MSG_SERVICE_ACCEPT MUST NOT be sent); o Algorithm negotiation messages (20 to 29) (but further SSH_MSG_KEXINIT messages MUST NOT be sent); o Specific key exchange method messages (30 to 49).",
+  "level": "MUST",
+  "rationale": "The server has sent KEXINIT before the first step (absorbed by reset()). Until an output contains NEWKEYS, and again from a later server KEXINIT until its NEWKEYS, an output with SERVICE_ACCEPT or any UA_*/GLOBAL_REQUEST/REQUEST_*/CH_* message is a violation, e.g. SR_AUTH -> SERVICE_ACCEPT before key exchange. The step that carries the server KEXINIT itself is not checked, since token order within one output is not visible to the pattern.",
+  "automaton": {
+    "initial": "pre",
+    "accept": ["bug"],
+    "transitions": [
+      {"from": "pre", "to": "pre", "out_lacks": ["SERVICE_ACCEPT", "UA_FAILURE", "UA_SUCCESS", "UA_BANNER", "GLOBAL_REQUEST", "REQUEST_SUCCESS", "REQUEST_FAILURE", "CH_OPEN_SUCCESS", "CH_OPEN_FAILURE", "CH_WINDOW_ADJUST", "CH_DATA", "CH_EXTENDED_DATA", "CH_EOF", "CH_CLOSE", "CH_REQUEST", "CH_SUCCESS", "CH_FAILURE", "NEWKEYS"]},
+      {"from": "pre", "to": "bug", "out_has": ["SERVICE_ACCEPT", "UA_FAILURE", "UA_SUCCESS", "UA_BANNER", "GLOBAL_REQUEST", "REQUEST_SUCCESS", "REQUEST_FAILURE", "CH_OPEN_SUCCESS", "CH_OPEN_FAILURE", "CH_WINDOW_ADJUST", "CH_DATA", "CH_EXTENDED_DATA", "CH_EOF", "CH_CLOSE", "CH_REQUEST", "CH_SUCCESS", "CH_FAILURE"], "out_lacks": ["NEWKEYS"]},
+      {"from": "pre", "to": "run", "out_has": ["NEWKEYS"]},
+      {"from": "run", "to": "run", "out_lacks": ["KEXINIT"]},
+      {"from": "run", "to": "rk", "out_has": ["KEXINIT"], "out_lacks": ["NEWKEYS"]},
+      {"from": "rk", "to": "rk", "out_lacks": ["SERVICE_ACCEPT", "UA_FAILURE", "UA_SUCCESS", "UA_BANNER", "GLOBAL_REQUEST", "REQUEST_SUCCESS", "REQUEST_FAILURE", "CH_OPEN_SUCCESS", "CH_OPEN_FAILURE", "CH_WINDOW_ADJUST", "CH_DATA", "CH_EXTENDED_DATA", "CH_EOF", "CH_CLOSE", "CH_REQUEST", "CH_SUCCESS", "CH_FAILURE", "NEWKEYS"]},
+      {"from": "rk", "to": "bug", "out_has": ["SERVICE_ACCEPT", "UA_FAILURE", "UA_SUCCESS", "UA_BANNER", "GLOBAL_REQUEST", "REQUEST_SUCCESS", "REQUEST_FAILURE", "CH_OPEN_SUCCESS", "CH_OPEN_FAILURE", "CH_WINDOW_ADJUST", "CH_DATA", "CH_EXTENDED_DATA", "CH_EOF", "CH_CLOSE", "CH_REQUEST", "CH_SUCCESS", "CH_FAILURE"], "out_lacks": ["NEWKEYS"]},
+      {"from": "rk", "to": "run", "out_has": ["NEWKEYS"]}
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "UA-BEFORE-SR-AUTH",
+  "title": "User authentication processed before ssh-userauth was requested",
+  "source": "RFC 4251 §1; RFC 4252 §1; RFC 4253 §10",
+  "quote": "The client sends a service request once a secure transport layer connection has been established. / The 'service name' for this protocol is \"ssh-userauth\". / If the server supports the service (and permits the client to use it), it MUST respond with the following: byte SSH_MSG_SERVICE_ACCEPT",
+  "level": "SHOULD",
+  "rationale": "After the initial KEX and before any SERVICE_ACCEPT, a UA_* input answered with UA_SUCCESS, UA_FAILURE or UA_BANNER means the authentication service runs without having been requested. The RFCs describe this ordering but state no explicit requirement on the server, hence SHOULD; UNIMPLEMENTED or a disconnect is conforming.",
+  "automaton": {
+    "initial": "init",
+    "accept": ["bug"],
+    "transitions": [
+      {"from": "init", "to": "ki", "in": "KEXINIT", "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "ki", "to": "kr", "in": "KEX30", "out_has": ["NEWKEYS"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "ki", "to": "kw", "in": "KEX30", "out_has": ["KEX31"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET", "NEWKEYS"]},
+      {"from": "kr", "to": "post", "in": "NEWKEYS", "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "kw", "to": "post", "in": "NEWKEYS", "out_has": ["NEWKEYS"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "post", "to": "post", "in_not": ["KEXINIT", "KEX30", "NEWKEYS", "DISCONNECT", "UNIMPLEMENTED", "SR_AUTH", "SR_CONN"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET", "KEXINIT", "SERVICE_ACCEPT", "UA_SUCCESS", "UA_FAILURE", "UA_BANNER"]},
+      {"from": "post", "to": "bug", "in": ["UA_PW_OK", "UA_PW_NOK", "UA_NONE"], "out_has": ["UA_SUCCESS", "UA_FAILURE", "UA_BANNER"]}
+    ]
+  }
+}

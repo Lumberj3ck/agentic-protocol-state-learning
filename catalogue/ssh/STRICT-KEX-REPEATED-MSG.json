@@ -1,0 +1,20 @@
+{
+  "id": "STRICT-KEX-REPEATED-MSG",
+  "title": "Strict KEX: repeated or out-of-sequence KEX message tolerated",
+  "source": "draft-miller-sshm-strict-kex-01 §3.2; OpenSSH PROTOCOL §1.9 (V_9_6_P1)",
+  "quote": "Finally, implementations MUST additionally ensure that any message permitted during KEX only be accepted the expected number of times. For example, for ECDH KEX, the SSH_MSG_KEX_ECDH_INIT will only be sent a single time by a well-behaved client. A server implementing this extension MUST only accept it once. / During initial KEX, terminate the connection if any unexpected or out-of-sequence packet is received.",
+  "level": "MUST",
+  "rationale": "During the initial KEX a second KEXINIT, a second KEX30, or a NEWKEYS before any KEX30 must be answered by DISCONNECT and/or close; any other output is a violation. Covers the 'second KEXINIT during the initial exchange' case; re-exchange after the initial KEX is covered by REKEY-KEXINIT-REPLY.",
+  "automaton": {
+    "initial": "init",
+    "accept": ["bug"],
+    "transitions": [
+      {"from": "init", "to": "k1", "in": "KEXINIT", "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "k1", "to": "k2", "in": "KEX30", "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "k1", "to": "k1", "in": ["CH_CLOSE", "CH_EOF", "CH_DATA", "CH_REQUEST_EXEC"], "out_has": ["NO_CHANNEL"]},
+      {"from": "k2", "to": "k2", "in": ["CH_CLOSE", "CH_EOF", "CH_DATA", "CH_REQUEST_EXEC"], "out_has": ["NO_CHANNEL"]},
+      {"from": "k1", "to": "bug", "in": ["KEXINIT", "NEWKEYS"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "k2", "to": "bug", "in": ["KEXINIT", "KEX30"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]}
+    ]
+  }
+}

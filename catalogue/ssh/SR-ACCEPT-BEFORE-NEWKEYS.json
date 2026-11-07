@@ -1,0 +1,19 @@
+{
+  "id": "SR-ACCEPT-BEFORE-NEWKEYS",
+  "title": "Service request accepted before the initial key exchange has completed",
+  "source": "RFC 4253 §10, §7.1; draft-miller-sshm-strict-kex-01 §3.2",
+  "quote": "After the key exchange, the client requests a service. / (but SSH_MSG_SERVICE_REQUEST and SSH_MSG_SERVICE_ACCEPT MUST NOT be sent)",
+  "level": "MUST",
+  "rationale": "Violation: SR_AUTH or SR_CONN answered with SERVICE_ACCEPT before the client has sent NEWKEYS following the server NEWKEYS, i.e. a service is started on a request that travelled in the clear. Before the server NEWKEYS this is a MUST NOT for the server (§7.1); between server NEWKEYS and client NEWKEYS the RFC only states the order descriptively, and it is MUST only because strict KEX is active (overlaps STRICT-KEX-NON-KEX-MSG).",
+  "automaton": {
+    "initial": "s0",
+    "accept": ["bug"],
+    "transitions": [
+      {"from": "s0", "to": "s0", "out_lacks": ["SERVICE_ACCEPT", "NEWKEYS"]},
+      {"from": "s0", "to": "s1", "in_not": ["NEWKEYS"], "out_has": ["NEWKEYS"], "out_lacks": ["SERVICE_ACCEPT"]},
+      {"from": "s1", "to": "s1", "in_not": ["NEWKEYS"], "out_lacks": ["SERVICE_ACCEPT"]},
+      {"from": "s0", "to": "bug", "in": ["SR_AUTH", "SR_CONN"], "out_has": ["SERVICE_ACCEPT"]},
+      {"from": "s1", "to": "bug", "in": ["SR_AUTH", "SR_CONN"], "out_has": ["SERVICE_ACCEPT"]}
+    ]
+  }
+}

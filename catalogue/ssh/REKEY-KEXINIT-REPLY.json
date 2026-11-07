@@ -1,0 +1,21 @@
+{
+  "id": "REKEY-KEXINIT-REPLY",
+  "title": "Client-initiated key re-exchange not answered with KEXINIT",
+  "source": "RFC 4253 §9",
+  "quote": "Key re-exchange is started by sending an SSH_MSG_KEXINIT packet when not already doing a key exchange (as described in Section 7.1). When this message is received, a party MUST respond with its own SSH_MSG_KEXINIT message, except when the received SSH_MSG_KEXINIT already was a reply.",
+  "level": "MUST",
+  "rationale": "After a completed initial KEX and any ordinary traffic (no KEX inputs, no DISCONNECT, no teardown, no server KEXINIT), a client KEXINIT whose output lacks KEXINIT is a violation; this includes closing the connection or answering with UNIMPLEMENTED.",
+  "automaton": {
+    "initial": "init",
+    "accept": ["bug"],
+    "transitions": [
+      {"from": "init", "to": "ki", "in": "KEXINIT", "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "ki", "to": "kr", "in": "KEX30", "out_has": ["NEWKEYS"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "ki", "to": "kw", "in": "KEX30", "out_has": ["KEX31"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET", "NEWKEYS"]},
+      {"from": "kr", "to": "post", "in": "NEWKEYS", "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "kw", "to": "post", "in": "NEWKEYS", "out_has": ["NEWKEYS"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "post", "to": "post", "in_not": ["KEXINIT", "KEX30", "NEWKEYS", "DISCONNECT", "UNIMPLEMENTED"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET", "KEXINIT"]},
+      {"from": "post", "to": "bug", "in": "KEXINIT", "out_lacks": ["KEXINIT", "NO_CONN"]}
+    ]
+  }
+}

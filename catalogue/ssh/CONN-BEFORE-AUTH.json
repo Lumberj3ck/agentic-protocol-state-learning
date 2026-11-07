@@ -1,0 +1,22 @@
+{
+  "id": "CONN-BEFORE-AUTH",
+  "title": "Connection-protocol request tolerated before authentication",
+  "source": "RFC 4252 §6; RFC 4251 §1; RFC 4254 §1",
+  "quote": "Message numbers of 80 and higher are reserved for protocols running after this authentication protocol, so receiving one of them before authentication is complete is an error, to which the server MUST respond by disconnecting, preferably with a proper disconnect message sent to ease troubleshooting. / A second service request is sent after user authentication is complete.",
+  "level": "MUST",
+  "rationale": "After the initial KEX and before any UA_SUCCESS, CH_OPEN (message 90) must be answered by DISCONNECT and/or close; NO_RESP, UNIMPLEMENTED or CH_OPEN_FAILURE are violations. SR_CONN answered with SERVICE_ACCEPT before UA_SUCCESS is also flagged; that part is derived from the layering (RFC 4251 §1, RFC 4254 §1) rather than an explicit MUST, so a rejection with UNIMPLEMENTED is not flagged.",
+  "automaton": {
+    "initial": "init",
+    "accept": ["bug"],
+    "transitions": [
+      {"from": "init", "to": "ki", "in": "KEXINIT", "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "ki", "to": "kr", "in": "KEX30", "out_has": ["NEWKEYS"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "ki", "to": "kw", "in": "KEX30", "out_has": ["KEX31"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET", "NEWKEYS"]},
+      {"from": "kr", "to": "pa", "in": "NEWKEYS", "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "kw", "to": "pa", "in": "NEWKEYS", "out_has": ["NEWKEYS"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "pa", "to": "pa", "in_not": ["KEXINIT", "KEX30", "NEWKEYS", "DISCONNECT", "UNIMPLEMENTED"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET", "KEXINIT", "UA_SUCCESS"]},
+      {"from": "pa", "to": "bug", "in": "CH_OPEN", "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
+      {"from": "pa", "to": "bug", "in": "SR_CONN", "out_has": ["SERVICE_ACCEPT"]}
+    ]
+  }
+}

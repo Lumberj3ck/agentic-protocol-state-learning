@@ -1,0 +1,18 @@
+{
+  "id": "SEND-AFTER-DISCONNECT",
+  "title": "Server keeps sending after its own DISCONNECT",
+  "source": "RFC 4253 §11.1",
+  "quote": "This message causes immediate termination of the connection. / The sender MUST NOT send or receive any data after this message, and the recipient MUST NOT accept any data after receiving this message.",
+  "level": "MUST",
+  "rationale": "Violation: an output contains DISCONNECT but the connection stays open, and a later output contains any server message. Messages after DISCONNECT in the same output cannot be told apart from messages before it (token order is not visible), and MSG<n> outputs are not enumerated.",
+  "automaton": {
+    "initial": "s0",
+    "accept": ["bug"],
+    "transitions": [
+      {"from": "s0", "to": "s0", "out_lacks": ["DISCONNECT"]},
+      {"from": "s0", "to": "d", "out_has": ["DISCONNECT"], "out_lacks": ["CLOSED", "NO_CONN"]},
+      {"from": "d", "to": "d", "out_lacks": ["DISCONNECT", "IGNORE", "UNIMPLEMENTED", "DEBUG", "SERVICE_ACCEPT", "EXT_INFO", "KEXINIT", "NEWKEYS", "KEX31", "UA_FAILURE", "UA_SUCCESS", "UA_BANNER", "GLOBAL_REQUEST", "REQUEST_SUCCESS", "REQUEST_FAILURE", "CH_OPEN_SUCCESS", "CH_OPEN_FAILURE", "CH_WINDOW_ADJUST", "CH_DATA", "CH_EXTENDED_DATA", "CH_EOF", "CH_CLOSE", "CH_REQUEST", "CH_SUCCESS", "CH_FAILURE"]},
+      {"from": "d", "to": "bug", "out_has": ["DISCONNECT", "IGNORE", "UNIMPLEMENTED", "DEBUG", "SERVICE_ACCEPT", "EXT_INFO", "KEXINIT", "NEWKEYS", "KEX31", "UA_FAILURE", "UA_SUCCESS", "UA_BANNER", "GLOBAL_REQUEST", "REQUEST_SUCCESS", "REQUEST_FAILURE", "CH_OPEN_SUCCESS", "CH_OPEN_FAILURE", "CH_WINDOW_ADJUST", "CH_DATA", "CH_EXTENDED_DATA", "CH_EOF", "CH_CLOSE", "CH_REQUEST", "CH_SUCCESS", "CH_FAILURE"]}
+    ]
+  }
+}

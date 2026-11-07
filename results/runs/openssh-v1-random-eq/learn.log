@@ -1,0 +1,56 @@
+-----------------------------------
+Learning Finished.
+Learning Rounds:  5
+Number of states: 8
+Time (in seconds)
+  Total                : 299.98
+  Learning algorithm   : 161.43
+  Conformance checking : 138.55
+Learning Algorithm
+ # Membership Queries  : 239
+ # MQ Saved by Caching : 0
+ # Steps               : 898
+Equivalence Query
+ # Membership Queries  : 391
+ # Steps               : 1901
+-----------------------------------
+Model saved to /home/lumberj3ck/code/probe/network-protocols/results/openssh/model.dot.
+{
+  "target": "openssh",
+  "implementation": "OpenSSH",
+  "source": "debian:bookworm-slim openssh-server",
+  "alphabet": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "SR_CONN",
+    "UA_PW_OK",
+    "UA_PW_NOK",
+    "UA_NONE",
+    "CH_OPEN",
+    "CH_CLOSE",
+    "CH_EOF",
+    "CH_DATA",
+    "CH_REQUEST_EXEC",
+    "IGNORE",
+    "DEBUG",
+    "UNIMPLEMENTED",
+    "DISCONNECT"
+  ],
+  "mapper_kw": {
+    "timeout": 0.4,
+    "quiet": 0.1
+  },
+  "instances": 3,
+  "states": 8,
+  "rounds": 5,
+  "mq": 239,
+  "mq_steps": 898,
+  "eq": 391,
+  "eq_steps": 1901,
+  "nondet_events": 0,
+  "seconds": 300.0,
+  "strict_kex_active": true
+}
+EXIT 0

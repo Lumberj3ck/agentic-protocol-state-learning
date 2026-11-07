@@ -1,0 +1,1 @@
+{"name": "asyncssh", "implementation": "AsyncSSH", "source": "pip asyncssh==2.17.0", "port": 22, "user": "test", "password": "test"}

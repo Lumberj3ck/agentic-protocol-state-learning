@@ -1,0 +1,1 @@
+{"name": "openssh-alpine-edge", "implementation": "OpenSSH", "source": "alpine:edge openssh-server (OpenSSH_10.6p2)", "port": 22, "user": "test", "password": "test"}

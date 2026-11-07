@@ -1,0 +1,22 @@
+[project]
+name = "smlearn"
+version = "0.1.0"
+description = "Agent-built mappers for differential state machine learning of network protocol implementations"
+readme = "README.md"
+authors = [
+    { name = "Alan Yuldashev", email = "alanuldashev@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "aalpy>=2.0.0",
+    "cryptography>=50.0.2",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.13,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]

@@ -1,0 +1,1424 @@
+{
+  "openssh": {
+    "GT1-late-window-IGNORE|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "IGNORE",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "DISCONNECT+CLOSED",
+        "NO_CONN",
+        "NO_CONN"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT1-late-window-DEBUG|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "DEBUG",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "DISCONNECT+CLOSED",
+        "NO_CONN",
+        "NO_CONN"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT1-late-window-UNIMPL|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "UNIMPLEMENTED",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "DISCONNECT+CLOSED",
+        "NO_CONN",
+        "NO_CONN"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT1-repeated-KEX30|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "DISCONNECT+CLOSED",
+        "NO_CONN",
+        "NO_CONN"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT2-IGNORE-in-kex|strict=True": {
+      "word": [
+        "KEXINIT",
+        "IGNORE",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "DISCONNECT+CLOSED",
+        "NO_CONN",
+        "NO_CONN",
+        "NO_CONN"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT2-IGNORE-first|strict=True": {
+      "word": [
+        "IGNORE",
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "DISCONNECT+CLOSED",
+        "NO_CONN",
+        "NO_CONN",
+        "NO_CONN"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT3-auth-without-SR|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "UA_PW_OK",
+        "CH_OPEN"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UNIMPLEMENTED",
+        "UNIMPLEMENTED"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT4-SR-after-auth|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "UA_SUCCESS+GLOBAL_REQUEST",
+        "UNIMPLEMENTED"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT4-UA-after-auth|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "UA_NONE"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "UA_SUCCESS+GLOBAL_REQUEST",
+        "UNIMPLEMENTED"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT4-CH_OPEN-before-auth|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "CH_OPEN"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "UNIMPLEMENTED"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT5-rekey-before-auth|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "UA_PW_OK"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "UNIMPLEMENTED",
+        "UNIMPLEMENTED",
+        "UNIMPLEMENTED",
+        "CLOSED"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT5-channel-during-rekey|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "KEXINIT",
+        "KEX30",
+        "CH_OPEN",
+        "CH_CLOSE",
+        "NEWKEYS"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "UA_SUCCESS+GLOBAL_REQUEST",
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "CH_OPEN_SUCCESS",
+        "NO_RESP",
+        "CH_CLOSE"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT1-late-window-IGNORE|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "IGNORE",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP",
+        "SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT1-late-window-DEBUG|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "DEBUG",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP",
+        "SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT1-late-window-UNIMPL|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "UNIMPLEMENTED",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP",
+        "SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT1-repeated-KEX30|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "UNIMPLEMENTED",
+        "NO_RESP",
+        "SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT2-IGNORE-in-kex|strict=False": {
+      "word": [
+        "KEXINIT",
+        "IGNORE",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT2-IGNORE-first|strict=False": {
+      "word": [
+        "IGNORE",
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT3-auth-without-SR|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "UA_PW_OK",
+        "CH_OPEN"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UNIMPLEMENTED",
+        "UNIMPLEMENTED"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT4-SR-after-auth|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "UA_SUCCESS+GLOBAL_REQUEST",
+        "UNIMPLEMENTED"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT4-UA-after-auth|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "UA_NONE"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "UA_SUCCESS+GLOBAL_REQUEST",
+        "UNIMPLEMENTED"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT4-CH_OPEN-before-auth|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "CH_OPEN"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "UNIMPLEMENTED"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT5-rekey-before-auth|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "UA_PW_OK"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "UNIMPLEMENTED",
+        "UNIMPLEMENTED",
+        "UNIMPLEMENTED",
+        "CLOSED"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT5-channel-during-rekey|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "KEXINIT",
+        "KEX30",
+        "CH_OPEN",
+        "CH_CLOSE",
+        "NEWKEYS"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "UA_SUCCESS+GLOBAL_REQUEST",
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "CH_OPEN_SUCCESS",
+        "NO_RESP",
+        "CH_CLOSE"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    }
+  },
+  "dropbear": {
+    "GT1-late-window-IGNORE|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "IGNORE",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP",
+        "SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT1-late-window-DEBUG|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "DEBUG",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP",
+        "SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT1-late-window-UNIMPL|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "UNIMPLEMENTED",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP",
+        "SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT1-repeated-KEX30|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "UNIMPLEMENTED",
+        "NO_RESP",
+        "SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT2-IGNORE-in-kex|strict=True": {
+      "word": [
+        "KEXINIT",
+        "IGNORE",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "CLOSED",
+        "NO_CONN",
+        "NO_CONN",
+        "NO_CONN"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT2-IGNORE-first|strict=True": {
+      "word": [
+        "IGNORE",
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "CLOSED",
+        "NO_CONN",
+        "NO_CONN",
+        "NO_CONN"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT3-auth-without-SR|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "UA_PW_OK",
+        "CH_OPEN"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT4-SR-after-auth|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "UA_SUCCESS",
+        "SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT4-UA-after-auth|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "UA_NONE"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "UA_SUCCESS",
+        "NO_RESP"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT4-CH_OPEN-before-auth|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "CH_OPEN"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "CLOSED"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT5-rekey-before-auth|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "UA_PW_OK"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UA_SUCCESS"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT5-channel-during-rekey|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "KEXINIT",
+        "KEX30",
+        "CH_OPEN",
+        "CH_CLOSE",
+        "NEWKEYS"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "UA_SUCCESS",
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "CLOSED",
+        "NO_CONN",
+        "NO_CONN"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT1-late-window-IGNORE|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "IGNORE",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP",
+        "SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT1-late-window-DEBUG|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "DEBUG",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP",
+        "SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT1-late-window-UNIMPL|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "UNIMPLEMENTED",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP",
+        "SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT1-repeated-KEX30|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "UNIMPLEMENTED",
+        "NO_RESP",
+        "SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT2-IGNORE-in-kex|strict=False": {
+      "word": [
+        "KEXINIT",
+        "IGNORE",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT2-IGNORE-first|strict=False": {
+      "word": [
+        "IGNORE",
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT3-auth-without-SR|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "UA_PW_OK",
+        "CH_OPEN"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT4-SR-after-auth|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "UA_SUCCESS",
+        "SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT4-UA-after-auth|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "UA_NONE"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "UA_SUCCESS",
+        "NO_RESP"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT4-CH_OPEN-before-auth|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "CH_OPEN"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "CLOSED"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT5-rekey-before-auth|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "UA_PW_OK"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UA_SUCCESS"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT5-channel-during-rekey|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "KEXINIT",
+        "KEX30",
+        "CH_OPEN",
+        "CH_CLOSE",
+        "NEWKEYS"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "UA_SUCCESS",
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "CLOSED",
+        "NO_CONN",
+        "NO_CONN"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    }
+  },
+  "asyncssh": {
+    "GT1-late-window-IGNORE|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "IGNORE",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "IGNORE+DISCONNECT+CLOSED",
+        "NO_CONN",
+        "NO_CONN"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT1-late-window-DEBUG|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "DEBUG",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "IGNORE+DISCONNECT+CLOSED",
+        "NO_CONN",
+        "NO_CONN"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT1-late-window-UNIMPL|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "UNIMPLEMENTED",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "IGNORE+DISCONNECT+CLOSED",
+        "NO_CONN",
+        "NO_CONN"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT1-repeated-KEX30|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "IGNORE+DISCONNECT+CLOSED",
+        "NO_CONN",
+        "NO_CONN"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT2-IGNORE-in-kex|strict=True": {
+      "word": [
+        "KEXINIT",
+        "IGNORE",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "DISCONNECT+CLOSED",
+        "NO_CONN",
+        "NO_CONN",
+        "NO_CONN"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT2-IGNORE-first|strict=True": {
+      "word": [
+        "IGNORE",
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "DISCONNECT+CLOSED",
+        "NO_CONN",
+        "NO_CONN",
+        "NO_CONN"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT3-auth-without-SR|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "UA_PW_OK",
+        "CH_OPEN"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "IGNORE+UA_SUCCESS",
+        "IGNORE+CH_OPEN_SUCCESS"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT4-SR-after-auth|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "IGNORE+SERVICE_ACCEPT",
+        "IGNORE+UA_SUCCESS",
+        "IGNORE+DISCONNECT+CLOSED"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT4-UA-after-auth|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "UA_NONE"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "IGNORE+SERVICE_ACCEPT",
+        "IGNORE+UA_SUCCESS",
+        "NO_RESP"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT4-CH_OPEN-before-auth|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "CH_OPEN"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "IGNORE+SERVICE_ACCEPT",
+        "IGNORE+DISCONNECT+CLOSED"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT5-rekey-before-auth|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "UA_PW_OK"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "IGNORE+SERVICE_ACCEPT",
+        "IGNORE+KEXINIT",
+        "IGNORE+KEX31+IGNORE+NEWKEYS",
+        "NO_RESP",
+        "IGNORE+UA_SUCCESS"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT5-channel-during-rekey|strict=True": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "KEXINIT",
+        "KEX30",
+        "CH_OPEN",
+        "CH_CLOSE",
+        "NEWKEYS"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "IGNORE+SERVICE_ACCEPT",
+        "IGNORE+UA_SUCCESS",
+        "IGNORE+KEXINIT",
+        "IGNORE+KEX31+IGNORE+NEWKEYS",
+        "IGNORE+CH_OPEN_SUCCESS",
+        "IGNORE+CH_CLOSE",
+        "NO_RESP"
+      ],
+      "deterministic": true,
+      "strict_kex_active": true
+    },
+    "GT1-late-window-IGNORE|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "IGNORE",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP",
+        "IGNORE+SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT1-late-window-DEBUG|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "DEBUG",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP",
+        "IGNORE+SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT1-late-window-UNIMPL|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "UNIMPLEMENTED",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP",
+        "IGNORE+SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT1-repeated-KEX30|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "IGNORE+DISCONNECT+CLOSED",
+        "NO_CONN",
+        "NO_CONN"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT2-IGNORE-in-kex|strict=False": {
+      "word": [
+        "KEXINIT",
+        "IGNORE",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "IGNORE+SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT2-IGNORE-first|strict=False": {
+      "word": [
+        "IGNORE",
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "IGNORE+SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT3-auth-without-SR|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "UA_PW_OK",
+        "CH_OPEN"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "IGNORE+UA_SUCCESS",
+        "IGNORE+CH_OPEN_SUCCESS"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT4-SR-after-auth|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "SR_AUTH"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "IGNORE+SERVICE_ACCEPT",
+        "IGNORE+UA_SUCCESS",
+        "IGNORE+DISCONNECT+CLOSED"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT4-UA-after-auth|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "UA_NONE"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "IGNORE+SERVICE_ACCEPT",
+        "IGNORE+UA_SUCCESS",
+        "NO_RESP"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT4-CH_OPEN-before-auth|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "CH_OPEN"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "IGNORE+SERVICE_ACCEPT",
+        "IGNORE+DISCONNECT+CLOSED"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT5-rekey-before-auth|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "UA_PW_OK"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "IGNORE+SERVICE_ACCEPT",
+        "IGNORE+KEXINIT",
+        "IGNORE+KEX31+IGNORE+NEWKEYS",
+        "NO_RESP",
+        "IGNORE+UA_SUCCESS"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    },
+    "GT5-channel-during-rekey|strict=False": {
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "KEXINIT",
+        "KEX30",
+        "CH_OPEN",
+        "CH_CLOSE",
+        "NEWKEYS"
+      ],
+      "out": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "IGNORE+SERVICE_ACCEPT",
+        "IGNORE+UA_SUCCESS",
+        "IGNORE+KEXINIT",
+        "IGNORE+KEX31+IGNORE+NEWKEYS",
+        "IGNORE+CH_OPEN_SUCCESS",
+        "IGNORE+CH_CLOSE",
+        "NO_RESP"
+      ],
+      "deterministic": true,
+      "strict_kex_active": false
+    }
+  }
+}
