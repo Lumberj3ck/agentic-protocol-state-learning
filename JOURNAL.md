@@ -62,3 +62,8 @@
   Mapper abstraction quirk (published design, not patched): the mapper allows one channel; any later CH_OPEN returns the mapper-made symbol CH_MAX WITHOUT sending or checking liveness, even if the connection is already closed.
   Effect: extra states (e.g. "connection dead but CH_OPEN -> CH_MAX") inflate state counts and mask a server's answer to a 2nd CH_OPEN.
   It cannot create a cross-server disagreement: the diff reports first divergences, and equal prefixes leave the mapper in the same channel state. Decision: document as a limitation instead of patching mid-run (would force re-learning all B models).
+- 14:00 Replay of all 13 Dropbear-vs-Go A-diff sequences on all THREE servers, 5 reps (results/replay/A_dropbear_vs_gossh_replay.json): all deterministic; all disagree. Styles:
+  Go closes TCP (no DISCONNECT, no UNIMPL) on every unexpected message; OpenSSH answers UNIMPL and ignores; Dropbear is permissive.
+  NEW: OpenSSH refuses client rekey BEFORE auth (KEXINIT after first NEWKEYS -> UNIMPL, also after SR_AUTH), accepts it after auth; Dropbear and Go accept rekey pre-auth.
+  This is SPIN 2017's OpenSSH 6.9p1 "Rekey Fail Before Auth" finding, still present in OpenSSH 10.0. RFC 4253 §9: on KEXINIT a party "MUST respond with its own SSH_MSG_KEXINIT". Same mapper KEXINIT bytes are accepted after auth (internal control).
+  UA after success: Dropbear NO_RESP (RFC 4252 §5 SHOULD silently ignore), OpenSSH UNIMPL, Go closes. Duplicate SR_AUTH: OpenSSH+Dropbear SR_ACCEPT, Go closes. SR_AUTH after auth: OpenSSH UNIMPL, Dropbear SR_ACCEPT, Go closes.
