@@ -55,7 +55,7 @@ State lives in files: [`TASKS.md`](TASKS.md) (prioritized queue),
 - **RFC 4253 §7.1 MUST NOT violation in wolfSSH 1.6.0** ([`findings/CANDIDATE-003`](findings/CANDIDATE-003-wolfssh-non-kex-during-rekey.md)):
   during a key re-exchange the server answers a user-auth request with USERAUTH_FAILURE before its NEWKEYS;
   found by the RFC catalogue on the learned model, confirmed by replay, and traced in source by a Codex agent
-  (the dispatcher's keying-state gate only covers messages 1–49). Conformance verdict only; severity not assessed.
+  (the dispatcher's keying-state gate only covers messages 1–49). **Still present on wolfSSH master** (`d043c69`); OpenSSH and MINA defer such replies, Go and russh disconnect. The related "auth without service request" part was fixed upstream on 2026-10-12 (unreleased) — an independent rediscovery. Conformance verdict only; severity not assessed.
 - **Every catalogue hit is replayed on the real target** ([`src/smlearn/verify.py`](src/smlearn/verify.py)): of the first 8 hits, 7 were confirmed and 1 refuted —
   an apparent channel open without authentication in Go x/crypto/ssh came from two states the learner had merged; the real server closes the connection.
 - **Low-severity deviation:** AsyncSSH 2.17.0 authenticates and opens a channel without a prior `ssh-userauth` service request (Dropbear, Paramiko and wolfSSH do the same; Dropbear documents it as intended. No RFC sentence makes this a MUST or SHOULD: the catalogue's `UA-BEFORE-SR-AUTH` level is our modelling choice).

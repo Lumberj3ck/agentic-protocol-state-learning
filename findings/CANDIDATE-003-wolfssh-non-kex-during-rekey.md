@@ -1,5 +1,26 @@
 # CANDIDATE-003: wolfSSH sends USERAUTH_FAILURE during rekey
 
+## Update: still present on wolfSSH master (checked 2026-11-07)
+
+Built `targets/wolfssh-master` from master commit `d043c6947787a428c288e4724be092e95dcf2554` (same server program and wolfSSL 5.9.4) and replayed side by side with 1.6.0
+([`results/seqnr/wolfssh-release-vs-master.txt`](../results/seqnr/wolfssh-release-vs-master.txt), all deterministic over 3 runs).
+
+| Word (after the initial key exchange) | 1.6.0 | master `d043c69` |
+|---|---|---|
+| `UA_NONE` with no SERVICE_REQUEST | UA_FAILURE | DISCONNECT (fixed upstream in `91cb9ad`, 2026-10-12, issue #1287, unreleased) |
+| `SR_AUTH KEXINIT UA_PW_NOK` | KEXINIT, UA_FAILURE | KEXINIT, UA_FAILURE |
+| `SR_AUTH KEXINIT UA_PW_OK` | KEXINIT, **UA_SUCCESS** | KEXINIT, **UA_SUCCESS** |
+| `SR_AUTH UA_PW_OK KEXINIT CH_OPEN` | KEXINIT, **CH_OPEN_SUCCESS** | KEXINIT, **CH_OPEN_SUCCESS** |
+
+So the "authentication without a service request" part is an independent rediscovery of a bug wolfSSH fixed on master 26 days earlier,
+while the RFC 4253 §7.1 part is still present on master and is broader than first measured:
+between its rekey KEXINIT and its NEWKEYS, wolfSSH completes user authentication and opens channels.
+The master dispatcher (`IsMessageAllowedServer`) now rejects SERVICE_REQUEST while the peer is keying, but still admits messages ≥ 50 after the service request.
+
+Same word `... UA_PW_OK KEXINIT CH_OPEN KEX30 NEWKEYS` on other servers:
+OpenSSH and Apache MINA SSHD hold the reply and send `KEX31+NEWKEYS+CH_OPEN_SUCCESS` after their NEWKEYS (compliant);
+Go x/crypto/ssh and russh close the connection; only wolfSSH answers before its NEWKEYS.
+
 ## Observation
 
 On 2026-11-07, wolfSSH 1.6.0 reproduced both catalogue observations in `results/catalogue/verified-5.json`.

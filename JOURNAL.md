@@ -120,3 +120,7 @@ Every result, decision and exchange with the team, with links to the outputs.
 - More v3 models: openssh (9.2p1) 22 states, mina-sshd 21, russh 14. Verify (`results/catalogue/verified-batch2.json`): 6/6 CONFIRMED.
   OpenSSH: CH_CLOSE deferred until the client NEWKEYS during rekey (known, NDSS 2023), CONN-BEFORE-AUTH, REKEY-KEXINIT-REPLY (known). russh: CH_OPEN before auth silently ignored. MINA: CH_OPEN before auth → UNIMPLEMENTED.
   **MINA SSHD 2.20.1**: after auth, SERVICE_REQUEST(ssh-connection) is accepted and the open channel stops responding (CH_CLOSE unanswered, exec → CH_FAILURE; a new channel works). Replayed with controls; CANDIDATE-004, Codex conformance trace spawned (`logs/agents/codex-conformance-mina.*`).
+- Team asked whether the wolfSSH finding is current. Built `targets/wolfssh-master` (master `d043c69`) and replayed side by side (`results/seqnr/wolfssh-release-vs-master.txt`):
+  auth-without-service-request is **fixed on master** (`91cb9ad`, 2026-10-12, issue #1287, unreleased) — our pipeline independently rediscovered it;
+  the RFC 4253 §7.1 violation is **still present on master** and broader: mid-rekey wolfSSH answers UA_SUCCESS and CH_OPEN_SUCCESS before its NEWKEYS.
+  Same word on others: OpenSSH and MINA defer the reply until after NEWKEYS, Go and russh disconnect.

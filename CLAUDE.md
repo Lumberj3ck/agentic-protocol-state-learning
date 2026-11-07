@@ -19,3 +19,5 @@ Add an entry when something surprises you; keep entries short, with the non-obvi
   The repository is public: candidate vulnerabilities stay out of commits until the maintainers have been told.
 - Push over HTTPS with gh's token: `git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push https://github.com/Lumberj3ck/agentic-protocol-state-learning.git main`.
   The `origin` SSH remote needs a passphrase-protected key that non-interactive shells cannot unlock.
+- Write agent prompts with a quoted heredoc (`<<'EOF'`): with `<<EOF`, backticked example commands in the prompt are executed by the shell while the file is written
+  (this ran a replay and spliced its output into `logs/agents/codex-conformance-wolfssh.prompt.md`, and blanked a command in the MINA prompt).

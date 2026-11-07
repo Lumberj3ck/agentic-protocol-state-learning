@@ -1,0 +1,86 @@
+
+wolfssh: KEXINIT KEX30 NEWKEYS SR_AUTH UA_PW_OK
+  deterministic over 3: True
+  SR_AUTH          -> SERVICE_ACCEPT
+  UA_PW_OK         -> UA_SUCCESS
+
+wolfssh: KEXINIT KEX30 NEWKEYS UA_NONE
+  deterministic over 3: True
+  UA_NONE          -> UA_FAILURE
+
+wolfssh: KEXINIT KEX30 NEWKEYS KEXINIT UA_NONE
+  deterministic over 3: True
+  KEXINIT          -> KEXINIT
+  UA_NONE          -> UA_FAILURE
+
+wolfssh: KEXINIT KEX30 NEWKEYS SR_AUTH KEXINIT UA_PW_NOK
+  deterministic over 3: True
+  SR_AUTH          -> SERVICE_ACCEPT
+  KEXINIT          -> KEXINIT
+  UA_PW_NOK        -> UA_FAILURE
+
+wolfssh: KEXINIT KEX30 NEWKEYS SR_AUTH KEXINIT UA_PW_OK
+  deterministic over 3: True
+  SR_AUTH          -> SERVICE_ACCEPT
+  KEXINIT          -> KEXINIT
+  UA_PW_OK         -> UA_SUCCESS
+
+wolfssh: KEXINIT KEX30 NEWKEYS SR_AUTH UA_PW_OK KEXINIT CH_OPEN
+  deterministic over 3: True
+  SR_AUTH          -> SERVICE_ACCEPT
+  UA_PW_OK         -> UA_SUCCESS
+  KEXINIT          -> KEXINIT
+  CH_OPEN          -> CH_OPEN_SUCCESS
+
+wolfssh-master: KEXINIT KEX30 NEWKEYS SR_AUTH UA_PW_OK
+  deterministic over 3: True
+  SR_AUTH          -> SERVICE_ACCEPT
+  UA_PW_OK         -> UA_SUCCESS
+
+wolfssh-master: KEXINIT KEX30 NEWKEYS UA_NONE
+  deterministic over 3: True
+  UA_NONE          -> DISCONNECT+CLOSED
+
+wolfssh-master: KEXINIT KEX30 NEWKEYS KEXINIT UA_NONE
+  deterministic over 3: True
+  KEXINIT          -> KEXINIT
+  UA_NONE          -> DISCONNECT+CLOSED
+
+wolfssh-master: KEXINIT KEX30 NEWKEYS SR_AUTH KEXINIT UA_PW_NOK
+  deterministic over 3: True
+  SR_AUTH          -> SERVICE_ACCEPT
+  KEXINIT          -> KEXINIT
+  UA_PW_NOK        -> UA_FAILURE
+
+wolfssh-master: KEXINIT KEX30 NEWKEYS SR_AUTH KEXINIT UA_PW_OK
+  deterministic over 3: True
+  SR_AUTH          -> SERVICE_ACCEPT
+  KEXINIT          -> KEXINIT
+  UA_PW_OK         -> UA_SUCCESS
+
+wolfssh-master: KEXINIT KEX30 NEWKEYS SR_AUTH UA_PW_OK KEXINIT CH_OPEN
+  deterministic over 3: True
+  SR_AUTH          -> SERVICE_ACCEPT
+  UA_PW_OK         -> UA_SUCCESS
+  KEXINIT          -> KEXINIT
+  CH_OPEN          -> CH_OPEN_SUCCESS
+  NEWKEYS          -> NO_RESP
+  KEXINIT          -> KEXINIT
+  CH_OPEN          -> NO_RESP
+  KEX30            -> KEX31+NEWKEYS+CH_OPEN_SUCCESS
+  NEWKEYS          -> NO_RESP
+  NEWKEYS          -> NO_RESP
+  KEXINIT          -> KEXINIT
+  CH_OPEN          -> CLOSED
+  KEX30            -> NO_CONN
+  NEWKEYS          -> NO_CONN
+  NEWKEYS          -> NO_RESP
+  KEXINIT          -> KEXINIT
+  CH_OPEN          -> CLOSED
+  KEX30            -> NO_CONN
+  NEWKEYS          -> NO_CONN
+  NEWKEYS          -> NO_RESP
+  KEXINIT          -> KEXINIT
+  CH_OPEN          -> NO_RESP
+  KEX30            -> KEX31+NEWKEYS+CH_OPEN_SUCCESS
+  NEWKEYS          -> NO_RESP

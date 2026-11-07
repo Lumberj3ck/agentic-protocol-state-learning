@@ -1,0 +1,1 @@
+{"name": "wolfssh-master", "implementation": "wolfSSH", "source": "wolfSSH master at commit d043c6947787a428c288e4724be092e95dcf2554 (2026-11-07), wolfSSL 5.9.4; built to check whether CANDIDATE-003 is still present", "port": 22, "user": "test", "password": "test"}
