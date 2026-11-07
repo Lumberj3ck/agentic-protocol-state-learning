@@ -7,6 +7,7 @@ and the time of the TCP close are logged, plus the server container's log.
   .venv-tm/bin/python scripts_v2/third_probe.py --reps 3 --out results/v2/A/third_probe.json"""
 import json
 import os
+import select
 import socket
 import subprocess
 import sys
@@ -52,7 +53,10 @@ def build(sym):
 def collect(pk, sock, t0, until):
     got = []
     while time.time() < until:
-        sock.settimeout(max(0.01, until - time.time()))
+        # Packetizer.read_message retries on socket timeout, so wait for readability (data or EOF) first.
+        r, _, _ = select.select([sock], [], [], max(0.0, until - time.time()))
+        if not r:
+            break
         try:
             ptype, _ = pk.read_message()
             got.append({"t": round(time.time() - t0, 3), "type": ptype})

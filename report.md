@@ -222,6 +222,14 @@ V2A_PLACEHOLDER
 
 V2B1_PLACEHOLDER
 
+## v2-B2: version sweep (UNREVIEWED)
+
+- 12 OpenSSH versions (7.5p1-9.9p2, Alpine packages, plus v1's 10.0p1) and 6 Dropbear versions (2017.75-2024.86, plus v1's 2020.81, 2022.83, 2025.88), each pinned by Alpine release, package version and base digest (`suts/sweep/*/Dockerfile`, `VERSION.md`); class representatives replayed 3x per version, all deterministic (`results/v2/B2/version_matrix.md`).
+- OpenSSH: D1-D8 unchanged from 7.5p1 to 10.0p1. D9 (duplicate KEXINIT in the initial KEX) changed between 8.8p1 (connection closed) and 9.0p1 (UNIMPLEMENTED).
+- Dropbear: every class unchanged from 2017.75 to 2025.88; 2022.82 is the first version that sends EXT_INFO, which shifts the prefix but not the class behaviour.
+- Not available as aarch64 packages: OpenSSH 6.9p1 and Dropbear 2016 (Alpine <= 3.5 has no aarch64 image); not attempted.
+- Not yet skeptic-reviewed.
+
 ## v2: what we cannot conclude (additions)
 
 - No learned models for the new implementations or for the teammate harness in this interim: comparisons are on replayed concrete sequences (D1-D9 representatives and the 39 v1 divergence points), so states not reached by those sequences are not compared.

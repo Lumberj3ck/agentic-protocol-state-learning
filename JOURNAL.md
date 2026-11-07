@@ -116,3 +116,7 @@
   D1 (auth without service request) accepted by Paramiko, AsyncSSH, libssh (and Dropbear); rejected by Erlang (DISCONNECT), MINA and OpenSSH (UNIMPL), Go (close).
 - 16:16 Queued alphabet-A learning for all 18 sweep versions in parallel (harness/v2_sweep_learn.sh; each starts after its replay; models results/models/b2_*_A.dot).
 - 16:18 B1 class matrix (results/v2/B1/class_matrix.md, 9 implementations incl. wolfSSH) agrees with the lead's. New candidates sent to the skeptic: libssh accepts SERVICE_REQUEST ssh-connection before auth (SR_ACCEPT; checking whether any channel works unauthenticated); wolfSSH sends an unsolicited SERVICE_ACCEPT with UA_SUCCESS when auth arrives without a service request.
+- 16:20 B2 sweep: all 18 versions built and replayed 3x, all deterministic (results/v2/B2/version_matrix.md).
+  OpenSSH 7.5p1 -> 10.0p1: D1-D8 identical in every version; D9 representative (duplicate KEXINIT) changed between 8.8p1 (NO_CONN) and 9.0p1 (UNIMPL).
+  Dropbear 2017.75 -> 2025.88: identical at every divergence point; the table's "changed" marks at 2022.82 come only from the prefix (EXT_INFO first sent in 2022.82), not from the class behaviour.
+  Not yet skeptic-reviewed (the reviewer agent was stopped by safeguards at 16:18).

@@ -1,0 +1,664 @@
+{
+ "started": "2026-11-07T15:14:05.825358+00:00",
+ "reps": 3,
+ "targets": {
+  "dropbear-2017.75": {
+   "mapper_port": 8531,
+   "container": "psm-b2-dropbear-2017.75"
+  }
+ },
+ "sequences": [
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "CH_OPEN"
+   ],
+   "results": {
+    "dropbear-2017.75": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 16.35,
+     "server_log": [
+      "[23] Nov 07 15:14:05 Child connection from 172.17.0.1:55282",
+      "[23] Nov 07 15:14:05 Exit before auth: Exited normally",
+      "[24] Nov 07 15:14:05 Child connection from 172.17.0.1:55294",
+      "[24] Nov 07 15:14:09 Pubkey auth succeeded for 'tester' with key md5 bb:8b:ec:ff:c6:c9:0c:fb:8b:60:12:74:7c:16:73:41 from 172.17.0.1:55294",
+      "[24] Nov 07 15:14:11 Exit (tester): Exited normally",
+      "[25] Nov 07 15:14:11 Child connection from 172.17.0.1:40460",
+      "[25] Nov 07 15:14:14 Pubkey auth succeeded for 'tester' with key md5 bb:8b:ec:ff:c6:c9:0c:fb:8b:60:12:74:7c:16:73:41 from 172.17.0.1:40460",
+      "[25] Nov 07 15:14:16 Exit (tester): Exited normally",
+      "[26] Nov 07 15:14:16 Child connection from 172.17.0.1:44240",
+      "[26] Nov 07 15:14:20 Pubkey auth succeeded for 'tester' with key md5 bb:8b:ec:ff:c6:c9:0c:fb:8b:60:12:74:7c:16:73:41 from 172.17.0.1:44240"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "UA_PK_OK"
+   ],
+   "results": {
+    "dropbear-2017.75": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "UA_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "UA_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "UA_SUCCESS"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UA_SUCCESS"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 10.97,
+     "server_log": [
+      "[26] Nov 07 15:14:22 Exit (tester): Exited normally",
+      "[27] Nov 07 15:14:22 Child connection from 172.17.0.1:44252",
+      "[27] Nov 07 15:14:25 Pubkey auth succeeded for 'tester' with key md5 bb:8b:ec:ff:c6:c9:0c:fb:8b:60:12:74:7c:16:73:41 from 172.17.0.1:44252",
+      "[27] Nov 07 15:14:26 Exit (tester): Exited normally",
+      "[28] Nov 07 15:14:26 Child connection from 172.17.0.1:44256",
+      "[28] Nov 07 15:14:28 Pubkey auth succeeded for 'tester' with key md5 bb:8b:ec:ff:c6:c9:0c:fb:8b:60:12:74:7c:16:73:41 from 172.17.0.1:44256",
+      "[28] Nov 07 15:14:29 Exit (tester): Exited normally",
+      "[29] Nov 07 15:14:29 Child connection from 172.17.0.1:51068",
+      "[29] Nov 07 15:14:32 Pubkey auth succeeded for 'tester' with key md5 bb:8b:ec:ff:c6:c9:0c:fb:8b:60:12:74:7c:16:73:41 from 172.17.0.1:51068"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "CH_OPEN"
+   ],
+   "results": {
+    "dropbear-2017.75": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "NO_CONN"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 11.35,
+     "server_log": [
+      "[29] Nov 07 15:14:33 Exit (tester): Exited normally",
+      "[30] Nov 07 15:14:33 Child connection from 172.17.0.1:51082",
+      "[30] Nov 07 15:14:36 Exit before auth: Received message 90 before userauth",
+      "[31] Nov 07 15:14:36 Child connection from 172.17.0.1:52162",
+      "[31] Nov 07 15:14:40 Exit before auth: Received message 90 before userauth",
+      "[32] Nov 07 15:14:40 Child connection from 172.17.0.1:52164",
+      "[32] Nov 07 15:14:44 Exit before auth: Received message 90 before userauth"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "KEXINIT"
+   ],
+   "results": {
+    "dropbear-2017.75": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "KEXINIT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "KEXINIT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "KEXINIT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "KEXINIT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 12.88,
+     "server_log": [
+      "[33] Nov 07 15:14:44 Child connection from 172.17.0.1:52168",
+      "[33] Nov 07 15:14:48 Exit before auth: Exited normally",
+      "[34] Nov 07 15:14:48 Child connection from 172.17.0.1:35024",
+      "[34] Nov 07 15:14:53 Exit before auth: Exited normally",
+      "[35] Nov 07 15:14:53 Child connection from 172.17.0.1:35040"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "UA_PK_OK"
+   ],
+   "results": {
+    "dropbear-2017.75": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "NO_RESP"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "NO_RESP"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 16.38,
+     "server_log": [
+      "[35] Nov 07 15:14:57 Exit before auth: Exited normally",
+      "[36] Nov 07 15:14:57 Child connection from 172.17.0.1:50176",
+      "[36] Nov 07 15:15:01 Pubkey auth succeeded for 'tester' with key md5 bb:8b:ec:ff:c6:c9:0c:fb:8b:60:12:74:7c:16:73:41 from 172.17.0.1:50176",
+      "[36] Nov 07 15:15:03 Exit (tester): Exited normally",
+      "[37] Nov 07 15:15:03 Child connection from 172.17.0.1:50188",
+      "[37] Nov 07 15:15:06 Pubkey auth succeeded for 'tester' with key md5 bb:8b:ec:ff:c6:c9:0c:fb:8b:60:12:74:7c:16:73:41 from 172.17.0.1:50188",
+      "[37] Nov 07 15:15:08 Exit (tester): Exited normally",
+      "[38] Nov 07 15:15:08 Child connection from 172.17.0.1:50450",
+      "[38] Nov 07 15:15:12 Pubkey auth succeeded for 'tester' with key md5 bb:8b:ec:ff:c6:c9:0c:fb:8b:60:12:74:7c:16:73:41 from 172.17.0.1:50450"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "SR_AUTH"
+   ],
+   "results": {
+    "dropbear-2017.75": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "SR_ACCEPT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "SR_ACCEPT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "SR_ACCEPT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "SR_ACCEPT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 15.82,
+     "server_log": [
+      "[38] Nov 07 15:15:13 Exit (tester): Exited normally",
+      "[39] Nov 07 15:15:13 Child connection from 172.17.0.1:50460",
+      "[39] Nov 07 15:15:17 Pubkey auth succeeded for 'tester' with key md5 bb:8b:ec:ff:c6:c9:0c:fb:8b:60:12:74:7c:16:73:41 from 172.17.0.1:50460",
+      "[39] Nov 07 15:15:19 Exit (tester): Exited normally",
+      "[40] Nov 07 15:15:19 Child connection from 172.17.0.1:38456",
+      "[40] Nov 07 15:15:22 Pubkey auth succeeded for 'tester' with key md5 bb:8b:ec:ff:c6:c9:0c:fb:8b:60:12:74:7c:16:73:41 from 172.17.0.1:38456",
+      "[40] Nov 07 15:15:24 Exit (tester): Exited normally",
+      "[41] Nov 07 15:15:24 Child connection from 172.17.0.1:38470",
+      "[41] Nov 07 15:15:27 Pubkey auth succeeded for 'tester' with key md5 bb:8b:ec:ff:c6:c9:0c:fb:8b:60:12:74:7c:16:73:41 from 172.17.0.1:38470"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "SR_CONN"
+   ],
+   "results": {
+    "dropbear-2017.75": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "NO_CONN"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 11.06,
+     "server_log": [
+      "[41] Nov 07 15:15:29 Exit (tester): Exited normally",
+      "[42] Nov 07 15:15:29 Child connection from 172.17.0.1:43004",
+      "[42] Nov 07 15:15:33 Exit before auth: Request for connection before auth",
+      "[43] Nov 07 15:15:33 Child connection from 172.17.0.1:43012",
+      "[43] Nov 07 15:15:36 Exit before auth: Request for connection before auth",
+      "[44] Nov 07 15:15:37 Child connection from 172.17.0.1:43450",
+      "[44] Nov 07 15:15:40 Exit before auth: Request for connection before auth"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "KEX30"
+   ],
+   "results": {
+    "dropbear-2017.75": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "UNIMPL"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "UNIMPL"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "UNIMPL"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "UNIMPL"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 8.09,
+     "server_log": [
+      "[45] Nov 07 15:15:40 Child connection from 172.17.0.1:43462",
+      "[45] Nov 07 15:15:43 Exit before auth: Exited normally",
+      "[46] Nov 07 15:15:43 Child connection from 172.17.0.1:43468",
+      "[46] Nov 07 15:15:46 Exit before auth: Exited normally",
+      "[47] Nov 07 15:15:46 Child connection from 172.17.0.1:43482"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEX30"
+   ],
+   "results": {
+    "dropbear-2017.75": {
+     "observations": [
+      [
+       "KEXINIT+UNIMPL"
+      ],
+      [
+       "KEXINIT+UNIMPL"
+      ],
+      [
+       "KEXINIT+UNIMPL"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT+UNIMPL"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 3.34,
+     "server_log": [
+      "[47] Nov 07 15:15:48 Exit before auth: Exited normally",
+      "[48] Nov 07 15:15:48 Child connection from 172.17.0.1:47918",
+      "[48] Nov 07 15:15:50 Exit before auth: Exited normally",
+      "[49] Nov 07 15:15:50 Child connection from 172.17.0.1:47926",
+      "[49] Nov 07 15:15:51 Exit before auth: Exited normally",
+      "[50] Nov 07 15:15:51 Child connection from 172.17.0.1:47940"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEXINIT"
+   ],
+   "results": {
+    "dropbear-2017.75": {
+     "observations": [
+      [
+       "KEXINIT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "NO_CONN"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "NO_CONN"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 4.08,
+     "server_log": [
+      "[50] Nov 07 15:15:52 Exit before auth: Exited normally",
+      "[51] Nov 07 15:15:52 Child connection from 172.17.0.1:47944",
+      "[51] Nov 07 15:15:53 Exit before auth: Unexpected packet type 20, expected 30",
+      "[52] Nov 07 15:15:53 Child connection from 172.17.0.1:47956",
+      "[52] Nov 07 15:15:54 Exit before auth: Unexpected packet type 20, expected 30",
+      "[53] Nov 07 15:15:55 Child connection from 172.17.0.1:47966",
+      "[53] Nov 07 15:15:56 Exit before auth: Unexpected packet type 20, expected 30"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "KEXINIT",
+    "SR_AUTH"
+   ],
+   "results": {
+    "dropbear-2017.75": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "KEXINIT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "KEXINIT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "KEXINIT",
+       "NO_CONN"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "KEXINIT",
+        "NO_CONN"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 16.72,
+     "server_log": [
+      "[54] Nov 07 15:15:56 Child connection from 172.17.0.1:37934",
+      "[54] Nov 07 15:15:59 Pubkey auth succeeded for 'tester' with key md5 bb:8b:ec:ff:c6:c9:0c:fb:8b:60:12:74:7c:16:73:41 from 172.17.0.1:37934",
+      "[54] Nov 07 15:16:01 Exit (tester): Unexpected packet type 5, expected 30",
+      "[55] Nov 07 15:16:01 Child connection from 172.17.0.1:37950",
+      "[55] Nov 07 15:16:05 Pubkey auth succeeded for 'tester' with key md5 bb:8b:ec:ff:c6:c9:0c:fb:8b:60:12:74:7c:16:73:41 from 172.17.0.1:37950",
+      "[55] Nov 07 15:16:07 Exit (tester): Unexpected packet type 5, expected 30",
+      "[56] Nov 07 15:16:07 Child connection from 172.17.0.1:44084",
+      "[56] Nov 07 15:16:11 Pubkey auth succeeded for 'tester' with key md5 bb:8b:ec:ff:c6:c9:0c:fb:8b:60:12:74:7c:16:73:41 from 172.17.0.1:44084",
+      "[56] Nov 07 15:16:12 Exit (tester): Unexpected packet type 5, expected 30"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  }
+ ]
+}
