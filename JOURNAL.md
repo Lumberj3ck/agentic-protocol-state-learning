@@ -114,3 +114,4 @@
   Paramiko D2 (pre-auth CH_OPEN -> CH_OPEN_FAILURE, no disconnect; RFC 4252 §6), libssh D2 (pre-auth CH_OPEN -> NO_RESP), Erlang/OTP D3 (pre-auth rekey -> DISCONNECT; RFC 4253 §9), libssh D3 (pre-auth rekey -> NO_RESP).
   libssh sends EXT_INFO one step later than the others (after the client's NEWKEYS), so its prefix differs and its NO_RESP cells may be timing; must be checked.
   D1 (auth without service request) accepted by Paramiko, AsyncSSH, libssh (and Dropbear); rejected by Erlang (DISCONNECT), MINA and OpenSSH (UNIMPL), Go (close).
+- 16:16 Queued alphabet-A learning for all 18 sweep versions in parallel (harness/v2_sweep_learn.sh; each starts after its replay; models results/models/b2_*_A.dot).
