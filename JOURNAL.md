@@ -94,3 +94,7 @@ Every result, decision and exchange with the team, with links to the outputs.
   - silently ignore, keep counter: russh;
   - **no response to anything afterwards, connection left open: libssh 0.12.2** (candidate; Codex investigating, `logs/agents/codex-investigate-stray-newkeys.*`).
 - Learning `v3vm` started on the VM for the 8 new targets (6 containers each).
+- Codex investigation (`findings/CANDIDATE-002-libssh-stray-newkeys.md`, `scripts/stray_newkeys_followup.py`, `results/seqnr/*-followup.txt`):
+  libssh 0.12.2 rejects the stray NEWKEYS in its packet filter and sets SSH_SESSION_STATE_ERROR without DISCONNECT or closing; later packets are dropped before decryption; keys untouched.
+  Our target's event loop keeps polling (socket open ≥ 120 s, idle CPU); other connections unaffected. The open-socket part depends on the embedding application. Informational / low.
+  russh: stray NEWKEYS outside KEX falls through to a no-op `_ => Ok(())` arm.

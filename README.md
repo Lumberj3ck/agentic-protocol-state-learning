@@ -35,7 +35,7 @@ State lives in files: [`TASKS.md`](TASKS.md) (prioritized queue),
 
 ## What it found so far
 
-- **Mapper:** written by Codex in ~320 lines, passes 120+ tests on OpenSSH 9.2p1, Dropbear 2024.85 and AsyncSSH 2.17.0, deterministic at 0.4 s timeouts.
+- **Mapper:** written by Codex in ~330 lines; **12 implementations onboarded by one Codex agent each** (OpenSSH 9.2p1 and 10.6p2, Dropbear, AsyncSSH, Paramiko, Go x/crypto, libssh, Erlang/OTP 29 and 27.3.2, russh, wolfSSH, Apache MINA SSHD), all passing the same validation suite; deterministic at 0.4 s timeouts.
   Twice the agent *stopped instead of editing a test* and reported a real behaviour that contradicted the test
   (AsyncSSH interleaving IGNORE packets; OpenSSH's sequence-number reset below).
 - **Ground truth reproduced** ([`results/ground-truth/checks.json`](results/ground-truth/checks.json), [`scripts/ground_truth_checks.py`](scripts/ground_truth_checks.py)):
@@ -48,6 +48,10 @@ State lives in files: [`TASKS.md`](TASKS.md) (prioritized queue),
   while rejecting it with UNIMPLEMENTED and keeping its keys; Dropbear and AsyncSSH disconnect.
   Root cause in upstream `packet.c`.
   Verified in source by a Codex agent ([verification](findings/CANDIDATE-001-verification.md)): informational / low severity; needs a misbehaving peer, not triggerable on-path.
+- **Differential on 12 implementations** ([`results/seqnr/`](results/seqnr/)): on a NEWKEYS outside a key exchange,
+  OpenSSH resets its counter and continues, russh ignores it, nine implementations disconnect,
+  and **libssh 0.12.2** enters a terminal session error without sending DISCONNECT, leaving the socket to the application
+  ([`findings/CANDIDATE-002`](findings/CANDIDATE-002-libssh-stray-newkeys.md), traced in source by a Codex agent; informational / low).
 - **Low-severity deviation:** AsyncSSH 2.17.0 authenticates and opens a channel without a prior `ssh-userauth` service request (Dropbear does the same, documented as intended).
 
 ## Where it got stuck
