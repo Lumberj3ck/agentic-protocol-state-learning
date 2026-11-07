@@ -23,3 +23,7 @@
   Cost: ~0.9 s per abstract step with the published Dropbear timing (0.35 s read window + 0.25 s inter-command sleep).
 - 13:01 psm/robust_sul.py: prefix cache + NO_CONN sink shortcut + repetition-based nondeterminism detection (conflicts re-run 4x, majority, logged to nondet.jsonl; 10% of fresh queries randomly repeated). Tests: tests/test_sul.py.
 - 13:02 Started L* on Dropbear 2020.81, published alphabet {KEXINIT,KEX30,NEWKEYS,SR_AUTH,UA_PK_OK}, published timing, 120 random words/round (len 3-9).
+- 13:05 Current SUTs rebuilt with an RSA host key (mapper verifies RSA only); OpenSSH: `KexAlgorithms +diffie-hellman-group14-sha256` (10.0 disables modp DH by default); Go server accepts the learner test key. Superseded psm-* images removed by ID.
+- 13:06 Decision: all current SUTs use the SAME mapper settings (published "Dropbear" timing profile, PSM_ALGOS=modern). The upstream per-server profiles change the abstraction itself (OpenSSH profile rewrites outputs to KEX31+NEWKEYS+BUFFERED), which would manufacture disagreements.
+- 13:07 Smoke replay on current versions (results/replay/smoke_current.json, 2 reps): happy paths identical across OpenSSH 10.0p1 / Dropbear 2025.88 / Go x/crypto 0.58.0, except OpenSSH adds GLOBAL_REQUEST after UA_SUCCESS (hostkeys-00@openssh.com extension, benign).
+  CANDIDATE disagreement D1: `KEXINIT KEX30 NEWKEYS UA_PK_OK` (auth without SERVICE_REQUEST): OpenSSH UNIMPL, Dropbear UA_SUCCESS, Go NO_CONN. Sent to skeptical reviewer (results/review/ua_without_sr.md).

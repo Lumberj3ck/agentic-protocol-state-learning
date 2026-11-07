@@ -4,8 +4,10 @@ RUN apk add --no-cache dropbear=2025.88-r1 \
  && adduser -D -s /bin/sh tester \
  && echo 'tester:correct-horse-battery' | chpasswd \
  && mkdir -p /etc/dropbear \
- && dropbearkey -t ed25519 -f /etc/dropbear/dropbear_ed25519_host_key
+ && dropbearkey -t ed25519 -f /etc/dropbear/dropbear_ed25519_host_key \
+ && dropbearkey -t rsa -s 3072 -f /etc/dropbear/dropbear_rsa_host_key \
+ && mkdir -p /home/tester/.ssh && chown tester:tester /home/tester/.ssh && chmod 700 /home/tester/.ssh
 EXPOSE 22
 # -F foreground, -E log to stderr, -w no root login; password auth is on by default (no -s/-g).
 # Only the ed25519 host key is loaded (-r); no other host key types exist in the image.
-CMD ["dropbear", "-F", "-E", "-w", "-p", "22", "-r", "/etc/dropbear/dropbear_ed25519_host_key"]
+CMD ["dropbear", "-F", "-E", "-w", "-p", "22", "-r", "/etc/dropbear/dropbear_ed25519_host_key", "-r", "/etc/dropbear/dropbear_rsa_host_key"]

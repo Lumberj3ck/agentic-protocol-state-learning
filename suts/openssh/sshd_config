@@ -1,5 +1,9 @@
 Port 22
 HostKey /etc/ssh/ssh_host_ed25519_key
+# RSA host key + finite-field DH: the published mapper only implements DH-group KEX and RSA host-key verification.
+# OpenSSH 10.0 disabled modp DH in sshd by default; this re-enables one still-supported group.
+HostKey /etc/ssh/ssh_host_rsa_key
+KexAlgorithms +diffie-hellman-group14-sha256
 PasswordAuthentication yes
 KbdInteractiveAuthentication no
 PubkeyAuthentication yes

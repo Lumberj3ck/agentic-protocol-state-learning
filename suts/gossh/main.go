@@ -2,8 +2,10 @@
 package main
 
 import (
+	"bytes"
 	"crypto/ed25519"
 	"crypto/rand"
+	"crypto/rsa"
 	"errors"
 	"log"
 	"net"
@@ -21,7 +23,14 @@ func main() {
 			}
 			return nil, errors.New("bad credentials")
 		},
+		// Accepts only the learner test key installed at /etc/psm/authorized_keys (by suts/authorize.sh), for user tester.
 		PublicKeyCallback: func(c ssh.ConnMetadata, k ssh.PublicKey) (*ssh.Permissions, error) {
+			data, err := os.ReadFile("/etc/psm/authorized_keys")
+			if err == nil && c.User() == "tester" {
+				if ak, _, _, _, perr := ssh.ParseAuthorizedKey(data); perr == nil && bytes.Equal(ak.Marshal(), k.Marshal()) {
+					return nil, nil
+				}
+			}
 			return nil, errors.New("publickey rejected")
 		},
 	}
@@ -34,6 +43,16 @@ func main() {
 		log.Fatal(err)
 	}
 	cfg.AddHostKey(signer)
+	// RSA host key too: the published mapper only verifies RSA host signatures (rsa-sha2-256 / ssh-rsa).
+	rk, err := rsa.GenerateKey(rand.Reader, 3072)
+	if err != nil {
+		log.Fatal(err)
+	}
+	rsigner, err := ssh.NewSignerFromKey(rk)
+	if err != nil {
+		log.Fatal(err)
+	}
+	cfg.AddHostKey(rsigner)
 
 	ln, err := net.Listen("tcp", ":22")
 	if err != nil {

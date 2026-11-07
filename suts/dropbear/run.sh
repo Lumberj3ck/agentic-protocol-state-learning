@@ -11,4 +11,5 @@ docker rm -f psm-dropbear >/dev/null 2>&1 || true
 docker run -d --name psm-dropbear --restart unless-stopped \
   -p 127.0.0.1:2202:22 --memory 64m --cpus 0.5 psm-dropbear:pinned
 sleep 1
+sleep 1; bash ../authorize.sh psm-dropbear
 docker ps --filter name=psm-dropbear --format '{{.Names}} {{.Status}} {{.Ports}}'
