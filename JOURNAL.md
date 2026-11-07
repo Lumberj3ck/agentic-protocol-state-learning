@@ -149,3 +149,6 @@ Every result, decision and exchange with the team, with links to the outputs.
   Licenses compatible (Apache 2.0 + CC BY 4.0; bundled ssh-fuzzer is MIT); no secrets or large files.
   Their cross-harness study: 0 server-level disagreements; model-disagreement classes attributed agent-built 2 (Go state merge, fixed by seeding) vs published 26; our catalogue 62/62 witnesses confirmed live.
   Wrote `SYNTHESIS.md`; README and submission draft point to it.
+- Pulled the teammate's report fix (filled v2-B1, final status) via `git subtree pull`.
+- Submitted: https://github.com/xemantic/claude-impact-lab-2026/issues/4 (team Plov: @Lumberj3ck, @TheWingTheWong), body = `submission/ISSUE.md` in the form's field format.
+  Filed without the `submission` label: it does not exist in that repository (the other submission, #3, has none either). Checked for duplicates before filing; exactly one issue.
