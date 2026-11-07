@@ -23,7 +23,7 @@ Vocabulary map: `results/v2/A/alphabet_map.json`.
   Every v1 class D1-D9 is reproduced by the second harness; with strict KEX, D7 and the initial-KEX part of D9 go away, as v1 predicted.
 - **Catalogue**: on the shared alphabet, their 15 patterns and our D1-D9 (`catalogue-v2/`) pick out the same implementations on our models and on theirs.
   Their reported hits for OpenSSH (CONN-BEFORE-AUTH, REKEY-KEXINIT-REPLY) and Dropbear (UA-BEFORE-SR-AUTH) are reproduced on our versions; Go has none.
-  Live witness replay: 25 of 62 done, all confirmed; the rest unchecked.
+  Live witness replay: 62 of 62 confirmed (3 reps each, with the harness that produced the model), 0 refuted; this includes 7 STRICT-KEX hits on non-strict models, which replay but do not apply there (`results/v2/A/catalogue_verified.json`).
 
 ## What it says about trusting one harness
 
@@ -41,4 +41,4 @@ Vocabulary map: `results/v2/A/alphabet_map.json`.
 - Both harnesses were built from the same field knowledge (RFCs, published SSH learning work): "independent" means a different author, code base, agent, key exchange and auth method, not a different method.
 - The third client matches each harness's message order but uses its own key exchange method (code review finding 7).
 - Seeded Go re-learn (their refuted-witness `--seeds` fix): done, 11 states; the 2 "theirs wrong" classes disappear (`results/v2/A/xdiff_gossh_nonstrict_seeded.json`).
-- Unchecked: full-alphabet strict models; remaining catalogue witnesses (`results/v2/A/catalogue_verified.json` is partial); witnesses on their other targets.
+- Unchecked: full-alphabet strict models (so CH-CLOSE-REPLY on our servers); witnesses on their other targets.

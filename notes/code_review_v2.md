@@ -132,3 +132,9 @@ Two B2 claims in report.md are not supported by the repo: the Dropbear EXT_INFO 
 Stream A's verdict taxonomy understates our own harness's errors: H2 is "ours wrong", not "setup". Fix that before the harness-trust answer is written.
 
 Reviewed up to commit `78133fe` (plus the working tree at about 16:30 on 2026-11-07); the next review should start from `78133fe`.
+
+## Added after 16:30
+
+No further findings beyond the above.
+The review stopped at the lead session's request.
+The lead reports findings 1-4 applied in 94fc169; this review has not re-checked that commit.
