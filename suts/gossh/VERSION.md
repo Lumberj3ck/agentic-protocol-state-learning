@@ -52,3 +52,11 @@ Note a handshake error is logged only when NewServerConn returns, i.e. when the 
 - KEX uses fresh ephemeral keys and random cookie each connection, so bytes differ per run, but the message sequence should not.
 - The server is a goroutine per connection with no cross-connection state, so repeated short connections should be independent.
 - Log lines are written only at connection end; abrupt client closes yield different error text depending on the phase.
+
+## Changes at 13:05 for the published mapper (supersede the host-key notes above)
+
+The published Fiterau-Brostean mapper (vendor/) verifies only RSA host signatures and implements only finite-field DH key exchange.
+So the image now ALSO has an RSA (3072-bit) host key, and the mapper negotiates `diffie-hellman-group14-sha256` + `rsa-sha2-256` + `aes128-ctr` + `hmac-sha2-256`.
+The mapper does not advertise `kex-strict-c-v00@openssh.com`, so strict KEX is never negotiated in our experiments.
+The learner's throwaway test public key is installed by `suts/authorize.sh` after each start (needed for UA_PK_OK).
+Go-specific: the builder stage is now `golang:1.26-alpine` (smaller than the bookworm image; same pinned go.mod toolchain go1.26.0), and the PublicKeyCallback accepts exactly the key in /etc/psm/authorized_keys for user tester.

@@ -42,3 +42,11 @@ Strict KEX (Terrapin) IS offered: `kex-strict-s-v00@openssh.com`.
   (OpenSSH does apply a small randomised/constant-time delay for failing password auth; it is not visible at this scale.)
 - `none` auth probe returns failure with methods `publickey,password`.
 - Strict KEX: when both sides announce it, sequence numbers reset at NEWKEYS and unexpected messages during KEX cause disconnect; this will shape the learned model.
+
+## Changes at 13:05 for the published mapper (supersede the host-key notes above)
+
+The published Fiterau-Brostean mapper (vendor/) verifies only RSA host signatures and implements only finite-field DH key exchange.
+So the image now ALSO has an RSA (3072-bit) host key, and the mapper negotiates `diffie-hellman-group14-sha256` + `rsa-sha2-256` + `aes128-ctr` + `hmac-sha2-256`.
+The mapper does not advertise `kex-strict-c-v00@openssh.com`, so strict KEX is never negotiated in our experiments.
+The learner's throwaway test public key is installed by `suts/authorize.sh` after each start (needed for UA_PK_OK).
+OpenSSH-specific: `KexAlgorithms +diffie-hellman-group14-sha256` (OpenSSH 10.0 disables modp DH in sshd by default) and `HostKey /etc/ssh/ssh_host_rsa_key`.
