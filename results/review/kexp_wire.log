@@ -1,0 +1,729 @@
+/w/vendor/ssh-fuzzer/ssh-mapper/manualparamiko/pkey.py:82: CryptographyDeprecationWarning: TripleDES has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.TripleDES and will be removed from this module in 48.0.0.
+  "cipher": algorithms.TripleDES,
+/w/vendor/ssh-fuzzer/ssh-mapper/manualparamiko/transport.py:229: CryptographyDeprecationWarning: TripleDES has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.TripleDES and will be removed from this module in 48.0.0.
+  "3des-cbc": {"class": algorithms.TripleDES,"mode": modes.CBC,"block-size": 8,"key-size": 24}
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'ext-info-s', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.0051882266998291016)
+TO: 0.3  TOTAL_TO: 0.35
+Ptype not found and is:  3
+... got UNIMPL (0.000997304916381836)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_RESP (2.002204179763794)
+openssh k1_dup ['KEXINIT', 'UNIMPL', 'NO_RESP'] kexinits 2 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.005)]
+     KEXINIT sent [(20, 1, False)] recv [(3, 1, None, 0.001)]
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'ext-info-s', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.004277229309082031)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.027512311935424805)
+... also got NEWKEYS (0.028748750686645508)
+... also got EXT_INFO (0.029027462005615234)
+TO: 0.3  TOTAL_TO: 0.35
+Ptype not found and is:  3
+... got UNIMPL (0.0011942386627197266)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_RESP (2.0007681846618652)
+openssh k1_dup_after30 ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'UNIMPL', 'NO_RESP'] kexinits 2 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.004)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.023), (21, None, None, 0.041), (7, None, None, 0.043)]
+     KEXINIT sent [(20, 2, False)] recv [(3, 2, None, 0.002)]
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'ext-info-s', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.004836082458496094)
+TO: 0.3  TOTAL_TO: 0.35
+Ptype not found and is:  3
+... got UNIMPL (0.0006885528564453125)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_RESP (2.0024197101593018)
+openssh k2_sr ['KEXINIT', 'UNIMPL', 'NO_RESP'] kexinits 1 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.005)]
+     SR_AUTH sent [(5, 1, False)] recv [(3, 1, None, 0.001)]
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'ext-info-s', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.0068781375885009766)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.027081966400146484)
+... also got NEWKEYS (0.02759861946105957)
+... also got EXT_INFO (0.027744770050048828)
+TO: 0.3  TOTAL_TO: 0.35
+Ptype not found and is:  3
+... got UNIMPL (0.0007703304290771484)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_RESP (2.0022683143615723)
+openssh k2_sr_after30 ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'UNIMPL', 'NO_RESP'] kexinits 1 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.007)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.023), (21, None, None, 0.041), (7, None, None, 0.042)]
+     SR_AUTH sent [(5, 2, False)] recv [(3, 2, None, 0.001)]
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'ext-info-s', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.004945516586303711)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.026461362838745117)
+... also got NEWKEYS (0.026905536651611328)
+... also got EXT_INFO (0.027087926864624023)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_RESP (0.3005557060241699)
+TO: 0.3  TOTAL_TO: 0.35
+Ptype not found and is:  3
+... got UNIMPL (0.0014276504516601562)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_RESP (2.001098871231079)
+openssh k3_kex30 ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_RESP', 'UNIMPL', 'NO_RESP'] kexinits 1 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.005)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.023), (21, None, None, 0.04), (7, None, None, 0.041)]
+     NEWKEYS sent [(21, 2, False)] recv []
+     KEX30 sent [(30, 3, True)] recv [(3, 3, None, 0.015)]
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'ext-info-s', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.006278038024902344)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.026890277862548828)
+... also got NEWKEYS (0.02730083465576172)
+... also got EXT_INFO (0.027527809143066406)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_RESP (0.30050086975097656)
+TO: 0.3  TOTAL_TO: 0.35
+Ptype not found and is:  3
+... got UNIMPL (0.0003867149353027344)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_RESP (2.0022499561309814)
+openssh k3_newkeys ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_RESP', 'UNIMPL', 'NO_RESP'] kexinits 1 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.006)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.023), (21, None, None, 0.041), (7, None, None, 0.041)]
+     NEWKEYS sent [(21, 2, False)] recv []
+     NEWKEYS sent [(21, 3, True)] recv [(3, 3, None, 0.002)]
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'ext-info-s', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.004614830017089844)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.026559829711914062)
+... also got NEWKEYS (0.027062416076660156)
+... also got EXT_INFO (0.027260780334472656)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_RESP (0.30045127868652344)
+TO: 0.3  TOTAL_TO: 0.35
+... got SR_ACCEPT (0.0020227432250976562)
+TO: 0.3  TOTAL_TO: 0.35
+... got UA_SUCCESS (0.00622868537902832)
+... ...hostkeys-00@openssh.com
+... also got GLOBAL_REQUEST (0.010673761367797852)
+Ptype not found and is:  4
+TO: 0.3  TOTAL_TO: 0.35
+Ptype not found and is:  3
+... got UNIMPL (0.0014142990112304688)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_RESP (2.0022568702697754)
+openssh k3_kex30_auth ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_RESP', 'SR_ACCEPT', 'UA_SUCCESS+GLOBAL_REQUEST', 'UNIMPL', 'NO_RESP'] kexinits 1 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.005)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.023), (21, None, None, 0.041), (7, None, None, 0.041)]
+     NEWKEYS sent [(21, 2, False)] recv []
+     SR_AUTH sent [(5, 3, True)] recv [(6, None, None, 0.003)]
+     UA_PK_OK sent [(50, 4, True)] recv [(52, None, None, 0.216), (80, None, None, 0.221), (4, None, None, 0.221)]
+     KEX30 sent [(30, 5, True)] recv [(3, 5, None, 0.015)]
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'ext-info-s', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.004921674728393555)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.027066469192504883)
+... also got NEWKEYS (0.027458667755126953)
+... also got EXT_INFO (0.02762460708618164)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_RESP (0.30051183700561523)
+TO: 0.3  TOTAL_TO: 0.35
+... got SR_ACCEPT (0.0009167194366455078)
+TO: 0.3  TOTAL_TO: 0.35
+... got UA_SUCCESS (0.0063397884368896484)
+... ...hostkeys-00@openssh.com
+... also got GLOBAL_REQUEST (0.009738445281982422)
+Ptype not found and is:  4
+TO: 0.3  TOTAL_TO: 0.35
+Ptype not found and is:  3
+... got UNIMPL (0.0011749267578125)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_RESP (2.002316474914551)
+openssh k3_newkeys_auth ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_RESP', 'SR_ACCEPT', 'UA_SUCCESS+GLOBAL_REQUEST', 'UNIMPL', 'NO_RESP'] kexinits 1 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.005)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.023), (21, None, None, 0.041), (7, None, None, 0.042)]
+     NEWKEYS sent [(21, 2, False)] recv []
+     SR_AUTH sent [(5, 3, True)] recv [(6, None, None, 0.001)]
+     UA_PK_OK sent [(50, 4, True)] recv [(52, None, None, 0.216), (80, None, None, 0.219), (4, None, None, 0.219)]
+     NEWKEYS sent [(21, 5, True)] recv [(3, 5, None, 0.002)]
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'ext-info-s', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.005920886993408203)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.026639223098754883)
+... also got NEWKEYS (0.02716851234436035)
+... also got EXT_INFO (0.02736830711364746)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_RESP (0.3005945682525635)
+TO: 0.3  TOTAL_TO: 0.35
+... got SR_ACCEPT (0.001112222671508789)
+TO: 0.3  TOTAL_TO: 0.35
+... got UA_SUCCESS (0.006012916564941406)
+... ...hostkeys-00@openssh.com
+... also got GLOBAL_REQUEST (0.00957036018371582)
+Ptype not found and is:  4
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256']
+... got KEXINIT (0.001458883285522461)
+TO: 0.3  TOTAL_TO: 0.35
+Ptype not found and is:  3
+... got UNIMPL (0.001077890396118164)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_RESP (2.0022499561309814)
+openssh k4_dup ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_RESP', 'SR_ACCEPT', 'UA_SUCCESS+GLOBAL_REQUEST', 'KEXINIT', 'UNIMPL', 'NO_RESP'] kexinits 3 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.006)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.023), (21, None, None, 0.041), (7, None, None, 0.041)]
+     NEWKEYS sent [(21, 2, False)] recv []
+     SR_AUTH sent [(5, 3, True)] recv [(6, None, None, 0.002)]
+     UA_PK_OK sent [(50, 4, True)] recv [(52, None, None, 0.196), (80, None, None, 0.2), (4, None, None, 0.2)]
+     KEXINIT sent [(20, 5, True)] recv [(20, None, None, 0.002)]
+     KEXINIT sent [(20, 6, True)] recv [(3, 6, None, 0.002)]
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'ext-info-s', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.004570484161376953)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.026540279388427734)
+... also got NEWKEYS (0.0269620418548584)
+... also got EXT_INFO (0.027074337005615234)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_RESP (0.3005831241607666)
+TO: 0.3  TOTAL_TO: 0.35
+... got SR_ACCEPT (0.000934600830078125)
+TO: 0.3  TOTAL_TO: 0.35
+... got UA_SUCCESS (0.006322145462036133)
+... ...hostkeys-00@openssh.com
+... also got GLOBAL_REQUEST (0.00977945327758789)
+Ptype not found and is:  4
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256']
+... got KEXINIT (0.001550912857055664)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.02597188949584961)
+... also got NEWKEYS (0.026477575302124023)
+TO: 0.3  TOTAL_TO: 0.35
+Ptype not found and is:  3
+... got UNIMPL (0.0016033649444580078)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_RESP (2.000486373901367)
+openssh k4_sr_after30 ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_RESP', 'SR_ACCEPT', 'UA_SUCCESS+GLOBAL_REQUEST', 'KEXINIT', 'KEX31+NEWKEYS', 'UNIMPL', 'NO_RESP'] kexinits 2 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.005)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.023), (21, None, None, 0.041), (7, None, None, 0.041)]
+     NEWKEYS sent [(21, 2, False)] recv []
+     SR_AUTH sent [(5, 3, True)] recv [(6, None, None, 0.001)]
+     UA_PK_OK sent [(50, 4, True)] recv [(52, None, None, 0.216), (80, None, None, 0.219), (4, None, None, 0.219)]
+     KEXINIT sent [(20, 5, True)] recv [(20, None, None, 0.002)]
+     KEX30 sent [(30, 6, True)] recv [(31, None, None, 0.022), (21, None, None, 0.04)]
+     SR_AUTH sent [(5, 7, True)] recv [(3, 7, None, 0.002)]
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'ext-info-s', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.006260871887207031)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.0253450870513916)
+... also got NEWKEYS (0.025722265243530273)
+... also got EXT_INFO (0.025897979736328125)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_RESP (0.30045604705810547)
+TO: 0.3  TOTAL_TO: 0.35
+... got SR_ACCEPT (0.00048828125)
+TO: 0.3  TOTAL_TO: 0.35
+... got UA_SUCCESS (0.00628662109375)
+... ...hostkeys-00@openssh.com
+... also got GLOBAL_REQUEST (0.009327173233032227)
+Ptype not found and is:  4
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256']
+... got KEXINIT (0.0026493072509765625)
+TO: 0.3  TOTAL_TO: 0.35
+Ptype not found and is:  3
+... got UNIMPL (0.001287698745727539)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_RESP (2.001345634460449)
+openssh k4_ua ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_RESP', 'SR_ACCEPT', 'UA_SUCCESS+GLOBAL_REQUEST', 'KEXINIT', 'UNIMPL', 'NO_RESP'] kexinits 2 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.006)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.022), (21, None, None, 0.039), (7, None, None, 0.04)]
+     NEWKEYS sent [(21, 2, False)] recv []
+     SR_AUTH sent [(5, 3, True)] recv [(6, None, None, 0.001)]
+     UA_PK_OK sent [(50, 4, True)] recv [(52, None, None, 0.216), (80, None, None, 0.219), (4, None, None, 0.219)]
+     KEXINIT sent [(20, 5, True)] recv [(20, None, None, 0.002)]
+     UA_PK_OK sent [(50, 6, True)] recv [(3, 6, None, 0.211)]
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp521', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp256', 'diffie-hellman-group14-sha256', 'kexguess2@matt.ucc.asn.au', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.00027751922607421875)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_CONN (0.001708984375)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_CONN (5.91278076171875e-05)
+dropbear k1_dup ['KEXINIT', 'NO_CONN', 'NO_CONN'] kexinits 2 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.0)]
+     KEXINIT sent [(20, 1, False)] recv []
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp521', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp256', 'diffie-hellman-group14-sha256', 'kexguess2@matt.ucc.asn.au', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.00043392181396484375)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.04257845878601074)
+... also got NEWKEYS (0.04294133186340332)
+... also got EXT_INFO (0.04309487342834473)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_CONN (0.0011928081512451172)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_CONN (4.00543212890625e-05)
+dropbear k1_dup_after30 ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_CONN', 'NO_CONN'] kexinits 2 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.001)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.039), (21, None, None, 0.057), (7, None, None, 0.057)]
+     KEXINIT sent [(20, 2, False)] recv []
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp521', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp256', 'diffie-hellman-group14-sha256', 'kexguess2@matt.ucc.asn.au', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.0002193450927734375)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_CONN (0.0013856887817382812)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_CONN (1.3589859008789062e-05)
+dropbear k2_sr ['KEXINIT', 'NO_CONN', 'NO_CONN'] kexinits 1 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.001)]
+     SR_AUTH sent [(5, 1, False)] recv []
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp521', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp256', 'diffie-hellman-group14-sha256', 'kexguess2@matt.ucc.asn.au', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.0002334117889404297)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.04220461845397949)
+... also got NEWKEYS (0.04267716407775879)
+... also got EXT_INFO (0.042771100997924805)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_CONN (0.0016338825225830078)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_CONN (6.0558319091796875e-05)
+dropbear k2_sr_after30 ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_CONN', 'NO_CONN'] kexinits 1 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.0)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.038), (21, None, None, 0.056), (7, None, None, 0.056)]
+     SR_AUTH sent [(5, 2, False)] recv []
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp521', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp256', 'diffie-hellman-group14-sha256', 'kexguess2@matt.ucc.asn.au', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.00024390220642089844)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.041683197021484375)
+... also got NEWKEYS (0.04198813438415527)
+... also got EXT_INFO (0.04210948944091797)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_RESP (0.3004617691040039)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_CONN (0.0010881423950195312)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_CONN (4.291534423828125e-05)
+dropbear k3_kex30 ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_RESP', 'NO_CONN', 'NO_CONN'] kexinits 1 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.0)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.038), (21, None, None, 0.055), (7, None, None, 0.056)]
+     NEWKEYS sent [(21, 2, False)] recv []
+     KEX30 sent [(30, 3, True)] recv []
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp521', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp256', 'diffie-hellman-group14-sha256', 'kexguess2@matt.ucc.asn.au', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.0002970695495605469)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.04233694076538086)
+... also got NEWKEYS (0.04274797439575195)
+... also got EXT_INFO (0.04287433624267578)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_RESP (0.3005397319793701)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_CONN (0.0010027885437011719)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_CONN (5.340576171875e-05)
+dropbear k3_newkeys ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_RESP', 'NO_CONN', 'NO_CONN'] kexinits 1 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.0)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.039), (21, None, None, 0.056), (7, None, None, 0.057)]
+     NEWKEYS sent [(21, 2, False)] recv []
+     NEWKEYS sent [(21, 3, True)] recv []
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp521', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp256', 'diffie-hellman-group14-sha256', 'kexguess2@matt.ucc.asn.au', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.0004012584686279297)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.04223895072937012)
+... also got NEWKEYS (0.04264950752258301)
+... also got EXT_INFO (0.042788028717041016)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_RESP (0.30042052268981934)
+TO: 0.3  TOTAL_TO: 0.35
+... got SR_ACCEPT (0.0004909038543701172)
+TO: 0.3  TOTAL_TO: 0.35
+... got UA_SUCCESS (0.0016226768493652344)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_CONN (0.0011146068572998047)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_CONN (5.2928924560546875e-05)
+dropbear k3_kex30_auth ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_RESP', 'SR_ACCEPT', 'UA_SUCCESS', 'NO_CONN', 'NO_CONN'] kexinits 1 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.001)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.039), (21, None, None, 0.056), (7, None, None, 0.057)]
+     NEWKEYS sent [(21, 2, False)] recv []
+     SR_AUTH sent [(5, 3, True)] recv [(6, None, None, 0.001)]
+     UA_PK_OK sent [(50, 4, True)] recv [(52, None, None, 0.21)]
+     KEX30 sent [(30, 5, True)] recv []
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp521', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp256', 'diffie-hellman-group14-sha256', 'kexguess2@matt.ucc.asn.au', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.0003008842468261719)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.04246783256530762)
+... also got NEWKEYS (0.042848825454711914)
+... also got EXT_INFO (0.042998313903808594)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_RESP (0.3004469871520996)
+TO: 0.3  TOTAL_TO: 0.35
+... got SR_ACCEPT (0.0016071796417236328)
+TO: 0.3  TOTAL_TO: 0.35
+... got UA_SUCCESS (0.0025365352630615234)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_CONN (0.0006699562072753906)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_CONN (6.079673767089844e-05)
+dropbear k3_newkeys_auth ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_RESP', 'SR_ACCEPT', 'UA_SUCCESS', 'NO_CONN', 'NO_CONN'] kexinits 1 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.0)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.039), (21, None, None, 0.056), (7, None, None, 0.057)]
+     NEWKEYS sent [(21, 2, False)] recv []
+     SR_AUTH sent [(5, 3, True)] recv [(6, None, None, 0.002)]
+     UA_PK_OK sent [(50, 4, True)] recv [(52, None, None, 0.212)]
+     NEWKEYS sent [(21, 5, True)] recv []
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp521', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp256', 'diffie-hellman-group14-sha256', 'kexguess2@matt.ucc.asn.au', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.00041556358337402344)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.042365074157714844)
+... also got NEWKEYS (0.04276227951049805)
+... also got EXT_INFO (0.0428774356842041)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_RESP (0.30063915252685547)
+TO: 0.3  TOTAL_TO: 0.35
+... got SR_ACCEPT (0.000926971435546875)
+TO: 0.3  TOTAL_TO: 0.35
+... got UA_SUCCESS (0.0021834373474121094)
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp521', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp256', 'diffie-hellman-group14-sha256', 'kexguess2@matt.ucc.asn.au', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.0013308525085449219)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_CONN (0.001306295394897461)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_CONN (4.792213439941406e-05)
+dropbear k4_dup ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_RESP', 'SR_ACCEPT', 'UA_SUCCESS', 'KEXINIT', 'NO_CONN', 'NO_CONN'] kexinits 3 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.001)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.039), (21, None, None, 0.057), (7, None, None, 0.057)]
+     NEWKEYS sent [(21, 2, False)] recv []
+     SR_AUTH sent [(5, 3, True)] recv [(6, None, None, 0.001)]
+     UA_PK_OK sent [(50, 4, True)] recv [(52, None, None, 0.212)]
+     KEXINIT sent [(20, 5, True)] recv [(20, None, None, 0.002)]
+     KEXINIT sent [(20, 6, True)] recv []
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp521', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp256', 'diffie-hellman-group14-sha256', 'kexguess2@matt.ucc.asn.au', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.0003075599670410156)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.041861534118652344)
+... also got NEWKEYS (0.04253745079040527)
+... also got EXT_INFO (0.042783498764038086)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_RESP (0.3005523681640625)
+TO: 0.3  TOTAL_TO: 0.35
+... got SR_ACCEPT (0.00037169456481933594)
+TO: 0.3  TOTAL_TO: 0.35
+... got UA_SUCCESS (0.0016031265258789062)
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp521', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp256', 'diffie-hellman-group14-sha256', 'kexguess2@matt.ucc.asn.au', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.0013501644134521484)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.04163789749145508)
+... also got NEWKEYS (0.04221940040588379)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_CONN (0.0017104148864746094)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_CONN (3.0517578125e-05)
+dropbear k4_sr_after30 ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_RESP', 'SR_ACCEPT', 'UA_SUCCESS', 'KEXINIT', 'KEX31+NEWKEYS', 'NO_CONN', 'NO_CONN'] kexinits 2 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.0)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.038), (21, None, None, 0.056), (7, None, None, 0.057)]
+     NEWKEYS sent [(21, 2, False)] recv []
+     SR_AUTH sent [(5, 3, True)] recv [(6, None, None, 0.001)]
+     UA_PK_OK sent [(50, 4, True)] recv [(52, None, None, 0.211)]
+     KEXINIT sent [(20, 5, True)] recv [(20, None, None, 0.002)]
+     KEX30 sent [(30, 6, True)] recv [(31, None, None, 0.039), (21, None, None, 0.056)]
+     SR_AUTH sent [(5, 7, True)] recv []
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp521', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp256', 'diffie-hellman-group14-sha256', 'kexguess2@matt.ucc.asn.au', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.00040221214294433594)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.04254865646362305)
+... also got NEWKEYS (0.04288983345031738)
+... also got EXT_INFO (0.04305291175842285)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_RESP (0.300551176071167)
+TO: 0.3  TOTAL_TO: 0.35
+... got SR_ACCEPT (0.0006160736083984375)
+TO: 0.3  TOTAL_TO: 0.35
+... got UA_SUCCESS (0.0015463829040527344)
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['sntrup761x25519-sha512', 'sntrup761x25519-sha512@openssh.com', 'mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp521', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp256', 'diffie-hellman-group14-sha256', 'kexguess2@matt.ucc.asn.au', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.0010950565338134766)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_CONN (0.0005631446838378906)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_CONN (2.6226043701171875e-05)
+dropbear k4_ua ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_RESP', 'SR_ACCEPT', 'UA_SUCCESS', 'KEXINIT', 'NO_CONN', 'NO_CONN'] kexinits 2 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.001)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.039), (21, None, None, 0.056), (7, None, None, 0.057)]
+     NEWKEYS sent [(21, 2, False)] recv []
+     SR_AUTH sent [(5, 3, True)] recv [(6, None, None, 0.001)]
+     UA_PK_OK sent [(50, 4, True)] recv [(52, None, None, 0.211)]
+     KEXINIT sent [(20, 5, True)] recv [(20, None, None, 0.001)]
+     UA_PK_OK sent [(50, 6, True)] recv []
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.0004134178161621094)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_CONN (0.0006020069122314453)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_CONN (5.269050598144531e-05)
+gossh k1_dup ['KEXINIT', 'NO_CONN', 'NO_CONN'] kexinits 2 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.001)]
+     KEXINIT sent [(20, 1, False)] recv []
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.0004076957702636719)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.035565853118896484)
+... also got NEWKEYS (0.03610062599182129)
+... also got EXT_INFO (0.036295413970947266)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_CONN (0.000934600830078125)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_CONN (3.4809112548828125e-05)
+gossh k1_dup_after30 ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_CONN', 'NO_CONN'] kexinits 2 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.001)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.033), (21, None, None, 0.05), (7, None, None, 0.05)]
+     KEXINIT sent [(20, 2, False)] recv []
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.0003914833068847656)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_CONN (0.0006842613220214844)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_CONN (9.059906005859375e-06)
+gossh k2_sr ['KEXINIT', 'NO_CONN', 'NO_CONN'] kexinits 1 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.001)]
+     SR_AUTH sent [(5, 1, False)] recv []
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.00032901763916015625)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.035776376724243164)
+... also got NEWKEYS (0.03618979454040527)
+... also got EXT_INFO (0.03632044792175293)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_CONN (0.0003974437713623047)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_CONN (1.239776611328125e-05)
+gossh k2_sr_after30 ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_CONN', 'NO_CONN'] kexinits 1 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.0)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.032), (21, None, None, 0.05), (7, None, None, 0.05)]
+     SR_AUTH sent [(5, 2, False)] recv []
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.0032320022583007812)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.035802364349365234)
+... also got NEWKEYS (0.036348581314086914)
+... also got EXT_INFO (0.03646683692932129)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_RESP (0.300506591796875)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_CONN (0.0012748241424560547)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_CONN (6.031990051269531e-05)
+gossh k3_kex30 ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_RESP', 'NO_CONN', 'NO_CONN'] kexinits 1 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.001)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.032), (21, None, None, 0.05), (7, None, None, 0.05)]
+     NEWKEYS sent [(21, 2, False)] recv []
+     KEX30 sent [(30, 3, True)] recv []
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.00036072731018066406)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.03512883186340332)
+... also got NEWKEYS (0.03565859794616699)
+... also got EXT_INFO (0.035849809646606445)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_RESP (0.3005228042602539)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_CONN (0.00020384788513183594)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_CONN (1.049041748046875e-05)
+gossh k3_newkeys ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_RESP', 'NO_CONN', 'NO_CONN'] kexinits 1 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.001)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.032), (21, None, None, 0.049), (7, None, None, 0.05)]
+     NEWKEYS sent [(21, 2, False)] recv []
+     NEWKEYS sent [(21, 3, True)] recv []
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.0002598762512207031)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.03574490547180176)
+... also got NEWKEYS (0.03631901741027832)
+... also got EXT_INFO (0.0365300178527832)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_RESP (0.30073094367980957)
+TO: 0.3  TOTAL_TO: 0.35
+... got SR_ACCEPT (0.0007195472717285156)
+TO: 0.3  TOTAL_TO: 0.35
+... got UA_SUCCESS (0.0021512508392333984)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_CONN (0.0008847713470458984)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_CONN (1.9311904907226562e-05)
+gossh k3_kex30_auth ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_RESP', 'SR_ACCEPT', 'UA_SUCCESS', 'NO_CONN', 'NO_CONN'] kexinits 1 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.0)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.032), (21, None, None, 0.05), (7, None, None, 0.05)]
+     NEWKEYS sent [(21, 2, False)] recv []
+     SR_AUTH sent [(5, 3, True)] recv [(6, None, None, 0.001)]
+     UA_PK_OK sent [(50, 4, True)] recv [(52, None, None, 0.211)]
+     KEX30 sent [(30, 5, True)] recv []
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.00026106834411621094)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.03517317771911621)
+... also got NEWKEYS (0.035523414611816406)
+... also got EXT_INFO (0.03566455841064453)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_RESP (0.30049586296081543)
+TO: 0.3  TOTAL_TO: 0.35
+... got SR_ACCEPT (0.0015177726745605469)
+TO: 0.3  TOTAL_TO: 0.35
+... got UA_SUCCESS (0.0013387203216552734)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_CONN (6.961822509765625e-05)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_CONN (7.3909759521484375e-06)
+gossh k3_newkeys_auth ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_RESP', 'SR_ACCEPT', 'UA_SUCCESS', 'NO_CONN', 'NO_CONN'] kexinits 1 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.0)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.032), (21, None, None, 0.049), (7, None, None, 0.05)]
+     NEWKEYS sent [(21, 2, False)] recv []
+     SR_AUTH sent [(5, 3, True)] recv [(6, None, None, 0.002)]
+     UA_PK_OK sent [(50, 4, True)] recv [(52, None, None, 0.21)]
+     NEWKEYS sent [(21, 5, True)] recv []
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.00025153160095214844)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.035040855407714844)
+... also got NEWKEYS (0.035610198974609375)
+... also got EXT_INFO (0.03574824333190918)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_RESP (0.30057549476623535)
+TO: 0.3  TOTAL_TO: 0.35
+... got SR_ACCEPT (0.0008263587951660156)
+TO: 0.3  TOTAL_TO: 0.35
+... got UA_SUCCESS (0.0013370513916015625)
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1']
+... got KEXINIT (0.0012421607971191406)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_CONN (0.0006308555603027344)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_CONN (2.1219253540039062e-05)
+gossh k4_dup ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_RESP', 'SR_ACCEPT', 'UA_SUCCESS', 'KEXINIT', 'NO_CONN', 'NO_CONN'] kexinits 3 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.0)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.032), (21, None, None, 0.049), (7, None, None, 0.05)]
+     NEWKEYS sent [(21, 2, False)] recv []
+     SR_AUTH sent [(5, 3, True)] recv [(6, None, None, 0.001)]
+     UA_PK_OK sent [(50, 4, True)] recv [(52, None, None, 0.211)]
+     KEXINIT sent [(20, 5, True)] recv [(20, None, None, 0.002)]
+     KEXINIT sent [(20, 6, True)] recv []
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.00040078163146972656)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.03587841987609863)
+... also got NEWKEYS (0.03640484809875488)
+... also got EXT_INFO (0.03664231300354004)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_RESP (0.3006253242492676)
+TO: 0.3  TOTAL_TO: 0.35
+... got SR_ACCEPT (0.0005457401275634766)
+TO: 0.3  TOTAL_TO: 0.35
+... got UA_SUCCESS (0.0015320777893066406)
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1']
+... got KEXINIT (0.002089262008666992)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.02935624122619629)
+... also got NEWKEYS (0.029613733291625977)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_CONN (0.0010974407196044922)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_CONN (5.078315734863281e-05)
+gossh k4_sr_after30 ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_RESP', 'SR_ACCEPT', 'UA_SUCCESS', 'KEXINIT', 'KEX31+NEWKEYS', 'NO_CONN', 'NO_CONN'] kexinits 2 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.0)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.032), (21, None, None, 0.05), (7, None, None, 0.05)]
+     NEWKEYS sent [(21, 2, False)] recv []
+     SR_AUTH sent [(5, 3, True)] recv [(6, None, None, 0.001)]
+     UA_PK_OK sent [(50, 4, True)] recv [(52, None, None, 0.136)]
+     KEXINIT sent [(20, 5, True)] recv [(20, None, None, 0.003)]
+     KEX30 sent [(30, 6, True)] recv [(31, None, None, 0.028), (21, None, None, 0.036)]
+     SR_AUTH sent [(5, 7, True)] recv []
+     <late 2s read> sent [] recv []
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1', 'kex-strict-s-v00@openssh.com']
+... got KEXINIT (0.0008363723754882812)
+TO: 0.3  TOTAL_TO: 0.35
+... got KEX31 (0.03608536720275879)
+... also got NEWKEYS (0.0364987850189209)
+... also got EXT_INFO (0.03666329383850098)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_RESP (0.3004415035247803)
+TO: 0.3  TOTAL_TO: 0.35
+... got SR_ACCEPT (0.0008819103240966797)
+TO: 0.3  TOTAL_TO: 0.35
+... got UA_SUCCESS (0.0016634464263916016)
+TO: 0.3  TOTAL_TO: 0.35
+... server supports kex ['mlkem768x25519-sha256', 'curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group14-sha256', 'diffie-hellman-group14-sha1']
+... got KEXINIT (0.0016336441040039062)
+TO: 0.3  TOTAL_TO: 0.35
+... got NO_CONN (0.0009984970092773438)
+TO: 2.0  TOTAL_TO: 2.0
+... got NO_CONN (2.1696090698242188e-05)
+gossh k4_ua ['KEXINIT', 'KEX31+NEWKEYS+EXT_INFO', 'NO_RESP', 'SR_ACCEPT', 'UA_SUCCESS', 'KEXINIT', 'NO_CONN', 'NO_CONN'] kexinits 2 identical True
+     KEXINIT sent [(20, 0, False)] recv [(20, None, None, 0.0)]
+     KEX30 sent [(30, 1, False)] recv [(31, None, None, 0.033), (21, None, None, 0.05), (7, None, None, 0.051)]
+     NEWKEYS sent [(21, 2, False)] recv []
+     SR_AUTH sent [(5, 3, True)] recv [(6, None, None, 0.001)]
+     UA_PK_OK sent [(50, 4, True)] recv [(52, None, None, 0.211)]
+     KEXINIT sent [(20, 5, True)] recv [(20, None, None, 0.002)]
+     UA_PK_OK sent [(50, 6, True)] recv []
+     <late 2s read> sent [] recv []
