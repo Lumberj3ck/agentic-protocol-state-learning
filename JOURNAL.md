@@ -98,3 +98,11 @@
 - 15:24 FINAL VERIFICATION: 30 tests pass; representatives of all 9 classes + control re-replayed 5x on all three servers, outputs identical to earlier (results/final/final_check_vs_earlier.txt); D1 on Dropbear 2020.81 5/5.
 - 15:28 Stopped idle learning mappers (psm-mapper-L*, LA-, LB-); SUTs and replay mappers left running for re-checks. Box disk now 83%.
 - 15:30 report.md final. TASKS.md lists what a next session should do.
+
+## 2026-11-07 v2 (from 16:00)
+
+- 16:00 Tagged v1 as `submission-1700` (cf6ba9b) and pushed. v1 files are frozen.
+- 16:05 Cloned the teammate harness read-only (vendor/agentic-protocol-state-learning, pinned 76b49e1, push URL disabled, gitignored; pin in vendor/agentic-protocol-state-learning.COMMIT).
+  Key setup differences vs ours: strict KEX on by default, password auth (UA_PW_OK), Codex-written RFC mapper, AALpy KV, different output names.
+- 16:10 Started stream A (harness differential) and stream B1 (new servers) as background agents with quotas and ports per PROMPT.md v2 layout.
+  Version-sweep (B2) agent started with a truncated brief (my message was cut off) and was stopped before it ran anything. Streams B2 and C are NOT running.
