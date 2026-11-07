@@ -19,7 +19,7 @@ First protocol: **SSH**.
 **Team project, two arms:** this repository is the agent-built-mapper arm;
 [`reference-harness/`](reference-harness/) is the published-mapper arm by Ansorjon Juraev (merged with its full history from [TheWingTheWong/proto-sm](https://github.com/TheWingTheWong/proto-sm)).
 Run on the same servers, the two harnesses had **0 server-level disagreements**, and the agent-built mapper carried fewer harness errors into its models (2 vs 26 classes).
-Start with [`SYNTHESIS.md`](SYNTHESIS.md).
+Start with [`SYNTHESIS.md`](SYNTHESIS.md); demo page: **https://plov-site.vercel.app** (source: [`index.html`](index.html)).
 
 ## How the loop works
 
