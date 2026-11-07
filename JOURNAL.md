@@ -55,3 +55,6 @@
 - 13:39 Decision: OpenSSH is the slowest SUT (answers out-of-order messages with UNIMPL and keeps the connection, so few NO_CONN sink shortcuts; A_openssh needed ~20 min for its first hypothesis). Stopped A_openssh after hypothesis 1 (9 states) and started B_openssh (rekey oracle, 15 walks/state).
   Final cross-server comparison uses the B models and their restriction to the A alphabet (B contains A).
   Learner now checkpoints its cache every 50 fresh queries. My first stop attempt used `pkill -f` with a pattern that matched its own shell, killing the follow-up commands; redone.
+- 13:47 Dropbear's learned model on alphabet A is IDENTICAL for 2020.81, 2022.83 and 2025.88 (results/diff/dropbear2025_vs_2022_A.json, dropbear2025_vs_2020_A.json; legacy vs modern mapper algorithm profile). The learner is deterministic per seed, so the 2022.83 and 2025.88 runs even issued identical query counts.
+- 13:46 A-alphabet diff Dropbear vs Go (results/diff/A_dropbear_vs_gossh.json): 13 fine / 7 coarse classes: KEX30 or NEWKEYS before client KEXINIT; NEWKEYS before KEX30; duplicate KEX30; D1; duplicate SR_AUTH; UA after success (Dropbear silently ignores, Go closes). Replay after B models.
+- 13:47 psm/costs.py -> results/loopcost_table.md. psm/replay.py now replays targets in parallel threads (bug in first edit caught by tests/test_tools.py).
