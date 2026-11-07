@@ -58,3 +58,7 @@
 - 13:47 Dropbear's learned model on alphabet A is IDENTICAL for 2020.81, 2022.83 and 2025.88 (results/diff/dropbear2025_vs_2022_A.json, dropbear2025_vs_2020_A.json; legacy vs modern mapper algorithm profile). The learner is deterministic per seed, so the 2022.83 and 2025.88 runs even issued identical query counts.
 - 13:46 A-alphabet diff Dropbear vs Go (results/diff/A_dropbear_vs_gossh.json): 13 fine / 7 coarse classes: KEX30 or NEWKEYS before client KEXINIT; NEWKEYS before KEX30; duplicate KEX30; D1; duplicate SR_AUTH; UA after success (Dropbear silently ignores, Go closes). Replay after B models.
 - 13:47 psm/costs.py -> results/loopcost_table.md. psm/replay.py now replays targets in parallel threads (bug in first edit caught by tests/test_tools.py).
+- 13:58 B_gossh: 16 states, 16.5 min, 172 fresh SUT queries, 0 nondeterminism.
+  Mapper abstraction quirk (published design, not patched): the mapper allows one channel; any later CH_OPEN returns the mapper-made symbol CH_MAX WITHOUT sending or checking liveness, even if the connection is already closed.
+  Effect: extra states (e.g. "connection dead but CH_OPEN -> CH_MAX") inflate state counts and mask a server's answer to a 2nd CH_OPEN.
+  It cannot create a cross-server disagreement: the diff reports first divergences, and equal prefixes leave the mapper in the same channel state. Decision: document as a limitation instead of patching mid-run (would force re-learning all B models).
