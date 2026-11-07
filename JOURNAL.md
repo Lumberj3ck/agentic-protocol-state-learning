@@ -137,3 +137,11 @@ Every result, decision and exchange with the team, with links to the outputs.
 - Re-verification with the revised catalogue (`results/catalogue/verified-all.*`, `verified-libssh-erlang-rev2.json`): STRICT-KEX-FIRST-KEXINIT had the same over-strictness and was revised the same way (61 tests pass).
   libssh strict-KEX hits now REFUTED (it disconnects at NEWKEYS); Erlang 27.3.2 control still CONFIRMED. libssh relearn `libssh-v4vm` started with its 3 refuted witnesses as seeds.
   Totals (computed from the files): 23 distinct hits, 19 CONFIRMED, 4 REFUTED. `scripts/summarize.py` → `results/SUMMARY.md`.
+- New session (billing switched by the team). Found the last three VM runs stalled: asyncssh and dropbear queries had grown to 15–25 consecutive CH_OPENs.
+  Cause: these servers accept unlimited channels, so the open-channel count makes the system infinite-state and the learner never converges.
+  Runs stopped and archived on the VM as `*-aborted-unbounded-channels` (libssh relearn too, same alphabet).
+  Fix (standard, as in SPIN 2017): at most one channel; CH_OPEN while a channel is pending/open sends nothing and outputs CH_MAX.
+  Spec updated, failing test `test_at_most_one_channel` added, Codex fix 3 spawned (`logs/agents/codex-ssh-mapper-fix3.*`).
+  Plan: relearn all 12 targets with the bounded mapper (v5) so every model uses the same abstraction.
+- Team decision: stop for the hackathon submission. Codex fix 3 stopped before completion; its partial mapper/spec/test changes reverted so the committed mapper stays the validated one.
+  One-channel bound recorded as the first open task. Nebius VM `computeinstance-e04dgd6jmc1cp0nacr` deleted (~1.5 h, roughly $1.2).

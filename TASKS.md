@@ -5,6 +5,8 @@ Each task names the check that says it is done.
 
 ## Open
 
+0. **One-channel bound in the mapper** (`CH_MAX`, prompt ready in `logs/agents/codex-ssh-mapper-fix3.prompt.md`), then relearn all 12 targets (Dropbear and AsyncSSH did not converge without it).
+
 3. **Learn first models** of openssh, dropbear, asyncssh with `python -m smlearn.learn`.
    Done when `results/<target>/model.dot` and `learn.json` exist and `nondet_events` is reported.
 4. **Ground truth check**: compare the learned models with published SSH model-learning results

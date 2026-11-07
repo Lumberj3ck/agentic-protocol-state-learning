@@ -71,6 +71,10 @@ Two strict-KEX patterns were revised after replays showed they were too strict: 
 
 ## Where it got stuck
 
+- **Unbounded channels (open at submission):** Dropbear and AsyncSSH accept unlimited parallel channels, so the open-channel count makes them infinite-state;
+  their learning runs never converged (queries grew to 25 consecutive CH_OPENs) and were stopped. The fix is the standard one-channel bound in the mapper
+  (`CH_MAX`, as in SPIN 2017); the spec change and task are in `logs/agents/codex-ssh-mapper-fix3.prompt.md`, not yet implemented. Their models are therefore missing from the summary.
+
 - The first learned models were incomplete (Dropbear: 3 states): uniform random equivalence testing never completes the handshake.
   Fixed by seeding the oracle with protocol paths; see [`JOURNAL.md`](JOURNAL.md).
 - Strict-KEX handshake conformance of 10 servers is already published (Bäumer et al., CCS 2025, arXiv 2509.10895);
