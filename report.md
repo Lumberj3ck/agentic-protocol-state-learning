@@ -37,7 +37,16 @@ We wrote no SSH protocol or crypto code ourselves.
 
 ## Validation: reproducing published results first
 
-TODO
+Before trusting anything on current releases, we checked the harness against what the original authors published.
+
+1. The published finding reproduces on the version they analysed.
+   On Dropbear 2020.81, `KEXINIT KEX30 NEWKEYS UA_PK_OK` gives `KEXINIT KEX31+NEWKEYS+EXT_INFO NO_RESP UA_SUCCESS`: authentication succeeds without any SERVICE_REQUEST, the NDSS 2023 "Missing SERVICE_REQUEST_USERAUTH" finding (`results/replay/smoke_dropbear2020.json`).
+2. All four counterexample traces recorded by the original authors (`vendor/ssh-fuzzer/ssh-learner/output/DROPBEAR_SERVER_1683485573153/statistics.txt`) replay symbol for symbol, 3 of 3 repetitions (`results/replay/published_cex_dropbear2020.json`).
+3. Our first learned model was wrong on one of those published traces (`results/checks/dropbear2020_v1.json`): it merged "authenticated, then rekeyed" with "not yet authenticated".
+   The cause was our equivalence oracle (random words), not the mapper; with walks from every state the model grows from 7 to 9 states and predicts all 8 replayed traces (`results/checks/dropbear2020_v2.json`).
+   This is the main methodological lesson: the mapper reproduced the published behaviour immediately, while the equivalence check is where an under-learned model hides.
+4. Our 2020.81 model and the published (unfinished; the run timed out after 12 h) 2022.83 model differ on only 2 transitions, both after a first message of KEX30 (`results/diff/dropbear2020_vs_published2022.json`); our side of both replays 5 of 5 on 2020.81 (`results/replay/dropbear2020_vs_published_diffs.json`).
+   VERSION-OR-GAP: TODO (Dropbear 2022.83 learning run).
 
 ## Results
 

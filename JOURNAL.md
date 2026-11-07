@@ -41,3 +41,8 @@
   To tell version change from published-model gap, learning Dropbear 2022.83 (Alpine 3.17 dropbear=2022.83-r1, port 2222) too.
 - 13:21 A_gossh (state-prefix): 8 states, 4 min. Its post-auth rekey leads back into the pre-auth branch: the same merge pattern that was wrong for Dropbear v1.
   Added psm/oracles.py RekeyAwareOracle: from every state, (no rekey | KEXINIT KEX30 NEWKEYS) + all suffixes of length <= 2, then state-prefix random walks. Rerunning A_gossh with it (cache seeded).
+- 13:27 REVIEW D1 (results/review/ua_without_sr.md): REAL on all three, all artifact hypotheses refuted (identical bytes except correct seqno; server logs; 10/10 reps; reproduced with stock paramiko 5.1.0 and other KEX, with/without strict KEX; Dropbear's session really works: exec id -> uid=1000(tester)). RFC: divergence, not a MUST violation.
+  Reviewer also found mapper bug: IGNORE/CH_* inputs blocked 30 s then crashed the mapper (clear_to_send never set). Fixed as P5. Reviewer crashed the 8001/8002 replay mappers once (auto-restarted; learning mappers untouched) and ran python3 locally once (rule breach, noted).
+- 13:29 With P5 (results/replay/p5_ch_open_ignore.json): CH_OPEN after auth -> CH_OPEN_SUCCESS on all three; IGNORE -> NO_RESP on all three.
+  CANDIDATE D2: CH_OPEN BEFORE auth: OpenSSH UNIMPL (connection kept), Dropbear NO_CONN, Go NO_CONN. RFC 4252 §6 says MUST disconnect. Sent to a second skeptical reviewer (results/review/ch_open_preauth.md).
+- 13:29 A_dropbear (state-prefix): 9 states, 12 min. A_gossh with rekey-aware oracle: 8 -> 12 states (the state-prefix model was under-learned, as suspected). Rerunning A_dropbear with the rekey oracle (cache seeded) so all A models share one oracle.

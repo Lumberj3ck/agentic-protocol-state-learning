@@ -1,0 +1,708 @@
+{
+ "started": "2026-11-07T12:17:08.065883+00:00",
+ "reps": 5,
+ "targets": {
+  "dropbear": {
+   "mapper_port": 8002,
+   "container": "psm-dropbear"
+  }
+ },
+ "sequences": [
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "DEBUG",
+    "DEBUG",
+    "DEBUG",
+    "UA_PK_OK"
+   ],
+   "results": {
+    "dropbear": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "UA_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "UA_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "UA_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "UA_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "UA_SUCCESS"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "NO_RESP",
+        "NO_RESP",
+        "NO_RESP",
+        "UA_SUCCESS"
+       ],
+       "count": 5
+      }
+     ],
+     "deterministic": true,
+     "seconds": 31.9,
+     "server_log": [
+      "[161] Nov 07 12:17:08 Child connection from 172.17.0.1:40562",
+      "[161] Nov 07 12:17:08 Exit before auth from <172.17.0.1:40562>: Exited normally",
+      "[162] Nov 07 12:17:08 Child connection from 172.17.0.1:40570",
+      "[160] Nov 07 12:17:10 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:40558",
+      "[160] Nov 07 12:17:12 Exit (tester) from <172.17.0.1:40558>: Exited normally",
+      "[163] Nov 07 12:17:12 Child connection from 172.17.0.1:40572",
+      "[162] Nov 07 12:17:13 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:40570",
+      "[162] Nov 07 12:17:14 Exit (tester) from <172.17.0.1:40570>: Exited normally",
+      "[164] Nov 07 12:17:14 Child connection from 172.17.0.1:40582",
+      "[163] Nov 07 12:17:15 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:40572",
+      "[163] Nov 07 12:17:18 Exit (tester) from <172.17.0.1:40572>: Exited normally",
+      "[165] Nov 07 12:17:18 Child connection from 172.17.0.1:40066",
+      "[164] Nov 07 12:17:19 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:40582",
+      "[164] Nov 07 12:17:20 Exit (tester) from <172.17.0.1:40582>: Exited normally",
+      "[166] Nov 07 12:17:20 Child connection from 172.17.0.1:40082",
+      "[165] Nov 07 12:17:21 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:40066",
+      "[165] Nov 07 12:17:24 Exit (tester) from <172.17.0.1:40066>: Exited normally",
+      "[167] Nov 07 12:17:24 Child connection from 172.17.0.1:40094",
+      "[166] Nov 07 12:17:26 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:40082",
+      "[167] Nov 07 12:17:27 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:40094",
+      "[166] Nov 07 12:17:27 Exit (tester) from <172.17.0.1:40082>: Exited normally",
+      "[168] Nov 07 12:17:27 Child connection from 172.17.0.1:36892",
+      "[167] Nov 07 12:17:29 Exit (tester) from <172.17.0.1:40094>: Exited normally",
+      "[169] Nov 07 12:17:29 Child connection from 172.17.0.1:36908",
+      "[169] Nov 07 12:17:32 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:36908",
+      "[168] Nov 07 12:17:32 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:36892",
+      "[168] Nov 07 12:17:33 Exit (tester) from <172.17.0.1:36892>: Exited normally",
+      "[170] Nov 07 12:17:33 Child connection from 172.17.0.1:36916",
+      "[169] Nov 07 12:17:34 Exit (tester) from <172.17.0.1:36908>: Unexpected packet type 5, expected 30",
+      "[171] Nov 07 12:17:34 Child connection from 172.17.0.1:36930",
+      "[171] Nov 07 12:17:37 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:36930",
+      "[170] Nov 07 12:17:39 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:36916",
+      "[171] Nov 07 12:17:39 Exit (tester) from <172.17.0.1:36930>: Unexpected packet type 50, expected 30",
+      "[172] Nov 07 12:17:39 Child connection from 172.17.0.1:34328"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "UA_PK_OK",
+    "DEBUG",
+    "DEBUG",
+    "DEBUG"
+   ],
+   "results": {
+    "dropbear": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "UA_SUCCESS",
+        "NO_RESP",
+        "NO_RESP",
+        "NO_RESP"
+       ],
+       "count": 5
+      }
+     ],
+     "deterministic": true,
+     "seconds": 31.86,
+     "server_log": [
+      "[170] Nov 07 12:17:39 Exit (tester) from <172.17.0.1:36916>: Exited normally",
+      "[173] Nov 07 12:17:39 Child connection from 172.17.0.1:34330",
+      "[173] Nov 07 12:17:42 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:34330",
+      "[172] Nov 07 12:17:44 Exit before auth from <172.17.0.1:34328>: Integrity error (bad packet size 1521250395)",
+      "[174] Nov 07 12:17:44 Child connection from 172.17.0.1:34334",
+      "[173] Nov 07 12:17:46 Exit (tester) from <172.17.0.1:34330>: Exited normally",
+      "[175] Nov 07 12:17:46 Child connection from 172.17.0.1:39590",
+      "[174] Nov 07 12:17:48 Exit before auth from <172.17.0.1:34334>: Integrity error (bad packet size 4129362155)",
+      "[176] Nov 07 12:17:49 Child connection from 172.17.0.1:39596",
+      "[175] Nov 07 12:17:49 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:39590",
+      "[175] Nov 07 12:17:52 Exit (tester) from <172.17.0.1:39590>: Exited normally",
+      "[177] Nov 07 12:17:52 Child connection from 172.17.0.1:39608",
+      "[176] Nov 07 12:17:53 Exit before auth from <172.17.0.1:39596>: Integrity error (bad packet size 4257620918)",
+      "[178] Nov 07 12:17:53 Child connection from 172.17.0.1:39610",
+      "[177] Nov 07 12:17:55 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:39608",
+      "[178] Nov 07 12:17:58 Exit before auth from <172.17.0.1:39610>: Integrity error (bad packet size 11932895)",
+      "[179] Nov 07 12:17:58 Child connection from 172.17.0.1:59960",
+      "[177] Nov 07 12:17:59 Exit (tester) from <172.17.0.1:39608>: Exited normally",
+      "[180] Nov 07 12:17:59 Child connection from 172.17.0.1:59966",
+      "[180] Nov 07 12:18:02 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:59966",
+      "[179] Nov 07 12:18:03 Exit before auth from <172.17.0.1:59960>: Integrity error (bad packet size 3218918654)",
+      "[181] Nov 07 12:18:03 Child connection from 172.17.0.1:59974",
+      "[180] Nov 07 12:18:05 Exit (tester) from <172.17.0.1:59966>: Exited normally",
+      "[182] Nov 07 12:18:05 Child connection from 172.17.0.1:59988",
+      "[181] Nov 07 12:18:08 Exit before auth from <172.17.0.1:59974>: Unexpected packet type 20, expected 21",
+      "[182] Nov 07 12:18:08 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:59988",
+      "[183] Nov 07 12:18:08 Child connection from 172.17.0.1:43038"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "DEBUG"
+   ],
+   "results": {
+    "dropbear": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "NO_RESP"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "NO_RESP"
+       ],
+       "count": 5
+      }
+     ],
+     "deterministic": true,
+     "seconds": 27.62,
+     "server_log": [
+      "[182] Nov 07 12:18:11 Exit (tester) from <172.17.0.1:59988>: Exited normally",
+      "[184] Nov 07 12:18:11 Child connection from 172.17.0.1:43044",
+      "[183] Nov 07 12:18:13 Exit before auth from <172.17.0.1:43038>: Exited normally",
+      "[185] Nov 07 12:18:13 Child connection from 172.17.0.1:43052",
+      "[184] Nov 07 12:18:15 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:43044",
+      "[184] Nov 07 12:18:17 Exit (tester) from <172.17.0.1:43044>: Exited normally",
+      "[186] Nov 07 12:18:17 Child connection from 172.17.0.1:49388",
+      "[185] Nov 07 12:18:19 Exit before auth from <172.17.0.1:43052>: Exited normally",
+      "[187] Nov 07 12:18:19 Child connection from 172.17.0.1:49404",
+      "[186] Nov 07 12:18:21 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:49388",
+      "[186] Nov 07 12:18:22 Exit (tester) from <172.17.0.1:49388>: Exited normally",
+      "[188] Nov 07 12:18:22 Child connection from 172.17.0.1:49418",
+      "[187] Nov 07 12:18:24 Exit before auth from <172.17.0.1:49404>: Unexpected packet type 5, expected 21",
+      "[189] Nov 07 12:18:24 Child connection from 172.17.0.1:49430",
+      "[188] Nov 07 12:18:26 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:49418",
+      "[188] Nov 07 12:18:28 Exit (tester) from <172.17.0.1:49418>: Exited normally",
+      "[190] Nov 07 12:18:28 Child connection from 172.17.0.1:57178",
+      "[189] Nov 07 12:18:28 Exit before auth from <172.17.0.1:49430>: Unexpected packet type 50, expected 21",
+      "[191] Nov 07 12:18:29 Child connection from 172.17.0.1:57190",
+      "[190] Nov 07 12:18:32 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:57178",
+      "[190] Nov 07 12:18:34 Exit (tester) from <172.17.0.1:57178>: Exited normally",
+      "[192] Nov 07 12:18:34 Child connection from 172.17.0.1:57206",
+      "[191] Nov 07 12:18:35 Exit before auth from <172.17.0.1:57190>: Unexpected packet type 50, expected 30",
+      "[193] Nov 07 12:18:35 Child connection from 172.17.0.1:57222",
+      "[192] Nov 07 12:18:37 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:57206",
+      "[193] Nov 07 12:18:38 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:57222"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "UA_PK_OK",
+    "SR_AUTH",
+    "UA_PK_OK"
+   ],
+   "results": {
+    "dropbear": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS",
+       "SR_ACCEPT",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS",
+       "SR_ACCEPT",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS",
+       "SR_ACCEPT",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS",
+       "SR_ACCEPT",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS",
+       "SR_ACCEPT",
+       "NO_RESP"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "UA_SUCCESS",
+        "SR_ACCEPT",
+        "NO_RESP"
+       ],
+       "count": 5
+      }
+     ],
+     "deterministic": true,
+     "seconds": 28.01,
+     "server_log": [
+      "[192] Nov 07 12:18:39 Exit (tester) from <172.17.0.1:57206>: Exited normally",
+      "[194] Nov 07 12:18:39 Child connection from 172.17.0.1:58156",
+      "[194] Nov 07 12:18:42 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:58156",
+      "[193] Nov 07 12:18:44 Exit (tester) from <172.17.0.1:57222>: Exited normally",
+      "[195] Nov 07 12:18:44 Child connection from 172.17.0.1:58160",
+      "[194] Nov 07 12:18:45 Exit (tester) from <172.17.0.1:58156>: Exited normally",
+      "[196] Nov 07 12:18:45 Child connection from 172.17.0.1:58170",
+      "[196] Nov 07 12:18:48 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:58170",
+      "[195] Nov 07 12:18:48 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:58160",
+      "[195] Nov 07 12:18:48 Exit (tester) from <172.17.0.1:58160>: Exited normally",
+      "[197] Nov 07 12:18:48 Child connection from 172.17.0.1:49896",
+      "[196] Nov 07 12:18:50 Exit (tester) from <172.17.0.1:58170>: Exited normally",
+      "[198] Nov 07 12:18:50 Child connection from 172.17.0.1:49900",
+      "[198] Nov 07 12:18:53 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:49900",
+      "[197] Nov 07 12:18:55 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:49896",
+      "[197] Nov 07 12:18:56 Exit (tester) from <172.17.0.1:49896>: Exited normally",
+      "[199] Nov 07 12:18:56 Child connection from 172.17.0.1:49910",
+      "[198] Nov 07 12:18:56 Exit (tester) from <172.17.0.1:49900>: Exited normally",
+      "[200] Nov 07 12:18:56 Child connection from 172.17.0.1:33086",
+      "[200] Nov 07 12:18:59 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:33086",
+      "[200] Nov 07 12:19:01 Exit (tester) from <172.17.0.1:33086>: Exited normally",
+      "[201] Nov 07 12:19:01 Child connection from 172.17.0.1:33092",
+      "[199] Nov 07 12:19:03 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:49910",
+      "[199] Nov 07 12:19:04 Exit (tester) from <172.17.0.1:49910>: Exited normally",
+      "[202] Nov 07 12:19:04 Child connection from 172.17.0.1:33096",
+      "[201] Nov 07 12:19:04 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:33092"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "UA_PK_NOK"
+   ],
+   "results": {
+    "dropbear": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_FAILURE"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_FAILURE"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_FAILURE"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_FAILURE"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_FAILURE"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "UA_FAILURE"
+       ],
+       "count": 5
+      }
+     ],
+     "deterministic": true,
+     "seconds": 19.0,
+     "server_log": [
+      "[201] Nov 07 12:19:07 Exit (tester) from <172.17.0.1:33092>: Exited normally",
+      "[203] Nov 07 12:19:07 Child connection from 172.17.0.1:42782",
+      "[202] Nov 07 12:19:09 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:33096",
+      "[203] Nov 07 12:19:10 Login attempt for nonexistent user from 172.17.0.1:42782",
+      "[202] Nov 07 12:19:10 Exit (tester) from <172.17.0.1:33096>: Exited normally",
+      "[204] Nov 07 12:19:10 Child connection from 172.17.0.1:42788",
+      "[203] Nov 07 12:19:11 Exit before auth from <172.17.0.1:42782>: Exited normally",
+      "[205] Nov 07 12:19:11 Child connection from 172.17.0.1:42794",
+      "[205] Nov 07 12:19:14 Login attempt for nonexistent user from 172.17.0.1:42794",
+      "[205] Nov 07 12:19:15 Exit before auth from <172.17.0.1:42794>: Exited normally",
+      "[206] Nov 07 12:19:15 Child connection from 172.17.0.1:42806",
+      "[204] Nov 07 12:19:15 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:42788",
+      "[204] Nov 07 12:19:16 Exit (tester) from <172.17.0.1:42788>: Exited normally",
+      "[207] Nov 07 12:19:16 Child connection from 172.17.0.1:51820",
+      "[206] Nov 07 12:19:18 Login attempt for nonexistent user from 172.17.0.1:42806",
+      "[206] Nov 07 12:19:18 Exit before auth from <172.17.0.1:42806>: Exited normally",
+      "[208] Nov 07 12:19:18 Child connection from 172.17.0.1:51828",
+      "[207] Nov 07 12:19:20 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:51820",
+      "[207] Nov 07 12:19:21 Exit (tester) from <172.17.0.1:51820>: Exited normally",
+      "[209] Nov 07 12:19:21 Child connection from 172.17.0.1:51834",
+      "[208] Nov 07 12:19:21 Login attempt for nonexistent user from 172.17.0.1:51828",
+      "[208] Nov 07 12:19:22 Exit before auth from <172.17.0.1:51828>: Exited normally",
+      "[210] Nov 07 12:19:22 Child connection from 172.17.0.1:51840",
+      "[209] Nov 07 12:19:25 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:51834",
+      "[210] Nov 07 12:19:25 Login attempt for nonexistent user from 172.17.0.1:51840",
+      "[209] Nov 07 12:19:26 Exit (tester) from <172.17.0.1:51834>: Exited normally",
+      "[211] Nov 07 12:19:26 Child connection from 172.17.0.1:40854"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "UA_PW_OK"
+   ],
+   "results": {
+    "dropbear": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "UA_SUCCESS"
+       ],
+       "count": 5
+      }
+     ],
+     "deterministic": true,
+     "seconds": 45.66,
+     "server_log": [
+      "[210] Nov 07 12:19:26 Exit before auth from <172.17.0.1:51840>: Exited normally",
+      "[212] Nov 07 12:19:26 Child connection from 172.17.0.1:40856",
+      "[212] Nov 07 12:19:29 Password auth succeeded for 'tester' from 172.17.0.1:40856",
+      "[211] Nov 07 12:19:30 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:40854",
+      "[211] Nov 07 12:19:31 Exit (tester) from <172.17.0.1:40854>: Exited normally",
+      "[213] Nov 07 12:19:31 Child connection from 172.17.0.1:40868",
+      "[212] Nov 07 12:19:35 Exit (tester) from <172.17.0.1:40856>: Exited normally",
+      "[214] Nov 07 12:19:35 Child connection from 172.17.0.1:40870",
+      "[213] Nov 07 12:19:35 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:40868",
+      "[213] Nov 07 12:19:36 Exit (tester) from <172.17.0.1:40868>: Exited normally",
+      "[215] Nov 07 12:19:36 Child connection from 172.17.0.1:38998",
+      "[214] Nov 07 12:19:38 Password auth succeeded for 'tester' from 172.17.0.1:40870",
+      "[215] Nov 07 12:19:39 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:38998",
+      "[215] Nov 07 12:19:40 Exit (tester) from <172.17.0.1:38998>: Exited normally",
+      "[216] Nov 07 12:19:40 Child connection from 172.17.0.1:39004",
+      "[216] Nov 07 12:19:43 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:39004",
+      "[214] Nov 07 12:19:44 Exit (tester) from <172.17.0.1:40870>: Exited normally",
+      "[217] Nov 07 12:19:44 Child connection from 172.17.0.1:39014",
+      "[216] Nov 07 12:19:45 Exit (tester) from <172.17.0.1:39004>: Integrity error (bad packet size 1156821994)",
+      "[218] Nov 07 12:19:46 Child connection from 172.17.0.1:39026",
+      "[217] Nov 07 12:19:47 Password auth succeeded for 'tester' from 172.17.0.1:39014",
+      "[218] Nov 07 12:19:49 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:39026",
+      "[218] Nov 07 12:19:51 Exit (tester) from <172.17.0.1:39026>: Integrity error (bad packet size 596696930)",
+      "[219] Nov 07 12:19:51 Child connection from 172.17.0.1:33948",
+      "[217] Nov 07 12:19:53 Exit (tester) from <172.17.0.1:39014>: Exited normally",
+      "[220] Nov 07 12:19:53 Child connection from 172.17.0.1:33950",
+      "[219] Nov 07 12:19:54 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:33948",
+      "[220] Nov 07 12:19:56 Password auth succeeded for 'tester' from 172.17.0.1:33950",
+      "[219] Nov 07 12:19:57 Exit (tester) from <172.17.0.1:33948>: Integrity error (bad packet size 807217742)",
+      "[221] Nov 07 12:19:57 Child connection from 172.17.0.1:38946",
+      "[221] Nov 07 12:20:00 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:38946",
+      "[220] Nov 07 12:20:03 Exit (tester) from <172.17.0.1:33950>: Exited normally",
+      "[222] Nov 07 12:20:03 Child connection from 172.17.0.1:38954",
+      "[221] Nov 07 12:20:03 Exit (tester) from <172.17.0.1:38946>: Integrity error (bad packet size 2040863522)",
+      "[223] Nov 07 12:20:03 Child connection from 172.17.0.1:38958",
+      "[222] Nov 07 12:20:05 Password auth succeeded for 'tester' from 172.17.0.1:38954",
+      "[223] Nov 07 12:20:06 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:38958",
+      "[223] Nov 07 12:20:09 Exit (tester) from <172.17.0.1:38958>: Integrity error (bad packet size 2595557797)",
+      "[224] Nov 07 12:20:09 Child connection from 172.17.0.1:51452"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "UA_NONE"
+   ],
+   "results": {
+    "dropbear": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_FAILURE"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_FAILURE"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_FAILURE"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_FAILURE"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_FAILURE"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "UA_FAILURE"
+       ],
+       "count": 5
+      }
+     ],
+     "deterministic": true,
+     "seconds": 18.54,
+     "server_log": [
+      "[222] Nov 07 12:20:12 Exit (tester) from <172.17.0.1:38954>: Exited normally",
+      "[225] Nov 07 12:20:12 Child connection from 172.17.0.1:51462",
+      "[224] Nov 07 12:20:12 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:51452",
+      "[224] Nov 07 12:20:15 Exit (tester) from <172.17.0.1:51452>: Integrity error (bad packet size 257068574)",
+      "[226] Nov 07 12:20:15 Child connection from 172.17.0.1:51464",
+      "[225] Nov 07 12:20:15 Exit before auth from <172.17.0.1:51462>: (user 'tester', 0 fails): Exited normally",
+      "[227] Nov 07 12:20:15 Child connection from 172.17.0.1:51478",
+      "[226] Nov 07 12:20:18 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:51464",
+      "[227] Nov 07 12:20:19 Exit before auth from <172.17.0.1:51478>: (user 'tester', 0 fails): Exited normally",
+      "[228] Nov 07 12:20:19 Child connection from 172.17.0.1:54544",
+      "[226] Nov 07 12:20:20 Exit (tester) from <172.17.0.1:51464>: Unexpected packet type 20, expected 21",
+      "[229] Nov 07 12:20:21 Child connection from 172.17.0.1:54550",
+      "[228] Nov 07 12:20:23 Exit before auth from <172.17.0.1:54544>: (user 'tester', 0 fails): Exited normally",
+      "[230] Nov 07 12:20:23 Child connection from 172.17.0.1:54564",
+      "[229] Nov 07 12:20:24 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:54550",
+      "[230] Nov 07 12:20:27 Exit before auth from <172.17.0.1:54564>: (user 'tester', 0 fails): Exited normally",
+      "[231] Nov 07 12:20:27 Child connection from 172.17.0.1:55866",
+      "[229] Nov 07 12:20:27 Exit (tester) from <172.17.0.1:54550>: Exited normally",
+      "[232] Nov 07 12:20:27 Child connection from 172.17.0.1:55874",
+      "[232] Nov 07 12:20:30 Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo from 172.17.0.1:55874"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  }
+ ]
+}

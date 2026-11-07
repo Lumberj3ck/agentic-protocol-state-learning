@@ -61,12 +61,29 @@ The connection stays open: with paramiko, a normal SERVICE_REQUEST + publickey a
 ### H4: timing or nondeterminism
 
 Refuted.
-TIMING_PLACEHOLDER
+
+- Determinism: 10/10 identical outputs per server for both the no-SR sequence and the SR control (`replay_core_10x.json`, `deterministic: true` everywhere).
+  The 7 extended sequences, 5 reps each, are also deterministic on all three servers (`replay_ext_*.json`).
+- Longer wait before the request: `KEXINIT KEX30 NEWKEYS DEBUG DEBUG DEBUG UA_PK_OK` (3 harmless DEBUG messages, about 1.6 s extra) gives the same last output: OpenSSH `UNIMPL`, Dropbear `UA_SUCCESS`, Go `NO_CONN`.
+  The paramiko probe waits 0.5 s after NEWKEYS and EXT_INFO and gets the same results.
+- Late responses: `KEXINIT KEX30 NEWKEYS UA_PK_OK DEBUG DEBUG DEBUG` gives OpenSSH `UNIMPL NO_RESP NO_RESP NO_RESP` (nothing more arrives and the connection stays open), Dropbear `UA_SUCCESS NO_RESP x3`, Go `NO_CONN x4`.
+  The paramiko probe waits 6 s after the request: OpenSSH sends only the UNIMPLEMENTED, and Go closes after about 5 ms.
+- Go's close comes 0.7-0.9 ms after the request (mapper log), far inside the 0.3 s read window, so the read window cannot explain it.
+- The same split holds for other auth methods without SR: `UA_PK_NOK`, `UA_PW_OK` and `UA_NONE` give OpenSSH `UNIMPL`, Go `NO_CONN`, and Dropbear `UA_FAILURE` / `UA_SUCCESS` / `UA_FAILURE`.
+  So OpenSSH and Go react to the message type in that state, not to its content, while Dropbear runs normal authentication.
+- Recovery: `KEXINIT KEX30 NEWKEYS UA_PK_OK SR_AUTH UA_PK_OK` gives OpenSSH `UNIMPL SR_ACCEPT UA_SUCCESS+GLOBAL_REQUEST` (the stray request had no effect on state), Go `NO_CONN x3`, and Dropbear `UA_SUCCESS SR_ACCEPT NO_RESP`.
+  Dropbear accepts a SERVICE_REQUEST after authentication and then silently ignores the second auth request, as RFC 4252 s5.1 says it SHOULD.
 
 ### H5: Dropbear's UA_SUCCESS is cosmetic
 
 Refuted.
-DROPBEAR_PLACEHOLDER
+
+- Dropbear log, 10/10 reps: `Pubkey auth succeeded for 'tester' with ssh-rsa key SHA256:vkAr/...` and each of those sessions (pids 32-40) ends with `Exit (tester) ...`, an authenticated exit, not `Exit before auth`.
+  The 10th (pid 41) was still open when the log was read; the two `Exit before auth` lines in the window belong to other pids (30, 31), i.e. other connections.
+- Stock paramiko, no SERVICE_REQUEST ever sent: `is_authenticated()` is true, then `open_session` + `exec_command("id")` returns `uid=1000(tester) gid=1000(tester) groups=1000(tester)`, in 8/8 no-SR runs (strict KEX on and off) (`probe_paramiko.json`).
+  This matches the SR control path exactly.
+- `CH_OPEN` through the mapper could not be used because of the mapper bug below; the paramiko probe tests the same thing more thoroughly (channel open, exec, output, exit).
+- Dropbear 2020.81 behaves the same through the mapper (`results/replay/smoke_dropbear2020.json`); it was not re-tested here because its containers belong to the running learning job.
 
 ### H6 (added): test-config dependence (strict KEX, algorithm choice, host key)
 
@@ -101,6 +118,8 @@ The replays in this review use `DEBUG` as the harmless padding input instead of 
 
 - One configuration per server; e.g. OpenSSH with non-default `AuthenticationMethods` or Dropbear compile options were not varied.
 - The review did not read server source code (none on the box); the dispatch explanation for OpenSSH and Go relies on their own log messages.
+- The first extended replay attempt crashed `psm-mapper-openssh` and `psm-mapper-dropbear` once each (the IGNORE bug above); Docker restarted them at about 12:16 UTC, and anyone else using those two mappers at that moment lost their connection.
+  `psm-mapper-db2020` and `psm-dropbear2020` were not touched.
 - Server logs over a time window can contain lines from other clients using the same container at the same time; counts above use only lines that match our sequence (type 50 / seq 3, `tester` pubkey).
 
 ## Files

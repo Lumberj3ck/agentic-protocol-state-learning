@@ -1910,6 +1910,13 @@ class Transport(threading.Thread, ClosingContextManager):
         send a message, but block if we're in key negotiation.  this is used
         for user-initiated requests.
         """
+        # PSM patch P5: the learner, not paramiko, decides message order. Upstream waited on clear_to_send, whose
+        # .set() is commented out (see _parse_newkeys), so every IGNORE / CH_* input timed out after 30 s and the
+        # mapper exited. Send immediately (if the connection is still alive).
+        if not self.active:
+            return
+        self._send_message(data)
+        return
         start = time.time()
         while True:
             self.clear_to_send.wait(0.1)

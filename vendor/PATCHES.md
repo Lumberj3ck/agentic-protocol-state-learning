@@ -13,3 +13,6 @@ Each patch is marked `PSM patch Pn` in the source. Diff against upstream to audi
   but the mapper hashed the second payload as I_C, so it rejected OpenSSH's genuine host-key signature and crashed (`Signature verification (rsa-sha2-256) failed`).
   With identical payloads the exchange hash no longer depends on which KEXINIT the server keeps.
   Only sequences that previously crashed the mapper can change behaviour.
+- P5 `manualparamiko/transport.py` `_send_user_message`: send immediately instead of waiting on `clear_to_send`, which upstream never sets (its `.set()` is commented out).
+  Found 13:25 by the skeptical reviewer (results/review/ua_without_sr.md): every IGNORE / CH_* / TCP_FORWARD_* input waited 30 s and killed the mapper.
+  Without this patch none of those inputs can be learned.
