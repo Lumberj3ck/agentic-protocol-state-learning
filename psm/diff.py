@@ -133,16 +133,18 @@ def normalize_machine(m, mapping):
     return m
 
 
-def diff_models(m1, m2, names, normalize=None):
+def diff_models(m1, m2, names, normalize=None, inputs=None):
+    """inputs: optional sub-alphabet; the diff then explores only words over these inputs."""
     rep = alphabet_report(m1, m2)
-    ds = distinguishing_sequences(m1, m2)
+    ds = distinguishing_sequences(m1, m2, inputs=inputs)
     return {"names": list(names),
             "alphabets": {names[0]: rep["alphabet1"], names[1]: rep["alphabet2"]},
             "alphabets_identical": rep["identical"],
             "alphabet_only_in": {names[0]: rep["only_in_1"], names[1]: rep["only_in_2"]},
-            "diffed_inputs": rep["common"],
+            "diffed_inputs": list(inputs) if inputs else rep["common"],
+            "restricted_to_inputs": list(inputs) if inputs else None,
             "n_states": [len(m1.states), len(m2.states)],
-            "equivalent": rep["identical"] and not ds,
+            "equivalent": rep["identical"] and not ds and not inputs,
             "equivalent_on_common_inputs": not ds,
             "normalize": normalize,
             "n_disagreements": len(ds),
@@ -193,6 +195,7 @@ def main(argv=None):
     ap.add_argument("models", nargs="+", help="two or more .dot Mealy models")
     ap.add_argument("--out", required=True)
     ap.add_argument("--names", nargs="+")
+    ap.add_argument("--inputs", help="comma-separated sub-alphabet to restrict the diff to")
     ap.add_argument("--normalize", help="JSON map of output symbol -> replacement, applied before diffing")
     a = ap.parse_args(argv)
     if len(a.models) < 2:
@@ -211,7 +214,7 @@ def main(argv=None):
 
     pairs = {}
     for (i, n1), (j, n2) in itertools.combinations(list(enumerate(names)), 2):
-        pairs[f"{n1}__vs__{n2}"] = diff_models(models[i], models[j], [n1, n2], norm)
+        pairs[f"{n1}__vs__{n2}"] = diff_models(models[i], models[j], [n1, n2], norm, a.inputs.split(",") if a.inputs else None)
     if len(models) == 2:
         result = next(iter(pairs.values()))
     else:

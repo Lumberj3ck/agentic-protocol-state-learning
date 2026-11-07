@@ -12,6 +12,7 @@ import json
 import subprocess
 import time
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -28,30 +29,38 @@ def container_logs(name: str, since: str) -> list[str]:
         return [f"<could not read logs: {e}>"]
 
 
+def _run_target(client, container, seq, reps):
+    since = datetime.now(timezone.utc).isoformat()
+    t0 = time.time()
+    obs = [client.query(seq) for _ in range(reps)]
+    counts = Counter(tuple(o) for o in obs)
+    return {
+        "observations": obs,
+        "distinct": [{"outputs": list(k), "count": v} for k, v in counts.most_common()],
+        "deterministic": len(counts) == 1,
+        "seconds": round(time.time() - t0, 2),
+        "server_log": container_logs(container, since),
+    }
+
+
 def replay(targets: dict, sequences: list[list[str]], reps: int) -> dict:
+    """Targets are replayed in parallel threads (each has its own mapper), sequences in order."""
     out = {"started": datetime.now(timezone.utc).isoformat(), "reps": reps, "targets": {}, "sequences": []}
     clients = {}
     for name, (port, container) in targets.items():
         clients[name] = MapperClient("127.0.0.1", port)
         out["targets"][name] = {"mapper_port": port, "container": container}
-    for seq in sequences:
-        entry = {"sequence": seq, "results": {}}
-        for name, (port, container) in targets.items():
-            since = datetime.now(timezone.utc).isoformat()
-            t0 = time.time()
-            obs = [clients[name].query(seq) for _ in range(reps)]
-            counts = Counter(tuple(o) for o in obs)
-            entry["results"][name] = {
-                "observations": obs,
-                "distinct": [{"outputs": list(k), "count": v} for k, v in counts.items()],
-                "deterministic": len(counts) == 1,
-                "seconds": round(time.time() - t0, 2),
-                "server_log": container_logs(container, since),
-            }
-        finals = {n: tuple(r["distinct"][0]["outputs"]) for n, r in entry["results"].items() if r["deterministic"]}
-        entry["all_deterministic"] = all(r["deterministic"] for r in entry["results"].values())
-        entry["targets_disagree"] = entry["all_deterministic"] and len(set(finals.values())) > 1
-        out["sequences"].append(entry)
+    with ThreadPoolExecutor(max_workers=max(1, len(targets))) as pool:
+        for seq in sequences:
+            entry = {"sequence": seq, "results": {}}
+            futs = {name: pool.submit(_run_target, clients[name], container, seq, reps)
+                    for name, (port, container) in targets.items()}
+            for name, f in futs.items():
+                entry["results"][name] = f.result()
+            finals = {n: tuple(r["distinct"][0]["outputs"]) for n, r in entry["results"].items() if r["deterministic"]}
+            entry["all_deterministic"] = all(r["deterministic"] for r in entry["results"].values())
+            entry["targets_disagree"] = entry["all_deterministic"] and len(set(finals.values())) > 1
+            out["sequences"].append(entry)
     return out
 
 

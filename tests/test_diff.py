@@ -172,3 +172,22 @@ def test_nway(tmp_path):
     assert len(mv) == 1
     assert mv[0]["majority_output"] == "X" and mv[0]["groups"] == {"X": ["A", "B"], "Y": ["C"]}
     assert mv[0]["outliers"] == ["C"]
+
+
+def test_restricting_inputs_hides_differences_on_other_inputs():
+    from aalpy.automata import MealyMachine, MealyState
+    from psm.diff import diff_models
+
+    def mk(out_c):
+        s0, s1 = MealyState("s0"), MealyState("s1")
+        s0.transitions.update(a=s1, c=s0)
+        s0.output_fun.update(a="A", c=out_c)
+        s1.transitions.update(a=s1, c=s1)
+        s1.output_fun.update(a="A2", c=out_c)
+        return MealyMachine(s0, [s0, s1])
+
+    full = diff_models(mk("X"), mk("Y"), ["m1", "m2"])
+    assert full["n_disagreements"] >= 1 and not full["equivalent"]
+    restricted = diff_models(mk("X"), mk("Y"), ["m1", "m2"], inputs=["a"])
+    assert restricted["n_disagreements"] == 0 and restricted["equivalent_on_common_inputs"]
+    assert restricted["restricted_to_inputs"] == ["a"] and not restricted["equivalent"]
