@@ -62,3 +62,7 @@ Every result, decision and exchange with the team, with links to the outputs.
 - CANDIDATE-001 also reproduces on current OpenSSH 10.6p2 (new target `targets/openssh-alpine-edge`).
   Root cause located in upstream `packet.c` (receive path resets `p_read.seqnr` for any NEWKEYS under `kex_strict`, before dispatch rejects it).
 - Learning v3 started with the fixed mapper (4 containers per target).
+- Team decision: publish CANDIDATE-001 now (spec ambiguity, not triggerable on-path); delegate source verification to Codex instead of a Claude subagent (the Claude subagent was stopped before writing anything).
+- Codex verification (`findings/CANDIDATE-001-verification.md`, logs `logs/agents/codex-verify-candidate-001.*`): confirmed at high confidence;
+  reset in the packet layer before dispatch, keys and cipher state unchanged, repeated stray NEWKEYS resets again; present since 1edb00c (2023-12-18) through V_10_6_P1 and master.
+  Corrections adopted: version label (no upstream V_10_6_P2 tag), client terminates during auth, and conditional ChaCha20 replay acceptance once a misbehaving peer has sent the stray NEWKEYS. Severity: informational / low.

@@ -44,10 +44,10 @@ State lives in files: [`TASKS.md`](TASKS.md) (prioritized queue),
   and 8 further predicted behaviours from SPIN 2017 / NDSS 2023 / source reading.
 - **Mapper bug caught by the loop:** a refused rekey re-installed old keys; found by the ground-truth replay, fixed by Codex against a failing test.
 - **Candidate finding** ([`findings/CANDIDATE-001`](findings/CANDIDATE-001-openssh-seqnr-reset-on-stray-newkeys.md)):
-  under strict KEX, OpenSSH (9.2p1 and current 10.6p2) resets its receive sequence number on a NEWKEYS received outside a key exchange,
+  under strict KEX, OpenSSH (9.2p1, and 10.6p2 from Alpine edge; same code at upstream V_10_6_P1 and master) resets its receive sequence number on a NEWKEYS received outside a key exchange,
   while rejecting it with UNIMPLEMENTED and keeping its keys; Dropbear and AsyncSSH disconnect.
   Root cause in upstream `packet.c`.
-  We assess it as a spec ambiguity in the strict-KEX draft, not an exploitable vulnerability; verification in progress.
+  Verified in source by a Codex agent ([verification](findings/CANDIDATE-001-verification.md)): informational / low severity; needs a misbehaving peer, not triggerable on-path.
 - **Low-severity deviation:** AsyncSSH 2.17.0 authenticates and opens a channel without a prior `ssh-userauth` service request (Dropbear does the same, documented as intended).
 
 ## Where it got stuck

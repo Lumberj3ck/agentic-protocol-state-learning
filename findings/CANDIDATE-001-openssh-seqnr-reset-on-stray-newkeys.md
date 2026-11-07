@@ -1,7 +1,9 @@
 # CANDIDATE-001: OpenSSH resets its receive sequence number on a stray NEWKEYS under strict KEX
 
-Status: **candidate**, confirmed by replay on OpenSSH 9.2p1 (Debian) and 10.6p2 (Alpine edge, current), root cause located in upstream source; maintainers not contacted.
-Published on 2026-11-07 by team decision: we assess it as a spec ambiguity that an on-path attacker cannot trigger (see below).
+Status: **confirmed conformance observation, informational / low severity**.
+Reproduced on OpenSSH 9.2p1 (Debian bookworm) and on Alpine edge `openssh-server-10.6_p2-r0` (`sshd -V`: `OpenSSH_10.6p2`; there is no upstream `V_10_6_P2` tag, the source was verified at `V_10_6_P1` and master).
+Independently verified in source by a Codex agent: [CANDIDATE-001-verification.md](CANDIDATE-001-verification.md).
+Published on 2026-11-07 by team decision, before contacting the maintainers, because it cannot be triggered by an on-path attacker between honest endpoints.
 
 ## Observation
 
@@ -44,14 +46,19 @@ The send path (lines 1380–1383) has the same shape, but OpenSSH only sends NEW
 draft-miller-sshm-strict-kex-01 §3.3 / OpenSSH PROTOCOL §1.9: the sequence number is reset after sending or receiving NEWKEYS.
 The text does not say whether this applies to a NEWKEYS that is not part of a key exchange.
 OpenSSH follows the literal text; the other two treat the message as a protocol error.
-This looks like a **spec ambiguity** rather than a vulnerability:
-only a party holding the session keys can send an encrypted NEWKEYS, so an on-path attacker cannot trigger it.
-With `chacha20-poly1305@openssh.com` (nonce = sequence number), a reset without rekeying would reuse nonces
-for the sending client's own later packets, if the client also reset; we have not tested other ciphers.
+We read this as a **specification ambiguity**, not a vulnerability; the verification found no normative violation either way.
+Creating a fresh valid encrypted NEWKEYS requires the current directional keys, so it takes the legitimate (but misbehaving) peer;
+an on-path attacker between two honest endpoints cannot trigger it.
+Once a misbehaving peer has sent it, the receiver's transport state breaks an invariant (verification §4):
+with `chacha20-poly1305@openssh.com` (nonce and Poly1305 key derived from the sequence number) the receiver can accept
+earlier packets of the same direction and key epoch again, and a peer that also resets its own counter reuses nonces in its sending direction;
+AES-GCM is unaffected (independent IV counter); HMAC/UMAC see repeated sequence inputs.
+These consequences are source-derived, not demonstrated at runtime (our mapper only speaks AES-128-CTR + HMAC-SHA2-256).
+The OpenSSH client shares the packet-layer reset: after authentication it continues like the server, during authentication it terminates.
 
 ## Next checks
 
-1. ~~Current upstream OpenSSH~~: same behaviour in 10.6p2.
+1. ~~Current upstream OpenSSH~~: same code at V_9_6_P1, V_9_9_P2, V_10_6_P1 and master (introduced in 1edb00c, 2023-12-18); behaviour reproduced on 10.6p2 (Alpine).
 2. ~~Read upstream `packet.c`~~: done, see Root cause.
 3. Other strict-KEX implementations (Go x/crypto/ssh, libssh, russh, wolfSSH, MINA): does any other reset without new keys?
 4. Test with `chacha20-poly1305@openssh.com` once the mapper supports it.
