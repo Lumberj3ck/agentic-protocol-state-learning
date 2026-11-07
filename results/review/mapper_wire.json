@@ -1,0 +1,377 @@
+{
+ "openssh": {
+  "no_sr": {
+   "banner": "SSH-2.0-OpenSSH_10.0",
+   "outputs": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UNIMPL"
+   ],
+   "sent": [
+    {
+     "type": 20,
+     "seq_out": 0,
+     "encrypted": false,
+     "mac": 0
+    },
+    {
+     "type": 30,
+     "seq_out": 1,
+     "encrypted": false,
+     "mac": 0
+    },
+    {
+     "type": 21,
+     "seq_out": 2,
+     "encrypted": false,
+     "mac": 0
+    },
+    {
+     "type": 50,
+     "seq_out": 3,
+     "encrypted": true,
+     "mac": 32
+    }
+   ],
+   "ua_request": {
+    "user": "tester",
+    "service": "ssh-connection",
+    "method": "publickey",
+    "has_sig": true,
+    "alg": "rsa-sha2-256",
+    "keyblob_is_authorized_key": true,
+    "sig_valid_over_real_session_id": true,
+    "session_id_is_placeholder": false,
+    "session_id_prefix": "6763dd84e4df91b1",
+    "trailing_bytes": 0,
+    "payload_len": 878,
+    "seq_out": 3,
+    "encrypted": true,
+    "mac_size": 32
+   }
+  },
+  "with_sr": {
+   "banner": "SSH-2.0-OpenSSH_10.0",
+   "outputs": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST"
+   ],
+   "sent": [
+    {
+     "type": 20,
+     "seq_out": 0,
+     "encrypted": false,
+     "mac": 0
+    },
+    {
+     "type": 30,
+     "seq_out": 1,
+     "encrypted": false,
+     "mac": 0
+    },
+    {
+     "type": 21,
+     "seq_out": 2,
+     "encrypted": false,
+     "mac": 0
+    },
+    {
+     "type": 5,
+     "seq_out": 3,
+     "encrypted": true,
+     "mac": 32
+    },
+    {
+     "type": 50,
+     "seq_out": 4,
+     "encrypted": true,
+     "mac": 32
+    }
+   ],
+   "ua_request": {
+    "user": "tester",
+    "service": "ssh-connection",
+    "method": "publickey",
+    "has_sig": true,
+    "alg": "rsa-sha2-256",
+    "keyblob_is_authorized_key": true,
+    "sig_valid_over_real_session_id": true,
+    "session_id_is_placeholder": false,
+    "session_id_prefix": "a67ce3d7a5f27795",
+    "trailing_bytes": 0,
+    "payload_len": 878,
+    "seq_out": 4,
+    "encrypted": true,
+    "mac_size": 32
+   }
+  },
+  "fields_identical_except_seq": {
+   "user": true,
+   "service": true,
+   "method": true,
+   "has_sig": true,
+   "alg": true,
+   "keyblob_is_authorized_key": true,
+   "sig_valid_over_real_session_id": true,
+   "session_id_is_placeholder": true,
+   "trailing_bytes": true,
+   "payload_len": true,
+   "encrypted": true,
+   "mac_size": true
+  }
+ },
+ "dropbear": {
+  "no_sr": {
+   "banner": "SSH-2.0-dropbear_2025.88",
+   "outputs": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UA_SUCCESS"
+   ],
+   "sent": [
+    {
+     "type": 20,
+     "seq_out": 0,
+     "encrypted": false,
+     "mac": 0
+    },
+    {
+     "type": 30,
+     "seq_out": 1,
+     "encrypted": false,
+     "mac": 0
+    },
+    {
+     "type": 21,
+     "seq_out": 2,
+     "encrypted": false,
+     "mac": 0
+    },
+    {
+     "type": 50,
+     "seq_out": 3,
+     "encrypted": true,
+     "mac": 32
+    }
+   ],
+   "ua_request": {
+    "user": "tester",
+    "service": "ssh-connection",
+    "method": "publickey",
+    "has_sig": true,
+    "alg": "rsa-sha2-256",
+    "keyblob_is_authorized_key": true,
+    "sig_valid_over_real_session_id": true,
+    "session_id_is_placeholder": false,
+    "session_id_prefix": "14aed38882638d74",
+    "trailing_bytes": 0,
+    "payload_len": 878,
+    "seq_out": 3,
+    "encrypted": true,
+    "mac_size": 32
+   }
+  },
+  "with_sr": {
+   "banner": "SSH-2.0-dropbear_2025.88",
+   "outputs": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS"
+   ],
+   "sent": [
+    {
+     "type": 20,
+     "seq_out": 0,
+     "encrypted": false,
+     "mac": 0
+    },
+    {
+     "type": 30,
+     "seq_out": 1,
+     "encrypted": false,
+     "mac": 0
+    },
+    {
+     "type": 21,
+     "seq_out": 2,
+     "encrypted": false,
+     "mac": 0
+    },
+    {
+     "type": 5,
+     "seq_out": 3,
+     "encrypted": true,
+     "mac": 32
+    },
+    {
+     "type": 50,
+     "seq_out": 4,
+     "encrypted": true,
+     "mac": 32
+    }
+   ],
+   "ua_request": {
+    "user": "tester",
+    "service": "ssh-connection",
+    "method": "publickey",
+    "has_sig": true,
+    "alg": "rsa-sha2-256",
+    "keyblob_is_authorized_key": true,
+    "sig_valid_over_real_session_id": true,
+    "session_id_is_placeholder": false,
+    "session_id_prefix": "119d8619321ae2c0",
+    "trailing_bytes": 0,
+    "payload_len": 878,
+    "seq_out": 4,
+    "encrypted": true,
+    "mac_size": 32
+   }
+  },
+  "fields_identical_except_seq": {
+   "user": true,
+   "service": true,
+   "method": true,
+   "has_sig": true,
+   "alg": true,
+   "keyblob_is_authorized_key": true,
+   "sig_valid_over_real_session_id": true,
+   "session_id_is_placeholder": true,
+   "trailing_bytes": true,
+   "payload_len": true,
+   "encrypted": true,
+   "mac_size": true
+  }
+ },
+ "gossh": {
+  "no_sr": {
+   "banner": "SSH-2.0-Go",
+   "outputs": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "NO_CONN"
+   ],
+   "sent": [
+    {
+     "type": 20,
+     "seq_out": 0,
+     "encrypted": false,
+     "mac": 0
+    },
+    {
+     "type": 30,
+     "seq_out": 1,
+     "encrypted": false,
+     "mac": 0
+    },
+    {
+     "type": 21,
+     "seq_out": 2,
+     "encrypted": false,
+     "mac": 0
+    },
+    {
+     "type": 50,
+     "seq_out": 3,
+     "encrypted": true,
+     "mac": 32
+    }
+   ],
+   "ua_request": {
+    "user": "tester",
+    "service": "ssh-connection",
+    "method": "publickey",
+    "has_sig": true,
+    "alg": "rsa-sha2-256",
+    "keyblob_is_authorized_key": true,
+    "sig_valid_over_real_session_id": true,
+    "session_id_is_placeholder": false,
+    "session_id_prefix": "a1e6f7617f6b305e",
+    "trailing_bytes": 0,
+    "payload_len": 878,
+    "seq_out": 3,
+    "encrypted": true,
+    "mac_size": 32
+   }
+  },
+  "with_sr": {
+   "banner": "SSH-2.0-Go",
+   "outputs": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS"
+   ],
+   "sent": [
+    {
+     "type": 20,
+     "seq_out": 0,
+     "encrypted": false,
+     "mac": 0
+    },
+    {
+     "type": 30,
+     "seq_out": 1,
+     "encrypted": false,
+     "mac": 0
+    },
+    {
+     "type": 21,
+     "seq_out": 2,
+     "encrypted": false,
+     "mac": 0
+    },
+    {
+     "type": 5,
+     "seq_out": 3,
+     "encrypted": true,
+     "mac": 32
+    },
+    {
+     "type": 50,
+     "seq_out": 4,
+     "encrypted": true,
+     "mac": 32
+    }
+   ],
+   "ua_request": {
+    "user": "tester",
+    "service": "ssh-connection",
+    "method": "publickey",
+    "has_sig": true,
+    "alg": "rsa-sha2-256",
+    "keyblob_is_authorized_key": true,
+    "sig_valid_over_real_session_id": true,
+    "session_id_is_placeholder": false,
+    "session_id_prefix": "be1f415f1896eb37",
+    "trailing_bytes": 0,
+    "payload_len": 878,
+    "seq_out": 4,
+    "encrypted": true,
+    "mac_size": 32
+   }
+  },
+  "fields_identical_except_seq": {
+   "user": true,
+   "service": true,
+   "method": true,
+   "has_sig": true,
+   "alg": true,
+   "keyblob_is_authorized_key": true,
+   "sig_valid_over_real_session_id": true,
+   "session_id_is_placeholder": true,
+   "trailing_bytes": true,
+   "payload_len": true,
+   "encrypted": true,
+   "mac_size": true
+  }
+ }
+}

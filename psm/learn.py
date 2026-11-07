@@ -12,7 +12,7 @@ import time
 from pathlib import Path
 
 from aalpy.learning_algs import run_Lstar
-from aalpy.oracles import RandomWordEqOracle
+from aalpy.oracles import RandomWordEqOracle, StatePrefixEqOracle
 from aalpy.utils import save_automaton_to_file
 
 from psm.mapper_client import MapperClient
@@ -30,6 +30,9 @@ def main():
     ap.add_argument("--repeat-prob", type=float, default=0.1)
     ap.add_argument("--max-rounds", type=int, default=None)
     ap.add_argument("--seed", type=int, default=1)
+    ap.add_argument("--oracle", choices=["random", "stateprefix"], default="stateprefix")
+    ap.add_argument("--walks-per-state", type=int, default=25)
+    ap.add_argument("--cache-in", help="cache.json of an earlier run against the SAME SUT+mapper config")
     a = ap.parse_args()
 
     alphabet = a.alphabet.split(",")
@@ -39,8 +42,15 @@ def main():
     sul = RobustSUL(MapperClient("127.0.0.1", a.port), log_dir=run_dir, repeat_prob=a.repeat_prob, seed=a.seed)
     import random
     random.seed(a.seed)
-    eq = RandomWordEqOracle(alphabet, sul, num_walks=a.walks, min_walk_len=a.min_len, max_walk_len=a.max_len,
-                            reset_after_cex=True)
+    if a.cache_in:
+        for k, v in json.loads(Path(a.cache_in).read_text()):
+            sul.cache[tuple(k)] = tuple(v)
+        print(f"seeded cache with {len(sul.cache)} entries from {a.cache_in}")
+    if a.oracle == "random":
+        eq = RandomWordEqOracle(alphabet, sul, num_walks=a.walks, min_walk_len=a.min_len, max_walk_len=a.max_len,
+                                reset_after_cex=True)
+    else:
+        eq = StatePrefixEqOracle(alphabet, sul, walks_per_state=a.walks_per_state, walk_len=a.max_len)
     t0 = time.time()
     model, data = run_Lstar(alphabet, sul, eq, automaton_type="mealy", cache_and_non_det_check=False,
                             max_learning_rounds=a.max_rounds, return_data=True, print_level=2)
@@ -54,7 +64,8 @@ def main():
         "aalpy_queries_learning": data.get("queries_learning"), "aalpy_steps_learning": data.get("steps_learning"),
         "aalpy_queries_eq_oracle": data.get("queries_eq_oracle"), "aalpy_steps_eq_oracle": data.get("steps_eq_oracle"),
         "sut": dict(sul.stats), "seconds": round(elapsed, 1),
-        "eq_oracle": {"type": "RandomWordEqOracle", "walks_per_round": a.walks, "len": [a.min_len, a.max_len]},
+        "eq_oracle": {"type": a.oracle, "walks_per_round": a.walks, "walks_per_state": a.walks_per_state,
+                      "len": [a.min_len, a.max_len]}, "cache_in": a.cache_in,
         "repeat_prob": a.repeat_prob, "seed": a.seed,
         "finished": time.strftime("%Y-%m-%d %H:%M:%S"),
     }
