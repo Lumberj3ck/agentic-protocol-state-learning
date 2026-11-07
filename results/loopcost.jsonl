@@ -8,3 +8,4 @@
 {"time": "13:25", "sut": "all", "kind": "mapper_fix", "who": "agent (reviewer subagent found it)", "what": "P5: IGNORE/CH_* inputs blocked 30 s then crashed the mapper (clear_to_send never set upstream)"}
 {"time": "13:20", "sut": "all", "kind": "harness_fix", "who": "agent", "what": "Equivalence oracle too weak (random words; then state-prefix): first Dropbear and Go models under-learned; added rekey-aware targeted oracle"}
 {"time": "13:16", "sut": "all", "kind": "harness_fix", "who": "agent", "what": "Learner died on mapper crash; RobustSUL now logs, reconnects, retries"}
+{"time": "14:33", "sut": "all", "kind": "harness_fix", "who": "agent (reviewer subagent found it)", "what": "Mapper NEWKEYS-without-KEX corrupts its stream: taint filter added so no disagreement after such a NEWKEYS is reported"}

@@ -78,3 +78,9 @@
 - 14:30 GATE. Full encrypted handshake (KEX, service request, publickey auth, rekey) learned and converged for Dropbear 2020.81/2022.83/2025.88 and Go; OpenSSH A run (rekey oracle) has hypothesis 1 (9 states) and is in equivalence checking; B_openssh still filling its first table (cache 83 KB).
   Decision: do NOT fall back to the unencrypted phase; >= 2 servers have the full handshake, and every cross-server claim rests on three-server replays anyway.
   Condition: if A_openssh has not converged by 15:45, report OpenSSH's model as unconverged and base OpenSSH claims on replays only. B_openssh keeps running and is used only if it finishes before the 16:30 freeze.
+- 14:33 REVIEW C1-C5 (results/review/remaining_classes.md): all REAL (mapper replay 27 seqs x 5 x 3; stock paramiko with fresh cookies, ML-KEM, strict KEX on/off; server source).
+  C1 OpenSSH refuses pre-auth rekey (auth2.c resets the dispatch table; packet.c: "client can't cope with rekeying pre-auth"): violates the letter of RFC 4253 §9 MUST; also with fresh cookies, so not P4.
+  C2 UA after success: Dropbear follows SHOULD (silent); OpenSSH UNIMPL (post-auth process); Go closes the logged-in session ("invalid channel 6": parses the request as a channel message).
+  C3 repeated / post-auth SERVICE_REQUEST: unspecified divergence.
+  C4/C5 errors in KEX / KEX30 or NEWKEYS first: only on the NON-strict branch; with strict KEX, OpenSSH disconnects ("strict KEX violation", "KEXINIT was not the first packet"), Dropbear exits, Go closes: all comply.
+  Harness facts: mapper auto-sends KEXINIT when the server's arrives first; NEWKEYS without completed KEX corrupts the mapper's outbound stream. Added psm/taint.py + psm/verify.py (discard nondeterministic, tainted, or agreeing sequences) and reference/normalize.json (OpenSSH hostkeys-00 GLOBAL_REQUEST after UA_SUCCESS, confirmed by sshd "notify_hostkeys").

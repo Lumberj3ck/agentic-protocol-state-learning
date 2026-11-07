@@ -22,3 +22,6 @@ Each patch is marked `PSM patch Pn` in the source. Diff against upstream to audi
 
 - CH_CLOSE, CH_EOF, CH_DATA, CH_EXTENDED_DATA, CH_REQUEST_PTY, CH_REQUEST_ENV, CH_WINDOW_ADJUST crash the mapper on Python 3 (`get_remote_chanid_fuzz()` does `dict.keys()[0]`).
 - CH_MAX: the mapper allows one channel, registers it even when the server rejects or the connection is dead, and then answers any further CH_OPEN with the mapper-made symbol CH_MAX without sending anything.
+- Automatic KEXINIT: when the mapper reads the server's KEXINIT before having sent its own, it sends one automatically (`transport.py` ~2827). So a first input other than KEXINIT really means "X, then the mapper's KEXINIT".
+- NEWKEYS with no completed key exchange since the last NEWKEYS: the mapper re-derives the old keys and resets its AES-CTR counter, so everything it sends afterwards is garbage to the server ("Bad packet length", "Integrity error" in server logs). `psm/taint.py` marks such traces; `psm/verify.py` discards any disagreement at or after that point.
+  Learned models still contain these artifact states, so state counts overstate the servers' real state spaces.
