@@ -1,0 +1,31 @@
+{
+  "sut": "gossh",
+  "port": 2203,
+  "strict_kex": false,
+  "alphabet": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "SR_CONN",
+    "UA_PW_OK",
+    "CH_OPEN"
+  ],
+  "mapper_kw": {
+    "timeout": 0.4,
+    "quiet": 0.1
+  },
+  "instances": 3,
+  "states": 11,
+  "rounds": 8,
+  "mq": 109,
+  "mq_steps": 603,
+  "eq": 1408,
+  "eq_steps": 9434,
+  "nondet_events": 0,
+  "reset_failures": 0,
+  "seconds": 715.8,
+  "strict_kex_active": false,
+  "extra_seeds": "reference/v2A/gossh_refuted_seeds.json",
+  "learner": "teammate smlearn.learn (RobustSUL, ParallelEqOracle, SSH_SEED_PATHS) @ 76b49e1, AALpy run_KV"
+}

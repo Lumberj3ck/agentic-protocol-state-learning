@@ -1,0 +1,37 @@
+{
+ "name": "A_gossh",
+ "alphabet": [
+  "KEXINIT",
+  "KEX30",
+  "NEWKEYS",
+  "SR_AUTH",
+  "UA_PK_OK"
+ ],
+ "states": 12,
+ "learning_rounds": 3,
+ "aalpy_queries_learning": 1937,
+ "aalpy_steps_learning": 16438,
+ "aalpy_queries_eq_oracle": 1368,
+ "aalpy_steps_eq_oracle": 8740,
+ "sut": {
+  "cache_hits": 1911,
+  "sink_shortcuts": 4080,
+  "sut_queries": 53,
+  "sut_steps": 441,
+  "random_repeats": 7
+ },
+ "seconds": 373.7,
+ "eq_oracle": {
+  "type": "rekey",
+  "walks_per_round": 150,
+  "walks_per_state": 25,
+  "len": [
+   3,
+   10
+  ]
+ },
+ "cache_in": "results/learning/A_gossh_cache_stateprefix.json",
+ "repeat_prob": 0.1,
+ "seed": 1,
+ "finished": "2026-11-07 13:25:46"
+}

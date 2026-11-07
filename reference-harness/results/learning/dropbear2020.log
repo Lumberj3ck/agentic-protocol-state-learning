@@ -1,0 +1,52 @@
+Hypothesis 1: 7 states.
+-----------------------------------
+Learning Finished.
+Learning Rounds:  1
+Number of states: 7
+Time (in seconds)
+  Total                : 368.06
+  Learning algorithm   : 320.91
+  Conformance checking : 47.15
+Learning Algorithm
+ # Membership Queries  : 180
+ # Steps               : 1476
+Equivalence Query
+ # Membership Queries  : 120
+ # Steps               : 746
+-----------------------------------
+Model saved to results/models/dropbear2020.dot.
+{
+ "name": "dropbear2020",
+ "alphabet": [
+  "KEXINIT",
+  "KEX30",
+  "NEWKEYS",
+  "SR_AUTH",
+  "UA_PK_OK"
+ ],
+ "states": 7,
+ "learning_rounds": 1,
+ "aalpy_queries_learning": 180,
+ "aalpy_steps_learning": 1476,
+ "aalpy_queries_eq_oracle": 120,
+ "aalpy_steps_eq_oracle": 746,
+ "sut": {
+  "sut_queries": 111,
+  "sut_steps": 437,
+  "random_repeats": 11,
+  "cache_hits": 266,
+  "sink_shortcuts": 513
+ },
+ "seconds": 368.1,
+ "eq_oracle": {
+  "type": "RandomWordEqOracle",
+  "walks_per_round": 120,
+  "len": [
+   3,
+   9
+  ]
+ },
+ "repeat_prob": 0.1,
+ "seed": 1,
+ "finished": "2026-11-07 13:07:54"
+}

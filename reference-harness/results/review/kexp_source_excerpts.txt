@@ -1,0 +1,269 @@
+# Source excerpts for results/review/kex_phase.md (fetched 2026-11-07 from raw.githubusercontent.com / ietf.org)
+# openssh-portable V_10_0_P1; mkj/dropbear DROPBEAR_2025.88 (src/); golang/crypto v0.58.0 (ssh/); draft-ietf-sshm-strict-kex-01; RFC 4253
+
+## openssh/kex.c:236-258 kex_protocol_error, kex_reset_dispatch
+kex_protocol_error(int type, u_int32_t seq, struct ssh *ssh)
+{
+	int r;
+
+	/* If in strict mode, any unexpected message is an error */
+	if ((ssh->kex->flags & KEX_INITIAL) && ssh->kex->kex_strict) {
+		ssh_packet_disconnect(ssh, "strict KEX violation: "
+		    "unexpected packet type %u (seqnr %u)", type, seq);
+	}
+	error_f("type %u seq %u", type, seq);
+	if ((r = sshpkt_start(ssh, SSH2_MSG_UNIMPLEMENTED)) != 0 ||
+	    (r = sshpkt_put_u32(ssh, seq)) != 0 ||
+	    (r = sshpkt_send(ssh)) != 0)
+		return r;
+	return 0;
+}
+
+static void
+kex_reset_dispatch(struct ssh *ssh)
+{
+	ssh_dispatch_range(ssh, SSH2_MSG_TRANSPORT_MIN,
+	    SSH2_MSG_TRANSPORT_MAX, &kex_protocol_error);
+}
+
+## openssh/kex.c:610-626 kex_input_kexinit (second KEXINIT -> kex_protocol_error)
+kex_input_kexinit(int type, u_int32_t seq, struct ssh *ssh)
+{
+	struct kex *kex = ssh->kex;
+	const u_char *ptr;
+	u_int i;
+	size_t dlen;
+	int r;
+
+	debug("SSH2_MSG_KEXINIT received");
+	if (kex == NULL) {
+		error_f("no kex");
+		return SSH_ERR_INTERNAL_ERROR;
+	}
+	ssh_dispatch_set(ssh, SSH2_MSG_KEXINIT, &kex_protocol_error);
+	ptr = sshpkt_ptr(ssh, &dlen);
+	if ((r = sshbuf_put(kex->peer, ptr, dlen)) != 0)
+		return r;
+
+## openssh/dispatch.c:39-51 dispatch_protocol_error
+int
+dispatch_protocol_error(int type, u_int32_t seq, struct ssh *ssh)
+{
+	int r;
+
+	logit("dispatch_protocol_error: type %d seq %u", type, seq);
+	if ((r = sshpkt_start(ssh, SSH2_MSG_UNIMPLEMENTED)) != 0 ||
+	    (r = sshpkt_put_u32(ssh, seq)) != 0 ||
+	    (r = sshpkt_send(ssh)) != 0 ||
+	    (r = ssh_packet_write_wait(ssh)) != 0)
+		sshpkt_fatal(ssh, r, "%s", __func__);
+	return 0;
+}
+
+## openssh/packet.c:1782-1787 strict KEX: read seqnr reset on ANY received NEWKEYS
+	/* reset for next packet */
+	state->packlen = 0;
+	if (*typep == SSH2_MSG_NEWKEYS && ssh->kex->kex_strict) {
+		debug_f("resetting read seqnr %u", state->p_read.seqnr);
+		state->p_read.seqnr = 0;
+	}
+
+## openssh/packet.c:1832-1842 strict KEX: no implicit handling during initial KEX
+
+		/*
+		 * Do not implicitly handle any messages here during initial
+		 * KEX when in strict mode. They will be need to be allowed
+		 * explicitly by the KEX dispatch table or they will generate
+		 * protocol errors.
+		 */
+		if (ssh->kex != NULL &&
+		    (ssh->kex->flags & KEX_INITIAL) && ssh->kex->kex_strict)
+			return 0;
+		/* Implicitly handle transport-level messages */
+
+## dropbear/process-packet.c:44-48,86-118 requirenext check (SERVICE_REQUEST/ACCEPT/KEXINIT always fatal)
+
+	unsigned char type;
+	unsigned int i;
+	unsigned int first_strict_kex = ses.kexstate.strict_kex && !ses.kexstate.recvfirstnewkeys;
+	time_t now;
+	}
+
+	/* This applies for KEX, where the spec says the next packet MUST be
+	 * NEWKEYS */
+	if (ses.requirenext != 0) {
+		if (ses.requirenext == type)
+		{
+			/* Got what we expected */
+			TRACE(("got expected packet %d during kexinit", type))
+		}
+		else
+		{
+			/* RFC4253 7.1 - various messages are allowed at this point.
+			The only ones we know about have already been handled though,
+			so just return "unimplemented" */
+			if (type >= 1 && type <= 49
+				&& type != SSH_MSG_SERVICE_REQUEST
+				&& type != SSH_MSG_SERVICE_ACCEPT
+				&& type != SSH_MSG_KEXINIT
+				&& !first_strict_kex)
+			{
+				TRACE(("unknown allowed packet during kexinit"))
+				recv_unimplemented();
+				goto out;
+			}
+			else
+			{
+				TRACE(("disallowed packet during kexinit"))
+				dropbear_exit("Unexpected packet type %d, expected %d", type,
+						ses.requirenext);
+			}
+		}
+	}
+
+## dropbear/common-kex.c:505-512 recv_msg_kexinit
+		TRACE(("continue recv_msg_kexinit: sent kexinit"))
+	}
+
+	/* "Once a party has sent a SSH_MSG_KEXINIT message ...
+	further SSH_MSG_KEXINIT messages MUST NOT be sent" */
+	if (ses.kexstate.recvkexinit) {
+		dropbear_exit("Unexpected KEXINIT");
+	}
+
+## dropbear/common-kex.c:118-124 switch_keys (NEWKEYS outside KEX)
+}
+
+static void switch_keys() {
+	TRACE2(("enter switch_keys"))
+	if (!(ses.kexstate.sentkexinit && ses.kexstate.recvkexinit)) {
+		dropbear_exit("Unexpected newkeys message");
+	}
+
+## dropbear/svr-kex.c:48-56 recv_msg_kexdh_init (30 outside KEX)
+ * that function, then brings the new keys into use */
+void recv_msg_kexdh_init() {
+	DEF_MP_INT(dh_e);
+	buffer *q_c = NULL;
+
+	TRACE(("enter recv_msg_kexdh_init"))
+	if (!ses.kexstate.recvkexinit) {
+		dropbear_exit("Premature kexdh_init message received");
+	}
+
+## go ssh/transport.go:140-160 NEWKEYS without pending key change
+func (s *connectionState) readPacket(r *bufio.Reader, strictMode bool) ([]byte, error) {
+	packet, err := s.packetCipher.readCipherPacket(s.seqNum, r)
+	s.seqNum++
+	if err == nil && len(packet) == 0 {
+		err = errors.New("ssh: zero length packet")
+	}
+
+	if len(packet) > 0 {
+		switch packet[0] {
+		case msgNewKeys:
+			select {
+			case cipher := <-s.pendingKeyChange:
+				s.packetCipher = cipher
+				if strictMode {
+					s.seqNum = 0
+				}
+			default:
+				return nil, errors.New("ssh: got bogus newkeys message")
+			}
+
+		case msgDisconnect:
+
+## go ssh/handshake.go:755-762 enterKeyExchange expects NEWKEYS
+			return err
+		}
+	}
+
+	if packet, err := t.conn.readPacket(); err != nil {
+		return err
+	} else if packet[0] != msgNewKeys {
+		return unexpectedMessageError(msgNewKeys, packet[0])
+
+## go ssh/kex.go:155-164 dhGroup.Server reads exactly one packet and unmarshals it as KEXDH_INIT
+func (group *dhGroup) Server(c packetConn, randSource io.Reader, magics *handshakeMagics, priv AlgorithmSigner, algo string) (result *kexResult, err error) {
+	packet, err := c.readPacket()
+	if err != nil {
+		return
+	}
+	var kexDHInit kexDHInitMsg
+	if err = Unmarshal(packet, &kexDHInit); err != nil {
+		return
+	}
+
+
+## RFC 4253 s7.1 (lines 1051-1077 of rfc4253.txt)
+   Once a party has sent a SSH_MSG_KEXINIT message for key exchange or
+   re-exchange, until it has sent a SSH_MSG_NEWKEYS message (Section
+   7.3), it MUST NOT send any messages other than:
+
+   o  Transport layer generic messages (1 to 19) (but
+      SSH_MSG_SERVICE_REQUEST and SSH_MSG_SERVICE_ACCEPT MUST NOT be
+      sent);
+
+   o  Algorithm negotiation messages (20 to 29) (but further
+      SSH_MSG_KEXINIT messages MUST NOT be sent);
+
+   o  Specific key exchange method messages (30 to 49).
+
+
+
+Ylonen &  Lonvick           Standards Track                    [Page 19]
+   The provisions of Section 11 apply to unrecognized messages.
+
+   Note, however, that during a key re-exchange, after sending a
+   SSH_MSG_KEXINIT message, each party MUST be prepared to process an
+   arbitrary number of messages that may be in-flight before receiving a
+   SSH_MSG_KEXINIT message from the other party.
+
+
+## RFC 4253 s7.3
+7.3.  Taking Keys Into Use
+
+   Key exchange ends by each side sending an SSH_MSG_NEWKEYS message.
+   This message is sent with the old keys and algorithms.  All messages
+   sent after this message MUST use the new keys and algorithms.
+
+   When this message is received, the new keys and algorithms MUST be
+   used for receiving.
+
+## RFC 4253 s11.4
+
+11.4.  Reserved Messages
+
+   An implementation MUST respond to all unrecognized messages with an
+   SSH_MSG_UNIMPLEMENTED message in the order in which the messages were
+   received.  Such messages MUST be otherwise ignored.  Later protocol
+   versions may define other meanings for these message types.
+
+## draft-ietf-sshm-strict-kex-01 s3.2-3.3
+3.2.  Disallowing non-KEX messages in initial KEX
+
+   When strict KEX is enabled, implementations MUST terminate the
+   connection if they receive a non-KEX message during the initial key
+   exchange.  Permitted messages include only SSH_MSG_KEXINIT,
+   SSH_MSG_NEWKEYS and the messages specific to each KEX algorithm:
+
+   Finally, implementations MUST additionally ensure that any message
+   permitted during KEX can be only accepted the expected number of
+   times.  For example, for ECDH KEX, the SSH_MSG_KEX_ECDH_INIT will
+   only be sent a single time by a well-behaved client.  A server
+   implementing this extension MUST only accept it once.
+
+3.3.  Resetting sequence number at KEX completion
+
+   When strict KEX is enabled, both the client and server MUST reset
+   their sequence numbers at the conclusion of the initial KEX and for
+   each subsequent KEX.  The sequence point for this reset is after
+   SSH_MSG_NEWKEYS.
+
+   Specifically, the sequence number used when sending packets MUST be
+   reset to zero immediately after any SSH_MSG_NEWKEYS packet is sent.
+
+   Likewise, the expected sequence number for packets received from the
+   peer MUST be reset after a SSH_MSG_NEWKEYS is received.
+

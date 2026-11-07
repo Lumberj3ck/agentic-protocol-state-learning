@@ -1,0 +1,182 @@
+{
+  "names": [
+    "ns",
+    "strict"
+  ],
+  "alphabets": {
+    "ns": [
+      "CH_OPEN",
+      "KEX30",
+      "KEXINIT",
+      "NEWKEYS",
+      "SR_AUTH",
+      "SR_CONN",
+      "UA_PW_OK"
+    ],
+    "strict": [
+      "CH_OPEN",
+      "KEX30",
+      "KEXINIT",
+      "NEWKEYS",
+      "SR_AUTH",
+      "SR_CONN",
+      "UA_PW_OK"
+    ]
+  },
+  "alphabets_identical": true,
+  "alphabet_only_in": {
+    "ns": [],
+    "strict": []
+  },
+  "diffed_inputs": [
+    "CH_OPEN",
+    "KEX30",
+    "KEXINIT",
+    "NEWKEYS",
+    "SR_AUTH",
+    "SR_CONN",
+    "UA_PW_OK"
+  ],
+  "restricted_to_inputs": null,
+  "n_states": [
+    8,
+    11
+  ],
+  "equivalent": false,
+  "equivalent_on_common_inputs": false,
+  "normalize": null,
+  "n_disagreements": 3,
+  "classes": [
+    {
+      "input": "KEXINIT",
+      "out1": "NO_RESP",
+      "out2": "CLOSED",
+      "sequence": [
+        "KEX30",
+        "KEXINIT"
+      ],
+      "trace1": [
+        "UNIMPLEMENTED",
+        "NO_RESP"
+      ],
+      "trace2": [
+        "UNIMPLEMENTED",
+        "CLOSED"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s0",
+      "state2": "s6"
+    },
+    {
+      "input": "NEWKEYS",
+      "out1": "UNIMPLEMENTED",
+      "out2": "CLOSED",
+      "sequence": [
+        "KEXINIT",
+        "NEWKEYS"
+      ],
+      "trace1": [
+        "NO_RESP",
+        "UNIMPLEMENTED"
+      ],
+      "trace2": [
+        "NO_RESP",
+        "CLOSED"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s2",
+      "state2": "s2"
+    },
+    {
+      "input": "KEX30",
+      "out1": "UNIMPLEMENTED",
+      "out2": "CLOSED",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "KEX30"
+      ],
+      "trace1": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "UNIMPLEMENTED"
+      ],
+      "trace2": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "CLOSED"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s3",
+      "state2": "s3"
+    }
+  ],
+  "coarse_classes": [
+    {
+      "input": "KEXINIT",
+      "out1": "NO_RESP",
+      "out2": "CLOSED",
+      "sequence": [
+        "KEX30",
+        "KEXINIT"
+      ],
+      "trace1": [
+        "UNIMPLEMENTED",
+        "NO_RESP"
+      ],
+      "trace2": [
+        "UNIMPLEMENTED",
+        "CLOSED"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "n_state_pairs": 1
+    },
+    {
+      "input": "NEWKEYS",
+      "out1": "UNIMPLEMENTED",
+      "out2": "CLOSED",
+      "sequence": [
+        "KEXINIT",
+        "NEWKEYS"
+      ],
+      "trace1": [
+        "NO_RESP",
+        "UNIMPLEMENTED"
+      ],
+      "trace2": [
+        "NO_RESP",
+        "CLOSED"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "n_state_pairs": 1
+    },
+    {
+      "input": "KEX30",
+      "out1": "UNIMPLEMENTED",
+      "out2": "CLOSED",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "KEX30"
+      ],
+      "trace1": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "UNIMPLEMENTED"
+      ],
+      "trace2": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "CLOSED"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "n_state_pairs": 1
+    }
+  ]
+}

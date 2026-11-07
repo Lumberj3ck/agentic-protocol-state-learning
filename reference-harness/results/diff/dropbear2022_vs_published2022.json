@@ -1,0 +1,128 @@
+{
+  "names": [
+    "ours_2022.83",
+    "published_2022.83"
+  ],
+  "alphabets": {
+    "ours_2022.83": [
+      "KEX30",
+      "KEXINIT",
+      "NEWKEYS",
+      "SR_AUTH",
+      "UA_PK_OK"
+    ],
+    "published_2022.83": [
+      "KEX30",
+      "KEXINIT",
+      "NEWKEYS",
+      "SR_AUTH",
+      "UA_PK_OK"
+    ]
+  },
+  "alphabets_identical": true,
+  "alphabet_only_in": {
+    "ours_2022.83": [],
+    "published_2022.83": []
+  },
+  "diffed_inputs": [
+    "KEX30",
+    "KEXINIT",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK"
+  ],
+  "n_states": [
+    9,
+    10
+  ],
+  "equivalent": false,
+  "equivalent_on_common_inputs": false,
+  "normalize": null,
+  "n_disagreements": 2,
+  "classes": [
+    {
+      "input": "KEX30",
+      "out1": "KEX31+NEWKEYS+EXT_INFO",
+      "out2": "UNIMPL",
+      "sequence": [
+        "KEX30",
+        "KEX30"
+      ],
+      "trace1": [
+        "KEXINIT+UNIMPL",
+        "KEX31+NEWKEYS+EXT_INFO"
+      ],
+      "trace2": [
+        "KEXINIT+UNIMPL",
+        "UNIMPL"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s1",
+      "state2": "s1"
+    },
+    {
+      "input": "KEXINIT",
+      "out1": "NO_CONN",
+      "out2": "NO_RESP",
+      "sequence": [
+        "KEX30",
+        "KEXINIT"
+      ],
+      "trace1": [
+        "KEXINIT+UNIMPL",
+        "NO_CONN"
+      ],
+      "trace2": [
+        "KEXINIT+UNIMPL",
+        "NO_RESP"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s1",
+      "state2": "s1"
+    }
+  ],
+  "coarse_classes": [
+    {
+      "input": "KEX30",
+      "out1": "KEX31+NEWKEYS+EXT_INFO",
+      "out2": "UNIMPL",
+      "sequence": [
+        "KEX30",
+        "KEX30"
+      ],
+      "trace1": [
+        "KEXINIT+UNIMPL",
+        "KEX31+NEWKEYS+EXT_INFO"
+      ],
+      "trace2": [
+        "KEXINIT+UNIMPL",
+        "UNIMPL"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "n_state_pairs": 1
+    },
+    {
+      "input": "KEXINIT",
+      "out1": "NO_CONN",
+      "out2": "NO_RESP",
+      "sequence": [
+        "KEX30",
+        "KEXINIT"
+      ],
+      "trace1": [
+        "KEXINIT+UNIMPL",
+        "NO_CONN"
+      ],
+      "trace2": [
+        "KEXINIT+UNIMPL",
+        "NO_RESP"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "n_state_pairs": 1
+    }
+  ]
+}

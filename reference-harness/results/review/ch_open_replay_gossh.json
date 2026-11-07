@@ -1,0 +1,1492 @@
+{
+ "started": "2026-11-07T12:56:00.709690+00:00",
+ "reps": 10,
+ "targets": {
+  "gossh": {
+   "mapper_port": 8003,
+   "container": "psm-gossh"
+  }
+ },
+ "sequences": [
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "CH_OPEN"
+   ],
+   "results": {
+    "gossh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "NO_CONN"
+       ],
+       "count": 10
+      }
+     ],
+     "deterministic": true,
+     "seconds": 31.06,
+     "server_log": [
+      "2026/11/07 12:56:00 handshake error from 172.17.0.1:45848: EOF",
+      "2026/11/07 12:56:03 handshake error from 172.17.0.1:45852: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:56:06 handshake error from 172.17.0.1:45864: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:56:09 handshake error from 172.17.0.1:47558: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:56:12 handshake error from 172.17.0.1:47568: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:56:16 handshake error from 172.17.0.1:47576: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:56:19 handshake error from 172.17.0.1:55240: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:56:22 handshake error from 172.17.0.1:55246: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:56:25 handshake error from 172.17.0.1:55250: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:56:28 handshake error from 172.17.0.1:55262: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:56:31 handshake error from 172.17.0.1:39598: ssh: unexpected message type 90 (expected one of [5])"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "CH_OPEN"
+   ],
+   "results": {
+    "gossh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "NO_CONN"
+       ],
+       "count": 10
+      }
+     ],
+     "deterministic": true,
+     "seconds": 39.53,
+     "server_log": [
+      "2026/11/07 12:56:35 handshake error from 172.17.0.1:39608: ssh: unexpected message type 90 (expected one of [50])",
+      "2026/11/07 12:56:39 handshake error from 172.17.0.1:39614: ssh: unexpected message type 90 (expected one of [50])",
+      "2026/11/07 12:56:43 handshake error from 172.17.0.1:46674: ssh: unexpected message type 90 (expected one of [50])",
+      "2026/11/07 12:56:47 handshake error from 172.17.0.1:46676: ssh: unexpected message type 90 (expected one of [50])",
+      "2026/11/07 12:56:51 handshake error from 172.17.0.1:39224: ssh: unexpected message type 90 (expected one of [50])",
+      "2026/11/07 12:56:55 handshake error from 172.17.0.1:39230: ssh: unexpected message type 90 (expected one of [50])",
+      "2026/11/07 12:56:59 handshake error from 172.17.0.1:39236: ssh: unexpected message type 90 (expected one of [50])",
+      "2026/11/07 12:57:03 handshake error from 172.17.0.1:59836: ssh: unexpected message type 90 (expected one of [50])",
+      "2026/11/07 12:57:07 handshake error from 172.17.0.1:59852: ssh: unexpected message type 90 (expected one of [50])",
+      "2026/11/07 12:57:11 handshake error from 172.17.0.1:56590: ssh: unexpected message type 90 (expected one of [50])"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "CH_OPEN"
+   ],
+   "results": {
+    "gossh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS"
+       ],
+       "count": 10
+      }
+     ],
+     "deterministic": true,
+     "seconds": 55.25,
+     "server_log": [
+      "2026/11/07 12:57:15 handshake ok from 172.17.0.1:56604 user=tester client=\"SSH-2.0-paramiko_3.1.0\"",
+      "2026/11/07 12:57:16 connection closed from 172.17.0.1:56604",
+      "2026/11/07 12:57:20 handshake ok from 172.17.0.1:46202 user=tester client=\"SSH-2.0-paramiko_3.1.0\"",
+      "2026/11/07 12:57:22 connection closed from 172.17.0.1:46202",
+      "2026/11/07 12:57:26 handshake ok from 172.17.0.1:46210 user=tester client=\"SSH-2.0-paramiko_3.1.0\"",
+      "2026/11/07 12:57:27 connection closed from 172.17.0.1:46210",
+      "2026/11/07 12:57:31 handshake ok from 172.17.0.1:42022 user=tester client=\"SSH-2.0-paramiko_3.1.0\"",
+      "2026/11/07 12:57:33 connection closed from 172.17.0.1:42022",
+      "2026/11/07 12:57:37 handshake ok from 172.17.0.1:42024 user=tester client=\"SSH-2.0-paramiko_3.1.0\"",
+      "2026/11/07 12:57:39 connection closed from 172.17.0.1:42024",
+      "2026/11/07 12:57:42 handshake ok from 172.17.0.1:48374 user=tester client=\"SSH-2.0-paramiko_3.1.0\"",
+      "2026/11/07 12:57:44 connection closed from 172.17.0.1:48374",
+      "2026/11/07 12:57:48 handshake ok from 172.17.0.1:48380 user=tester client=\"SSH-2.0-paramiko_3.1.0\"",
+      "2026/11/07 12:57:50 connection closed from 172.17.0.1:48380",
+      "2026/11/07 12:57:53 handshake ok from 172.17.0.1:60534 user=tester client=\"SSH-2.0-paramiko_3.1.0\"",
+      "2026/11/07 12:57:55 connection closed from 172.17.0.1:60534",
+      "2026/11/07 12:57:59 handshake ok from 172.17.0.1:60546 user=tester client=\"SSH-2.0-paramiko_3.1.0\"",
+      "2026/11/07 12:58:01 connection closed from 172.17.0.1:60546",
+      "2026/11/07 12:58:04 handshake ok from 172.17.0.1:58606 user=tester client=\"SSH-2.0-paramiko_3.1.0\""
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "CH_OPEN",
+    "SR_AUTH",
+    "UA_PK_OK"
+   ],
+   "results": {
+    "gossh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "NO_CONN",
+        "NO_CONN",
+        "NO_CONN"
+       ],
+       "count": 10
+      }
+     ],
+     "deterministic": true,
+     "seconds": 36.89,
+     "server_log": [
+      "2026/11/07 12:58:06 connection closed from 172.17.0.1:58606",
+      "2026/11/07 12:58:09 handshake error from 172.17.0.1:36592: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:58:13 handshake error from 172.17.0.1:36594: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:58:16 handshake error from 172.17.0.1:36598: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:58:20 handshake error from 172.17.0.1:44446: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:58:24 handshake error from 172.17.0.1:44452: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:58:27 handshake error from 172.17.0.1:44464: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:58:31 handshake error from 172.17.0.1:48250: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:58:35 handshake error from 172.17.0.1:48262: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:58:38 handshake error from 172.17.0.1:48264: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:58:42 handshake error from 172.17.0.1:49256: ssh: unexpected message type 90 (expected one of [5])"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "CH_OPEN",
+    "DEBUG",
+    "DEBUG",
+    "DEBUG"
+   ],
+   "results": {
+    "gossh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "NO_CONN",
+        "NO_CONN",
+        "NO_CONN",
+        "NO_CONN"
+       ],
+       "count": 10
+      }
+     ],
+     "deterministic": true,
+     "seconds": 38.61,
+     "server_log": [
+      "2026/11/07 12:58:46 handshake error from 172.17.0.1:49260: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:58:50 handshake error from 172.17.0.1:35150: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:58:54 handshake error from 172.17.0.1:35166: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:58:57 handshake error from 172.17.0.1:35180: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:59:01 handshake error from 172.17.0.1:42026: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:59:05 handshake error from 172.17.0.1:42038: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:59:09 handshake error from 172.17.0.1:56038: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:59:13 handshake error from 172.17.0.1:56048: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:59:17 handshake error from 172.17.0.1:56062: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:59:21 handshake error from 172.17.0.1:60900: ssh: unexpected message type 90 (expected one of [5])"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "DEBUG",
+    "DEBUG",
+    "DEBUG",
+    "CH_OPEN"
+   ],
+   "results": {
+    "gossh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_RESP",
+       "NO_CONN"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "NO_RESP",
+        "NO_RESP",
+        "NO_RESP",
+        "NO_CONN"
+       ],
+       "count": 10
+      }
+     ],
+     "deterministic": true,
+     "seconds": 56.57,
+     "server_log": [
+      "2026/11/07 12:59:27 handshake error from 172.17.0.1:60910: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:59:33 handshake error from 172.17.0.1:48042: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:59:38 handshake error from 172.17.0.1:48048: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:59:44 handshake error from 172.17.0.1:36220: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:59:50 handshake error from 172.17.0.1:36224: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 12:59:55 handshake error from 172.17.0.1:42636: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 13:00:01 handshake error from 172.17.0.1:42642: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 13:00:07 handshake error from 172.17.0.1:46036: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 13:00:12 handshake error from 172.17.0.1:54496: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 13:00:18 handshake error from 172.17.0.1:54512: ssh: unexpected message type 90 (expected one of [5])"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "TCP_FORWARD_START"
+   ],
+   "results": {
+    "gossh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "NO_CONN"
+       ],
+       "count": 10
+      }
+     ],
+     "deterministic": true,
+     "seconds": 30.95,
+     "server_log": [
+      "2026/11/07 13:00:21 handshake error from 172.17.0.1:43816: ssh: unexpected message type 80 (expected one of [5])",
+      "2026/11/07 13:00:24 handshake error from 172.17.0.1:43828: ssh: unexpected message type 80 (expected one of [5])",
+      "2026/11/07 13:00:27 handshake error from 172.17.0.1:43840: ssh: unexpected message type 80 (expected one of [5])",
+      "2026/11/07 13:00:30 handshake error from 172.17.0.1:44402: ssh: unexpected message type 80 (expected one of [5])",
+      "2026/11/07 13:00:33 handshake error from 172.17.0.1:44406: ssh: unexpected message type 80 (expected one of [5])",
+      "2026/11/07 13:00:37 handshake error from 172.17.0.1:44420: ssh: unexpected message type 80 (expected one of [5])",
+      "2026/11/07 13:00:40 handshake error from 172.17.0.1:41412: ssh: unexpected message type 80 (expected one of [5])",
+      "2026/11/07 13:00:43 handshake error from 172.17.0.1:41422: ssh: unexpected message type 80 (expected one of [5])",
+      "2026/11/07 13:00:46 handshake error from 172.17.0.1:41426: ssh: unexpected message type 80 (expected one of [5])",
+      "2026/11/07 13:00:49 handshake error from 172.17.0.1:55960: ssh: unexpected message type 80 (expected one of [5])"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "TCP_FORWARD_START"
+   ],
+   "results": {
+    "gossh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "NO_CONN"
+       ],
+       "count": 10
+      }
+     ],
+     "deterministic": true,
+     "seconds": 39.5,
+     "server_log": [
+      "2026/11/07 13:00:53 handshake error from 172.17.0.1:55974: ssh: unexpected message type 80 (expected one of [50])",
+      "2026/11/07 13:00:57 handshake error from 172.17.0.1:55982: ssh: unexpected message type 80 (expected one of [50])",
+      "2026/11/07 13:01:01 handshake error from 172.17.0.1:37832: ssh: unexpected message type 80 (expected one of [50])",
+      "2026/11/07 13:01:05 handshake error from 172.17.0.1:37838: ssh: unexpected message type 80 (expected one of [50])",
+      "2026/11/07 13:01:09 handshake error from 172.17.0.1:37844: ssh: unexpected message type 80 (expected one of [50])",
+      "2026/11/07 13:01:13 handshake error from 172.17.0.1:40920: ssh: unexpected message type 80 (expected one of [50])",
+      "2026/11/07 13:01:17 handshake error from 172.17.0.1:40928: ssh: unexpected message type 80 (expected one of [50])",
+      "2026/11/07 13:01:21 handshake error from 172.17.0.1:37122: ssh: unexpected message type 80 (expected one of [50])",
+      "2026/11/07 13:01:25 handshake error from 172.17.0.1:37138: ssh: unexpected message type 80 (expected one of [50])",
+      "2026/11/07 13:01:28 handshake error from 172.17.0.1:37154: ssh: unexpected message type 80 (expected one of [50])"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_NOK",
+    "CH_OPEN"
+   ],
+   "results": {
+    "gossh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_FAILURE",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_FAILURE",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_FAILURE",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_FAILURE",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_FAILURE",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_FAILURE",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_FAILURE",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_FAILURE",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_FAILURE",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_FAILURE",
+       "NO_CONN"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_FAILURE",
+        "NO_CONN"
+       ],
+       "count": 10
+      }
+     ],
+     "deterministic": true,
+     "seconds": 49.15,
+     "server_log": [
+      "2026/11/07 13:01:33 handshake error from 172.17.0.1:50176: ssh: unexpected message type 90 (expected one of [50])",
+      "2026/11/07 13:01:38 handshake error from 172.17.0.1:50182: ssh: unexpected message type 90 (expected one of [50])",
+      "2026/11/07 13:01:43 handshake error from 172.17.0.1:41838: ssh: unexpected message type 90 (expected one of [50])",
+      "2026/11/07 13:01:48 handshake error from 172.17.0.1:41848: ssh: unexpected message type 90 (expected one of [50])",
+      "2026/11/07 13:01:53 handshake error from 172.17.0.1:53622: ssh: unexpected message type 90 (expected one of [50])",
+      "2026/11/07 13:01:58 handshake error from 172.17.0.1:53636: ssh: unexpected message type 90 (expected one of [50])",
+      "2026/11/07 13:02:03 handshake error from 172.17.0.1:38730: ssh: unexpected message type 90 (expected one of [50])",
+      "2026/11/07 13:02:08 handshake error from 172.17.0.1:38736: ssh: unexpected message type 90 (expected one of [50])",
+      "2026/11/07 13:02:13 handshake error from 172.17.0.1:42310: ssh: unexpected message type 90 (expected one of [50])",
+      "2026/11/07 13:02:18 handshake error from 172.17.0.1:42322: ssh: unexpected message type 90 (expected one of [50])"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "CH_OPEN",
+    "CH_OPEN"
+   ],
+   "results": {
+    "gossh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "CH_MAX"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "CH_MAX"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "CH_MAX"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "CH_MAX"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "CH_MAX"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "CH_MAX"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "CH_MAX"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "CH_MAX"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "CH_MAX"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "CH_MAX"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "NO_CONN",
+        "CH_MAX"
+       ],
+       "count": 10
+      }
+     ],
+     "deterministic": true,
+     "seconds": 33.49,
+     "server_log": [
+      "2026/11/07 13:02:21 handshake error from 172.17.0.1:49570: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 13:02:24 handshake error from 172.17.0.1:49582: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 13:02:27 handshake error from 172.17.0.1:49592: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 13:02:31 handshake error from 172.17.0.1:50696: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 13:02:34 handshake error from 172.17.0.1:50698: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 13:02:38 handshake error from 172.17.0.1:50700: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 13:02:41 handshake error from 172.17.0.1:42940: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 13:02:44 handshake error from 172.17.0.1:42948: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 13:02:48 handshake error from 172.17.0.1:42956: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 13:02:51 handshake error from 172.17.0.1:44380: ssh: unexpected message type 90 (expected one of [5])"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "CH_OPEN",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "CH_OPEN"
+   ],
+   "results": {
+    "gossh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN",
+       "CH_MAX"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN",
+       "CH_MAX"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN",
+       "CH_MAX"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN",
+       "CH_MAX"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN",
+       "CH_MAX"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN",
+       "CH_MAX"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN",
+       "CH_MAX"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN",
+       "CH_MAX"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN",
+       "CH_MAX"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "NO_CONN",
+       "NO_CONN",
+       "NO_CONN",
+       "CH_MAX"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "NO_CONN",
+        "NO_CONN",
+        "NO_CONN",
+        "CH_MAX"
+       ],
+       "count": 10
+      }
+     ],
+     "deterministic": true,
+     "seconds": 39.61,
+     "server_log": [
+      "2026/11/07 13:02:54 handshake error from 172.17.0.1:44392: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 13:02:58 handshake error from 172.17.0.1:44402: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 13:03:02 handshake error from 172.17.0.1:47528: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 13:03:06 handshake error from 172.17.0.1:47544: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 13:03:10 handshake error from 172.17.0.1:42912: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 13:03:14 handshake error from 172.17.0.1:42926: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 13:03:18 handshake error from 172.17.0.1:42934: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 13:03:22 handshake error from 172.17.0.1:46932: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 13:03:26 handshake error from 172.17.0.1:46940: ssh: unexpected message type 90 (expected one of [5])",
+      "2026/11/07 13:03:30 handshake error from 172.17.0.1:46696: ssh: unexpected message type 90 (expected one of [5])"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "CH_OPEN"
+   ],
+   "results": {
+    "gossh": {
+     "observations": [
+      [
+       "KEXINIT"
+      ],
+      [
+       "KEXINIT"
+      ],
+      [
+       "KEXINIT"
+      ],
+      [
+       "KEXINIT"
+      ],
+      [
+       "KEXINIT"
+      ],
+      [
+       "KEXINIT"
+      ],
+      [
+       "KEXINIT"
+      ],
+      [
+       "KEXINIT"
+      ],
+      [
+       "KEXINIT"
+      ],
+      [
+       "KEXINIT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT"
+       ],
+       "count": 10
+      }
+     ],
+     "deterministic": true,
+     "seconds": 8.53,
+     "server_log": [
+      "2026/11/07 13:03:31 handshake error from 172.17.0.1:46708: ssh: first packet should be msgKexInit",
+      "2026/11/07 13:03:32 handshake error from 172.17.0.1:46716: ssh: first packet should be msgKexInit",
+      "2026/11/07 13:03:33 handshake error from 172.17.0.1:46722: ssh: first packet should be msgKexInit",
+      "2026/11/07 13:03:34 handshake error from 172.17.0.1:46730: ssh: first packet should be msgKexInit",
+      "2026/11/07 13:03:35 handshake error from 172.17.0.1:46742: ssh: first packet should be msgKexInit",
+      "2026/11/07 13:03:36 handshake error from 172.17.0.1:46752: ssh: first packet should be msgKexInit",
+      "2026/11/07 13:03:36 handshake error from 172.17.0.1:46920: ssh: first packet should be msgKexInit",
+      "2026/11/07 13:03:37 handshake error from 172.17.0.1:46926: ssh: first packet should be msgKexInit",
+      "2026/11/07 13:03:38 handshake error from 172.17.0.1:46936: ssh: first packet should be msgKexInit",
+      "2026/11/07 13:03:39 handshake error from 172.17.0.1:46944: ssh: first packet should be msgKexInit"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "CH_OPEN"
+   ],
+   "results": {
+    "gossh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "NO_CONN"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "NO_CONN"
+       ],
+       "count": 10
+      }
+     ],
+     "deterministic": true,
+     "seconds": 13.56,
+     "server_log": [
+      "2026/11/07 13:03:41 handshake error from 172.17.0.1:46958: ssh: unexpected message type 90 (expected one of [30])",
+      "2026/11/07 13:03:42 handshake error from 172.17.0.1:46974: ssh: unexpected message type 90 (expected one of [30])",
+      "2026/11/07 13:03:43 handshake error from 172.17.0.1:46978: ssh: unexpected message type 90 (expected one of [30])",
+      "2026/11/07 13:03:45 handshake error from 172.17.0.1:46980: ssh: unexpected message type 90 (expected one of [30])",
+      "2026/11/07 13:03:46 handshake error from 172.17.0.1:46996: ssh: unexpected message type 90 (expected one of [30])",
+      "2026/11/07 13:03:48 handshake error from 172.17.0.1:42290: ssh: unexpected message type 90 (expected one of [30])",
+      "2026/11/07 13:03:49 handshake error from 172.17.0.1:42300: ssh: unexpected message type 90 (expected one of [30])",
+      "2026/11/07 13:03:50 handshake error from 172.17.0.1:42306: ssh: unexpected message type 90 (expected one of [30])",
+      "2026/11/07 13:03:52 handshake error from 172.17.0.1:42312: ssh: unexpected message type 90 (expected one of [30])",
+      "2026/11/07 13:03:53 handshake error from 172.17.0.1:42328: ssh: unexpected message type 90 (expected one of [30])"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  }
+ ]
+}

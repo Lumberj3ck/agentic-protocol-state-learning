@@ -1,0 +1,51 @@
+{
+  "names": [
+    "ns",
+    "strict"
+  ],
+  "alphabets": {
+    "ns": [
+      "CH_OPEN",
+      "KEX30",
+      "KEXINIT",
+      "NEWKEYS",
+      "SR_AUTH",
+      "SR_CONN",
+      "UA_PW_OK"
+    ],
+    "strict": [
+      "CH_OPEN",
+      "KEX30",
+      "KEXINIT",
+      "NEWKEYS",
+      "SR_AUTH",
+      "SR_CONN",
+      "UA_PW_OK"
+    ]
+  },
+  "alphabets_identical": true,
+  "alphabet_only_in": {
+    "ns": [],
+    "strict": []
+  },
+  "diffed_inputs": [
+    "CH_OPEN",
+    "KEX30",
+    "KEXINIT",
+    "NEWKEYS",
+    "SR_AUTH",
+    "SR_CONN",
+    "UA_PW_OK"
+  ],
+  "restricted_to_inputs": null,
+  "n_states": [
+    9,
+    9
+  ],
+  "equivalent": true,
+  "equivalent_on_common_inputs": true,
+  "normalize": null,
+  "n_disagreements": 0,
+  "classes": [],
+  "coarse_classes": []
+}

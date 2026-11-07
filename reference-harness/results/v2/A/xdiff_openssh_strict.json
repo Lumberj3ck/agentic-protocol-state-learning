@@ -1,0 +1,339 @@
+{
+ "inputs": [
+  "KEX30",
+  "KEXINIT",
+  "NEWKEYS",
+  "SR_AUTH",
+  "UA_PK_OK"
+ ],
+ "n_states": [
+  9,
+  12
+ ],
+ "n_disagreements": 9,
+ "fine_classes": 9,
+ "classes": [
+  {
+   "input": "UA_PK_OK",
+   "out1": "NO_RESP",
+   "out2": "NO_CONN",
+   "sequence": [
+    "UA_PK_OK"
+   ],
+   "trace1": [
+    "NO_RESP"
+   ],
+   "trace2": [
+    "NO_CONN"
+   ],
+   "member_count": 1,
+   "examples": [],
+   "n_state_pairs": 1,
+   "comparable": true,
+   "auto_kexinit": true
+  },
+  {
+   "input": "KEX30",
+   "out1": "KEX31+NEWKEYS",
+   "out2": "UNIMPL",
+   "sequence": [
+    "KEX30",
+    "KEX30"
+   ],
+   "trace1": [
+    "UNIMPL",
+    "KEX31+NEWKEYS"
+   ],
+   "trace2": [
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "member_count": 1,
+   "examples": [],
+   "n_state_pairs": 1,
+   "comparable": true,
+   "auto_kexinit": true
+  },
+  {
+   "input": "KEXINIT",
+   "out1": "UNIMPL",
+   "out2": "DISCONNECT",
+   "sequence": [
+    "KEX30",
+    "KEXINIT"
+   ],
+   "trace1": [
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "trace2": [
+    "UNIMPL",
+    "DISCONNECT"
+   ],
+   "member_count": 3,
+   "examples": [
+    [
+     "KEXINIT",
+     "KEXINIT"
+    ],
+    [
+     "KEXINIT",
+     "KEX30",
+     "KEXINIT"
+    ]
+   ],
+   "n_state_pairs": 3,
+   "comparable": true,
+   "auto_kexinit": true
+  },
+  {
+   "input": "NEWKEYS",
+   "out1": "UNIMPL",
+   "out2": "DISCONNECT",
+   "sequence": [
+    "KEXINIT",
+    "NEWKEYS"
+   ],
+   "trace1": [
+    "NO_RESP",
+    "UNIMPL"
+   ],
+   "trace2": [
+    "NO_RESP",
+    "DISCONNECT"
+   ],
+   "member_count": 1,
+   "examples": [],
+   "n_state_pairs": 1,
+   "comparable": true,
+   "auto_kexinit": false
+  },
+  {
+   "input": "SR_AUTH",
+   "out1": "UNIMPL",
+   "out2": "DISCONNECT",
+   "sequence": [
+    "KEXINIT",
+    "SR_AUTH"
+   ],
+   "trace1": [
+    "NO_RESP",
+    "UNIMPL"
+   ],
+   "trace2": [
+    "NO_RESP",
+    "DISCONNECT"
+   ],
+   "member_count": 2,
+   "examples": [
+    [
+     "KEXINIT",
+     "KEX30",
+     "SR_AUTH"
+    ]
+   ],
+   "n_state_pairs": 2,
+   "comparable": true,
+   "auto_kexinit": false
+  },
+  {
+   "input": "KEX30",
+   "out1": "UNIMPL",
+   "out2": "DISCONNECT",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "KEX30"
+   ],
+   "trace1": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "UNIMPL"
+   ],
+   "trace2": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "DISCONNECT"
+   ],
+   "member_count": 1,
+   "examples": [],
+   "n_state_pairs": 1,
+   "comparable": true,
+   "auto_kexinit": false
+  }
+ ],
+ "disagreements": [
+  {
+   "access": [],
+   "input": "UA_PK_OK",
+   "out1": "NO_RESP",
+   "out2": "NO_CONN",
+   "trace1": [
+    "NO_RESP"
+   ],
+   "trace2": [
+    "NO_CONN"
+   ],
+   "state1": "s0_init",
+   "state2": "s0"
+  },
+  {
+   "access": [
+    "KEX30"
+   ],
+   "input": "KEX30",
+   "out1": "KEX31+NEWKEYS",
+   "out2": "UNIMPL",
+   "trace1": [
+    "UNIMPL",
+    "KEX31+NEWKEYS"
+   ],
+   "trace2": [
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "state1": "s1",
+   "state2": "s7"
+  },
+  {
+   "access": [
+    "KEX30"
+   ],
+   "input": "KEXINIT",
+   "out1": "UNIMPL",
+   "out2": "DISCONNECT",
+   "trace1": [
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "trace2": [
+    "UNIMPL",
+    "DISCONNECT"
+   ],
+   "state1": "s1",
+   "state2": "s7"
+  },
+  {
+   "access": [
+    "KEXINIT"
+   ],
+   "input": "KEXINIT",
+   "out1": "UNIMPL",
+   "out2": "DISCONNECT",
+   "trace1": [
+    "NO_RESP",
+    "UNIMPL"
+   ],
+   "trace2": [
+    "NO_RESP",
+    "DISCONNECT"
+   ],
+   "state1": "s1",
+   "state2": "s2"
+  },
+  {
+   "access": [
+    "KEXINIT"
+   ],
+   "input": "NEWKEYS",
+   "out1": "UNIMPL",
+   "out2": "DISCONNECT",
+   "trace1": [
+    "NO_RESP",
+    "UNIMPL"
+   ],
+   "trace2": [
+    "NO_RESP",
+    "DISCONNECT"
+   ],
+   "state1": "s1",
+   "state2": "s2"
+  },
+  {
+   "access": [
+    "KEXINIT"
+   ],
+   "input": "SR_AUTH",
+   "out1": "UNIMPL",
+   "out2": "DISCONNECT",
+   "trace1": [
+    "NO_RESP",
+    "UNIMPL"
+   ],
+   "trace2": [
+    "NO_RESP",
+    "DISCONNECT"
+   ],
+   "state1": "s1",
+   "state2": "s2"
+  },
+  {
+   "access": [
+    "KEXINIT",
+    "KEX30"
+   ],
+   "input": "KEX30",
+   "out1": "UNIMPL",
+   "out2": "DISCONNECT",
+   "trace1": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "UNIMPL"
+   ],
+   "trace2": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "DISCONNECT"
+   ],
+   "state1": "s3",
+   "state2": "s3"
+  },
+  {
+   "access": [
+    "KEXINIT",
+    "KEX30"
+   ],
+   "input": "KEXINIT",
+   "out1": "UNIMPL",
+   "out2": "DISCONNECT",
+   "trace1": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "UNIMPL"
+   ],
+   "trace2": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "DISCONNECT"
+   ],
+   "state1": "s3",
+   "state2": "s3"
+  },
+  {
+   "access": [
+    "KEXINIT",
+    "KEX30"
+   ],
+   "input": "SR_AUTH",
+   "out1": "UNIMPL",
+   "out2": "DISCONNECT",
+   "trace1": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "UNIMPL"
+   ],
+   "trace2": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "DISCONNECT"
+   ],
+   "state1": "s3",
+   "state2": "s3"
+  }
+ ],
+ "reachable_state_pairs": 11,
+ "transitions_compared": 55,
+ "transitions_agree": 46,
+ "ours": "results/models/A_openssh.dot",
+ "theirs": "results/v2/A/tm_models/openssh_strict/model.dot"
+}

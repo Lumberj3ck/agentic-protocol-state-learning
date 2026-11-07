@@ -1,0 +1,38 @@
+{
+  "version": "A-1 (2026-11-07 16:10)",
+  "ours": "vendor/ssh-fuzzer mapper + PSM patches P1-P5 (Paramiko-based, DH group14-sha256, rsa-sha2-256, publickey auth, non-strict KEX)",
+  "theirs": "vendor/agentic-protocol-state-learning @ 76b49e1 src/smlearn/ssh/mapper.py (curve25519, ed25519, password auth), timeout 0.4 s / quiet 0.1 s as in their v3vm runs",
+  "inputs": {
+    "KEXINIT": {"theirs": "KEXINIT", "rationale": "Both send SSH_MSG_KEXINIT (20). Ours: fixed cookie per connection (P4), offers group14-sha256; theirs zero cookie, curve25519."},
+    "KEX30": {"theirs": "KEX30", "rationale": "Both send message 30: ours KEXDH_INIT (DH group14), theirs KEX_ECDH_INIT (curve25519). Same message number and protocol role."},
+    "NEWKEYS": {"theirs": "NEWKEYS", "rationale": "Both send SSH_MSG_NEWKEYS (21). Difference: ours re-derives old keys when no KEX completed since the last NEWKEYS (stream corruption, psm/taint.py); theirs keeps the current keys (MAPPER-SPEC)."},
+    "SR_AUTH": {"theirs": "SR_AUTH", "rationale": "SERVICE_REQUEST ssh-userauth in both."},
+    "SR_CONN": {"theirs": "SR_CONN", "rationale": "SERVICE_REQUEST ssh-connection in both."},
+    "UA_PK_OK": {"theirs": "UA_PW_OK", "rationale": "Both a correct USERAUTH_REQUEST for user tester, service ssh-connection; ours method publickey with signature, theirs method password. Mapped as 'successful authentication'; method-specific behaviour is not comparable."},
+    "CH_OPEN": {"theirs": "CH_OPEN", "rationale": "CHANNEL_OPEN session in both. Ours allows only one channel (second gives mapper-made CH_MAX without sending); theirs always sends."}
+  },
+  "inputs_not_mappable": {
+    "ours": [],
+    "theirs": ["UA_PW_NOK", "UA_NONE", "CH_CLOSE", "CH_EOF", "CH_DATA", "CH_REQUEST_EXEC", "IGNORE", "DEBUG", "UNIMPLEMENTED", "DISCONNECT"],
+    "rationale": "No counterpart in our learned alphabets A/B (our mapper crashes on the CH_* inputs, vendor/PATCHES.md)."
+  },
+  "outputs": {
+    "UNIMPLEMENTED": {"ours": "UNIMPL", "rationale": "SSH_MSG_UNIMPLEMENTED (3)."},
+    "SERVICE_ACCEPT": {"ours": "SR_ACCEPT", "rationale": "SSH_MSG_SERVICE_ACCEPT (6)."},
+    "CLOSED (alone)": {"ours": "NO_CONN", "rationale": "Theirs reports the close in the step where it happens as CLOSED and NO_CONN afterwards; ours reports NO_CONN in both."},
+    "X+CLOSED": {"ours": "X", "rationale": "Ours does not show a TCP close that happens in the same step as a message (report.md, 'abstraction hides')."},
+    "IGNORE, DEBUG tokens": {"ours": "(dropped)", "rationale": "Our mapper drops server IGNORE/DEBUG."},
+    "UA_SUCCESS+GLOBAL_REQUEST": {"ours": "UA_SUCCESS", "rationale": "OpenSSH hostkeys-00@openssh.com; normalised in both (reference/normalize.json)."},
+    "first step": {"ours": "strip the leading KEXINIT token of our first output (NO_RESP if nothing remains)", "rationale": "Theirs absorbs the server KEXINIT in reset(); ours reports it in the first step."},
+    "KEX31+NEWKEYS(+EXT_INFO)": {"ours": "same", "rationale": "Both mappers report the server reply and NEWKEYS bundled in the KEX30 step; names identical."},
+    "EXT_INFO": {"ours": "(dropped on both sides)", "rationale": "Server EXT_INFO (RFC 8308) is sent only if the client KEXINIT advertises ext-info-c; ours (Paramiko) does, theirs does not (observed in results/v2/A/tm_smoke.json). Setup difference, not behaviour."},
+    "identical names": ["KEXINIT", "KEX31", "NEWKEYS", "EXT_INFO", "UA_SUCCESS", "UA_FAILURE", "GLOBAL_REQUEST", "CH_OPEN_SUCCESS", "CH_OPEN_FAILURE", "DISCONNECT", "NO_RESP", "NO_CONN"]
+  },
+  "not_mappable": {
+    "CH_MAX (ours)": "mapper-made, nothing sent; any comparison at or after it is skipped",
+    "NO_CHANNEL, BAD_PACKET (theirs)": "no counterpart; reported, never compared",
+    "first input other than KEXINIT": "ours then sends its own KEXINIT automatically, theirs never does: different concrete messages; compared but every mismatch is classified 'setup: auto-KEXINIT'",
+    "steps after our NEWKEYS without a completed KEX": "our stream is corrupted (psm/taint.py); a mismatch there is classified 'ours wrong (known, taint)'",
+    "DISCONNECT reason codes, timing of close": "neither abstraction keeps them"
+  }
+}

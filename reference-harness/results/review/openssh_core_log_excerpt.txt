@@ -1,0 +1,56 @@
+Connection closed by 172.17.0.1 port 34836 [preauth]
+debug3: receive packet: type 50 [preauth]
+dispatch_protocol_error: type 50 seq 3 [preauth]
+debug3: send packet: type 3 [preauth]
+Connection closed by 172.17.0.1 port 34842 [preauth]
+debug3: receive packet: type 50 [preauth]
+dispatch_protocol_error: type 50 seq 3 [preauth]
+debug3: send packet: type 3 [preauth]
+Connection closed by 172.17.0.1 port 34858 [preauth]
+debug3: receive packet: type 50 [preauth]
+dispatch_protocol_error: type 50 seq 3 [preauth]
+debug3: send packet: type 3 [preauth]
+Connection closed by 172.17.0.1 port 42246 [preauth]
+debug3: receive packet: type 50 [preauth]
+dispatch_protocol_error: type 50 seq 3 [preauth]
+debug3: send packet: type 3 [preauth]
+Connection closed by 172.17.0.1 port 42262 [preauth]
+debug3: receive packet: type 50 [preauth]
+dispatch_protocol_error: type 50 seq 3 [preauth]
+debug3: send packet: type 3 [preauth]
+Connection closed by 172.17.0.1 port 53526 [preauth]
+debug3: receive packet: type 50 [preauth]
+dispatch_protocol_error: type 50 seq 3 [preauth]
+debug3: send packet: type 3 [preauth]
+Connection closed by 172.17.0.1 port 53534 [preauth]
+debug3: receive packet: type 50 [preauth]
+dispatch_protocol_error: type 50 seq 3 [preauth]
+debug3: send packet: type 3 [preauth]
+Connection closed by 172.17.0.1 port 53540 [preauth]
+debug3: receive packet: type 50 [preauth]
+dispatch_protocol_error: type 50 seq 3 [preauth]
+debug3: send packet: type 3 [preauth]
+Connection closed by 172.17.0.1 port 49840 [preauth]
+debug3: receive packet: type 50 [preauth]
+dispatch_protocol_error: type 50 seq 3 [preauth]
+debug3: send packet: type 3 [preauth]
+Connection closed by 172.17.0.1 port 49854 [preauth]
+debug3: receive packet: type 50 [preauth]
+dispatch_protocol_error: type 50 seq 3 [preauth]
+debug3: send packet: type 3 [preauth]
+---
+psm-mapper-openssh selfimpl:
+total 12
+drwxr-xr-x 3 root root 4096 Nov  7 12:04 .
+drwxr-xr-x 1 root root 4096 Nov  7 12:04 ..
+drwxrwxr-x 2 1000 1000 4096 Nov  7 11:57 .ssh
+psm-mapper-dropbear selfimpl:
+total 12
+drwxr-xr-x 3 root root 4096 Nov  7 12:04 .
+drwxr-xr-x 1 root root 4096 Nov  7 12:04 ..
+drwxrwxr-x 2 1000 1000 4096 Nov  7 11:57 .ssh
+psm-mapper-gossh selfimpl:
+total 12
+drwxr-xr-x 3 root root 4096 Nov  7 12:04 .
+drwxr-xr-x 1 root root 4096 Nov  7 12:04 ..
+drwxrwxr-x 2 1000 1000 4096 Nov  7 11:57 .ssh

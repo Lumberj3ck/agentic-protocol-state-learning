@@ -1,0 +1,149 @@
+{
+ "started": "2026-11-07T12:17:28.504606+00:00",
+ "reps": 5,
+ "targets": {
+  "dropbear2020": {
+   "mapper_port": 8012,
+   "container": "psm-dropbear2020"
+  }
+ },
+ "sequences": [
+  {
+   "sequence": [
+    "KEX30",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH"
+   ],
+   "results": {
+    "dropbear2020": {
+     "observations": [
+      [
+       "KEXINIT+UNIMPL",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT"
+      ],
+      [
+       "KEXINIT+UNIMPL",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT"
+      ],
+      [
+       "KEXINIT+UNIMPL",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT"
+      ],
+      [
+       "KEXINIT+UNIMPL",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT"
+      ],
+      [
+       "KEXINIT+UNIMPL",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT+UNIMPL",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT"
+       ],
+       "count": 5
+      }
+     ],
+     "deterministic": true,
+     "seconds": 18.35,
+     "server_log": [
+      "[222] Nov 07 12:17:28 Child connection from 172.17.0.1:39308",
+      "[222] Nov 07 12:17:28 Exit before auth from <172.17.0.1:39308>: Exited normally",
+      "[223] Nov 07 12:17:28 Child connection from 172.17.0.1:39316",
+      "[223] Nov 07 12:17:32 Exit before auth from <172.17.0.1:39316>: Exited normally",
+      "[224] Nov 07 12:17:32 Child connection from 172.17.0.1:39322",
+      "[224] Nov 07 12:17:35 Exit before auth from <172.17.0.1:39322>: Exited normally",
+      "[225] Nov 07 12:17:35 Child connection from 172.17.0.1:39326",
+      "[225] Nov 07 12:17:39 Exit before auth from <172.17.0.1:39326>: Exited normally",
+      "[226] Nov 07 12:17:39 Child connection from 172.17.0.1:34302",
+      "[226] Nov 07 12:17:43 Exit before auth from <172.17.0.1:34302>: Exited normally",
+      "[227] Nov 07 12:17:43 Child connection from 172.17.0.1:34318"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEX30",
+    "KEXINIT",
+    "KEX30"
+   ],
+   "results": {
+    "dropbear2020": {
+     "observations": [
+      [
+       "KEXINIT+UNIMPL",
+       "NO_CONN",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT+UNIMPL",
+       "NO_CONN",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT+UNIMPL",
+       "NO_CONN",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT+UNIMPL",
+       "NO_CONN",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT+UNIMPL",
+       "NO_CONN",
+       "NO_CONN"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT+UNIMPL",
+        "NO_CONN",
+        "NO_CONN"
+       ],
+       "count": 5
+      }
+     ],
+     "deterministic": true,
+     "seconds": 8.14,
+     "server_log": [
+      "[227] Nov 07 12:17:46 Exit before auth from <172.17.0.1:34318>: Exited normally",
+      "[228] Nov 07 12:17:46 Child connection from 172.17.0.1:35634",
+      "[228] Nov 07 12:17:47 Exit before auth from <172.17.0.1:35634>: Unexpected packet type 20, expected 30",
+      "[229] Nov 07 12:17:48 Child connection from 172.17.0.1:35646",
+      "[229] Nov 07 12:17:49 Exit before auth from <172.17.0.1:35646>: Unexpected packet type 20, expected 30",
+      "[230] Nov 07 12:17:50 Child connection from 172.17.0.1:35658",
+      "[230] Nov 07 12:17:51 Exit before auth from <172.17.0.1:35658>: Unexpected packet type 20, expected 30",
+      "[231] Nov 07 12:17:51 Child connection from 172.17.0.1:35666",
+      "[231] Nov 07 12:17:52 Exit before auth from <172.17.0.1:35666>: Unexpected packet type 20, expected 30",
+      "[232] Nov 07 12:17:53 Child connection from 172.17.0.1:35672",
+      "[232] Nov 07 12:17:54 Exit before auth from <172.17.0.1:35672>: Unexpected packet type 20, expected 30"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  }
+ ]
+}

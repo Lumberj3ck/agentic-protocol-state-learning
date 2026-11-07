@@ -1,0 +1,612 @@
+{
+ "started": "2026-11-07T15:09:52.882641+00:00",
+ "reps": 3,
+ "targets": {
+  "mina-sshd": {
+   "mapper_port": 8306,
+   "container": "psm-b1-mina-sshd"
+  }
+ },
+ "sequences": [
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "CH_OPEN"
+   ],
+   "results": {
+    "mina-sshd": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 16.62,
+     "server_log": [
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-1] INFO org.apache.sshd.server.session.ServerSessionImpl - Session tester@/172.17.0.1:40402 authenticated",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-1] INFO org.apache.sshd.server.session.ServerSessionImpl - Session tester@/172.17.0.1:47980 authenticated",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-1] INFO org.apache.sshd.server.session.ServerSessionImpl - Session tester@/172.17.0.1:47984 authenticated"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "UA_PK_OK"
+   ],
+   "results": {
+    "mina-sshd": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UNIMPL"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UNIMPL"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UNIMPL"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "UNIMPL"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 11.39,
+     "server_log": []
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "CH_OPEN"
+   ],
+   "results": {
+    "mina-sshd": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "NO_CONN"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 11.84,
+     "server_log": [
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-1] WARN org.apache.sshd.server.session.ServerSessionImpl - exceptionCaught(ServerSessionImpl[null@/172.17.0.1:34008])[state=Opened] IllegalStateException: No current authentication mechanism for cmd=SSH_MSG_CHANNEL_OPEN",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-1] WARN org.apache.sshd.server.session.ServerSessionImpl - exceptionCaught(ServerSessionImpl[null@/172.17.0.1:34020])[state=Opened] IllegalStateException: No current authentication mechanism for cmd=SSH_MSG_CHANNEL_OPEN",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-1] WARN org.apache.sshd.server.session.ServerSessionImpl - exceptionCaught(ServerSessionImpl[null@/172.17.0.1:41358])[state=Opened] IllegalStateException: No current authentication mechanism for cmd=SSH_MSG_CHANNEL_OPEN"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "KEXINIT"
+   ],
+   "results": {
+    "mina-sshd": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "KEXINIT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "KEXINIT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "KEXINIT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "KEXINIT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 13.65,
+     "server_log": []
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "UA_PK_OK"
+   ],
+   "results": {
+    "mina-sshd": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "UNIMPL"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "UNIMPL"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "UNIMPL"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "UNIMPL"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 16.8,
+     "server_log": [
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-2] INFO org.apache.sshd.server.session.ServerSessionImpl - Session tester@/172.17.0.1:43144 authenticated",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-2] INFO org.apache.sshd.server.session.ServerSessionImpl - Session tester@/172.17.0.1:43152 authenticated",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-2] INFO org.apache.sshd.server.session.ServerSessionImpl - Session tester@/172.17.0.1:49152 authenticated"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "SR_AUTH"
+   ],
+   "results": {
+    "mina-sshd": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 15.84,
+     "server_log": [
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-2] INFO org.apache.sshd.server.session.ServerSessionImpl - Session tester@/172.17.0.1:49160 authenticated",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-1] INFO org.apache.sshd.server.session.ServerSessionImpl - Disconnecting(ServerSessionImpl[tester@/172.17.0.1:49160]): SSH2_DISCONNECT_SERVICE_NOT_AVAILABLE - Bad service request: ssh-userauth",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-1] INFO org.apache.sshd.server.session.ServerSessionImpl - Session tester@/172.17.0.1:33484 authenticated",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-2] INFO org.apache.sshd.server.session.ServerSessionImpl - Disconnecting(ServerSessionImpl[tester@/172.17.0.1:33484]): SSH2_DISCONNECT_SERVICE_NOT_AVAILABLE - Bad service request: ssh-userauth",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-2] INFO org.apache.sshd.server.session.ServerSessionImpl - Session tester@/172.17.0.1:33500 authenticated",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-1] INFO org.apache.sshd.server.session.ServerSessionImpl - Disconnecting(ServerSessionImpl[tester@/172.17.0.1:33500]): SSH2_DISCONNECT_SERVICE_NOT_AVAILABLE - Bad service request: ssh-userauth"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "SR_CONN"
+   ],
+   "results": {
+    "mina-sshd": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 12.88,
+     "server_log": [
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-1] INFO org.apache.sshd.server.session.ServerSessionImpl - Disconnecting(ServerSessionImpl[null@/172.17.0.1:41780]): SSH2_DISCONNECT_SERVICE_NOT_AVAILABLE - Bad service request: ssh-connection",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-1] INFO org.apache.sshd.server.session.ServerSessionImpl - Disconnecting(ServerSessionImpl[null@/172.17.0.1:41784]): SSH2_DISCONNECT_SERVICE_NOT_AVAILABLE - Bad service request: ssh-connection",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-1] INFO org.apache.sshd.server.session.ServerSessionImpl - Disconnecting(ServerSessionImpl[null@/172.17.0.1:39938]): SSH2_DISCONNECT_SERVICE_NOT_AVAILABLE - Bad service request: ssh-connection"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "KEX30"
+   ],
+   "results": {
+    "mina-sshd": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_CONN"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_CONN"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 6.76,
+     "server_log": [
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-1] WARN org.apache.sshd.server.session.ServerSessionImpl - exceptionCaught(ServerSessionImpl[null@/172.17.0.1:39942])[state=Opened] IllegalStateException: Received KEX command=30 while in state=KEYS instead of RUN",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-1] WARN org.apache.sshd.server.session.ServerSessionImpl - exceptionCaught(ServerSessionImpl[null@/172.17.0.1:39954])[state=Opened] IllegalStateException: Received KEX command=30 while in state=KEYS instead of RUN",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-1] WARN org.apache.sshd.server.session.ServerSessionImpl - exceptionCaught(ServerSessionImpl[null@/172.17.0.1:47254])[state=Opened] IllegalStateException: Received KEX command=30 while in state=KEYS instead of RUN"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEX30"
+   ],
+   "results": {
+    "mina-sshd": {
+     "observations": [
+      [
+       "KEXINIT"
+      ],
+      [
+       "KEXINIT"
+      ],
+      [
+       "KEXINIT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 2.57,
+     "server_log": [
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-1] WARN org.apache.sshd.server.session.ServerSessionImpl - exceptionCaught(ServerSessionImpl[null@/172.17.0.1:47264])[state=Opened] IllegalStateException: Received KEX command=30 while in state=INIT instead of RUN",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-1] WARN org.apache.sshd.server.session.ServerSessionImpl - exceptionCaught(ServerSessionImpl[null@/172.17.0.1:47274])[state=Opened] IllegalStateException: Received KEX command=30 while in state=INIT instead of RUN",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-1] WARN org.apache.sshd.server.session.ServerSessionImpl - exceptionCaught(ServerSessionImpl[null@/172.17.0.1:47282])[state=Opened] IllegalStateException: Received KEX command=30 while in state=INIT instead of RUN"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEXINIT"
+   ],
+   "results": {
+    "mina-sshd": {
+     "observations": [
+      [
+       "KEXINIT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "NO_CONN"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "NO_CONN"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 4.08,
+     "server_log": [
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-2] WARN org.apache.sshd.server.session.ServerSessionImpl - exceptionCaught(ServerSessionImpl[null@/172.17.0.1:47298])[state=Opened] IllegalStateException: Received SSH_MSG_KEXINIT while key exchange is running",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-1] WARN org.apache.sshd.server.session.ServerSessionImpl - exceptionCaught(ServerSessionImpl[null@/172.17.0.1:47310])[state=Opened] IllegalStateException: Received SSH_MSG_KEXINIT while key exchange is running",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-2] WARN org.apache.sshd.server.session.ServerSessionImpl - exceptionCaught(ServerSessionImpl[null@/172.17.0.1:47322])[state=Opened] IllegalStateException: Received SSH_MSG_KEXINIT while key exchange is running"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "KEXINIT",
+    "SR_AUTH"
+   ],
+   "results": {
+    "mina-sshd": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "KEXINIT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "KEXINIT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "KEXINIT",
+       "NO_CONN"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "KEXINIT",
+        "NO_CONN"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 17.34,
+     "server_log": [
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-2] INFO org.apache.sshd.server.session.ServerSessionImpl - Session tester@/172.17.0.1:47330 authenticated",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-2] WARN org.apache.sshd.server.session.ServerSessionImpl - exceptionCaught(ServerSessionImpl[tester@/172.17.0.1:47330])[state=Opened] IllegalStateException: Received SSH_MSG_SERVICE_REQUEST while in KEX state=RUN",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-2] INFO org.apache.sshd.server.session.ServerSessionImpl - Session tester@/172.17.0.1:60078 authenticated",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-2] WARN org.apache.sshd.server.session.ServerSessionImpl - exceptionCaught(ServerSessionImpl[tester@/172.17.0.1:60078])[state=Opened] IllegalStateException: Received SSH_MSG_SERVICE_REQUEST while in KEX state=RUN",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-2] INFO org.apache.sshd.server.session.ServerSessionImpl - Session tester@/172.17.0.1:35306 authenticated",
+      "[sshd-SshServer[c8e4bb0](port=22)-nio2-thread-2] WARN org.apache.sshd.server.session.ServerSessionImpl - exceptionCaught(ServerSessionImpl[tester@/172.17.0.1:35306])[state=Opened] IllegalStateException: Received SSH_MSG_SERVICE_REQUEST while in KEX state=RUN"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  }
+ ]
+}

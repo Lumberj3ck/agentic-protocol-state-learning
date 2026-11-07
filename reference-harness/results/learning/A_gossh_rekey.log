@@ -1,0 +1,57 @@
+seeded cache with 85 entries from results/learning/A_gossh_cache_stateprefix.json
+Hypothesis 1: 8 states.
+Hypothesis 2: 10 states.
+Hypothesis 3: 12 states.
+-----------------------------------
+Learning Finished.
+Learning Rounds:  3
+Number of states: 12
+Time (in seconds)
+  Total                : 373.67
+  Learning algorithm   : 76.14
+  Conformance checking : 297.53
+Learning Algorithm
+ # Membership Queries  : 1937
+ # Steps               : 16438
+Equivalence Query
+ # Membership Queries  : 1368
+ # Steps               : 8740
+-----------------------------------
+Model saved to results/models/A_gossh.dot.
+{
+ "name": "A_gossh",
+ "alphabet": [
+  "KEXINIT",
+  "KEX30",
+  "NEWKEYS",
+  "SR_AUTH",
+  "UA_PK_OK"
+ ],
+ "states": 12,
+ "learning_rounds": 3,
+ "aalpy_queries_learning": 1937,
+ "aalpy_steps_learning": 16438,
+ "aalpy_queries_eq_oracle": 1368,
+ "aalpy_steps_eq_oracle": 8740,
+ "sut": {
+  "cache_hits": 1911,
+  "sink_shortcuts": 4080,
+  "sut_queries": 53,
+  "sut_steps": 441,
+  "random_repeats": 7
+ },
+ "seconds": 373.7,
+ "eq_oracle": {
+  "type": "rekey",
+  "walks_per_round": 150,
+  "walks_per_state": 25,
+  "len": [
+   3,
+   10
+  ]
+ },
+ "cache_in": "results/learning/A_gossh_cache_stateprefix.json",
+ "repeat_prob": 0.1,
+ "seed": 1,
+ "finished": "2026-11-07 13:25:46"
+}

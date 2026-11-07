@@ -1,0 +1,56 @@
+{
+  "names": [
+    "B_dropbear",
+    "A_dropbear"
+  ],
+  "alphabets": {
+    "B_dropbear": [
+      "CH_OPEN",
+      "KEX30",
+      "KEXINIT",
+      "NEWKEYS",
+      "SR_AUTH",
+      "SR_CONN",
+      "UA_PK_OK"
+    ],
+    "A_dropbear": [
+      "KEX30",
+      "KEXINIT",
+      "NEWKEYS",
+      "SR_AUTH",
+      "UA_PK_OK"
+    ]
+  },
+  "alphabets_identical": false,
+  "alphabet_only_in": {
+    "B_dropbear": [
+      "CH_OPEN",
+      "SR_CONN"
+    ],
+    "A_dropbear": []
+  },
+  "diffed_inputs": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK"
+  ],
+  "restricted_to_inputs": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK"
+  ],
+  "n_states": [
+    13,
+    9
+  ],
+  "equivalent": false,
+  "equivalent_on_common_inputs": true,
+  "normalize": null,
+  "n_disagreements": 0,
+  "classes": [],
+  "coarse_classes": []
+}

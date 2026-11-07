@@ -1,0 +1,37 @@
+{
+ "name": "b2_dropbear-2024.85_A",
+ "alphabet": [
+  "KEXINIT",
+  "KEX30",
+  "NEWKEYS",
+  "SR_AUTH",
+  "UA_PK_OK"
+ ],
+ "states": 9,
+ "learning_rounds": 2,
+ "aalpy_queries_learning": 1092,
+ "aalpy_steps_learning": 9251,
+ "aalpy_queries_eq_oracle": 811,
+ "aalpy_steps_eq_oracle": 4894,
+ "sut": {
+  "sut_queries": 193,
+  "sut_steps": 1113,
+  "random_repeats": 21,
+  "cache_hits": 1261,
+  "sink_shortcuts": 2401
+ },
+ "seconds": 953.6,
+ "eq_oracle": {
+  "type": "rekey",
+  "walks_per_round": 150,
+  "walks_per_state": 25,
+  "len": [
+   3,
+   10
+  ]
+ },
+ "cache_in": null,
+ "repeat_prob": 0.1,
+ "seed": 1,
+ "finished": "2026-11-07 16:32:23"
+}

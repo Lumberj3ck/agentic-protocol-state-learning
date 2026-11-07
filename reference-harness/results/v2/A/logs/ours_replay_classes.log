@@ -1,0 +1,44 @@
+KEX30
+   openssh        KEXINIT+UNIMPL   (5.57s)
+   dropbear       KEXINIT+UNIMPL   (20.55s)
+   gossh          KEXINIT   (4.27s)
+NEWKEYS
+   openssh        KEXINIT+UNIMPL   (5.54s)
+   dropbear       KEXINIT+UNIMPL   (25.55s)
+   gossh          KEXINIT   (4.26s)
+SR_AUTH
+   openssh        KEXINIT+UNIMPL   (5.55s)
+   dropbear       KEXINIT   (4.27s)
+   gossh          KEXINIT   (4.26s)
+KEX30 KEX30
+   openssh        KEXINIT+UNIMPL KEX31+NEWKEYS+EXT_INFO   (9.99s)
+   dropbear       KEXINIT+UNIMPL KEX31+NEWKEYS+EXT_INFO   (15.05s)
+   gossh          KEXINIT NO_CONN   (5.56s)
+KEX30 KEXINIT
+   openssh        KEXINIT+UNIMPL UNIMPL   (9.83s)
+   dropbear       KEXINIT+UNIMPL NO_CONN   (6.8s)
+   gossh          KEXINIT NO_CONN   (5.53s)
+KEXINIT NEWKEYS
+   openssh        KEXINIT UNIMPL   (9.81s)
+   dropbear       KEXINIT UNIMPL   (9.79s)
+   gossh          KEXINIT NO_CONN   (6.77s)
+KEXINIT KEXINIT
+   openssh        KEXINIT UNIMPL   (9.81s)
+   dropbear       KEXINIT NO_CONN   (6.79s)
+   gossh          KEXINIT NO_CONN   (6.78s)
+KEXINIT SR_AUTH
+   openssh        KEXINIT UNIMPL   (9.81s)
+   dropbear       KEXINIT NO_CONN   (6.79s)
+   gossh          KEXINIT NO_CONN   (6.78s)
+KEXINIT KEX30 KEX30
+   openssh        KEXINIT KEX31+NEWKEYS+EXT_INFO UNIMPL   (14.28s)
+   dropbear       KEXINIT KEX31+NEWKEYS+EXT_INFO UNIMPL   (14.34s)
+   gossh          KEXINIT KEX31+NEWKEYS+EXT_INFO NO_CONN   (11.3s)
+KEXINIT KEX30 KEXINIT
+   openssh        KEXINIT KEX31+NEWKEYS+EXT_INFO UNIMPL   (14.22s)
+   dropbear       KEXINIT KEX31+NEWKEYS+EXT_INFO NO_CONN   (11.27s)
+   gossh          KEXINIT KEX31+NEWKEYS+EXT_INFO NO_CONN   (11.25s)
+KEXINIT KEX30 SR_AUTH
+   openssh        KEXINIT KEX31+NEWKEYS+EXT_INFO UNIMPL   (14.19s)
+   dropbear       KEXINIT KEX31+NEWKEYS+EXT_INFO NO_CONN   (11.32s)
+   gossh          KEXINIT KEX31+NEWKEYS+EXT_INFO NO_CONN   (11.24s)

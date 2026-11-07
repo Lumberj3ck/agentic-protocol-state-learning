@@ -1,0 +1,996 @@
+{
+ "stock_paramiko": "3.5.0",
+ "targets": {
+  "openssh": {
+   "pre_nosr_ch_open": {
+    "banner": "SSH-2.0-OpenSSH_10.0",
+    "sequence": [
+     "KEXINIT",
+     "KEX30",
+     "NEWKEYS",
+     "CH_OPEN"
+    ],
+    "outputs": [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UNIMPL"
+    ],
+    "step_seconds": [
+     0.604,
+     0.622,
+     0.601,
+     0.602
+    ],
+    "sent": [
+     {
+      "type": 20,
+      "seq_out": 0,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 695,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 30,
+      "seq_out": 1,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 261,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 21,
+      "seq_out": 2,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 1,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 90,
+      "seq_out": 3,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 24,
+      "payload_hex": "5a0000000773657373696f6e000000000020000000008000",
+      "fields": {
+       "kind": "session",
+       "sender_channel": 0,
+       "initial_window": 2097152,
+       "max_packet": 32768,
+       "trailing_bytes": 0
+      }
+     }
+    ],
+    "send_user_message_calls": [
+     {
+      "active": true,
+      "type": 90,
+      "seconds": 0.0003
+     }
+    ]
+   },
+   "pre_sr_ch_open": {
+    "banner": "SSH-2.0-OpenSSH_10.0",
+    "sequence": [
+     "KEXINIT",
+     "KEX30",
+     "NEWKEYS",
+     "SR_AUTH",
+     "CH_OPEN"
+    ],
+    "outputs": [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "SR_ACCEPT",
+     "UNIMPL"
+    ],
+    "step_seconds": [
+     0.604,
+     0.633,
+     0.602,
+     0.602,
+     0.602
+    ],
+    "sent": [
+     {
+      "type": 20,
+      "seq_out": 0,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 695,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 30,
+      "seq_out": 1,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 262,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 21,
+      "seq_out": 2,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 1,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 5,
+      "seq_out": 3,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 17,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 90,
+      "seq_out": 4,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 24,
+      "payload_hex": "5a0000000773657373696f6e000000000020000000008000",
+      "fields": {
+       "kind": "session",
+       "sender_channel": 0,
+       "initial_window": 2097152,
+       "max_packet": 32768,
+       "trailing_bytes": 0
+      }
+     }
+    ],
+    "send_user_message_calls": [
+     {
+      "active": true,
+      "type": 90,
+      "seconds": 0.0003
+     }
+    ]
+   },
+   "post_auth_ch_open": {
+    "banner": "SSH-2.0-OpenSSH_10.0",
+    "sequence": [
+     "KEXINIT",
+     "KEX30",
+     "NEWKEYS",
+     "SR_AUTH",
+     "UA_PK_OK",
+     "CH_OPEN"
+    ],
+    "outputs": [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "SR_ACCEPT",
+     "UA_SUCCESS+GLOBAL_REQUEST",
+     "CH_OPEN_SUCCESS"
+    ],
+    "step_seconds": [
+     0.605,
+     0.623,
+     0.601,
+     0.601,
+     0.701,
+     0.602
+    ],
+    "sent": [
+     {
+      "type": 20,
+      "seq_out": 0,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 695,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 30,
+      "seq_out": 1,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 261,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 21,
+      "seq_out": 2,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 1,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 5,
+      "seq_out": 3,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 17,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 50,
+      "seq_out": 4,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 878,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 90,
+      "seq_out": 5,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 24,
+      "payload_hex": "5a0000000773657373696f6e000000000020000000008000",
+      "fields": {
+       "kind": "session",
+       "sender_channel": 0,
+       "initial_window": 2097152,
+       "max_packet": 32768,
+       "trailing_bytes": 0
+      }
+     },
+     {
+      "type": 96,
+      "seq_out": 6,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 5,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 97,
+      "seq_out": 7,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 5,
+      "payload_hex": null,
+      "fields": null
+     }
+    ],
+    "send_user_message_calls": [
+     {
+      "active": true,
+      "type": 90,
+      "seconds": 0.0002
+     }
+    ]
+   },
+   "pre_nosr_tcp_forward": {
+    "banner": "SSH-2.0-OpenSSH_10.0",
+    "sequence": [
+     "KEXINIT",
+     "KEX30",
+     "NEWKEYS",
+     "TCP_FORWARD_START"
+    ],
+    "outputs": [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UNIMPL"
+    ],
+    "step_seconds": [
+     0.606,
+     0.637,
+     0.602,
+     0.602
+    ],
+    "sent": [
+     {
+      "type": 20,
+      "seq_out": 0,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 695,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 30,
+      "seq_out": 1,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 261,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 21,
+      "seq_out": 2,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 1,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 80,
+      "seq_out": 3,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 34,
+      "payload_hex": "500000000d74637069702d666f72776172640100000007302e302e302e3000000000",
+      "fields": {
+       "request": "tcpip-forward",
+       "want_reply": true,
+       "addr": "0.0.0.0",
+       "port": 0,
+       "trailing_bytes": 0
+      }
+     }
+    ],
+    "send_user_message_calls": []
+   },
+   "ch_open_payload_identical_pre_vs_post": true
+  },
+  "dropbear": {
+   "pre_nosr_ch_open": {
+    "banner": "SSH-2.0-dropbear_2025.88",
+    "sequence": [
+     "KEXINIT",
+     "KEX30",
+     "NEWKEYS",
+     "CH_OPEN"
+    ],
+    "outputs": [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "NO_CONN"
+    ],
+    "step_seconds": [
+     0.601,
+     0.648,
+     0.601,
+     0.001
+    ],
+    "sent": [
+     {
+      "type": 20,
+      "seq_out": 0,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 695,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 30,
+      "seq_out": 1,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 261,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 21,
+      "seq_out": 2,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 1,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 90,
+      "seq_out": 3,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 24,
+      "payload_hex": "5a0000000773657373696f6e000000000020000000008000",
+      "fields": {
+       "kind": "session",
+       "sender_channel": 0,
+       "initial_window": 2097152,
+       "max_packet": 32768,
+       "trailing_bytes": 0
+      }
+     }
+    ],
+    "send_user_message_calls": [
+     {
+      "active": true,
+      "type": 90,
+      "seconds": 0.0003
+     }
+    ]
+   },
+   "pre_sr_ch_open": {
+    "banner": "SSH-2.0-dropbear_2025.88",
+    "sequence": [
+     "KEXINIT",
+     "KEX30",
+     "NEWKEYS",
+     "SR_AUTH",
+     "CH_OPEN"
+    ],
+    "outputs": [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "SR_ACCEPT",
+     "NO_CONN"
+    ],
+    "step_seconds": [
+     0.601,
+     0.64,
+     0.602,
+     0.602,
+     0.001
+    ],
+    "sent": [
+     {
+      "type": 20,
+      "seq_out": 0,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 695,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 30,
+      "seq_out": 1,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 261,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 21,
+      "seq_out": 2,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 1,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 5,
+      "seq_out": 3,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 17,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 90,
+      "seq_out": 4,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 24,
+      "payload_hex": "5a0000000773657373696f6e000000000020000000008000",
+      "fields": {
+       "kind": "session",
+       "sender_channel": 0,
+       "initial_window": 2097152,
+       "max_packet": 32768,
+       "trailing_bytes": 0
+      }
+     }
+    ],
+    "send_user_message_calls": [
+     {
+      "active": true,
+      "type": 90,
+      "seconds": 0.0003
+     }
+    ]
+   },
+   "post_auth_ch_open": {
+    "banner": "SSH-2.0-dropbear_2025.88",
+    "sequence": [
+     "KEXINIT",
+     "KEX30",
+     "NEWKEYS",
+     "SR_AUTH",
+     "UA_PK_OK",
+     "CH_OPEN"
+    ],
+    "outputs": [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "SR_ACCEPT",
+     "UA_SUCCESS",
+     "CH_OPEN_SUCCESS"
+    ],
+    "step_seconds": [
+     0.602,
+     0.656,
+     0.601,
+     0.602,
+     0.73,
+     0.602
+    ],
+    "sent": [
+     {
+      "type": 20,
+      "seq_out": 0,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 695,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 30,
+      "seq_out": 1,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 261,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 21,
+      "seq_out": 2,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 1,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 5,
+      "seq_out": 3,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 17,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 50,
+      "seq_out": 4,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 878,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 90,
+      "seq_out": 5,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 24,
+      "payload_hex": "5a0000000773657373696f6e000000000020000000008000",
+      "fields": {
+       "kind": "session",
+       "sender_channel": 0,
+       "initial_window": 2097152,
+       "max_packet": 32768,
+       "trailing_bytes": 0
+      }
+     }
+    ],
+    "send_user_message_calls": [
+     {
+      "active": true,
+      "type": 96,
+      "seconds": 0.0002
+     },
+     {
+      "active": true,
+      "type": 97,
+      "seconds": 0.0
+     },
+     {
+      "active": true,
+      "type": 90,
+      "seconds": 0.0002
+     }
+    ]
+   },
+   "pre_nosr_tcp_forward": {
+    "banner": "SSH-2.0-dropbear_2025.88",
+    "sequence": [
+     "KEXINIT",
+     "KEX30",
+     "NEWKEYS",
+     "TCP_FORWARD_START"
+    ],
+    "outputs": [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "NO_CONN"
+    ],
+    "step_seconds": [
+     0.601,
+     0.641,
+     0.601,
+     0.001
+    ],
+    "sent": [
+     {
+      "type": 20,
+      "seq_out": 0,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 695,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 30,
+      "seq_out": 1,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 262,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 21,
+      "seq_out": 2,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 1,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 80,
+      "seq_out": 3,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 34,
+      "payload_hex": "500000000d74637069702d666f72776172640100000007302e302e302e3000000000",
+      "fields": {
+       "request": "tcpip-forward",
+       "want_reply": true,
+       "addr": "0.0.0.0",
+       "port": 0,
+       "trailing_bytes": 0
+      }
+     }
+    ],
+    "send_user_message_calls": []
+   },
+   "ch_open_payload_identical_pre_vs_post": true
+  },
+  "gossh": {
+   "pre_nosr_ch_open": {
+    "banner": "SSH-2.0-Go",
+    "sequence": [
+     "KEXINIT",
+     "KEX30",
+     "NEWKEYS",
+     "CH_OPEN"
+    ],
+    "outputs": [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "NO_CONN"
+    ],
+    "step_seconds": [
+     0.601,
+     0.649,
+     0.602,
+     0.001
+    ],
+    "sent": [
+     {
+      "type": 20,
+      "seq_out": 0,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 695,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 30,
+      "seq_out": 1,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 262,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 21,
+      "seq_out": 2,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 1,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 90,
+      "seq_out": 3,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 24,
+      "payload_hex": "5a0000000773657373696f6e000000000020000000008000",
+      "fields": {
+       "kind": "session",
+       "sender_channel": 0,
+       "initial_window": 2097152,
+       "max_packet": 32768,
+       "trailing_bytes": 0
+      }
+     }
+    ],
+    "send_user_message_calls": [
+     {
+      "active": true,
+      "type": 90,
+      "seconds": 0.0002
+     }
+    ]
+   },
+   "pre_sr_ch_open": {
+    "banner": "SSH-2.0-Go",
+    "sequence": [
+     "KEXINIT",
+     "KEX30",
+     "NEWKEYS",
+     "SR_AUTH",
+     "CH_OPEN"
+    ],
+    "outputs": [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "SR_ACCEPT",
+     "NO_CONN"
+    ],
+    "step_seconds": [
+     0.601,
+     0.65,
+     0.602,
+     0.602,
+     0.001
+    ],
+    "sent": [
+     {
+      "type": 20,
+      "seq_out": 0,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 695,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 30,
+      "seq_out": 1,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 262,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 21,
+      "seq_out": 2,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 1,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 5,
+      "seq_out": 3,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 17,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 90,
+      "seq_out": 4,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 24,
+      "payload_hex": "5a0000000773657373696f6e000000000020000000008000",
+      "fields": {
+       "kind": "session",
+       "sender_channel": 0,
+       "initial_window": 2097152,
+       "max_packet": 32768,
+       "trailing_bytes": 0
+      }
+     }
+    ],
+    "send_user_message_calls": [
+     {
+      "active": true,
+      "type": 90,
+      "seconds": 0.0001
+     }
+    ]
+   },
+   "post_auth_ch_open": {
+    "banner": "SSH-2.0-Go",
+    "sequence": [
+     "KEXINIT",
+     "KEX30",
+     "NEWKEYS",
+     "SR_AUTH",
+     "UA_PK_OK",
+     "CH_OPEN"
+    ],
+    "outputs": [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "SR_ACCEPT",
+     "UA_SUCCESS",
+     "CH_OPEN_SUCCESS"
+    ],
+    "step_seconds": [
+     0.602,
+     0.651,
+     0.601,
+     0.603,
+     0.726,
+     0.603
+    ],
+    "sent": [
+     {
+      "type": 20,
+      "seq_out": 0,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 695,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 30,
+      "seq_out": 1,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 262,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 21,
+      "seq_out": 2,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 1,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 5,
+      "seq_out": 3,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 17,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 50,
+      "seq_out": 4,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 878,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 90,
+      "seq_out": 5,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 24,
+      "payload_hex": "5a0000000773657373696f6e000000000020000000008000",
+      "fields": {
+       "kind": "session",
+       "sender_channel": 0,
+       "initial_window": 2097152,
+       "max_packet": 32768,
+       "trailing_bytes": 0
+      }
+     }
+    ],
+    "send_user_message_calls": [
+     {
+      "active": true,
+      "type": 90,
+      "seconds": 0.0001
+     }
+    ]
+   },
+   "pre_nosr_tcp_forward": {
+    "banner": "SSH-2.0-Go",
+    "sequence": [
+     "KEXINIT",
+     "KEX30",
+     "NEWKEYS",
+     "TCP_FORWARD_START"
+    ],
+    "outputs": [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "NO_CONN"
+    ],
+    "step_seconds": [
+     0.602,
+     0.641,
+     0.601,
+     0.001
+    ],
+    "sent": [
+     {
+      "type": 20,
+      "seq_out": 0,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 695,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 30,
+      "seq_out": 1,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 261,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 21,
+      "seq_out": 2,
+      "encrypted": false,
+      "mac": 0,
+      "payload_len": 1,
+      "payload_hex": null,
+      "fields": null
+     },
+     {
+      "type": 80,
+      "seq_out": 3,
+      "encrypted": true,
+      "mac": 32,
+      "payload_len": 34,
+      "payload_hex": "500000000d74637069702d666f72776172640100000007302e302e302e3000000000",
+      "fields": {
+       "request": "tcpip-forward",
+       "want_reply": true,
+       "addr": "0.0.0.0",
+       "port": 0,
+       "trailing_bytes": 0
+      }
+     }
+    ],
+    "send_user_message_calls": []
+   },
+   "ch_open_payload_identical_pre_vs_post": true
+  }
+ }
+}

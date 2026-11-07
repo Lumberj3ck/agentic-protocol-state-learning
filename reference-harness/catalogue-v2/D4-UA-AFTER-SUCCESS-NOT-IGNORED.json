@@ -1,0 +1,14 @@
+{
+  "id": "D4-UA-AFTER-SUCCESS-NOT-IGNORED",
+  "title": "USERAUTH_REQUEST after USERAUTH_SUCCESS is not silently ignored",
+  "source": "RFC 4252 §5.1",
+  "quote": "Any non-authentication messages sent by the client after the request that resulted in SSH_MSG_USERAUTH_SUCCESS being sent MUST be passed to the service being run, and any authentication request messages sent after that SHOULD be silently ignored.",
+  "level": "SHOULD",
+  "rationale": "After SR_AUTH and a successful authentication, a second UA_PW_OK gets any answer or ends the connection (v1 D4: OpenSSH UNIMPLEMENTED, Go closes; Dropbear ignores). Written by proto-sm stream A (v2) from v1 class D4 (report.md); vocabulary: teammate mapper (UNIMPLEMENTED, SERVICE_ACCEPT, CLOSED/NO_CONN, UA_PW_OK). An accepting word is a behaviour witness, not necessarily a bug.",
+  "automaton": {"initial": "init", "accept": ["bug"], "transitions": [
+      {"from":"init","to":"ki","in":"KEXINIT","out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"ki","to":"kr","in":"KEX30","out_has":["NEWKEYS"],"out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"kr","to":"post","in":"NEWKEYS","out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]}, {"from":"post","to":"sr","in":"SR_AUTH","out_has":["SERVICE_ACCEPT"],"out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]}, {"from":"sr","to":"au","in":"UA_PW_OK","out_has":["UA_SUCCESS"],"out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"au","to":"bug","in":"UA_PW_OK","out_lacks":["NO_RESP"]}
+  ]}
+}

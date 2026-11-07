@@ -1,0 +1,16 @@
+{
+  "id": "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED",
+  "title": "Out-of-place message in or around the initial key exchange answered with UNIMPLEMENTED, connection kept",
+  "source": "RFC 4253 §7.1 (constrains only the sender); draft-miller-sshm-strict-kex-01 §3.2",
+  "quote": "Once a party has sent a SSH_MSG_KEXINIT message for key exchange or re-exchange, until it has sent a SSH_MSG_NEWKEYS message, it MUST NOT send any messages other than ...",
+  "level": "unspecified",
+  "rationale": "During the initial KEX: duplicate KEXINIT or SR_AUTH/SR_CONN/UA_PW_OK answered with UNIMPLEMENTED; after it: KEX30 or NEWKEYS outside any KEX answered with UNIMPLEMENTED; connection kept (v1 D9: OpenSSH; Dropbear and Go close). Written by proto-sm stream A (v2) from v1 class D9 (report.md); vocabulary: teammate mapper (UNIMPLEMENTED, SERVICE_ACCEPT, CLOSED/NO_CONN, UA_PW_OK). An accepting word is a behaviour witness, not necessarily a bug.",
+  "automaton": {"initial": "init", "accept": ["bug"], "transitions": [
+      {"from":"init","to":"ki","in":"KEXINIT","out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"ki","to":"kr","in":"KEX30","out_has":["NEWKEYS"],"out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"kr","to":"post","in":"NEWKEYS","out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"ki","to":"bug","in":["KEXINIT","SR_AUTH","SR_CONN","UA_PW_OK"],"out_has":["UNIMPLEMENTED"],"out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"kr","to":"bug","in":["KEXINIT","SR_AUTH","SR_CONN","UA_PW_OK"],"out_has":["UNIMPLEMENTED"],"out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"post","to":"bug","in":["KEX30","NEWKEYS"],"out_has":["UNIMPLEMENTED"],"out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]}
+  ]}
+}

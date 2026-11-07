@@ -1,0 +1,943 @@
+{
+  "names": [
+    "dropbear",
+    "gossh"
+  ],
+  "alphabets": {
+    "dropbear": [
+      "CH_OPEN",
+      "KEX30",
+      "KEXINIT",
+      "NEWKEYS",
+      "SR_AUTH",
+      "SR_CONN",
+      "UA_PK_OK"
+    ],
+    "gossh": [
+      "CH_OPEN",
+      "KEX30",
+      "KEXINIT",
+      "NEWKEYS",
+      "SR_AUTH",
+      "SR_CONN",
+      "UA_PK_OK"
+    ]
+  },
+  "alphabets_identical": true,
+  "alphabet_only_in": {
+    "dropbear": [],
+    "gossh": []
+  },
+  "diffed_inputs": [
+    "CH_OPEN",
+    "KEX30",
+    "KEXINIT",
+    "NEWKEYS",
+    "SR_AUTH",
+    "SR_CONN",
+    "UA_PK_OK"
+  ],
+  "restricted_to_inputs": null,
+  "n_states": [
+    13,
+    16
+  ],
+  "equivalent": false,
+  "equivalent_on_common_inputs": false,
+  "normalize": null,
+  "n_disagreements": 19,
+  "classes": [
+    {
+      "input": "KEX30",
+      "out1": "KEXINIT+UNIMPL",
+      "out2": "KEXINIT",
+      "sequence": [
+        "KEX30"
+      ],
+      "trace1": [
+        "KEXINIT+UNIMPL"
+      ],
+      "trace2": [
+        "KEXINIT"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s0",
+      "state2": "s0"
+    },
+    {
+      "input": "NEWKEYS",
+      "out1": "KEXINIT+UNIMPL",
+      "out2": "KEXINIT",
+      "sequence": [
+        "NEWKEYS"
+      ],
+      "trace1": [
+        "KEXINIT+UNIMPL"
+      ],
+      "trace2": [
+        "KEXINIT"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s0",
+      "state2": "s0"
+    },
+    {
+      "input": "NEWKEYS",
+      "out1": "UNIMPL",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "NEWKEYS"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "UNIMPL"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "NO_CONN"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s1",
+      "state2": "s1"
+    },
+    {
+      "input": "KEX30",
+      "out1": "UNIMPL",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "KEX30"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "UNIMPL"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_CONN"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s4",
+      "state2": "s4"
+    },
+    {
+      "input": "UA_PK_OK",
+      "out1": "UA_SUCCESS",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "UA_PK_OK"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "UA_SUCCESS"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "NO_CONN"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s5",
+      "state2": "s5"
+    },
+    {
+      "input": "NEWKEYS",
+      "out1": "UNIMPL",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "KEXINIT",
+        "NEWKEYS"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "KEXINIT",
+        "UNIMPL"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "KEXINIT",
+        "NO_CONN"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s6",
+      "state2": "s6"
+    },
+    {
+      "input": "SR_AUTH",
+      "out1": "SR_ACCEPT",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "SR_AUTH"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "SR_ACCEPT"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "NO_CONN"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s5",
+      "state2": "s7"
+    },
+    {
+      "input": "NEWKEYS",
+      "out1": "UNIMPL",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "KEXINIT",
+        "NEWKEYS"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "KEXINIT",
+        "UNIMPL"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "KEXINIT",
+        "NO_CONN"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s6",
+      "state2": "s12"
+    },
+    {
+      "input": "SR_AUTH",
+      "out1": "SR_ACCEPT",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PK_OK",
+        "SR_AUTH"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "SR_ACCEPT"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "NO_CONN"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s7",
+      "state2": "s8"
+    },
+    {
+      "input": "SR_CONN",
+      "out1": "SR_ACCEPT",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PK_OK",
+        "SR_CONN"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "SR_ACCEPT"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "NO_CONN"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s7",
+      "state2": "s8"
+    },
+    {
+      "input": "UA_PK_OK",
+      "out1": "NO_RESP",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PK_OK",
+        "UA_PK_OK"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "NO_RESP"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "NO_CONN"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s7",
+      "state2": "s8"
+    },
+    {
+      "input": "KEX30",
+      "out1": "UNIMPL",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "KEXINIT",
+        "KEX30",
+        "KEX30"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "UNIMPL"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "NO_CONN"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s4",
+      "state2": "s13"
+    },
+    {
+      "input": "SR_AUTH",
+      "out1": "SR_ACCEPT",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PK_OK",
+        "CH_OPEN",
+        "SR_AUTH"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS",
+        "SR_ACCEPT"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS",
+        "NO_CONN"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s8",
+      "state2": "s9"
+    },
+    {
+      "input": "SR_CONN",
+      "out1": "SR_ACCEPT",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PK_OK",
+        "CH_OPEN",
+        "SR_CONN"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS",
+        "SR_ACCEPT"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS",
+        "NO_CONN"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s8",
+      "state2": "s9"
+    },
+    {
+      "input": "UA_PK_OK",
+      "out1": "NO_RESP",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PK_OK",
+        "CH_OPEN",
+        "UA_PK_OK"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS",
+        "NO_RESP"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS",
+        "NO_CONN"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s8",
+      "state2": "s9"
+    },
+    {
+      "input": "NEWKEYS",
+      "out1": "UNIMPL",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PK_OK",
+        "KEXINIT",
+        "NEWKEYS"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "KEXINIT",
+        "UNIMPL"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "KEXINIT",
+        "NO_CONN"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s11",
+      "state2": "s14"
+    },
+    {
+      "input": "NEWKEYS",
+      "out1": "UNIMPL",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PK_OK",
+        "CH_OPEN",
+        "KEXINIT",
+        "NEWKEYS"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS",
+        "KEXINIT",
+        "UNIMPL"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS",
+        "KEXINIT",
+        "NO_CONN"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s9",
+      "state2": "s10"
+    },
+    {
+      "input": "KEX30",
+      "out1": "UNIMPL",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PK_OK",
+        "KEXINIT",
+        "KEX30",
+        "KEX30"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "UNIMPL"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "NO_CONN"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s12",
+      "state2": "s15"
+    },
+    {
+      "input": "KEX30",
+      "out1": "UNIMPL",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PK_OK",
+        "CH_OPEN",
+        "KEXINIT",
+        "KEX30",
+        "KEX30"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS",
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "UNIMPL"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS",
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "NO_CONN"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "state1": "s10",
+      "state2": "s11"
+    }
+  ],
+  "coarse_classes": [
+    {
+      "input": "KEX30",
+      "out1": "KEXINIT+UNIMPL",
+      "out2": "KEXINIT",
+      "sequence": [
+        "KEX30"
+      ],
+      "trace1": [
+        "KEXINIT+UNIMPL"
+      ],
+      "trace2": [
+        "KEXINIT"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "n_state_pairs": 1
+    },
+    {
+      "input": "NEWKEYS",
+      "out1": "KEXINIT+UNIMPL",
+      "out2": "KEXINIT",
+      "sequence": [
+        "NEWKEYS"
+      ],
+      "trace1": [
+        "KEXINIT+UNIMPL"
+      ],
+      "trace2": [
+        "KEXINIT"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "n_state_pairs": 1
+    },
+    {
+      "input": "NEWKEYS",
+      "out1": "UNIMPL",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "NEWKEYS"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "UNIMPL"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "NO_CONN"
+      ],
+      "member_count": 5,
+      "examples": [
+        [
+          "KEXINIT",
+          "KEX30",
+          "NEWKEYS",
+          "KEXINIT",
+          "NEWKEYS"
+        ],
+        [
+          "KEXINIT",
+          "KEX30",
+          "NEWKEYS",
+          "SR_AUTH",
+          "KEXINIT",
+          "NEWKEYS"
+        ],
+        [
+          "KEXINIT",
+          "KEX30",
+          "NEWKEYS",
+          "SR_AUTH",
+          "UA_PK_OK",
+          "KEXINIT",
+          "NEWKEYS"
+        ]
+      ],
+      "n_state_pairs": 5
+    },
+    {
+      "input": "KEX30",
+      "out1": "UNIMPL",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "KEX30"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "UNIMPL"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_CONN"
+      ],
+      "member_count": 4,
+      "examples": [
+        [
+          "KEXINIT",
+          "KEX30",
+          "NEWKEYS",
+          "SR_AUTH",
+          "KEXINIT",
+          "KEX30",
+          "KEX30"
+        ],
+        [
+          "KEXINIT",
+          "KEX30",
+          "NEWKEYS",
+          "SR_AUTH",
+          "UA_PK_OK",
+          "KEXINIT",
+          "KEX30",
+          "KEX30"
+        ],
+        [
+          "KEXINIT",
+          "KEX30",
+          "NEWKEYS",
+          "SR_AUTH",
+          "UA_PK_OK",
+          "CH_OPEN",
+          "KEXINIT",
+          "KEX30",
+          "KEX30"
+        ]
+      ],
+      "n_state_pairs": 4
+    },
+    {
+      "input": "UA_PK_OK",
+      "out1": "UA_SUCCESS",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "UA_PK_OK"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "UA_SUCCESS"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "NO_CONN"
+      ],
+      "member_count": 1,
+      "examples": [],
+      "n_state_pairs": 1
+    },
+    {
+      "input": "SR_AUTH",
+      "out1": "SR_ACCEPT",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "SR_AUTH"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "SR_ACCEPT"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "NO_CONN"
+      ],
+      "member_count": 3,
+      "examples": [
+        [
+          "KEXINIT",
+          "KEX30",
+          "NEWKEYS",
+          "SR_AUTH",
+          "UA_PK_OK",
+          "SR_AUTH"
+        ],
+        [
+          "KEXINIT",
+          "KEX30",
+          "NEWKEYS",
+          "SR_AUTH",
+          "UA_PK_OK",
+          "CH_OPEN",
+          "SR_AUTH"
+        ]
+      ],
+      "n_state_pairs": 3
+    },
+    {
+      "input": "SR_CONN",
+      "out1": "SR_ACCEPT",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PK_OK",
+        "SR_CONN"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "SR_ACCEPT"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "NO_CONN"
+      ],
+      "member_count": 2,
+      "examples": [
+        [
+          "KEXINIT",
+          "KEX30",
+          "NEWKEYS",
+          "SR_AUTH",
+          "UA_PK_OK",
+          "CH_OPEN",
+          "SR_CONN"
+        ]
+      ],
+      "n_state_pairs": 2
+    },
+    {
+      "input": "UA_PK_OK",
+      "out1": "NO_RESP",
+      "out2": "NO_CONN",
+      "sequence": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PK_OK",
+        "UA_PK_OK"
+      ],
+      "trace1": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "NO_RESP"
+      ],
+      "trace2": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "NO_CONN"
+      ],
+      "member_count": 2,
+      "examples": [
+        [
+          "KEXINIT",
+          "KEX30",
+          "NEWKEYS",
+          "SR_AUTH",
+          "UA_PK_OK",
+          "CH_OPEN",
+          "UA_PK_OK"
+        ]
+      ],
+      "n_state_pairs": 2
+    }
+  ]
+}

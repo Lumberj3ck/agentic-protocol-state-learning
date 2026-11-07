@@ -1,0 +1,20 @@
+gossh    CH_OPEN
+   model ours=NO_RESP theirs=NO_CONN | live ours=NO_RESP theirs=NO_CONN | live-agree=False ours-model-ok=True theirs-model-ok=True taint=None det=True/True
+gossh    KEX30
+   model ours=NO_RESP theirs=NO_CONN | live ours=NO_RESP theirs=NO_CONN | live-agree=False ours-model-ok=True theirs-model-ok=True taint=None det=True/True
+gossh    NEWKEYS
+   model ours=NO_RESP theirs=NO_CONN | live ours=NO_RESP theirs=NO_CONN | live-agree=False ours-model-ok=True theirs-model-ok=True taint=None det=True/True
+gossh    SR_AUTH
+   model ours=NO_RESP theirs=NO_CONN | live ours=NO_RESP theirs=NO_CONN | live-agree=False ours-model-ok=True theirs-model-ok=True taint=None det=True/True
+gossh    SR_CONN
+   model ours=NO_RESP theirs=NO_CONN | live ours=NO_RESP theirs=NO_CONN | live-agree=False ours-model-ok=True theirs-model-ok=True taint=None det=True/True
+gossh    UA_PK_OK
+   model ours=NO_RESP theirs=NO_CONN | live ours=NO_RESP theirs=NO_CONN | live-agree=False ours-model-ok=True theirs-model-ok=True taint=None det=True/True
+gossh    KEXINIT KEX30 NEWKEYS SR_AUTH UA_PK_OK CH_OPEN CH_OPEN
+   model ours=CH_MAX theirs=CH_OPEN_SUCCESS | live ours=CH_MAX theirs=CH_OPEN_SUCCESS | live-agree=False ours-model-ok=True theirs-model-ok=True taint=None det=True/True
+gossh    KEXINIT KEX30 NEWKEYS SR_AUTH KEXINIT KEX30 NEWKEYS SR_AUTH
+   model ours=NO_CONN theirs=SR_ACCEPT | live ours=NO_CONN theirs=NO_CONN | live-agree=True ours-model-ok=True theirs-model-ok=False taint=None det=True/True
+gossh    KEXINIT KEX30 NEWKEYS SR_AUTH KEXINIT KEX30 NEWKEYS UA_PK_OK
+   model ours=UA_SUCCESS theirs=NO_CONN | live ours=UA_SUCCESS theirs=UA_SUCCESS | live-agree=True ours-model-ok=True theirs-model-ok=False taint=None det=True/True
+gossh    KEXINIT KEX30 NEWKEYS SR_AUTH UA_PK_OK CH_OPEN KEXINIT CH_OPEN
+   model ours=CH_MAX theirs=NO_CONN | live ours=CH_MAX theirs=NO_CONN | live-agree=False ours-model-ok=True theirs-model-ok=True taint=None det=True/True

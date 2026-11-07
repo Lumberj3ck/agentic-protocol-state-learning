@@ -1,0 +1,2198 @@
+{
+ "paramiko": "5.1.0",
+ "started": "2026-11-07T12:35:15.089623+00:00",
+ "targets": {
+  "openssh": [
+   {
+    "mode": "ch_open",
+    "local_port": 38462,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054915.604,
+    "active_after_probe": true,
+    "active_at_end": true,
+    "wire": [
+     {
+      "t": 1794054915.604,
+      "dir": "out",
+      "type": 90,
+      "seq": 0
+     },
+     {
+      "t": 1794054915.605,
+      "dir": "in",
+      "type": 3,
+      "seq": 1,
+      "unimpl_seq": 0
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054915.099 DEBUG kex algos: mlkem768x25519-sha256, sntrup761x25519-sha512, sntrup761x25519-sha512@openssh.com, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group14-sha256, ext-info-s, kex-strict-s-v00@openssh.com",
+     "1794054915.103 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054915.103 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054915.605 WARNING Oops, unhandled type 3 ('unimplemented')"
+    ],
+    "server_log": [
+     "2026-11-07T12:35:15.096064319Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:15.096065391Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:15.098509842Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:15.098511666Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:15.102436686Z debug3: send packet: type 31 [preauth]",
+     "2026-11-07T12:35:15.604877165Z debug3: receive packet: type 90 [preauth]",
+     "2026-11-07T12:35:15.604933341Z dispatch_protocol_error: type 90 seq 0 [preauth]",
+     "2026-11-07T12:35:15.604937021Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:18.714295772Z Connection closed by 172.17.0.1 port 56240 [preauth]",
+     "2026-11-07T12:35:18.714886665Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:35:18.714920136Z debug3: mm_request_receive: monitor fd closed"
+    ]
+   },
+   {
+    "mode": "ch_open",
+    "local_port": 47378,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054919.718,
+    "active_after_probe": true,
+    "active_at_end": true,
+    "wire": [
+     {
+      "t": 1794054919.718,
+      "dir": "out",
+      "type": 90,
+      "seq": 0
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054919.214 DEBUG kex algos: mlkem768x25519-sha256, sntrup761x25519-sha512, sntrup761x25519-sha512@openssh.com, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group14-sha256, ext-info-s, kex-strict-s-v00@openssh.com",
+     "1794054919.218 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054919.218 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054919.719 WARNING Oops, unhandled type 3 ('unimplemented')"
+    ],
+    "server_log": [
+     "2026-11-07T12:35:19.210718956Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:19.210720124Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:19.213385150Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:19.213386862Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:19.217871159Z debug3: send packet: type 31 [preauth]",
+     "2026-11-07T12:35:19.719415821Z debug3: receive packet: type 90 [preauth]",
+     "2026-11-07T12:35:19.719480780Z dispatch_protocol_error: type 90 seq 0 [preauth]",
+     "2026-11-07T12:35:19.719510492Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:20.849963532Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:20.849964716Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:20.850411850Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:20.850419082Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:20.853822520Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:20.853824984Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:20.854724403Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:20.854729987Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:20.860116487Z debug3: send packet: type 31 [preauth]",
+     "2026-11-07T12:35:20.861249921Z debug3: send packet: type 31 [preauth]",
+     "2026-11-07T12:35:21.362571993Z debug3: receive packet: type 90 [preauth]",
+     "2026-11-07T12:35:21.362637000Z dispatch_protocol_error: type 90 seq 0 [preauth]",
+     "2026-11-07T12:35:21.362640472Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:22.827937468Z Connection closed by 172.17.0.1 port 41178 [preauth]",
+     "2026-11-07T12:35:22.827997340Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:35:22.828002412Z debug3: mm_request_receive: monitor fd closed"
+    ]
+   },
+   {
+    "mode": "sr_ch_open",
+    "local_port": 47394,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054923.864,
+    "sr_accepted": true,
+    "active_after_probe": true,
+    "active_at_end": true,
+    "wire": [
+     {
+      "t": 1794054923.864,
+      "dir": "out",
+      "type": 5,
+      "seq": 0
+     },
+     {
+      "t": 1794054923.864,
+      "dir": "in",
+      "type": 6,
+      "seq": 1
+     },
+     {
+      "t": 1794054923.865,
+      "dir": "out",
+      "type": 90,
+      "seq": 1
+     },
+     {
+      "t": 1794054923.865,
+      "dir": "in",
+      "type": 3,
+      "seq": 2,
+      "unimpl_seq": 1
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054923.359 DEBUG kex algos: mlkem768x25519-sha256, sntrup761x25519-sha512, sntrup761x25519-sha512@openssh.com, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group14-sha256, ext-info-s, kex-strict-s-v00@openssh.com",
+     "1794054923.363 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054923.364 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054923.865 WARNING Oops, unhandled type 3 ('unimplemented')"
+    ],
+    "server_log": [
+     "2026-11-07T12:35:23.355434284Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:23.355435500Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:23.358231485Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:23.358246653Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:23.362837733Z debug3: send packet: type 31 [preauth]",
+     "2026-11-07T12:35:23.865138633Z debug3: receive packet: type 90 [preauth]",
+     "2026-11-07T12:35:23.865157209Z dispatch_protocol_error: type 90 seq 1 [preauth]",
+     "2026-11-07T12:35:23.865160681Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:26.974922446Z Connection closed by 172.17.0.1 port 41200 [preauth]",
+     "2026-11-07T12:35:26.975242668Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:35:26.975273116Z debug3: mm_request_receive: monitor fd closed"
+    ]
+   },
+   {
+    "mode": "sr_ch_open",
+    "local_port": 39244,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054927.998,
+    "sr_accepted": true,
+    "active_after_probe": true,
+    "active_at_end": true,
+    "wire": [
+     {
+      "t": 1794054927.998,
+      "dir": "out",
+      "type": 5,
+      "seq": 0
+     },
+     {
+      "t": 1794054927.999,
+      "dir": "out",
+      "type": 90,
+      "seq": 1
+     },
+     {
+      "t": 1794054928.0,
+      "dir": "in",
+      "type": 3,
+      "seq": 2,
+      "unimpl_seq": 1
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054927.494 DEBUG kex algos: mlkem768x25519-sha256, sntrup761x25519-sha512, sntrup761x25519-sha512@openssh.com, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group14-sha256, ext-info-s, kex-strict-s-v00@openssh.com",
+     "1794054927.497 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054927.498 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054928.000 WARNING Oops, unhandled type 3 ('unimplemented')"
+    ],
+    "server_log": [
+     "2026-11-07T12:35:27.490562670Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:27.490564462Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:27.493180544Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:27.493182768Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:27.497250683Z debug3: send packet: type 31 [preauth]",
+     "2026-11-07T12:35:28.000271437Z debug3: receive packet: type 90 [preauth]",
+     "2026-11-07T12:35:28.000328813Z dispatch_protocol_error: type 90 seq 1 [preauth]",
+     "2026-11-07T12:35:28.000365372Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:31.111294744Z Connection closed by 172.17.0.1 port 49548 [preauth]",
+     "2026-11-07T12:35:31.111588134Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:35:31.111591110Z debug3: mm_request_receive: monitor fd closed"
+    ]
+   },
+   {
+    "mode": "global_req",
+    "local_port": 39260,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054932.136,
+    "active_after_probe": true,
+    "active_at_end": true,
+    "wire": [
+     {
+      "t": 1794054932.136,
+      "dir": "out",
+      "type": 80,
+      "seq": 0
+     },
+     {
+      "t": 1794054932.137,
+      "dir": "in",
+      "type": 3,
+      "seq": 1,
+      "unimpl_seq": 0
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054931.631 DEBUG kex algos: mlkem768x25519-sha256, sntrup761x25519-sha512, sntrup761x25519-sha512@openssh.com, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group14-sha256, ext-info-s, kex-strict-s-v00@openssh.com",
+     "1794054931.635 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054931.635 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054932.137 WARNING Oops, unhandled type 3 ('unimplemented')"
+    ],
+    "server_log": [
+     "2026-11-07T12:35:31.628302210Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:31.628304786Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:31.630608918Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:31.630610614Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:31.634372803Z debug3: send packet: type 31 [preauth]",
+     "2026-11-07T12:35:32.136712554Z debug3: receive packet: type 80 [preauth]",
+     "2026-11-07T12:35:32.136756106Z dispatch_protocol_error: type 80 seq 0 [preauth]",
+     "2026-11-07T12:35:32.136758634Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:35.245543133Z Connection closed by 172.17.0.1 port 49556 [preauth]",
+     "2026-11-07T12:35:35.245903515Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:35:35.245906395Z debug3: mm_request_receive: monitor fd closed"
+    ]
+   },
+   {
+    "mode": "global_req",
+    "local_port": 39274,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054936.278,
+    "active_after_probe": true,
+    "active_at_end": true,
+    "wire": [
+     {
+      "t": 1794054936.278,
+      "dir": "out",
+      "type": 80,
+      "seq": 0
+     },
+     {
+      "t": 1794054936.279,
+      "dir": "in",
+      "type": 3,
+      "seq": 1,
+      "unimpl_seq": 0
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054935.771 DEBUG kex algos: mlkem768x25519-sha256, sntrup761x25519-sha512, sntrup761x25519-sha512@openssh.com, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group14-sha256, ext-info-s, kex-strict-s-v00@openssh.com",
+     "1794054935.778 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054935.778 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054936.279 WARNING Oops, unhandled type 3 ('unimplemented')"
+    ],
+    "server_log": [
+     "2026-11-07T12:35:35.766307445Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:35.766308773Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:35.770380624Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:35.770383376Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:35.776901342Z debug3: send packet: type 31 [preauth]",
+     "2026-11-07T12:35:35.963909051Z Connection closed by 172.17.0.1 port 34912",
+     "2026-11-07T12:35:36.278802666Z debug3: receive packet: type 80 [preauth]",
+     "2026-11-07T12:35:36.278810442Z dispatch_protocol_error: type 80 seq 0 [preauth]",
+     "2026-11-07T12:35:36.278811738Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:39.387471433Z Connection closed by 172.17.0.1 port 49562 [preauth]",
+     "2026-11-07T12:35:39.388292373Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:35:39.388313173Z debug3: mm_request_receive: monitor fd closed"
+    ]
+   },
+   {
+    "mode": "ch_open_then_auth",
+    "local_port": 60474,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054940.406,
+    "active_after_probe": true,
+    "authenticated": true,
+    "post_channel_id": 0,
+    "exec_id_output": "uid=1000(tester) gid=1000(tester) groups=1000(tester)",
+    "active_at_end": true,
+    "wire": [
+     {
+      "t": 1794054940.406,
+      "dir": "out",
+      "type": 90,
+      "seq": 0
+     },
+     {
+      "t": 1794054943.416,
+      "dir": "out",
+      "type": 5,
+      "seq": 1
+     },
+     {
+      "t": 1794054943.417,
+      "dir": "in",
+      "type": 6,
+      "seq": 2
+     },
+     {
+      "t": 1794054943.422,
+      "dir": "out",
+      "type": 50,
+      "seq": 2
+     },
+     {
+      "t": 1794054943.428,
+      "dir": "in",
+      "type": 52,
+      "seq": 3
+     },
+     {
+      "t": 1794054943.469,
+      "dir": "in",
+      "type": 80,
+      "seq": 4,
+      "request": "hostkeys-00@openssh.com"
+     },
+     {
+      "t": 1794054943.469,
+      "dir": "in",
+      "type": 4,
+      "seq": 5
+     },
+     {
+      "t": 1794054944.928,
+      "dir": "out",
+      "type": 90,
+      "seq": 3
+     },
+     {
+      "t": 1794054944.929,
+      "dir": "in",
+      "type": 91,
+      "seq": 6,
+      "recipient_channel": 0
+     },
+     {
+      "t": 1794054944.93,
+      "dir": "out",
+      "type": 98,
+      "seq": 4
+     },
+     {
+      "t": 1794054944.931,
+      "dir": "in",
+      "type": 93,
+      "seq": 7
+     },
+     {
+      "t": 1794054944.931,
+      "dir": "in",
+      "type": 99,
+      "seq": 8
+     },
+     {
+      "t": 1794054944.933,
+      "dir": "in",
+      "type": 94,
+      "seq": 9
+     },
+     {
+      "t": 1794054944.933,
+      "dir": "in",
+      "type": 98,
+      "seq": 10
+     },
+     {
+      "t": 1794054944.933,
+      "dir": "in",
+      "type": 96,
+      "seq": 11
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054939.899 DEBUG kex algos: mlkem768x25519-sha256, sntrup761x25519-sha512, sntrup761x25519-sha512@openssh.com, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group14-sha256, ext-info-s, kex-strict-s-v00@openssh.com",
+     "1794054939.905 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054939.905 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054940.406 WARNING Oops, unhandled type 3 ('unimplemented')",
+     "1794054943.417 DEBUG userauth is OK",
+     "1794054943.428 INFO Authentication (publickey) successful!",
+     "1794054944.930 DEBUG Secsh channel 0 opened.",
+     "1794054944.931 DEBUG [chan 0] Sesch channel 0 request ok",
+     "1794054944.933 DEBUG [chan 0] EOF received (0)",
+     "1794054944.933 DEBUG EOF in transport thread"
+    ],
+    "server_log": [
+     "2026-11-07T12:35:39.894621259Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:39.894624491Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:39.898234312Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:39.898239912Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:39.904489063Z debug3: send packet: type 31 [preauth]",
+     "2026-11-07T12:35:40.137015943Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:40.137017079Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:40.141456095Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:40.141457551Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:40.142056492Z Connection closed by 172.17.0.1 port 49288 [preauth]",
+     "2026-11-07T12:35:40.142428682Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:40.142430506Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:40.142594745Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:35:40.142619865Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:35:40.145795145Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:40.145799289Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:40.393617224Z debug3: receive packet: type 90 [preauth]",
+     "2026-11-07T12:35:40.393646264Z debug2: sshpkt_disconnect: sending SSH2_MSG_DISCONNECT: protocol error: rcvd type 90 [preauth]",
+     "2026-11-07T12:35:40.393649544Z debug3: send packet: type 1 [preauth]",
+     "2026-11-07T12:35:40.393651672Z Disconnected from 172.17.0.1 port 49290 [preauth]",
+     "2026-11-07T12:35:40.394256789Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:35:40.394288708Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:35:40.406427861Z debug3: receive packet: type 90 [preauth]",
+     "2026-11-07T12:35:40.406448245Z dispatch_protocol_error: type 90 seq 0 [preauth]",
+     "2026-11-07T12:35:40.406450021Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:41.250741572Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:41.250744515Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:41.253242183Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:41.253244966Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:41.501883906Z debug3: receive packet: type 90 [preauth]",
+     "2026-11-07T12:35:41.501893666Z debug2: sshpkt_disconnect: sending SSH2_MSG_DISCONNECT: protocol error: rcvd type 90 [preauth]",
+     "2026-11-07T12:35:41.501895842Z debug3: send packet: type 1 [preauth]",
+     "2026-11-07T12:35:41.501897794Z Disconnected from 172.17.0.1 port 49296 [preauth]",
+     "2026-11-07T12:35:41.502242016Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:35:41.502256752Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:35:42.363232712Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:42.363233832Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:42.365854298Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:42.365856522Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:42.614285191Z debug3: receive packet: type 90 [preauth]",
+     "2026-11-07T12:35:42.614315175Z debug2: sshpkt_disconnect: sending SSH2_MSG_DISCONNECT: protocol error: rcvd type 90 [preauth]",
+     "2026-11-07T12:35:42.614318215Z debug3: send packet: type 1 [preauth]",
+     "2026-11-07T12:35:42.614320359Z Disconnected from 172.17.0.1 port 49302 [preauth]",
+     "2026-11-07T12:35:42.614460646Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:35:42.614476662Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:35:43.423659166Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:43.423660942Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:43.424058460Z Accepted key RSA SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo found at /home/tester/.ssh/authorized_keys:1",
+     "2026-11-07T12:35:43.424583945Z Accepted publickey for tester from 172.17.0.1 port 49282 ssh2: RSA SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo",
+     "2026-11-07T12:35:43.429078578Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:35:43.429647551Z debug3: send packet: type 80",
+     "2026-11-07T12:35:43.429675695Z debug1: server_init_dispatch",
+     "2026-11-07T12:35:43.469578446Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:43.469579486Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:43.472210560Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:43.472212528Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:43.721099690Z debug3: receive packet: type 90 [preauth]",
+     "2026-11-07T12:35:43.721122090Z debug2: sshpkt_disconnect: sending SSH2_MSG_DISCONNECT: protocol error: rcvd type 90 [preauth]",
+     "2026-11-07T12:35:43.721123690Z debug3: send packet: type 1 [preauth]",
+     "2026-11-07T12:35:43.721124922Z Disconnected from 172.17.0.1 port 49312 [preauth]",
+     "2026-11-07T12:35:43.721328745Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:35:43.721367897Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:35:44.577504109Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:44.577505261Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:44.581723270Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:44.581725814Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:44.828780555Z debug3: receive packet: type 90 [preauth]",
+     "2026-11-07T12:35:44.828810603Z debug2: sshpkt_disconnect: sending SSH2_MSG_DISCONNECT: protocol error: rcvd type 90 [preauth]",
+     "2026-11-07T12:35:44.828812219Z debug3: send packet: type 1 [preauth]",
+     "2026-11-07T12:35:44.828814139Z Disconnected from 172.17.0.1 port 49326 [preauth]",
+     "2026-11-07T12:35:44.829170825Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:35:44.829183049Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:35:44.929090510Z debug3: receive packet: type 90",
+     "2026-11-07T12:35:44.929133358Z debug1: server_input_channel_open: ctype session rchan 0 win 2097152 max 32768",
+     "2026-11-07T12:35:44.929140430Z debug1: channel 0: new session [server-session] (inactive timeout: 0)",
+     "2026-11-07T12:35:44.929143790Z debug2: session_new: allocate (allocated 0 max 10)",
+     "2026-11-07T12:35:44.929150126Z debug1: session_new: session 0",
+     "2026-11-07T12:35:44.929152542Z debug1: session_open: channel 0",
+     "2026-11-07T12:35:44.929154990Z debug1: session_open: session 0: link with channel 0",
+     "2026-11-07T12:35:44.929162670Z debug1: server_input_channel_open: confirm session",
+     "2026-11-07T12:35:44.930011913Z debug3: receive packet: type 98",
+     "2026-11-07T12:35:44.930033257Z debug1: server_input_channel_req: channel 0 request exec reply 1",
+     "2026-11-07T12:35:44.930036265Z debug1: session_by_channel: session 0 channel 0",
+     "2026-11-07T12:35:44.930038393Z debug1: session_input_channel_req: session 0 req exec",
+     "2026-11-07T12:35:44.930040265Z debug2: channel_set_xtype: labeled channel 0 as session:command (inactive timeout 0)",
+     "2026-11-07T12:35:44.932645724Z debug2: channel 0: read 0 from efd 13",
+     "2026-11-07T12:35:44.932673211Z debug2: channel 0: closing read-efd 13",
+     "2026-11-07T12:35:44.932680299Z debug2: channel 0: request exit-status confirm 0",
+     "2026-11-07T12:35:44.932682411Z debug3: send packet: type 98",
+     "2026-11-07T12:35:44.932684315Z debug1: session_exit_message: session 0 channel 0 pid 944 exit 0",
+     "2026-11-07T12:35:44.932686043Z debug1: session_exit_message: release channel 0",
+     "2026-11-07T12:35:44.932687835Z debug2: channel 0: write failed",
+     "2026-11-07T12:35:44.932689467Z debug2: chan_shutdown_write: channel 0: (i0 o0 sock -1 wfd 10 efd -1 [closed])",
+     "2026-11-07T12:35:44.932691899Z debug2: channel 0: send eow",
+     "2026-11-07T12:35:44.932693547Z debug2: channel 0: output open -> closed",
+     "2026-11-07T12:35:44.932695419Z debug2: channel 0: read failed rfd 11 maxlen 32768: Broken pipe",
+     "2026-11-07T12:35:44.932697723Z debug2: channel 0: read failed",
+     "2026-11-07T12:35:44.932699851Z debug2: chan_shutdown_read: channel 0: (i0 o3 sock -1 wfd 11 efd -1 [closed])",
+     "2026-11-07T12:35:44.932702155Z debug2: channel 0: input open -> drain",
+     "2026-11-07T12:35:44.932712219Z debug2: channel 0: ibuf empty",
+     "2026-11-07T12:35:44.932713995Z debug2: channel 0: send eof",
+     "2026-11-07T12:35:44.932717307Z debug2: channel 0: input drain -> closed",
+     "2026-11-07T12:35:44.932718923Z debug2: channel 0: send_close2",
+     "2026-11-07T12:35:44.932720571Z debug2: channel 0: send close for remote id 0",
+     "2026-11-07T12:35:44.932723755Z debug3: channel 0: will not send data after close",
+     "2026-11-07T12:35:44.933639142Z Connection closed by 172.17.0.1 port 49282",
+     "2026-11-07T12:35:44.933658822Z debug1: channel 0: free: server-session, nchannels 1",
+     "2026-11-07T12:35:44.933661430Z debug3: channel 0: status: The following connections are open:",
+     "2026-11-07T12:35:44.933663542Z   #0 server-session (t4 [session:command] r0 nm0 i3/0 o3/0 e[closed]/0 fd -1/-1/-1 sock -1 cc -1 nc0 io 0x00/0x00)"
+    ]
+   },
+   {
+    "mode": "ch_open_then_auth",
+    "local_port": 60524,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054946.046,
+    "active_after_probe": true,
+    "authenticated": true,
+    "post_channel_id": 0,
+    "exec_id_output": "uid=1000(tester) gid=1000(tester) groups=1000(tester)",
+    "active_at_end": true,
+    "wire": [
+     {
+      "t": 1794054946.046,
+      "dir": "out",
+      "type": 90,
+      "seq": 0
+     },
+     {
+      "t": 1794054949.054,
+      "dir": "out",
+      "type": 5,
+      "seq": 1
+     },
+     {
+      "t": 1794054949.055,
+      "dir": "in",
+      "type": 6,
+      "seq": 2
+     },
+     {
+      "t": 1794054949.059,
+      "dir": "out",
+      "type": 50,
+      "seq": 2
+     },
+     {
+      "t": 1794054949.065,
+      "dir": "in",
+      "type": 52,
+      "seq": 3
+     },
+     {
+      "t": 1794054949.105,
+      "dir": "in",
+      "type": 80,
+      "seq": 4,
+      "request": "hostkeys-00@openssh.com"
+     },
+     {
+      "t": 1794054949.105,
+      "dir": "in",
+      "type": 4,
+      "seq": 5
+     },
+     {
+      "t": 1794054950.565,
+      "dir": "out",
+      "type": 90,
+      "seq": 3
+     },
+     {
+      "t": 1794054950.566,
+      "dir": "in",
+      "type": 91,
+      "seq": 6,
+      "recipient_channel": 0
+     },
+     {
+      "t": 1794054950.567,
+      "dir": "out",
+      "type": 98,
+      "seq": 4
+     },
+     {
+      "t": 1794054950.567,
+      "dir": "in",
+      "type": 93,
+      "seq": 7
+     },
+     {
+      "t": 1794054950.567,
+      "dir": "in",
+      "type": 99,
+      "seq": 8
+     },
+     {
+      "t": 1794054950.57,
+      "dir": "in",
+      "type": 94,
+      "seq": 9
+     },
+     {
+      "t": 1794054950.57,
+      "dir": "in",
+      "type": 98,
+      "seq": 10
+     },
+     {
+      "t": 1794054950.57,
+      "dir": "in",
+      "type": 96,
+      "seq": 11
+     },
+     {
+      "t": 1794054950.57,
+      "dir": "in",
+      "type": 97,
+      "seq": 12
+     },
+     {
+      "t": 1794054950.57,
+      "dir": "out",
+      "type": 96,
+      "seq": 5
+     },
+     {
+      "t": 1794054950.57,
+      "dir": "out",
+      "type": 97,
+      "seq": 6
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054945.539 DEBUG kex algos: mlkem768x25519-sha256, sntrup761x25519-sha512, sntrup761x25519-sha512@openssh.com, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group14-sha256, ext-info-s, kex-strict-s-v00@openssh.com",
+     "1794054945.545 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054945.545 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054946.047 WARNING Oops, unhandled type 3 ('unimplemented')",
+     "1794054949.055 DEBUG userauth is OK",
+     "1794054949.065 INFO Authentication (publickey) successful!",
+     "1794054950.566 DEBUG Secsh channel 0 opened.",
+     "1794054950.567 DEBUG [chan 0] Sesch channel 0 request ok",
+     "1794054950.570 DEBUG [chan 0] EOF received (0)",
+     "1794054950.570 DEBUG [chan 0] EOF sent (0)"
+    ],
+    "server_log": [
+     "2026-11-07T12:35:45.534739200Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:45.534743632Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:45.538560396Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:45.538561964Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:45.544060543Z debug3: send packet: type 31 [preauth]",
+     "2026-11-07T12:35:45.776763151Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:45.776764175Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:45.780492939Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:45.780494219Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:46.027705471Z debug3: receive packet: type 90 [preauth]",
+     "2026-11-07T12:35:46.027729727Z debug2: sshpkt_disconnect: sending SSH2_MSG_DISCONNECT: protocol error: rcvd type 90 [preauth]",
+     "2026-11-07T12:35:46.027731279Z debug3: send packet: type 1 [preauth]",
+     "2026-11-07T12:35:46.027732367Z Disconnected from 172.17.0.1 port 49346 [preauth]",
+     "2026-11-07T12:35:46.027943806Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:35:46.027961070Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:35:46.046544380Z debug3: receive packet: type 90 [preauth]",
+     "2026-11-07T12:35:46.046569164Z dispatch_protocol_error: type 90 seq 0 [preauth]",
+     "2026-11-07T12:35:46.046571004Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:46.884320338Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:46.884322722Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:46.888467932Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:46.888471148Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:47.135644352Z debug3: receive packet: type 90 [preauth]",
+     "2026-11-07T12:35:47.135658016Z debug2: sshpkt_disconnect: sending SSH2_MSG_DISCONNECT: protocol error: rcvd type 90 [preauth]",
+     "2026-11-07T12:35:47.135660704Z debug3: send packet: type 1 [preauth]",
+     "2026-11-07T12:35:47.135662560Z Disconnected from 172.17.0.1 port 40118 [preauth]",
+     "2026-11-07T12:35:47.136138046Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:35:47.136158461Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:35:47.991386776Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:47.991389496Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:47.995265348Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:47.995267444Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:48.242343513Z kex_protocol_error: type 5 seq 0 [preauth]",
+     "2026-11-07T12:35:48.242345593Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:49.060388919Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:49.060395207Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:49.060752421Z Accepted key RSA SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo found at /home/tester/.ssh/authorized_keys:1",
+     "2026-11-07T12:35:49.061663152Z Accepted publickey for tester from 172.17.0.1 port 49342 ssh2: RSA SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo",
+     "2026-11-07T12:35:49.066034937Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:35:49.067552705Z debug3: send packet: type 80",
+     "2026-11-07T12:35:49.067589121Z debug1: server_init_dispatch",
+     "2026-11-07T12:35:49.095180337Z kex_protocol_error: type 20 seq 2 [preauth]",
+     "2026-11-07T12:35:49.095182945Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:49.947710571Z Connection closed by 172.17.0.1 port 40130 [preauth]",
+     "2026-11-07T12:35:49.947940058Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:35:49.948031018Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:35:49.952437331Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:49.952438579Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:49.955250372Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:49.955251396Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:50.203416340Z kex_protocol_error: type 5 seq 0 [preauth]",
+     "2026-11-07T12:35:50.203418356Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:50.566268636Z debug3: receive packet: type 90",
+     "2026-11-07T12:35:50.566316540Z debug1: server_input_channel_open: ctype session rchan 0 win 2097152 max 32768",
+     "2026-11-07T12:35:50.566320492Z debug1: channel 0: new session [server-session] (inactive timeout: 0)",
+     "2026-11-07T12:35:50.566322332Z debug2: session_new: allocate (allocated 0 max 10)",
+     "2026-11-07T12:35:50.566326620Z debug1: session_new: session 0",
+     "2026-11-07T12:35:50.566328540Z debug1: session_open: channel 0",
+     "2026-11-07T12:35:50.566330364Z debug1: session_open: session 0: link with channel 0",
+     "2026-11-07T12:35:50.566332316Z debug1: server_input_channel_open: confirm session",
+     "2026-11-07T12:35:50.567088152Z debug3: receive packet: type 98",
+     "2026-11-07T12:35:50.567100152Z debug1: server_input_channel_req: channel 0 request exec reply 1",
+     "2026-11-07T12:35:50.567101528Z debug1: session_by_channel: session 0 channel 0",
+     "2026-11-07T12:35:50.567102696Z debug1: session_input_channel_req: session 0 req exec",
+     "2026-11-07T12:35:50.567103720Z debug2: channel_set_xtype: labeled channel 0 as session:command (inactive timeout 0)",
+     "2026-11-07T12:35:50.569420124Z debug2: channel 0: request exit-status confirm 0",
+     "2026-11-07T12:35:50.569423020Z debug3: send packet: type 98",
+     "2026-11-07T12:35:50.569426364Z debug1: session_exit_message: session 0 channel 0 pid 956 exit 0",
+     "2026-11-07T12:35:50.569429116Z debug1: session_exit_message: release channel 0",
+     "2026-11-07T12:35:50.569431388Z debug2: channel 0: write failed",
+     "2026-11-07T12:35:50.569433260Z debug2: chan_shutdown_write: channel 0: (i0 o0 sock -1 wfd 10 efd 13 [read])",
+     "2026-11-07T12:35:50.569435804Z debug2: channel 0: send eow",
+     "2026-11-07T12:35:50.569438300Z debug2: channel 0: output open -> closed",
+     "2026-11-07T12:35:50.569455340Z debug2: channel 0: read failed rfd 11 maxlen 32768: Broken pipe",
+     "2026-11-07T12:35:50.569456460Z debug2: channel 0: read failed",
+     "2026-11-07T12:35:50.569457516Z debug2: chan_shutdown_read: channel 0: (i0 o3 sock -1 wfd 11 efd 13 [read])",
+     "2026-11-07T12:35:50.569458508Z debug2: channel 0: input open -> drain",
+     "2026-11-07T12:35:50.569460316Z debug2: channel 0: read 0 from efd 13",
+     "2026-11-07T12:35:50.569462092Z debug2: channel 0: closing read-efd 13",
+     "2026-11-07T12:35:50.569774586Z debug2: channel 0: ibuf empty",
+     "2026-11-07T12:35:50.569791690Z debug2: channel 0: send eof",
+     "2026-11-07T12:35:50.569794234Z debug2: channel 0: input drain -> closed",
+     "2026-11-07T12:35:50.569795450Z debug2: channel 0: send_close2",
+     "2026-11-07T12:35:50.569796538Z debug2: channel 0: send close for remote id 0",
+     "2026-11-07T12:35:50.569798602Z debug3: channel 0: will not send data after close",
+     "2026-11-07T12:35:50.570264168Z debug2: channel 0: rcvd eof",
+     "2026-11-07T12:35:50.570265672Z debug3: channel 0: will not send data after close",
+     "2026-11-07T12:35:50.610742324Z debug2: channel 0: rcvd close",
+     "2026-11-07T12:35:50.610744196Z debug3: channel 0: will not send data after close",
+     "2026-11-07T12:35:50.610745316Z debug2: channel 0: is dead",
+     "2026-11-07T12:35:50.610746388Z debug2: channel 0: gc: notify user",
+     "2026-11-07T12:35:50.610747412Z debug1: session_by_channel: session 0 channel 0",
+     "2026-11-07T12:35:50.610748580Z debug1: session_close_by_channel: channel 0 child 0",
+     "2026-11-07T12:35:50.610751892Z debug2: channel 0: gc: user detached",
+     "2026-11-07T12:35:50.610753044Z debug2: channel 0: is dead",
+     "2026-11-07T12:35:50.610754084Z debug2: channel 0: garbage collecting",
+     "2026-11-07T12:35:50.610755204Z debug1: channel 0: free: server-session, nchannels 1",
+     "2026-11-07T12:35:50.610756244Z debug3: channel 0: status: The following connections are open:",
+     "2026-11-07T12:35:50.610757428Z   #0 server-session (t4 [session:command] r0 nm0 i3/0 o3/0 e[closed]/0 fd -1/-1/-1 sock -1 cc -1 nc0 io 0x00/0x00)",
+     "2026-11-07T12:35:50.671015065Z Connection closed by 172.17.0.1 port 49342",
+     "2026-11-07T12:35:51.075527721Z debug3: send packet: type 31 [preauth]"
+    ]
+   },
+   {
+    "mode": "many_then_auth",
+    "local_port": 56246,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054951.69,
+    "active_after_probe": true,
+    "authenticated": true,
+    "post_channel_id": 0,
+    "exec_id_output": "uid=1000(tester) gid=1000(tester) groups=1000(tester)",
+    "active_at_end": true,
+    "wire": [
+     {
+      "t": 1794054951.69,
+      "dir": "out",
+      "type": 90,
+      "seq": 0
+     },
+     {
+      "t": 1794054951.69,
+      "dir": "out",
+      "type": 90,
+      "seq": 1
+     },
+     {
+      "t": 1794054951.69,
+      "dir": "out",
+      "type": 90,
+      "seq": 2
+     },
+     {
+      "t": 1794054951.69,
+      "dir": "out",
+      "type": 80,
+      "seq": 3
+     },
+     {
+      "t": 1794054951.69,
+      "dir": "out",
+      "type": 98,
+      "seq": 4
+     },
+     {
+      "t": 1794054951.69,
+      "dir": "out",
+      "type": 94,
+      "seq": 5
+     },
+     {
+      "t": 1794054951.731,
+      "dir": "in",
+      "type": 3,
+      "seq": 2,
+      "unimpl_seq": 1
+     },
+     {
+      "t": 1794054951.731,
+      "dir": "in",
+      "type": 3,
+      "seq": 3,
+      "unimpl_seq": 2
+     },
+     {
+      "t": 1794054951.731,
+      "dir": "in",
+      "type": 3,
+      "seq": 4,
+      "unimpl_seq": 3
+     },
+     {
+      "t": 1794054951.731,
+      "dir": "in",
+      "type": 3,
+      "seq": 5,
+      "unimpl_seq": 4
+     },
+     {
+      "t": 1794054951.731,
+      "dir": "in",
+      "type": 3,
+      "seq": 6,
+      "unimpl_seq": 5
+     },
+     {
+      "t": 1794054961.723,
+      "dir": "out",
+      "type": 5,
+      "seq": 6
+     },
+     {
+      "t": 1794054961.724,
+      "dir": "in",
+      "type": 6,
+      "seq": 7
+     },
+     {
+      "t": 1794054961.728,
+      "dir": "out",
+      "type": 50,
+      "seq": 7
+     },
+     {
+      "t": 1794054961.734,
+      "dir": "in",
+      "type": 52,
+      "seq": 8
+     },
+     {
+      "t": 1794054961.775,
+      "dir": "in",
+      "type": 80,
+      "seq": 9,
+      "request": "hostkeys-00@openssh.com"
+     },
+     {
+      "t": 1794054961.775,
+      "dir": "in",
+      "type": 4,
+      "seq": 10
+     },
+     {
+      "t": 1794054963.234,
+      "dir": "out",
+      "type": 90,
+      "seq": 8
+     },
+     {
+      "t": 1794054963.235,
+      "dir": "in",
+      "type": 91,
+      "seq": 11,
+      "recipient_channel": 0
+     },
+     {
+      "t": 1794054963.236,
+      "dir": "out",
+      "type": 98,
+      "seq": 9
+     },
+     {
+      "t": 1794054963.237,
+      "dir": "in",
+      "type": 93,
+      "seq": 12
+     },
+     {
+      "t": 1794054963.237,
+      "dir": "in",
+      "type": 99,
+      "seq": 13
+     },
+     {
+      "t": 1794054963.239,
+      "dir": "in",
+      "type": 94,
+      "seq": 14
+     },
+     {
+      "t": 1794054963.239,
+      "dir": "in",
+      "type": 98,
+      "seq": 15
+     },
+     {
+      "t": 1794054963.239,
+      "dir": "in",
+      "type": 96,
+      "seq": 16
+     },
+     {
+      "t": 1794054963.239,
+      "dir": "in",
+      "type": 97,
+      "seq": 17
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054951.183 DEBUG kex algos: mlkem768x25519-sha256, sntrup761x25519-sha512, sntrup761x25519-sha512@openssh.com, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group14-sha256, ext-info-s, kex-strict-s-v00@openssh.com",
+     "1794054951.189 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054951.189 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054951.691 WARNING Oops, unhandled type 3 ('unimplemented')",
+     "1794054951.731 WARNING Oops, unhandled type 3 ('unimplemented')",
+     "1794054951.731 WARNING Oops, unhandled type 3 ('unimplemented')",
+     "1794054951.731 WARNING Oops, unhandled type 3 ('unimplemented')",
+     "1794054951.731 WARNING Oops, unhandled type 3 ('unimplemented')",
+     "1794054951.731 WARNING Oops, unhandled type 3 ('unimplemented')",
+     "1794054961.724 DEBUG userauth is OK",
+     "1794054961.734 INFO Authentication (publickey) successful!",
+     "1794054963.235 DEBUG Secsh channel 0 opened.",
+     "1794054963.237 DEBUG [chan 0] Sesch channel 0 request ok",
+     "1794054963.239 DEBUG [chan 0] EOF received (0)"
+    ],
+    "server_log": [
+     "2026-11-07T12:35:51.178454303Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:51.178457327Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:51.182562138Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:51.182563946Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:51.188721977Z debug3: send packet: type 31 [preauth]",
+     "2026-11-07T12:35:51.690476749Z debug3: receive packet: type 90 [preauth]",
+     "2026-11-07T12:35:51.690508045Z dispatch_protocol_error: type 90 seq 0 [preauth]",
+     "2026-11-07T12:35:51.690510653Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:51.690512893Z debug3: receive packet: type 90 [preauth]",
+     "2026-11-07T12:35:51.690529197Z dispatch_protocol_error: type 90 seq 1 [preauth]",
+     "2026-11-07T12:35:51.690531277Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:51.690532877Z debug3: receive packet: type 90 [preauth]",
+     "2026-11-07T12:35:51.690534429Z dispatch_protocol_error: type 90 seq 2 [preauth]",
+     "2026-11-07T12:35:51.690536093Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:51.690537741Z debug3: receive packet: type 80 [preauth]",
+     "2026-11-07T12:35:51.690539309Z dispatch_protocol_error: type 80 seq 3 [preauth]",
+     "2026-11-07T12:35:51.690540861Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:51.690542493Z debug3: receive packet: type 98 [preauth]",
+     "2026-11-07T12:35:51.690544061Z dispatch_protocol_error: type 98 seq 4 [preauth]",
+     "2026-11-07T12:35:51.690545757Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:51.690547293Z dispatch_protocol_error: type 94 seq 5 [preauth]",
+     "2026-11-07T12:35:51.690548829Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:51.946388837Z Connection closed by 172.17.0.1 port 40142 [preauth]",
+     "2026-11-07T12:35:51.946919986Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:35:51.946922562Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:35:51.951669465Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:51.951670681Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:51.955593669Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:51.955595093Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:52.202824554Z kex_protocol_error: type 5 seq 0 [preauth]",
+     "2026-11-07T12:35:52.202826554Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:53.073122282Z debug3: send packet: type 31 [preauth]",
+     "2026-11-07T12:35:53.943160700Z Connection closed by 172.17.0.1 port 40148 [preauth]",
+     "2026-11-07T12:35:53.943873032Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:35:53.943884936Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:35:53.946933896Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:53.946937544Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:53.950716228Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:53.950717492Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:54.198807941Z kex_protocol_error: type 5 seq 0 [preauth]",
+     "2026-11-07T12:35:54.198810085Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:55.050763334Z kex_protocol_error: type 21 seq 2 [preauth]",
+     "2026-11-07T12:35:55.050767270Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:55.902832536Z Connection closed by 172.17.0.1 port 40164 [preauth]",
+     "2026-11-07T12:35:55.903529460Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:35:55.903575892Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:35:55.907555679Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:55.907556943Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:55.910202289Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:55.910203921Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:56.158756560Z kex_protocol_error: type 5 seq 0 [preauth]",
+     "2026-11-07T12:35:56.158757888Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:57.011721502Z kex_protocol_error: type 21 seq 2 [preauth]",
+     "2026-11-07T12:35:57.011724958Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:57.864499341Z Connection closed by 172.17.0.1 port 40168 [preauth]",
+     "2026-11-07T12:35:57.865599767Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:35:57.865623767Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:35:57.868439128Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:57.868441000Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:57.871135642Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:57.871137274Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:35:58.119477611Z kex_protocol_error: type 5 seq 0 [preauth]",
+     "2026-11-07T12:35:58.119480539Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:58.972031820Z kex_protocol_error: type 5 seq 2 [preauth]",
+     "2026-11-07T12:35:58.972034556Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:35:59.824669101Z Connection closed by 172.17.0.1 port 59360 [preauth]",
+     "2026-11-07T12:35:59.825401049Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:35:59.825426889Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:35:59.829797154Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:35:59.829799842Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:35:59.833736094Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:35:59.833738814Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:36:00.081277203Z kex_protocol_error: type 5 seq 0 [preauth]",
+     "2026-11-07T12:36:00.081278659Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:36:01.024284558Z debug2: sshpkt_disconnect: sending SSH2_MSG_DISCONNECT: protocol error: rcvd type 50 [preauth]",
+     "2026-11-07T12:36:01.024286030Z debug3: send packet: type 1 [preauth]",
+     "2026-11-07T12:36:01.024287438Z Disconnected from 172.17.0.1 port 59376 [preauth]",
+     "2026-11-07T12:36:01.024940778Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:36:01.024945930Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:36:01.282949097Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:36:01.282950137Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:36:01.286784133Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:36:01.286785605Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:36:01.534492554Z kex_protocol_error: type 5 seq 0 [preauth]",
+     "2026-11-07T12:36:01.534495674Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:36:01.729899679Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:36:01.729922127Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:36:01.730387597Z Accepted key RSA SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo found at /home/tester/.ssh/authorized_keys:1",
+     "2026-11-07T12:36:01.731022713Z Accepted publickey for tester from 172.17.0.1 port 40146 ssh2: RSA SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo",
+     "2026-11-07T12:36:01.734537271Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:36:01.735516322Z debug3: send packet: type 80",
+     "2026-11-07T12:36:01.735528066Z debug1: server_init_dispatch",
+     "2026-11-07T12:36:02.386766575Z kex_protocol_error: type 5 seq 2 [preauth]",
+     "2026-11-07T12:36:02.386767823Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:36:03.235026042Z debug3: receive packet: type 90",
+     "2026-11-07T12:36:03.235058377Z debug1: server_input_channel_open: ctype session rchan 0 win 2097152 max 32768",
+     "2026-11-07T12:36:03.235063721Z debug1: channel 0: new session [server-session] (inactive timeout: 0)",
+     "2026-11-07T12:36:03.235065753Z debug2: session_new: allocate (allocated 0 max 10)",
+     "2026-11-07T12:36:03.235069977Z debug1: session_new: session 0",
+     "2026-11-07T12:36:03.235071625Z debug1: session_open: channel 0",
+     "2026-11-07T12:36:03.235073369Z debug1: session_open: session 0: link with channel 0",
+     "2026-11-07T12:36:03.235075081Z debug1: server_input_channel_open: confirm session",
+     "2026-11-07T12:36:03.235921237Z debug3: receive packet: type 98",
+     "2026-11-07T12:36:03.235935685Z debug1: server_input_channel_req: channel 0 request exec reply 1",
+     "2026-11-07T12:36:03.235938405Z debug1: session_by_channel: session 0 channel 0",
+     "2026-11-07T12:36:03.235940645Z debug1: session_input_channel_req: session 0 req exec",
+     "2026-11-07T12:36:03.235942533Z debug2: channel_set_xtype: labeled channel 0 as session:command (inactive timeout 0)",
+     "2026-11-07T12:36:03.238422488Z debug2: channel 0: request exit-status confirm 0",
+     "2026-11-07T12:36:03.238424472Z debug3: send packet: type 98",
+     "2026-11-07T12:36:03.238426328Z debug1: session_exit_message: session 0 channel 0 pid 972 exit 0",
+     "2026-11-07T12:36:03.238428168Z debug1: session_exit_message: release channel 0",
+     "2026-11-07T12:36:03.238429848Z debug2: channel 0: write failed",
+     "2026-11-07T12:36:03.238431656Z debug2: chan_shutdown_write: channel 0: (i0 o0 sock -1 wfd 10 efd 13 [read])",
+     "2026-11-07T12:36:03.238433448Z debug2: channel 0: send eow",
+     "2026-11-07T12:36:03.238438248Z debug2: channel 0: output open -> closed",
+     "2026-11-07T12:36:03.238440120Z debug2: channel 0: read failed rfd 11 maxlen 32768: Broken pipe",
+     "2026-11-07T12:36:03.238441848Z debug2: channel 0: read failed",
+     "2026-11-07T12:36:03.238443496Z debug2: chan_shutdown_read: channel 0: (i0 o3 sock -1 wfd 11 efd 13 [read])",
+     "2026-11-07T12:36:03.238445112Z debug2: channel 0: input open -> drain",
+     "2026-11-07T12:36:03.238446792Z debug2: channel 0: read 0 from efd 13",
+     "2026-11-07T12:36:03.238448392Z debug2: channel 0: closing read-efd 13",
+     "2026-11-07T12:36:03.238449992Z debug2: channel 0: ibuf empty",
+     "2026-11-07T12:36:03.238451576Z debug2: channel 0: send eof",
+     "2026-11-07T12:36:03.238454728Z debug2: channel 0: input drain -> closed",
+     "2026-11-07T12:36:03.238456312Z debug2: channel 0: send_close2",
+     "2026-11-07T12:36:03.238457832Z debug2: channel 0: send close for remote id 0",
+     "2026-11-07T12:36:03.238460808Z debug3: channel 0: will not send data after close",
+     "2026-11-07T12:36:03.239172980Z Connection closed by 172.17.0.1 port 40146",
+     "2026-11-07T12:36:03.239186884Z debug1: channel 0: free: server-session, nchannels 1",
+     "2026-11-07T12:36:03.239188660Z debug3: channel 0: status: The following connections are open:",
+     "2026-11-07T12:36:03.239190740Z   #0 server-session (t4 [session:command] r0 nm0 i3/0 o3/0 e[closed]/0 fd -1/-1/-1 sock -1 cc -1 nc0 io 0x00/0x00)",
+     "2026-11-07T12:36:03.239476146Z Connection closed by 172.17.0.1 port 59388 [preauth]",
+     "2026-11-07T12:36:03.239783121Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:36:03.239785649Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:36:03.242971632Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:36:03.242973968Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:36:03.246786972Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:36:03.246791740Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:36:03.494505249Z kex_protocol_error: type 5 seq 0 [preauth]",
+     "2026-11-07T12:36:03.494507249Z debug3: send packet: type 3 [preauth]"
+    ]
+   },
+   {
+    "mode": "many_then_auth",
+    "local_port": 54340,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054964.371,
+    "active_after_probe": true,
+    "authenticated": true,
+    "post_channel_id": 0,
+    "exec_id_output": "uid=1000(tester) gid=1000(tester) groups=1000(tester)",
+    "active_at_end": true,
+    "wire": [
+     {
+      "t": 1794054964.371,
+      "dir": "out",
+      "type": 90,
+      "seq": 0
+     },
+     {
+      "t": 1794054964.371,
+      "dir": "out",
+      "type": 90,
+      "seq": 1
+     },
+     {
+      "t": 1794054964.371,
+      "dir": "out",
+      "type": 90,
+      "seq": 2
+     },
+     {
+      "t": 1794054964.371,
+      "dir": "out",
+      "type": 80,
+      "seq": 3
+     },
+     {
+      "t": 1794054964.371,
+      "dir": "out",
+      "type": 98,
+      "seq": 4
+     },
+     {
+      "t": 1794054964.371,
+      "dir": "out",
+      "type": 94,
+      "seq": 5
+     },
+     {
+      "t": 1794054964.371,
+      "dir": "in",
+      "type": 3,
+      "seq": 1,
+      "unimpl_seq": 0
+     },
+     {
+      "t": 1794054964.412,
+      "dir": "in",
+      "type": 3,
+      "seq": 2,
+      "unimpl_seq": 1
+     },
+     {
+      "t": 1794054964.412,
+      "dir": "in",
+      "type": 3,
+      "seq": 3,
+      "unimpl_seq": 2
+     },
+     {
+      "t": 1794054964.412,
+      "dir": "in",
+      "type": 3,
+      "seq": 4,
+      "unimpl_seq": 3
+     },
+     {
+      "t": 1794054964.412,
+      "dir": "in",
+      "type": 3,
+      "seq": 5,
+      "unimpl_seq": 4
+     },
+     {
+      "t": 1794054964.412,
+      "dir": "in",
+      "type": 3,
+      "seq": 6,
+      "unimpl_seq": 5
+     },
+     {
+      "t": 1794054974.41,
+      "dir": "out",
+      "type": 5,
+      "seq": 6
+     },
+     {
+      "t": 1794054974.41,
+      "dir": "in",
+      "type": 6,
+      "seq": 7
+     },
+     {
+      "t": 1794054974.412,
+      "dir": "out",
+      "type": 50,
+      "seq": 7
+     },
+     {
+      "t": 1794054974.418,
+      "dir": "in",
+      "type": 52,
+      "seq": 8
+     },
+     {
+      "t": 1794054974.459,
+      "dir": "in",
+      "type": 80,
+      "seq": 9,
+      "request": "hostkeys-00@openssh.com"
+     },
+     {
+      "t": 1794054974.459,
+      "dir": "in",
+      "type": 4,
+      "seq": 10
+     },
+     {
+      "t": 1794054975.919,
+      "dir": "out",
+      "type": 90,
+      "seq": 8
+     },
+     {
+      "t": 1794054975.92,
+      "dir": "in",
+      "type": 91,
+      "seq": 11,
+      "recipient_channel": 0
+     },
+     {
+      "t": 1794054975.92,
+      "dir": "out",
+      "type": 98,
+      "seq": 9
+     },
+     {
+      "t": 1794054975.921,
+      "dir": "in",
+      "type": 93,
+      "seq": 12
+     },
+     {
+      "t": 1794054975.921,
+      "dir": "in",
+      "type": 99,
+      "seq": 13
+     },
+     {
+      "t": 1794054975.923,
+      "dir": "in",
+      "type": 94,
+      "seq": 14
+     },
+     {
+      "t": 1794054975.923,
+      "dir": "in",
+      "type": 98,
+      "seq": 15
+     },
+     {
+      "t": 1794054975.923,
+      "dir": "in",
+      "type": 96,
+      "seq": 16
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054963.865 DEBUG kex algos: mlkem768x25519-sha256, sntrup761x25519-sha512, sntrup761x25519-sha512@openssh.com, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group14-sha256, ext-info-s, kex-strict-s-v00@openssh.com",
+     "1794054963.870 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054963.871 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054964.371 WARNING Oops, unhandled type 3 ('unimplemented')",
+     "1794054964.412 WARNING Oops, unhandled type 3 ('unimplemented')",
+     "1794054964.412 WARNING Oops, unhandled type 3 ('unimplemented')",
+     "1794054964.412 WARNING Oops, unhandled type 3 ('unimplemented')",
+     "1794054964.412 WARNING Oops, unhandled type 3 ('unimplemented')",
+     "1794054964.412 WARNING Oops, unhandled type 3 ('unimplemented')",
+     "1794054974.411 DEBUG userauth is OK",
+     "1794054974.418 INFO Authentication (publickey) successful!",
+     "1794054975.920 DEBUG Secsh channel 0 opened.",
+     "1794054975.921 DEBUG [chan 0] Sesch channel 0 request ok",
+     "1794054975.923 DEBUG [chan 0] EOF received (0)",
+     "1794054975.923 DEBUG EOF in transport thread"
+    ],
+    "server_log": [
+     "2026-11-07T12:36:04.371243720Z dispatch_protocol_error: type 90 seq 1 [preauth]",
+     "2026-11-07T12:36:04.371245496Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:36:04.371247112Z debug3: receive packet: type 90 [preauth]",
+     "2026-11-07T12:36:04.371248808Z dispatch_protocol_error: type 90 seq 2 [preauth]",
+     "2026-11-07T12:36:04.371250520Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:36:04.371252136Z debug3: receive packet: type 80 [preauth]",
+     "2026-11-07T12:36:04.371253784Z dispatch_protocol_error: type 80 seq 3 [preauth]",
+     "2026-11-07T12:36:04.371255528Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:36:04.371257160Z debug3: receive packet: type 98 [preauth]",
+     "2026-11-07T12:36:04.371258952Z dispatch_protocol_error: type 98 seq 4 [preauth]",
+     "2026-11-07T12:36:04.371260664Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:36:04.371262376Z dispatch_protocol_error: type 94 seq 5 [preauth]",
+     "2026-11-07T12:36:04.371264024Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:36:04.605217253Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:36:04.605236069Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:36:04.608030103Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:36:04.608032919Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:36:04.856864566Z kex_protocol_error: type 5 seq 0 [preauth]",
+     "2026-11-07T12:36:04.856867078Z debug3: send packet: type 3 [preauth]",
+     "2026-11-07T12:36:05.708847215Z debug3: receive packet: type 90 [preauth]",
+     "2026-11-07T12:36:05.708875935Z debug2: sshpkt_disconnect: sending SSH2_MSG_DISCONNECT: protocol error: rcvd type 90 [preauth]",
+     "2026-11-07T12:36:05.708878959Z debug3: send packet: type 1 [preauth]",
+     "2026-11-07T12:36:05.708881119Z Disconnected from 172.17.0.1 port 59408 [preauth]",
+     "2026-11-07T12:36:05.709659851Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:36:05.709682955Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:36:05.967120350Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:36:05.967122206Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:36:05.970028814Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:36:05.970032270Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:36:06.309836628Z debug2: sshpkt_disconnect: sending SSH2_MSG_DISCONNECT: protocol error: rcvd type 50 [preauth]",
+     "2026-11-07T12:36:06.309838372Z debug3: send packet: type 1 [preauth]",
+     "2026-11-07T12:36:06.309840020Z Disconnected from 172.17.0.1 port 59418 [preauth]",
+     "2026-11-07T12:36:06.310325218Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:36:06.310341874Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:36:07.166579126Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:36:07.166580182Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:36:07.170582721Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:36:07.170584241Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:36:07.508830991Z debug2: sshpkt_disconnect: sending SSH2_MSG_DISCONNECT: protocol error: rcvd type 50 [preauth]",
+     "2026-11-07T12:36:07.508832463Z debug3: send packet: type 1 [preauth]",
+     "2026-11-07T12:36:07.508833535Z Disconnected from 172.17.0.1 port 52198 [preauth]",
+     "2026-11-07T12:36:07.509097182Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:36:07.509110286Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:36:08.369347214Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:36:08.369349662Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:36:08.373079578Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:36:08.373080922Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:36:08.711289945Z debug2: sshpkt_disconnect: sending SSH2_MSG_DISCONNECT: protocol error: rcvd type 50 [preauth]",
+     "2026-11-07T12:36:08.711298137Z debug3: send packet: type 1 [preauth]",
+     "2026-11-07T12:36:08.711299625Z Disconnected from 172.17.0.1 port 52204 [preauth]",
+     "2026-11-07T12:36:08.711995221Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:36:08.712011861Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:36:09.567845805Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:36:09.567848397Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:36:09.572110663Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:36:09.572114135Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:36:09.909677946Z debug2: sshpkt_disconnect: sending SSH2_MSG_DISCONNECT: protocol error: rcvd type 50 [preauth]",
+     "2026-11-07T12:36:09.909679738Z debug3: send packet: type 1 [preauth]",
+     "2026-11-07T12:36:09.909681914Z Disconnected from 172.17.0.1 port 52214 [preauth]",
+     "2026-11-07T12:36:09.910071592Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:36:09.910116775Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:36:10.766003360Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:36:10.766005120Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:36:10.768810353Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:36:10.768813393Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:36:11.108221627Z debug2: sshpkt_disconnect: sending SSH2_MSG_DISCONNECT: protocol error: rcvd type 50 [preauth]",
+     "2026-11-07T12:36:11.108233642Z debug3: send packet: type 1 [preauth]",
+     "2026-11-07T12:36:11.108235770Z Disconnected from 172.17.0.1 port 52218 [preauth]",
+     "2026-11-07T12:36:11.108886359Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:36:11.108903575Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:36:12.053128645Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:36:12.053130613Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:36:12.056614995Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:36:12.056616178Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:36:12.432723597Z debug2: sshpkt_disconnect: sending SSH2_MSG_DISCONNECT: protocol error: rcvd type 50 [preauth]",
+     "2026-11-07T12:36:12.432726365Z debug3: send packet: type 1 [preauth]",
+     "2026-11-07T12:36:12.432728381Z Disconnected from 172.17.0.1 port 52234 [preauth]",
+     "2026-11-07T12:36:12.433470457Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:36:12.433491353Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:36:13.287942971Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:36:13.287946331Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:36:13.290644621Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:36:13.290646333Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:36:13.663685624Z debug2: sshpkt_disconnect: sending SSH2_MSG_DISCONNECT: protocol error: rcvd type 50 [preauth]",
+     "2026-11-07T12:36:13.663686792Z debug3: send packet: type 1 [preauth]",
+     "2026-11-07T12:36:13.663687944Z Disconnected from 172.17.0.1 port 52248 [preauth]",
+     "2026-11-07T12:36:13.664601219Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:36:13.664622547Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:36:14.414084904Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:36:14.414097640Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:36:14.414329639Z Accepted key RSA SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo found at /home/tester/.ssh/authorized_keys:1",
+     "2026-11-07T12:36:14.414817316Z Accepted publickey for tester from 172.17.0.1 port 59394 ssh2: RSA SHA256:vkAr/Wo9LaYtyu1k+g2dx1h3zGnCd1S2EZgU5zU24zo",
+     "2026-11-07T12:36:14.419410781Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:36:14.420137465Z debug3: send packet: type 80",
+     "2026-11-07T12:36:14.420156633Z debug1: server_init_dispatch",
+     "2026-11-07T12:36:14.519380293Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:36:14.519382324Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:36:14.523154401Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:36:14.523156353Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:36:14.861451297Z debug2: sshpkt_disconnect: sending SSH2_MSG_DISCONNECT: protocol error: rcvd type 50 [preauth]",
+     "2026-11-07T12:36:14.861455089Z debug3: send packet: type 1 [preauth]",
+     "2026-11-07T12:36:14.861458433Z Disconnected from 172.17.0.1 port 52264 [preauth]",
+     "2026-11-07T12:36:14.862185677Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:36:14.862219805Z debug3: mm_request_receive: monitor fd closed",
+     "2026-11-07T12:36:15.717740251Z debug3: server_process_channel_timeouts: setting 0 timeouts",
+     "2026-11-07T12:36:15.717741483Z debug3: channel_clear_timeouts: clearing",
+     "2026-11-07T12:36:15.720775611Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+     "2026-11-07T12:36:15.720810043Z debug3: channel_clear_timeouts: clearing [preauth]",
+     "2026-11-07T12:36:15.919517890Z debug3: receive packet: type 90",
+     "2026-11-07T12:36:15.919545473Z debug1: server_input_channel_open: ctype session rchan 0 win 2097152 max 32768",
+     "2026-11-07T12:36:15.919550017Z debug1: channel 0: new session [server-session] (inactive timeout: 0)",
+     "2026-11-07T12:36:15.919552097Z debug2: session_new: allocate (allocated 0 max 10)",
+     "2026-11-07T12:36:15.919555809Z debug1: session_new: session 0",
+     "2026-11-07T12:36:15.919557569Z debug1: session_open: channel 0",
+     "2026-11-07T12:36:15.919559425Z debug1: session_open: session 0: link with channel 0",
+     "2026-11-07T12:36:15.919561185Z debug1: server_input_channel_open: confirm session",
+     "2026-11-07T12:36:15.920166526Z debug3: receive packet: type 98",
+     "2026-11-07T12:36:15.920181854Z debug1: server_input_channel_req: channel 0 request exec reply 1",
+     "2026-11-07T12:36:15.920184494Z debug1: session_by_channel: session 0 channel 0",
+     "2026-11-07T12:36:15.920186590Z debug1: session_input_channel_req: session 0 req exec",
+     "2026-11-07T12:36:15.920189262Z debug2: channel_set_xtype: labeled channel 0 as session:command (inactive timeout 0)",
+     "2026-11-07T12:36:15.922276019Z debug2: channel 0: read 0 from efd 13",
+     "2026-11-07T12:36:15.922306499Z debug2: channel 0: closing read-efd 13",
+     "2026-11-07T12:36:15.922314979Z debug2: channel 0: request exit-status confirm 0",
+     "2026-11-07T12:36:15.922317267Z debug3: send packet: type 98",
+     "2026-11-07T12:36:15.922319683Z debug1: session_exit_message: session 0 channel 0 pid 998 exit 0",
+     "2026-11-07T12:36:15.922322147Z debug1: session_exit_message: release channel 0",
+     "2026-11-07T12:36:15.922324707Z debug2: channel 0: write failed",
+     "2026-11-07T12:36:15.922327107Z debug2: chan_shutdown_write: channel 0: (i0 o0 sock -1 wfd 10 efd -1 [closed])",
+     "2026-11-07T12:36:15.922330083Z debug2: channel 0: send eow",
+     "2026-11-07T12:36:15.922333331Z debug2: channel 0: output open -> closed",
+     "2026-11-07T12:36:15.922336355Z debug2: channel 0: read failed rfd 11 maxlen 32768: Broken pipe",
+     "2026-11-07T12:36:15.922338883Z debug2: channel 0: read failed",
+     "2026-11-07T12:36:15.922342947Z debug2: chan_shutdown_read: channel 0: (i0 o3 sock -1 wfd 11 efd -1 [closed])",
+     "2026-11-07T12:36:15.922346371Z debug2: channel 0: input open -> drain",
+     "2026-11-07T12:36:15.922419683Z debug2: channel 0: ibuf empty",
+     "2026-11-07T12:36:15.922423010Z debug2: channel 0: send eof",
+     "2026-11-07T12:36:15.922427954Z debug2: channel 0: input drain -> closed",
+     "2026-11-07T12:36:15.922430482Z debug2: channel 0: send_close2",
+     "2026-11-07T12:36:15.922432770Z debug2: channel 0: send close for remote id 0",
+     "2026-11-07T12:36:15.922438258Z debug3: channel 0: will not send data after close",
+     "2026-11-07T12:36:15.923201902Z Connection closed by 172.17.0.1 port 59394",
+     "2026-11-07T12:36:15.923213406Z debug1: channel 0: free: server-session, nchannels 1",
+     "2026-11-07T12:36:15.923216334Z debug3: channel 0: status: The following connections are open:",
+     "2026-11-07T12:36:15.923219438Z   #0 server-session (t4 [session:command] r0 nm0 i3/0 o3/0 e[closed]/0 fd -1/-1/-1 sock -1 cc -1 nc0 io 0x00/0x00)",
+     "2026-11-07T12:36:16.061339936Z debug2: sshpkt_disconnect: sending SSH2_MSG_DISCONNECT: protocol error: rcvd type 50 [preauth]",
+     "2026-11-07T12:36:16.061343168Z debug3: send packet: type 1 [preauth]",
+     "2026-11-07T12:36:16.061345312Z Disconnected from 172.17.0.1 port 52266 [preauth]",
+     "2026-11-07T12:36:16.062302635Z debug1: monitor_read_log: child log fd closed",
+     "2026-11-07T12:36:16.062317659Z debug3: mm_request_receive: monitor fd closed"
+    ]
+   }
+  ],
+  "dropbear": [
+   {
+    "mode": "ch_open",
+    "local_port": 58054,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054977.072,
+    "active_after_probe": false,
+    "active_at_end": false,
+    "wire": [
+     {
+      "t": 1794054977.072,
+      "dir": "out",
+      "type": 90,
+      "seq": 0
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054976.528 DEBUG kex algos: sntrup761x25519-sha512, sntrup761x25519-sha512@openssh.com, mlkem768x25519-sha256, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp521, ecdh-sha2-nistp384, ecdh-sha2-nistp256, diffie-hellman-group14-sha256, kexguess2@matt.ucc.asn.au, kex-strict-s-v00@openssh.com",
+     "1794054976.572 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054976.572 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054977.073 DEBUG EOF in transport thread"
+    ],
+    "server_log": [
+     "2026-11-07T12:36:16.527401304Z [412] Nov 07 12:36:16 Child connection from 172.17.0.1:34326",
+     "2026-11-07T12:36:17.072813060Z [412] Nov 07 12:36:17 Exit before auth from <172.17.0.1:34326>: Received message 90 before userauth",
+     "2026-11-07T12:36:17.289687308Z [411] Nov 07 12:36:17 Exit (tester) from <172.17.0.1:48332>: Unexpected newkeys message",
+     "2026-11-07T12:36:17.544809694Z [413] Nov 07 12:36:17 Child connection from 172.17.0.1:34338"
+    ]
+   },
+   {
+    "mode": "ch_open",
+    "local_port": 58082,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054978.19,
+    "active_after_probe": false,
+    "active_at_end": false,
+    "wire": [
+     {
+      "t": 1794054978.19,
+      "dir": "out",
+      "type": 90,
+      "seq": 0
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054977.643 DEBUG kex algos: sntrup761x25519-sha512, sntrup761x25519-sha512@openssh.com, mlkem768x25519-sha256, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp521, ecdh-sha2-nistp384, ecdh-sha2-nistp256, diffie-hellman-group14-sha256, kexguess2@matt.ucc.asn.au, kex-strict-s-v00@openssh.com",
+     "1794054977.689 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054977.690 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054978.191 DEBUG EOF in transport thread"
+    ],
+    "server_log": [
+     "2026-11-07T12:36:17.643044639Z [414] Nov 07 12:36:17 Child connection from 172.17.0.1:34350",
+     "2026-11-07T12:36:18.190333650Z [414] Nov 07 12:36:18 Exit before auth from <172.17.0.1:34350>: Received message 90 before userauth"
+    ]
+   },
+   {
+    "mode": "sr_ch_open",
+    "local_port": 58092,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054979.307,
+    "sr_accepted": true,
+    "active_after_probe": false,
+    "active_at_end": false,
+    "wire": [
+     {
+      "t": 1794054979.307,
+      "dir": "out",
+      "type": 5,
+      "seq": 0
+     },
+     {
+      "t": 1794054979.308,
+      "dir": "out",
+      "type": 90,
+      "seq": 1
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054978.759 DEBUG kex algos: sntrup761x25519-sha512, sntrup761x25519-sha512@openssh.com, mlkem768x25519-sha256, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp521, ecdh-sha2-nistp384, ecdh-sha2-nistp256, diffie-hellman-group14-sha256, kexguess2@matt.ucc.asn.au, kex-strict-s-v00@openssh.com",
+     "1794054978.806 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054978.806 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054979.309 DEBUG EOF in transport thread"
+    ],
+    "server_log": [
+     "2026-11-07T12:36:18.759116741Z [415] Nov 07 12:36:18 Child connection from 172.17.0.1:34352",
+     "2026-11-07T12:36:19.308612908Z [415] Nov 07 12:36:19 Exit before auth from <172.17.0.1:34352>: Received message 90 before userauth"
+    ]
+   },
+   {
+    "mode": "sr_ch_open",
+    "local_port": 58104,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054980.425,
+    "sr_accepted": true,
+    "active_after_probe": false,
+    "active_at_end": false,
+    "wire": [
+     {
+      "t": 1794054980.425,
+      "dir": "out",
+      "type": 5,
+      "seq": 0
+     },
+     {
+      "t": 1794054980.426,
+      "dir": "out",
+      "type": 90,
+      "seq": 1
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054979.878 DEBUG kex algos: sntrup761x25519-sha512, sntrup761x25519-sha512@openssh.com, mlkem768x25519-sha256, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp521, ecdh-sha2-nistp384, ecdh-sha2-nistp256, diffie-hellman-group14-sha256, kexguess2@matt.ucc.asn.au, kex-strict-s-v00@openssh.com",
+     "1794054979.924 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054979.924 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054980.427 DEBUG EOF in transport thread"
+    ],
+    "server_log": [
+     "2026-11-07T12:36:19.877190641Z [416] Nov 07 12:36:19 Child connection from 172.17.0.1:34356",
+     "2026-11-07T12:36:20.426324075Z [416] Nov 07 12:36:20 Exit before auth from <172.17.0.1:34356>: Received message 90 before userauth"
+    ]
+   },
+   {
+    "mode": "global_req",
+    "local_port": 58116,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054981.545,
+    "active_after_probe": false,
+    "active_at_end": false,
+    "wire": [
+     {
+      "t": 1794054981.545,
+      "dir": "out",
+      "type": 80,
+      "seq": 0
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054980.998 DEBUG kex algos: sntrup761x25519-sha512, sntrup761x25519-sha512@openssh.com, mlkem768x25519-sha256, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp521, ecdh-sha2-nistp384, ecdh-sha2-nistp256, diffie-hellman-group14-sha256, kexguess2@matt.ucc.asn.au, kex-strict-s-v00@openssh.com",
+     "1794054981.044 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054981.044 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054981.546 DEBUG EOF in transport thread"
+    ],
+    "server_log": [
+     "2026-11-07T12:36:20.997421347Z [417] Nov 07 12:36:20 Child connection from 172.17.0.1:34358",
+     "2026-11-07T12:36:21.545356708Z [417] Nov 07 12:36:21 Exit before auth from <172.17.0.1:34358>: Received message 80 before userauth"
+    ]
+   },
+   {
+    "mode": "global_req",
+    "local_port": 58126,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054982.661,
+    "active_after_probe": false,
+    "active_at_end": false,
+    "wire": [
+     {
+      "t": 1794054982.661,
+      "dir": "out",
+      "type": 80,
+      "seq": 0
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054982.115 DEBUG kex algos: sntrup761x25519-sha512, sntrup761x25519-sha512@openssh.com, mlkem768x25519-sha256, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp521, ecdh-sha2-nistp384, ecdh-sha2-nistp256, diffie-hellman-group14-sha256, kexguess2@matt.ucc.asn.au, kex-strict-s-v00@openssh.com",
+     "1794054982.161 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054982.161 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054982.662 DEBUG EOF in transport thread"
+    ],
+    "server_log": [
+     "2026-11-07T12:36:22.114058697Z [418] Nov 07 12:36:22 Child connection from 172.17.0.1:34364",
+     "2026-11-07T12:36:22.661964778Z [418] Nov 07 12:36:22 Exit before auth from <172.17.0.1:34364>: Received message 80 before userauth",
+     "2026-11-07T12:36:23.041184664Z [413] Nov 07 12:36:23 Exit (tester) from <172.17.0.1:34338>: Exited normally",
+     "2026-11-07T12:36:23.043850378Z [419] Nov 07 12:36:23 Child connection from 172.17.0.1:34380"
+    ]
+   },
+   {
+    "mode": "ch_open_then_auth",
+    "local_port": 58154,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054983.779,
+    "active_after_probe": false,
+    "active_at_end": false,
+    "wire": [
+     {
+      "t": 1794054983.779,
+      "dir": "out",
+      "type": 90,
+      "seq": 0
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054983.233 DEBUG kex algos: sntrup761x25519-sha512, sntrup761x25519-sha512@openssh.com, mlkem768x25519-sha256, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp521, ecdh-sha2-nistp384, ecdh-sha2-nistp256, diffie-hellman-group14-sha256, kexguess2@matt.ucc.asn.au, kex-strict-s-v00@openssh.com",
+     "1794054983.279 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054983.279 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054983.780 DEBUG EOF in transport thread"
+    ],
+    "server_log": [
+     "2026-11-07T12:36:23.232124216Z [420] Nov 07 12:36:23 Child connection from 172.17.0.1:34394",
+     "2026-11-07T12:36:23.779862827Z [420] Nov 07 12:36:23 Exit before auth from <172.17.0.1:34394>: Received message 90 before userauth"
+    ]
+   },
+   {
+    "mode": "ch_open_then_auth",
+    "local_port": 58156,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054984.899,
+    "active_after_probe": false,
+    "active_at_end": false,
+    "wire": [
+     {
+      "t": 1794054984.899,
+      "dir": "out",
+      "type": 90,
+      "seq": 0
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054984.352 DEBUG kex algos: sntrup761x25519-sha512, sntrup761x25519-sha512@openssh.com, mlkem768x25519-sha256, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp521, ecdh-sha2-nistp384, ecdh-sha2-nistp256, diffie-hellman-group14-sha256, kexguess2@matt.ucc.asn.au, kex-strict-s-v00@openssh.com",
+     "1794054984.399 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054984.399 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054984.901 DEBUG EOF in transport thread"
+    ],
+    "server_log": [
+     "2026-11-07T12:36:24.351475842Z [421] Nov 07 12:36:24 Child connection from 172.17.0.1:34402",
+     "2026-11-07T12:36:24.900692238Z [421] Nov 07 12:36:24 Exit before auth from <172.17.0.1:34402>: Received message 90 before userauth"
+    ]
+   },
+   {
+    "mode": "many_then_auth",
+    "local_port": 58164,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054986.016,
+    "active_after_probe": false,
+    "active_at_end": false,
+    "wire": [
+     {
+      "t": 1794054986.016,
+      "dir": "out",
+      "type": 90,
+      "seq": 0
+     },
+     {
+      "t": 1794054986.016,
+      "dir": "out",
+      "type": 90,
+      "seq": 1
+     },
+     {
+      "t": 1794054986.016,
+      "dir": "out",
+      "type": 90,
+      "seq": 2
+     },
+     {
+      "t": 1794054986.016,
+      "dir": "out",
+      "type": 80,
+      "seq": 3
+     },
+     {
+      "t": 1794054986.016,
+      "dir": "out",
+      "type": 98,
+      "seq": 4
+     },
+     {
+      "t": 1794054986.016,
+      "dir": "out",
+      "type": 94,
+      "seq": 5
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054985.470 DEBUG kex algos: sntrup761x25519-sha512, sntrup761x25519-sha512@openssh.com, mlkem768x25519-sha256, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp521, ecdh-sha2-nistp384, ecdh-sha2-nistp256, diffie-hellman-group14-sha256, kexguess2@matt.ucc.asn.au, kex-strict-s-v00@openssh.com",
+     "1794054985.516 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054985.516 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054986.017 DEBUG EOF in transport thread"
+    ],
+    "server_log": [
+     "2026-11-07T12:36:25.469315893Z [422] Nov 07 12:36:25 Child connection from 172.17.0.1:34412",
+     "2026-11-07T12:36:26.016946985Z [422] Nov 07 12:36:26 Exit before auth from <172.17.0.1:34412>: Received message 90 before userauth"
+    ]
+   },
+   {
+    "mode": "many_then_auth",
+    "local_port": 36840,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054987.127,
+    "active_after_probe": false,
+    "active_at_end": false,
+    "wire": [
+     {
+      "t": 1794054987.127,
+      "dir": "out",
+      "type": 90,
+      "seq": 0
+     },
+     {
+      "t": 1794054987.128,
+      "dir": "out",
+      "type": 90,
+      "seq": 1
+     },
+     {
+      "t": 1794054987.128,
+      "dir": "out",
+      "type": 90,
+      "seq": 2
+     },
+     {
+      "t": 1794054987.128,
+      "dir": "out",
+      "type": 80,
+      "seq": 3
+     },
+     {
+      "t": 1794054987.128,
+      "dir": "out",
+      "type": 98,
+      "seq": 4
+     },
+     {
+      "t": 1794054987.128,
+      "dir": "out",
+      "type": 94,
+      "seq": 5
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054986.584 DEBUG kex algos: sntrup761x25519-sha512, sntrup761x25519-sha512@openssh.com, mlkem768x25519-sha256, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp521, ecdh-sha2-nistp384, ecdh-sha2-nistp256, diffie-hellman-group14-sha256, kexguess2@matt.ucc.asn.au, kex-strict-s-v00@openssh.com",
+     "1794054986.627 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054986.627 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054987.128 DEBUG EOF in transport thread"
+    ],
+    "server_log": [
+     "2026-11-07T12:36:26.583583115Z [423] Nov 07 12:36:26 Child connection from 172.17.0.1:47750",
+     "2026-11-07T12:36:27.127884081Z [423] Nov 07 12:36:27 Exit before auth from <172.17.0.1:47750>: Received message 90 before userauth"
+    ]
+   }
+  ],
+  "gossh": [
+   {
+    "mode": "ch_open",
+    "local_port": 48414,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054988.24,
+    "active_after_probe": false,
+    "active_at_end": false,
+    "wire": [
+     {
+      "t": 1794054988.24,
+      "dir": "out",
+      "type": 90,
+      "seq": 0
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054987.698 DEBUG kex algos: mlkem768x25519-sha256, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1, kex-strict-s-v00@openssh.com",
+     "1794054987.739 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054987.740 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054988.241 DEBUG EOF in transport thread"
+    ],
+    "server_log": [
+     "2026-11-07T12:36:28.240533698Z 2026/11/07 12:36:28 handshake error from 172.17.0.1:37308: ssh: unexpected message type 90 (expected one of [5])",
+     "2026-11-07T12:36:28.525045325Z 2026/11/07 12:36:28 connection closed from 172.17.0.1:56932"
+    ]
+   },
+   {
+    "mode": "ch_open",
+    "local_port": 48442,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054989.35,
+    "active_after_probe": false,
+    "active_at_end": false,
+    "wire": [
+     {
+      "t": 1794054989.35,
+      "dir": "out",
+      "type": 90,
+      "seq": 0
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054988.808 DEBUG kex algos: mlkem768x25519-sha256, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1, kex-strict-s-v00@openssh.com",
+     "1794054988.849 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054988.850 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054989.350 DEBUG EOF in transport thread"
+    ],
+    "server_log": [
+     "2026-11-07T12:36:29.350574241Z 2026/11/07 12:36:29 handshake error from 172.17.0.1:37314: ssh: unexpected message type 90 (expected one of [5])"
+    ]
+   },
+   {
+    "mode": "sr_ch_open",
+    "local_port": 48448,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054990.459,
+    "sr_accepted": true,
+    "active_after_probe": false,
+    "active_at_end": false,
+    "wire": [
+     {
+      "t": 1794054990.46,
+      "dir": "out",
+      "type": 5,
+      "seq": 0
+     },
+     {
+      "t": 1794054990.46,
+      "dir": "in",
+      "type": 6,
+      "seq": 1
+     },
+     {
+      "t": 1794054990.46,
+      "dir": "out",
+      "type": 90,
+      "seq": 1
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054989.917 DEBUG kex algos: mlkem768x25519-sha256, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1, kex-strict-s-v00@openssh.com",
+     "1794054989.959 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054989.959 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054990.461 DEBUG EOF in transport thread"
+    ],
+    "server_log": [
+     "2026-11-07T12:36:30.461001855Z 2026/11/07 12:36:30 handshake error from 172.17.0.1:37322: ssh: unexpected message type 90 (expected one of [50])"
+    ]
+   },
+   {
+    "mode": "sr_ch_open",
+    "local_port": 48458,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054991.569,
+    "sr_accepted": true,
+    "active_after_probe": false,
+    "active_at_end": false,
+    "wire": [
+     {
+      "t": 1794054991.569,
+      "dir": "out",
+      "type": 5,
+      "seq": 0
+     },
+     {
+      "t": 1794054991.57,
+      "dir": "out",
+      "type": 90,
+      "seq": 1
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054991.027 DEBUG kex algos: mlkem768x25519-sha256, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1, kex-strict-s-v00@openssh.com",
+     "1794054991.069 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054991.069 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054991.570 DEBUG EOF in transport thread"
+    ],
+    "server_log": [
+     "2026-11-07T12:36:31.570503458Z 2026/11/07 12:36:31 handshake error from 172.17.0.1:37338: ssh: unexpected message type 90 (expected one of [50])"
+    ]
+   },
+   {
+    "mode": "global_req",
+    "local_port": 48470,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054992.68,
+    "active_after_probe": false,
+    "active_at_end": false,
+    "wire": [
+     {
+      "t": 1794054992.68,
+      "dir": "out",
+      "type": 80,
+      "seq": 0
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054992.138 DEBUG kex algos: mlkem768x25519-sha256, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1, kex-strict-s-v00@openssh.com",
+     "1794054992.180 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054992.180 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054992.681 DEBUG EOF in transport thread"
+    ],
+    "server_log": [
+     "2026-11-07T12:36:32.548990495Z 2026/11/07 12:36:32 handshake ok from 172.17.0.1:37312 user=tester client=\"SSH-2.0-paramiko_3.1.0\"",
+     "2026-11-07T12:36:32.680478213Z 2026/11/07 12:36:32 handshake error from 172.17.0.1:37344: ssh: unexpected message type 80 (expected one of [5])"
+    ]
+   },
+   {
+    "mode": "global_req",
+    "local_port": 48476,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054993.789,
+    "active_after_probe": false,
+    "active_at_end": false,
+    "wire": [
+     {
+      "t": 1794054993.789,
+      "dir": "out",
+      "type": 80,
+      "seq": 0
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054993.246 DEBUG kex algos: mlkem768x25519-sha256, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1, kex-strict-s-v00@openssh.com",
+     "1794054993.288 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054993.288 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054993.790 DEBUG EOF in transport thread"
+    ],
+    "server_log": [
+     "2026-11-07T12:36:33.789805243Z 2026/11/07 12:36:33 handshake error from 172.17.0.1:37356: ssh: unexpected message type 80 (expected one of [5])"
+    ]
+   },
+   {
+    "mode": "ch_open_then_auth",
+    "local_port": 48484,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054994.859,
+    "active_after_probe": false,
+    "active_at_end": false,
+    "wire": [
+     {
+      "t": 1794054994.859,
+      "dir": "out",
+      "type": 90,
+      "seq": 0
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054994.357 DEBUG kex algos: mlkem768x25519-sha256, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1, kex-strict-s-v00@openssh.com",
+     "1794054994.358 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054994.358 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054994.860 DEBUG EOF in transport thread"
+    ],
+    "server_log": [
+     "2026-11-07T12:36:34.859597584Z 2026/11/07 12:36:34 handshake error from 172.17.0.1:37366: ssh: unexpected message type 90 (expected one of [5])"
+    ]
+   },
+   {
+    "mode": "ch_open_then_auth",
+    "local_port": 48496,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054995.968,
+    "active_after_probe": false,
+    "active_at_end": false,
+    "wire": [
+     {
+      "t": 1794054995.968,
+      "dir": "out",
+      "type": 90,
+      "seq": 0
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054995.424 DEBUG kex algos: mlkem768x25519-sha256, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1, kex-strict-s-v00@openssh.com",
+     "1794054995.468 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054995.468 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054995.969 DEBUG EOF in transport thread"
+    ],
+    "server_log": [
+     "2026-11-07T12:36:35.969266007Z 2026/11/07 12:36:35 handshake error from 172.17.0.1:37374: ssh: unexpected message type 90 (expected one of [5])"
+    ]
+   },
+   {
+    "mode": "many_then_auth",
+    "local_port": 53394,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054997.079,
+    "active_after_probe": false,
+    "active_at_end": false,
+    "wire": [
+     {
+      "t": 1794054997.079,
+      "dir": "out",
+      "type": 90,
+      "seq": 0
+     },
+     {
+      "t": 1794054997.079,
+      "dir": "out",
+      "type": 90,
+      "seq": 1
+     },
+     {
+      "t": 1794054997.079,
+      "dir": "out",
+      "type": 90,
+      "seq": 2
+     },
+     {
+      "t": 1794054997.079,
+      "dir": "out",
+      "type": 80,
+      "seq": 3
+     },
+     {
+      "t": 1794054997.079,
+      "dir": "out",
+      "type": 98,
+      "seq": 4
+     },
+     {
+      "t": 1794054997.079,
+      "dir": "out",
+      "type": 94,
+      "seq": 5
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054996.537 DEBUG kex algos: mlkem768x25519-sha256, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1, kex-strict-s-v00@openssh.com",
+     "1794054996.579 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054996.579 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054997.080 DEBUG EOF in transport thread"
+    ],
+    "server_log": [
+     "2026-11-07T12:36:36.852312421Z 2026/11/07 12:36:36 connection closed from 172.17.0.1:37312",
+     "2026-11-07T12:36:37.079803802Z 2026/11/07 12:36:37 handshake error from 172.17.0.1:56626: ssh: unexpected message type 90 (expected one of [5])"
+    ]
+   },
+   {
+    "mode": "many_then_auth",
+    "local_port": 53414,
+    "strict_kex_agreed": true,
+    "kex": "NoneType",
+    "t_probe_start": 1794054998.189,
+    "active_after_probe": false,
+    "active_at_end": false,
+    "wire": [
+     {
+      "t": 1794054998.189,
+      "dir": "out",
+      "type": 90,
+      "seq": 0
+     },
+     {
+      "t": 1794054998.189,
+      "dir": "out",
+      "type": 90,
+      "seq": 1
+     },
+     {
+      "t": 1794054998.189,
+      "dir": "out",
+      "type": 90,
+      "seq": 2
+     },
+     {
+      "t": 1794054998.189,
+      "dir": "out",
+      "type": 80,
+      "seq": 3
+     },
+     {
+      "t": 1794054998.189,
+      "dir": "out",
+      "type": 98,
+      "seq": 4
+     },
+     {
+      "t": 1794054998.189,
+      "dir": "out",
+      "type": 94,
+      "seq": 5
+     }
+    ],
+    "late_replies_for_preauth_channels": [],
+    "disconnect_received": [],
+    "log": [
+     "1794054997.646 DEBUG kex algos: mlkem768x25519-sha256, curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1, kex-strict-s-v00@openssh.com",
+     "1794054997.689 DEBUG Resetting outbound seqno after NEWKEYS due to strict mode",
+     "1794054997.689 DEBUG Resetting inbound seqno after NEWKEYS due to strict mode",
+     "1794054998.190 DEBUG EOF in transport thread"
+    ],
+    "server_log": [
+     "2026-11-07T12:36:38.190102624Z 2026/11/07 12:36:38 handshake error from 172.17.0.1:56650: ssh: unexpected message type 90 (expected one of [5])"
+    ]
+   }
+  ]
+ }
+}

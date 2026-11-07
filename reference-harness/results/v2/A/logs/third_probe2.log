@@ -1,0 +1,39 @@
+openssh  prerekey_nk_30   in=[20, 31, 21, 7, 3, 6, 52, 80, 4] out=[20, 30, 21, 20, 5, 50] rekey=False active=True auth=True exec="SSHException('Key-exchange timed out wa ch2=None err=None
+openssh  prerekey_nk_30   in=[20, 31, 21, 7, 3, 6, 52, 80, 4] out=[20, 30, 21, 20, 5, 50] rekey=False active=True auth=True exec="SSHException('Key-exchange timed out wa ch2=None err=None
+openssh  prerekey_nk_30   in=[20, 31, 21, 7, 3, 6, 52, 80, 4] out=[20, 30, 21, 20, 5, 50] rekey=False active=True auth=True exec="SSHException('Key-exchange timed out wa ch2=None err=None
+openssh  prerekey_nk_nk   in=[20, 31, 21, 7, 3, 6, 52, 80, 4] out=[20, 30, 21, 20, 5, 50] rekey=False active=True auth=True exec="SSHException('Key-exchange timed out wa ch2=None err=None
+openssh  prerekey_nk_nk   in=[20, 31, 21, 7, 3, 6, 52, 80, 4] out=[20, 30, 21, 20, 5, 50] rekey=False active=True auth=True exec="SSHException('Key-exchange timed out wa ch2=None err=None
+openssh  prerekey_nk_nk   in=[20, 31, 21, 7, 3, 6, 52, 80, 4] out=[20, 30, 21, 20, 5, 50] rekey=False active=True auth=True exec="SSHException('Key-exchange timed out wa ch2=None err=None
+openssh  two_channels     in=[52, 80, 4, 91, 91, 93, 99, 94, 96, 98] out=[90, 90, 98, 96, 97] rekey=None active=None auth=None exec='uid=1000(tester) gid=1000(tester) group ch2=True err=None
+openssh  two_channels     in=[52, 80, 4, 91, 91, 93, 99, 94] out=[90, 90, 98] rekey=None active=None auth=None exec='uid=1000(tester) gid=1000(tester) group ch2=True err=None
+openssh  two_channels     in=[52, 80, 4, 91, 91, 93, 99, 94] out=[90, 90, 98] rekey=None active=None auth=None exec='uid=1000(tester) gid=1000(tester) group ch2=True err=None
+Success for unrequested channel! [??]
+openssh  chopen_in_rekey  in=[20, 31, 21, 91] out=[90, 30, 21] rekey=True active=True auth=None exec=None ch2=None err=None
+Success for unrequested channel! [??]
+openssh  chopen_in_rekey  in=[31, 21, 91] out=[30, 21] rekey=True active=True auth=None exec=None ch2=None err=None
+Success for unrequested channel! [??]
+openssh  chopen_in_rekey  in=[20, 31, 21, 91] out=[90, 30, 21] rekey=True active=True auth=None exec=None ch2=None err=None
+dropbear prerekey_nk_30   in=[3, 31, 21, 6, 52, 91, 99, 94, 96, 98] out=[30, 21, 5, 50, 90, 98] rekey=True active=True auth=True exec='uid=1000(tester) gid=1000(tester) group ch2=None err=None
+dropbear prerekey_nk_30   in=[3, 31, 21, 6, 52, 91, 99, 94, 96, 98] out=[30, 21, 5, 50, 90, 98, 96, 97] rekey=True active=True auth=True exec='uid=1000(tester) gid=1000(tester) group ch2=None err=None
+dropbear prerekey_nk_30   in=[20, 3, 31, 21, 6, 52, 91, 99, 94, 96] out=[20, 21, 30, 21, 5, 50, 90, 98] rekey=True active=True auth=True exec='uid=1000(tester) gid=1000(tester) group ch2=None err=None
+dropbear prerekey_nk_nk   in=[20, 3, 3, 31, 21, 6, 52, 91, 99, 94] out=[20, 21, 21, 30, 21, 5, 50, 90] rekey=True active=True auth=True exec='uid=1000(tester) gid=1000(tester) group ch2=None err=None
+dropbear prerekey_nk_nk   in=[20, 3, 3, 31, 21, 6, 52, 91, 99, 94] out=[21, 21, 30, 21, 5, 50, 90, 98] rekey=True active=True auth=True exec='uid=1000(tester) gid=1000(tester) group ch2=None err=None
+dropbear prerekey_nk_nk   in=[20, 3, 3, 31, 21, 6, 52, 91, 99, 94] out=[20, 21, 21, 30, 21, 5, 50, 90] rekey=True active=True auth=True exec='uid=1000(tester) gid=1000(tester) group ch2=None err=None
+dropbear two_channels     in=[52, 91, 91, 99, 94] out=[90, 90, 98] rekey=None active=None auth=None exec='uid=1000(tester) gid=1000(tester) group ch2=True err=None
+dropbear two_channels     in=[52, 91, 91, 99, 94, 96, 98, 97] out=[90, 90, 98, 96, 97] rekey=None active=None auth=None exec='uid=1000(tester) gid=1000(tester) group ch2=True err=None
+dropbear two_channels     in=[91, 91, 99, 94] out=[90, 90, 98] rekey=None active=None auth=None exec='uid=1000(tester) gid=1000(tester) group ch2=True err=None
+dropbear chopen_in_rekey  in=[20] out=[20, 90, 30] rekey=True active=False auth=None exec=None ch2=None err=None
+dropbear chopen_in_rekey  in=[20] out=[20, 90, 30] rekey=True active=False auth=None exec=None ch2=None err=None
+dropbear chopen_in_rekey  in=[20] out=[20, 90, 30] rekey=True active=False auth=None exec=None ch2=None err=None
+gossh    prerekey_nk_30   in=[20] out=[20, 21, 30] rekey=True active=False auth=None exec=None ch2=None err=None
+gossh    prerekey_nk_30   in=[20] out=[21, 30] rekey=True active=False auth=None exec=None ch2=None err=None
+gossh    prerekey_nk_30   in=[] out=[21, 30] rekey=True active=False auth=None exec=None ch2=None err=None
+gossh    prerekey_nk_nk   in=[20] out=[21, 21, 30] rekey=True active=False auth=None exec=None ch2=None err=None
+gossh    prerekey_nk_nk   in=[20] out=[21, 21, 30] rekey=True active=False auth=None exec=None ch2=None err=None
+gossh    prerekey_nk_nk   in=[20] out=[21, 21, 30] rekey=True active=False auth=None exec=None ch2=None err=None
+gossh    two_channels     in=[52, 91, 91, 99, 94, 98] out=[90, 90, 98] rekey=None active=None auth=None exec='hello from gossh' ch2=True err=None
+gossh    two_channels     in=[91, 91, 99, 94, 98] out=[90, 90, 98] rekey=None active=None auth=None exec='hello from gossh' ch2=True err=None
+gossh    two_channels     in=[52, 91, 91, 99, 94, 98, 97] out=[90, 90, 98, 96] rekey=None active=None auth=None exec='hello from gossh' ch2=True err=None
+gossh    chopen_in_rekey  in=[] out=[30] rekey=True active=False auth=None exec=None ch2=None err=None
+gossh    chopen_in_rekey  in=[] out=[90, 30] rekey=True active=False auth=None exec=None ch2=None err=None
+gossh    chopen_in_rekey  in=[] out=[90, 30] rekey=True active=False auth=None exec=None ch2=None err=None

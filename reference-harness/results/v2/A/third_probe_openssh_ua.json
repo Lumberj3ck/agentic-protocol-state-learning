@@ -1,0 +1,257 @@
+{
+ "paramiko": "5.1.0",
+ "started": "2026-11-07T15:23:26.933553+00:00",
+ "window_s": 1.0,
+ "cases": [
+  {
+   "class": "M2-openssh-first-ua",
+   "sut": "openssh",
+   "order": "theirs-order",
+   "word": [
+    "UA_PW_OK"
+   ],
+   "runs": [
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "UA_PW_OK",
+       "t": 0.011,
+       "received": [
+        {
+         "t": 0.012,
+         "closed": "EOFError()"
+        }
+       ]
+      }
+     ],
+     "closed_at_end": true
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "UA_PW_OK",
+       "t": 0.011,
+       "received": [
+        {
+         "t": 0.012,
+         "closed": "EOFError()"
+        }
+       ]
+      }
+     ],
+     "closed_at_end": true
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "UA_PW_OK",
+       "t": 0.011,
+       "received": [
+        {
+         "t": 0.013,
+         "closed": "EOFError()"
+        }
+       ]
+      }
+     ],
+     "closed_at_end": true
+    }
+   ],
+   "summary": [
+    [
+     "UA_PW_OK",
+     [
+      "CLOSE"
+     ]
+    ]
+   ],
+   "deterministic": true,
+   "server_log": [
+    "2026-11-07T15:23:27.209655226Z debug2: ssh_set_newkeys: mode 0 [preauth]",
+    "2026-11-07T15:23:27.209657242Z debug1: rekey in after 4294967296 blocks [preauth]",
+    "2026-11-07T15:23:27.209658922Z debug2: KEX algorithms: mlkem768x25519-sha256,sntrup761x25519-sha512,sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group14-sha256,ext-info-s,kex-strict-s-v00@openssh.com [preauth]",
+    "2026-11-07T15:23:27.209662827Z debug2: host key algorithms: ssh-ed25519,rsa-sha2-512,rsa-sha2-256 [preauth]",
+    "2026-11-07T15:23:27.209703551Z debug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr [preauth]",
+    "2026-11-07T15:23:27.209704928Z debug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr [preauth]",
+    "2026-11-07T15:23:27.209706000Z debug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1 [preauth]",
+    "2026-11-07T15:23:27.209707280Z debug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1 [preauth]",
+    "2026-11-07T15:23:27.209708544Z debug2: compression ctos: none,zlib@openssh.com [preauth]",
+    "2026-11-07T15:23:27.209710352Z debug2: compression stoc: none,zlib@openssh.com [preauth]",
+    "2026-11-07T15:23:27.209712960Z debug2: languages ctos:  [preauth]",
+    "2026-11-07T15:23:27.209715569Z debug2: languages stoc:  [preauth]",
+    "2026-11-07T15:23:27.209718145Z debug2: first_kex_follows 0  [preauth]",
+    "2026-11-07T15:23:27.209720001Z debug2: reserved 0  [preauth]",
+    "2026-11-07T15:23:27.209721858Z debug1: KEX done [preauth]",
+    "2026-11-07T15:23:27.447338960Z debug3: receive packet: type 21 [preauth]",
+    "2026-11-07T15:23:27.447380421Z dispatch_protocol_error: type 21 seq 3 [preauth]",
+    "2026-11-07T15:23:27.447383317Z debug3: send packet: type 3 [preauth]",
+    "2026-11-07T15:23:27.451662276Z debug3: receive packet: type 30 [preauth]",
+    "2026-11-07T15:23:27.451687175Z debug1: SSH2_MSG_KEX_ECDH_INIT received [preauth]",
+    "2026-11-07T15:23:27.453234809Z debug3: mm_sshkey_sign: entering [preauth]",
+    "2026-11-07T15:23:27.453260716Z debug3: mm_request_send: entering, type 6 [preauth]",
+    "2026-11-07T15:23:27.453262589Z debug3: mm_sshkey_sign: waiting for MONITOR_ANS_SIGN [preauth]",
+    "2026-11-07T15:23:27.453264077Z debug3: mm_request_receive_expect: entering, type 7 [preauth]",
+    "2026-11-07T15:23:27.453265869Z debug3: mm_request_receive: entering [preauth]",
+    "2026-11-07T15:23:27.453267661Z debug3: mm_request_receive: entering",
+    "2026-11-07T15:23:27.453269373Z debug3: monitor_read: checking request 6",
+    "2026-11-07T15:23:27.453271310Z debug3: mm_answer_sign: entering",
+    "2026-11-07T15:23:27.453273566Z debug1: mm_answer_sign: hostkey ssh-ed25519 index 0",
+    "2026-11-07T15:23:27.454954064Z debug3: mm_answer_sign: ssh-ed25519 KEX signature len=83",
+    "2026-11-07T15:23:27.454976595Z debug3: mm_request_send: entering, type 7",
+    "2026-11-07T15:23:27.454977955Z debug2: monitor_read: 6 used once, disabling now",
+    "2026-11-07T15:23:27.454979219Z debug3: mm_sshkey_sign: ssh-ed25519 signature len=83 [preauth]",
+    "2026-11-07T15:23:27.454980259Z debug3: send packet: type 31 [preauth]",
+    "2026-11-07T15:23:27.455003222Z debug3: send packet: type 21 [preauth]",
+    "2026-11-07T15:23:27.455004198Z debug1: ssh_packet_send2_wrapped: resetting send seqnr 3 [preauth]",
+    "2026-11-07T15:23:27.455005286Z debug2: ssh_set_newkeys: mode 1 [preauth]",
+    "2026-11-07T15:23:27.455006438Z debug1: rekey out after 4294967296 blocks [preauth]",
+    "2026-11-07T15:23:27.455007478Z debug1: SSH2_MSG_NEWKEYS sent [preauth]",
+    "2026-11-07T15:23:27.455008710Z debug1: expecting SSH2_MSG_NEWKEYS [preauth]"
+   ]
+  },
+  {
+   "class": "M2-openssh-first-ua",
+   "sut": "openssh",
+   "order": "ours-order",
+   "word": [
+    "UA_PW_OK",
+    "KEXINIT"
+   ],
+   "runs": [
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "UA_PW_OK",
+       "t": 0.011,
+       "received": [
+        {
+         "t": 0.012,
+         "closed": "EOFError()"
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 0.012,
+       "result": "already closed"
+      }
+     ],
+     "closed_at_end": true
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "UA_PW_OK",
+       "t": 0.011,
+       "received": [
+        {
+         "t": 0.012,
+         "closed": "EOFError()"
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 0.012,
+       "result": "already closed"
+      }
+     ],
+     "closed_at_end": true
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "UA_PW_OK",
+       "t": 0.01,
+       "received": [
+        {
+         "t": 0.012,
+         "closed": "EOFError()"
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 0.012,
+       "result": "already closed"
+      }
+     ],
+     "closed_at_end": true
+    }
+   ],
+   "summary": [
+    [
+     "UA_PW_OK",
+     [
+      "CLOSE"
+     ]
+    ],
+    [
+     "KEXINIT",
+     []
+    ]
+   ],
+   "deterministic": true,
+   "server_log": [
+    "2026-11-07T15:23:29.422963994Z debug2: compression ctos: none [preauth]",
+    "2026-11-07T15:23:29.422965594Z debug2: compression stoc: none [preauth]",
+    "2026-11-07T15:23:29.422967194Z debug2: languages ctos:  [preauth]",
+    "2026-11-07T15:23:29.422968826Z debug2: languages stoc:  [preauth]",
+    "2026-11-07T15:23:29.422970410Z debug2: first_kex_follows 0  [preauth]",
+    "2026-11-07T15:23:29.422971995Z debug2: reserved 0  [preauth]",
+    "2026-11-07T15:23:29.422973531Z debug1: kex: algorithm: diffie-hellman-group14-sha256 [preauth]",
+    "2026-11-07T15:23:29.422975131Z debug1: kex: host key algorithm: rsa-sha2-256 [preauth]",
+    "2026-11-07T15:23:29.423008255Z debug1: kex: client->server cipher: aes128-ctr MAC: hmac-sha2-256 compression: none [preauth]",
+    "2026-11-07T15:23:29.423015072Z debug1: kex: server->client cipher: aes128-ctr MAC: hmac-sha2-256 compression: none [preauth]",
+    "2026-11-07T15:23:29.423018368Z debug1: expecting SSH2_MSG_KEX_ECDH_INIT [preauth]",
+    "2026-11-07T15:23:29.482980325Z debug3: receive packet: type 50 [preauth]",
+    "2026-11-07T15:23:29.483019658Z debug1: userauth-request for user tester service ssh-connection method none [preauth]",
+    "2026-11-07T15:23:29.483022698Z debug1: attempt 0 failures 0 [preauth]",
+    "2026-11-07T15:23:29.483025659Z debug3: mm_getpwnamallow: entering [preauth]",
+    "2026-11-07T15:23:29.483027979Z debug3: mm_request_send: entering, type 8 [preauth]",
+    "2026-11-07T15:23:29.483030683Z debug3: mm_getpwnamallow: waiting for MONITOR_ANS_PWNAM [preauth]",
+    "2026-11-07T15:23:29.483032987Z debug3: mm_request_receive_expect: entering, type 9 [preauth]",
+    "2026-11-07T15:23:29.483035164Z debug3: mm_request_receive: entering [preauth]",
+    "2026-11-07T15:23:29.483037372Z debug3: mm_request_receive: entering",
+    "2026-11-07T15:23:29.483039340Z debug3: monitor_read: checking request 8",
+    "2026-11-07T15:23:29.483041308Z debug3: mm_answer_pwnamallow: entering",
+    "2026-11-07T15:23:29.483164395Z debug2: parse_server_config_depth: config reprocess config len 510",
+    "2026-11-07T15:23:29.483625408Z debug3: auth_shadow_acctexpired: today 20764 sp_expire -1 days left -20765",
+    "2026-11-07T15:23:29.483649634Z debug3: account expiration disabled",
+    "2026-11-07T15:23:29.483676645Z debug3: mm_answer_pwnamallow: sending MONITOR_ANS_PWNAM: 1",
+    "2026-11-07T15:23:29.483679926Z debug3: mm_request_send: entering, type 9",
+    "2026-11-07T15:23:29.483682470Z debug2: monitor_read: 8 used once, disabling now",
+    "2026-11-07T15:23:29.484053473Z debug3: server_process_channel_timeouts: setting 0 timeouts [preauth]",
+    "2026-11-07T15:23:29.484064770Z debug3: channel_clear_timeouts: clearing [preauth]",
+    "2026-11-07T15:23:29.484078195Z debug2: input_userauth_request: setting up authctxt for tester [preauth]",
+    "2026-11-07T15:23:29.484082292Z debug3: mm_inform_authserv: entering [preauth]",
+    "2026-11-07T15:23:29.484083684Z debug3: mm_request_send: entering, type 4 [preauth]",
+    "2026-11-07T15:23:29.484085012Z debug3: mm_request_receive: entering",
+    "2026-11-07T15:23:29.484093029Z debug3: monitor_read: checking request 4",
+    "2026-11-07T15:23:29.484095573Z debug3: mm_answer_authserv: service=ssh-connection, style=",
+    "2026-11-07T15:23:29.484096838Z debug2: monitor_read: 4 used once, disabling now",
+    "2026-11-07T15:23:29.484103302Z debug2: input_userauth_request: try method none [preauth]",
+    "2026-11-07T15:23:29.484105463Z debug3: userauth_finish: failure partial=0 next methods=\"publickey,password\" [preauth]",
+    "2026-11-07T15:23:29.484107303Z debug3: send packet: type 51 [preauth]"
+   ]
+  }
+ ]
+}

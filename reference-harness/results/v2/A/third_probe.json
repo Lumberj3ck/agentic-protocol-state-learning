@@ -1,0 +1,2123 @@
+{
+ "paramiko": "5.1.0",
+ "started": "2026-11-07T15:16:24.149633+00:00",
+ "window_s": 1.0,
+ "cases": [
+  {
+   "class": "M2-go-first-msg",
+   "sut": "gossh",
+   "order": "theirs-order",
+   "word": [
+    "KEX30"
+   ],
+   "runs": [
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.001,
+       "received": [
+        {
+         "t": 0.002,
+         "closed": "EOFError()"
+        }
+       ]
+      }
+     ],
+     "closed_at_end": true
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.001,
+       "received": [
+        {
+         "t": 0.001,
+         "closed": "EOFError()"
+        }
+       ]
+      }
+     ],
+     "closed_at_end": true
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.0,
+       "received": [
+        {
+         "t": 0.001,
+         "closed": "EOFError()"
+        }
+       ]
+      }
+     ],
+     "closed_at_end": true
+    }
+   ],
+   "summary": [
+    [
+     "KEX30",
+     [
+      "CLOSE"
+     ]
+    ]
+   ],
+   "deterministic": true,
+   "server_log": [
+    "2026-11-07T15:16:24.152879908Z 2026/11/07 15:16:24 handshake error from 172.17.0.1:55350: ssh: first packet should be msgKexInit",
+    "2026-11-07T15:16:24.154033557Z 2026/11/07 15:16:24 handshake error from 172.17.0.1:55354: ssh: first packet should be msgKexInit",
+    "2026-11-07T15:16:24.154618397Z 2026/11/07 15:16:24 handshake error from 172.17.0.1:55364: ssh: first packet should be msgKexInit"
+   ]
+  },
+  {
+   "class": "M2-go-first-msg",
+   "sut": "gossh",
+   "order": "ours-order",
+   "word": [
+    "KEX30",
+    "KEXINIT"
+   ],
+   "runs": [
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.001,
+       "received": [
+        {
+         "t": 0.001,
+         "closed": "EOFError()"
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 0.001,
+       "result": "already closed"
+      }
+     ],
+     "closed_at_end": true
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.0,
+       "received": [
+        {
+         "t": 0.001,
+         "closed": "EOFError()"
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 0.001,
+       "result": "already closed"
+      }
+     ],
+     "closed_at_end": true
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.0,
+       "received": [
+        {
+         "t": 0.0,
+         "closed": "EOFError()"
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 0.0,
+       "result": "already closed"
+      }
+     ],
+     "closed_at_end": true
+    }
+   ],
+   "summary": [
+    [
+     "KEX30",
+     [
+      "CLOSE"
+     ]
+    ],
+    [
+     "KEXINIT",
+     []
+    ]
+   ],
+   "deterministic": true,
+   "server_log": [
+    "2026-11-07T15:16:24.695461433Z 2026/11/07 15:16:24 handshake error from 172.17.0.1:55378: ssh: first packet should be msgKexInit",
+    "2026-11-07T15:16:24.695963458Z 2026/11/07 15:16:24 handshake error from 172.17.0.1:55380: ssh: first packet should be msgKexInit",
+    "2026-11-07T15:16:24.696726569Z 2026/11/07 15:16:24 handshake error from 172.17.0.1:55382: ssh: first packet should be msgKexInit"
+   ]
+  },
+  {
+   "class": "M2-go-first-msg",
+   "sut": "gossh",
+   "order": "theirs-order",
+   "word": [
+    "NEWKEYS"
+   ],
+   "runs": [
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "NEWKEYS",
+       "t": 0.001,
+       "received": [
+        {
+         "t": 0.001,
+         "closed": "EOFError()"
+        }
+       ]
+      }
+     ],
+     "closed_at_end": true
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "NEWKEYS",
+       "t": 0.0,
+       "received": [
+        {
+         "t": 0.001,
+         "closed": "EOFError()"
+        }
+       ]
+      }
+     ],
+     "closed_at_end": true
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "NEWKEYS",
+       "t": 0.0,
+       "received": [
+        {
+         "t": 0.0,
+         "closed": "EOFError()"
+        }
+       ]
+      }
+     ],
+     "closed_at_end": true
+    }
+   ],
+   "summary": [
+    [
+     "NEWKEYS",
+     [
+      "CLOSE"
+     ]
+    ]
+   ],
+   "deterministic": true,
+   "server_log": [
+    "2026-11-07T15:16:25.239147088Z 2026/11/07 15:16:25 handshake error from 172.17.0.1:55384: ssh: got bogus newkeys message",
+    "2026-11-07T15:16:25.239906790Z 2026/11/07 15:16:25 handshake error from 172.17.0.1:55390: ssh: got bogus newkeys message",
+    "2026-11-07T15:16:25.240462351Z 2026/11/07 15:16:25 handshake error from 172.17.0.1:55396: ssh: got bogus newkeys message",
+    "2026-11-07T15:16:25.477180581Z 2026/11/07 15:16:25 handshake error from 172.17.0.1:55344: ssh: unexpected message type 20 (expected 21)"
+   ]
+  },
+  {
+   "class": "M2-go-first-msg",
+   "sut": "gossh",
+   "order": "ours-order",
+   "word": [
+    "NEWKEYS",
+    "KEXINIT"
+   ],
+   "runs": [
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "NEWKEYS",
+       "t": 0.001,
+       "received": [
+        {
+         "t": 0.001,
+         "closed": "EOFError()"
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 0.001,
+       "result": "already closed"
+      }
+     ],
+     "closed_at_end": true
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "NEWKEYS",
+       "t": 0.0,
+       "received": [
+        {
+         "t": 0.0,
+         "closed": "EOFError()"
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 0.0,
+       "result": "already closed"
+      }
+     ],
+     "closed_at_end": true
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "NEWKEYS",
+       "t": 0.0,
+       "received": [
+        {
+         "t": 0.0,
+         "closed": "EOFError()"
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 0.0,
+       "result": "already closed"
+      }
+     ],
+     "closed_at_end": true
+    }
+   ],
+   "summary": [
+    [
+     "NEWKEYS",
+     [
+      "CLOSE"
+     ]
+    ],
+    [
+     "KEXINIT",
+     []
+    ]
+   ],
+   "deterministic": true,
+   "server_log": [
+    "2026-11-07T15:16:25.773876282Z 2026/11/07 15:16:25 handshake error from 172.17.0.1:55418: ssh: got bogus newkeys message",
+    "2026-11-07T15:16:25.774316500Z 2026/11/07 15:16:25 handshake error from 172.17.0.1:55430: ssh: got bogus newkeys message",
+    "2026-11-07T15:16:25.774793134Z 2026/11/07 15:16:25 handshake error from 172.17.0.1:55442: ssh: got bogus newkeys message"
+   ]
+  },
+  {
+   "class": "M2-go-first-msg",
+   "sut": "gossh",
+   "order": "theirs-order",
+   "word": [
+    "SR_AUTH"
+   ],
+   "runs": [
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "SR_AUTH",
+       "t": 0.001,
+       "received": [
+        {
+         "t": 0.001,
+         "closed": "EOFError()"
+        }
+       ]
+      }
+     ],
+     "closed_at_end": true
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "SR_AUTH",
+       "t": 0.0,
+       "received": [
+        {
+         "t": 0.001,
+         "closed": "EOFError()"
+        }
+       ]
+      }
+     ],
+     "closed_at_end": true
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "SR_AUTH",
+       "t": 0.0,
+       "received": [
+        {
+         "t": 0.0,
+         "closed": "EOFError()"
+        }
+       ]
+      }
+     ],
+     "closed_at_end": true
+    }
+   ],
+   "summary": [
+    [
+     "SR_AUTH",
+     [
+      "CLOSE"
+     ]
+    ]
+   ],
+   "deterministic": true,
+   "server_log": [
+    "2026-11-07T15:16:26.315062705Z 2026/11/07 15:16:26 handshake error from 172.17.0.1:37884: ssh: first packet should be msgKexInit",
+    "2026-11-07T15:16:26.315754329Z 2026/11/07 15:16:26 handshake error from 172.17.0.1:37896: ssh: first packet should be msgKexInit",
+    "2026-11-07T15:16:26.316389425Z 2026/11/07 15:16:26 handshake error from 172.17.0.1:37902: ssh: first packet should be msgKexInit"
+   ]
+  },
+  {
+   "class": "M2-go-first-msg",
+   "sut": "gossh",
+   "order": "ours-order",
+   "word": [
+    "SR_AUTH",
+    "KEXINIT"
+   ],
+   "runs": [
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "SR_AUTH",
+       "t": 0.001,
+       "received": [
+        {
+         "t": 0.001,
+         "closed": "EOFError()"
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 0.001,
+       "result": "already closed"
+      }
+     ],
+     "closed_at_end": true
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "SR_AUTH",
+       "t": 0.0,
+       "received": [
+        {
+         "t": 0.0,
+         "closed": "EOFError()"
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 0.0,
+       "result": "already closed"
+      }
+     ],
+     "closed_at_end": true
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "SR_AUTH",
+       "t": 0.0,
+       "received": [
+        {
+         "t": 0.0,
+         "closed": "EOFError()"
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 0.0,
+       "result": "already closed"
+      }
+     ],
+     "closed_at_end": true
+    }
+   ],
+   "summary": [
+    [
+     "SR_AUTH",
+     [
+      "CLOSE"
+     ]
+    ],
+    [
+     "KEXINIT",
+     []
+    ]
+   ],
+   "deterministic": true,
+   "server_log": [
+    "2026-11-07T15:16:26.856624788Z 2026/11/07 15:16:26 handshake error from 172.17.0.1:37904: ssh: first packet should be msgKexInit",
+    "2026-11-07T15:16:26.857106318Z 2026/11/07 15:16:26 handshake error from 172.17.0.1:37910: ssh: first packet should be msgKexInit",
+    "2026-11-07T15:16:26.857679463Z 2026/11/07 15:16:26 handshake error from 172.17.0.1:37926: ssh: first packet should be msgKexInit"
+   ]
+  },
+  {
+   "class": "M2-dropbear-first-sr",
+   "sut": "dropbear",
+   "order": "theirs-order",
+   "word": [
+    "SR_AUTH"
+   ],
+   "runs": [
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "SR_AUTH",
+       "t": 0.005,
+       "received": [
+        {
+         "t": 0.006,
+         "closed": "EOFError()"
+        }
+       ]
+      }
+     ],
+     "closed_at_end": true
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "SR_AUTH",
+       "t": 0.002,
+       "received": [
+        {
+         "t": 0.002,
+         "closed": "EOFError()"
+        }
+       ]
+      }
+     ],
+     "closed_at_end": true
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "SR_AUTH",
+       "t": 0.002,
+       "received": [
+        {
+         "t": 0.002,
+         "closed": "EOFError()"
+        }
+       ]
+      }
+     ],
+     "closed_at_end": true
+    }
+   ],
+   "summary": [
+    [
+     "SR_AUTH",
+     [
+      "CLOSE"
+     ]
+    ]
+   ],
+   "deterministic": true,
+   "server_log": [
+    "2026-11-07T15:16:27.404819314Z [3753] Nov 07 15:16:27 Child connection from 172.17.0.1:50890",
+    "2026-11-07T15:16:27.405276604Z [3753] Nov 07 15:16:27 Exit before auth from <172.17.0.1:50890>: Unexpected packet type 5, expected 20",
+    "2026-11-07T15:16:27.406977015Z [3754] Nov 07 15:16:27 Child connection from 172.17.0.1:50902",
+    "2026-11-07T15:16:27.407216035Z [3754] Nov 07 15:16:27 Exit before auth from <172.17.0.1:50902>: Unexpected packet type 5, expected 20",
+    "2026-11-07T15:16:27.408954333Z [3755] Nov 07 15:16:27 Child connection from 172.17.0.1:50912",
+    "2026-11-07T15:16:27.409124587Z [3755] Nov 07 15:16:27 Exit before auth from <172.17.0.1:50912>: Unexpected packet type 5, expected 20",
+    "2026-11-07T15:16:27.415262396Z [3751] Nov 07 15:16:27 Exit before auth from <172.17.0.1:50878>: Unexpected packet type 90, expected 20",
+    "2026-11-07T15:16:27.417462368Z [3756] Nov 07 15:16:27 Child connection from 172.17.0.1:50920",
+    "2026-11-07T15:16:27.512348976Z [3752] Nov 07 15:16:27 Exit before auth from <172.17.0.1:50888>: Unexpected packet type 5, expected 20",
+    "2026-11-07T15:16:27.515730277Z [3757] Nov 07 15:16:27 Child connection from 172.17.0.1:50932",
+    "2026-11-07T15:16:27.619582082Z [3756] Nov 07 15:16:27 Exit before auth from <172.17.0.1:50920>: Unexpected packet type 5, expected 20",
+    "2026-11-07T15:16:27.622828648Z [3758] Nov 07 15:16:27 Child connection from 172.17.0.1:50938",
+    "2026-11-07T15:16:27.717411196Z [3757] Nov 07 15:16:27 Exit before auth from <172.17.0.1:50932>: Unexpected packet type 50, expected 20",
+    "2026-11-07T15:16:27.719383363Z [3759] Nov 07 15:16:27 Child connection from 172.17.0.1:50952",
+    "2026-11-07T15:16:27.723309632Z [3758] Nov 07 15:16:27 Exit before auth from <172.17.0.1:50938>: Unexpected packet type 5, expected 20",
+    "2026-11-07T15:16:27.724658255Z [3760] Nov 07 15:16:27 Child connection from 172.17.0.1:50968",
+    "2026-11-07T15:16:27.742511994Z [3744] Nov 07 15:16:27 Exit before auth from <172.17.0.1:33364>: Unexpected packet type 20, expected 21",
+    "2026-11-07T15:16:27.820630337Z [3759] Nov 07 15:16:27 Exit before auth from <172.17.0.1:50952>: Unexpected packet type 5, expected 20",
+    "2026-11-07T15:16:27.823000291Z [3761] Nov 07 15:16:27 Child connection from 172.17.0.1:50976",
+    "2026-11-07T15:16:27.825302789Z [3760] Nov 07 15:16:27 Exit before auth from <172.17.0.1:50968>: Unexpected packet type 5, expected 20",
+    "2026-11-07T15:16:27.826786322Z [3762] Nov 07 15:16:27 Child connection from 172.17.0.1:50982",
+    "2026-11-07T15:16:27.923744471Z [3761] Nov 07 15:16:27 Exit before auth from <172.17.0.1:50976>: Unexpected packet type 5, expected 20",
+    "2026-11-07T15:16:27.925536400Z [3763] Nov 07 15:16:27 Child connection from 172.17.0.1:50990",
+    "2026-11-07T15:16:27.927435704Z [3762] Nov 07 15:16:27 Exit before auth from <172.17.0.1:50982>: Unexpected packet type 5, expected 20"
+   ]
+  },
+  {
+   "class": "M2-dropbear-first-sr",
+   "sut": "dropbear",
+   "order": "ours-order",
+   "word": [
+    "SR_AUTH",
+    "KEXINIT"
+   ],
+   "runs": [
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "SR_AUTH",
+       "t": 0.001,
+       "received": [
+        {
+         "t": 0.002,
+         "closed": "EOFError()"
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 0.002,
+       "result": "already closed"
+      }
+     ],
+     "closed_at_end": true
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "SR_AUTH",
+       "t": 0.001,
+       "received": [
+        {
+         "t": 0.001,
+         "closed": "EOFError()"
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 0.001,
+       "result": "already closed"
+      }
+     ],
+     "closed_at_end": true
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "SR_AUTH",
+       "t": 0.001,
+       "received": [
+        {
+         "t": 0.001,
+         "closed": "EOFError()"
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 0.001,
+       "result": "already closed"
+      }
+     ],
+     "closed_at_end": true
+    }
+   ],
+   "summary": [
+    [
+     "SR_AUTH",
+     [
+      "CLOSE"
+     ]
+    ],
+    [
+     "KEXINIT",
+     []
+    ]
+   ],
+   "deterministic": true,
+   "server_log": [
+    "2026-11-07T15:16:27.943721815Z [3765] Nov 07 15:16:27 Child connection from 172.17.0.1:51008",
+    "2026-11-07T15:16:27.944177826Z [3765] Nov 07 15:16:27 Exit before auth from <172.17.0.1:51008>: Unexpected packet type 5, expected 20",
+    "2026-11-07T15:16:27.945441905Z [3766] Nov 07 15:16:27 Child connection from 172.17.0.1:51022",
+    "2026-11-07T15:16:27.945815533Z [3766] Nov 07 15:16:27 Exit before auth from <172.17.0.1:51022>: Unexpected packet type 5, expected 20",
+    "2026-11-07T15:16:27.946867183Z [3767] Nov 07 15:16:27 Child connection from 172.17.0.1:51038",
+    "2026-11-07T15:16:27.947251786Z [3767] Nov 07 15:16:27 Exit before auth from <172.17.0.1:51038>: Unexpected packet type 5, expected 20",
+    "2026-11-07T15:16:27.995239763Z [3768] Nov 07 15:16:27 Child connection from 172.17.0.1:51052",
+    "2026-11-07T15:16:28.026287877Z [3763] Nov 07 15:16:28 Exit before auth from <172.17.0.1:50990>: Unexpected packet type 50, expected 20",
+    "2026-11-07T15:16:28.028867156Z [3769] Nov 07 15:16:28 Child connection from 172.17.0.1:51062",
+    "2026-11-07T15:16:28.029755465Z [3764] Nov 07 15:16:28 Exit before auth from <172.17.0.1:50998>: Unexpected packet type 50, expected 20",
+    "2026-11-07T15:16:28.031476579Z [3770] Nov 07 15:16:28 Child connection from 172.17.0.1:51076",
+    "2026-11-07T15:16:28.129878981Z [3769] Nov 07 15:16:28 Exit before auth from <172.17.0.1:51062>: Unexpected packet type 90, expected 20",
+    "2026-11-07T15:16:28.132243111Z [3771] Nov 07 15:16:28 Child connection from 172.17.0.1:51078",
+    "2026-11-07T15:16:28.132260503Z [3770] Nov 07 15:16:28 Exit before auth from <172.17.0.1:51076>: Unexpected packet type 90, expected 20",
+    "2026-11-07T15:16:28.134260413Z [3772] Nov 07 15:16:28 Child connection from 172.17.0.1:51094",
+    "2026-11-07T15:16:28.233431686Z [3771] Nov 07 15:16:28 Exit before auth from <172.17.0.1:51078>: Unexpected packet type 90, expected 20",
+    "2026-11-07T15:16:28.235106561Z [3772] Nov 07 15:16:28 Exit before auth from <172.17.0.1:51094>: Unexpected packet type 90, expected 20",
+    "2026-11-07T15:16:28.236063605Z [3773] Nov 07 15:16:28 Child connection from 172.17.0.1:51100",
+    "2026-11-07T15:16:28.237280293Z [3774] Nov 07 15:16:28 Child connection from 172.17.0.1:51116",
+    "2026-11-07T15:16:28.337130517Z [3773] Nov 07 15:16:28 Exit before auth from <172.17.0.1:51100>: Unexpected packet type 90, expected 20",
+    "2026-11-07T15:16:28.339584582Z [3775] Nov 07 15:16:28 Child connection from 172.17.0.1:51128",
+    "2026-11-07T15:16:28.438585761Z [3774] Nov 07 15:16:28 Exit before auth from <172.17.0.1:51116>: Unexpected packet type 5, expected 20",
+    "2026-11-07T15:16:28.442438880Z [3776] Nov 07 15:16:28 Child connection from 172.17.0.1:51136"
+   ]
+  },
+  {
+   "class": "M1-kex30-kex30",
+   "sut": "openssh",
+   "order": "theirs-order",
+   "word": [
+    "KEX30",
+    "KEX30"
+   ],
+   "runs": [
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.011,
+       "received": [
+        {
+         "t": 0.011,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEX30",
+       "t": 1.011,
+       "received": [
+        {
+         "t": 1.012,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "final_watch": []
+      }
+     ],
+     "closed_at_end": false
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.01,
+       "received": [
+        {
+         "t": 0.01,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEX30",
+       "t": 1.011,
+       "received": [
+        {
+         "t": 1.012,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "final_watch": []
+      }
+     ],
+     "closed_at_end": false
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.011,
+       "received": [
+        {
+         "t": 0.012,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEX30",
+       "t": 1.013,
+       "received": [
+        {
+         "t": 1.014,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "final_watch": []
+      }
+     ],
+     "closed_at_end": false
+    }
+   ],
+   "summary": [
+    [
+     "KEX30",
+     [
+      3
+     ]
+    ],
+    [
+     "KEX30",
+     [
+      3
+     ]
+    ],
+    [
+     null,
+     []
+    ]
+   ],
+   "deterministic": true,
+   "server_log": [
+    "2026-11-07T15:16:40.994177637Z debug1: SSH2_MSG_KEXINIT received",
+    "2026-11-07T15:16:40.994180133Z debug3: send packet: type 20",
+    "2026-11-07T15:16:40.994206357Z debug1: SSH2_MSG_KEXINIT sent",
+    "2026-11-07T15:16:40.994208421Z debug2: local server KEXINIT proposal",
+    "2026-11-07T15:16:40.994210709Z debug2: KEX algorithms: mlkem768x25519-sha256,sntrup761x25519-sha512,sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group14-sha256",
+    "2026-11-07T15:16:40.994212693Z debug2: host key algorithms: ssh-ed25519,rsa-sha2-512,rsa-sha2-256",
+    "2026-11-07T15:16:40.994216229Z debug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr",
+    "2026-11-07T15:16:40.994219173Z debug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr",
+    "2026-11-07T15:16:40.994222229Z debug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1",
+    "2026-11-07T15:16:40.994246245Z debug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1",
+    "2026-11-07T15:16:40.994251300Z debug2: compression ctos: none,zlib@openssh.com",
+    "2026-11-07T15:16:40.994255828Z debug2: compression stoc: none,zlib@openssh.com",
+    "2026-11-07T15:16:40.994258020Z debug2: languages ctos: ",
+    "2026-11-07T15:16:40.994260532Z debug2: languages stoc: ",
+    "2026-11-07T15:16:40.994262212Z debug2: first_kex_follows 0 ",
+    "2026-11-07T15:16:40.994264404Z debug2: reserved 0 ",
+    "2026-11-07T15:16:40.994266388Z debug2: peer client KEXINIT proposal",
+    "2026-11-07T15:16:40.994268228Z debug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org",
+    "2026-11-07T15:16:40.994269876Z debug2: host key algorithms: ssh-ed25519,rsa-sha2-256,ecdsa-sha2-nistp256",
+    "2026-11-07T15:16:40.994271860Z debug2: ciphers ctos: aes128-ctr",
+    "2026-11-07T15:16:40.994273636Z debug2: ciphers stoc: aes128-ctr",
+    "2026-11-07T15:16:40.994275364Z debug2: MACs ctos: hmac-sha2-256",
+    "2026-11-07T15:16:40.994277380Z debug2: MACs stoc: hmac-sha2-256",
+    "2026-11-07T15:16:40.994279124Z debug2: compression ctos: none",
+    "2026-11-07T15:16:40.994281124Z debug2: compression stoc: none",
+    "2026-11-07T15:16:40.994282996Z debug2: languages ctos: ",
+    "2026-11-07T15:16:40.994284964Z debug2: languages stoc: ",
+    "2026-11-07T15:16:40.994286788Z debug2: first_kex_follows 0 ",
+    "2026-11-07T15:16:40.994288692Z debug2: reserved 0 ",
+    "2026-11-07T15:16:40.994290580Z debug1: kex: algorithm: curve25519-sha256",
+    "2026-11-07T15:16:40.994293268Z debug1: kex: host key algorithm: ssh-ed25519",
+    "2026-11-07T15:16:40.994296372Z debug1: kex: client->server cipher: aes128-ctr MAC: hmac-sha2-256 compression: none",
+    "2026-11-07T15:16:40.994305108Z debug1: kex: server->client cipher: aes128-ctr MAC: hmac-sha2-256 compression: none",
+    "2026-11-07T15:16:40.994307012Z debug1: expecting SSH2_MSG_KEX_ECDH_INIT",
+    "2026-11-07T15:16:41.037827702Z debug3: receive packet: type 90 [preauth]",
+    "2026-11-07T15:16:41.037887765Z dispatch_protocol_error: type 90 seq 5 [preauth]",
+    "2026-11-07T15:16:41.037890901Z debug3: send packet: type 3 [preauth]",
+    "2026-11-07T15:16:41.060240263Z debug3: receive packet: type 90 [preauth]",
+    "2026-11-07T15:16:41.060257991Z dispatch_protocol_error: type 90 seq 1 [preauth]",
+    "2026-11-07T15:16:41.060261511Z debug3: send packet: type 3 [preauth]"
+   ]
+  },
+  {
+   "class": "M1-kex30-kex30",
+   "sut": "openssh",
+   "order": "ours-order",
+   "word": [
+    "KEX30",
+    "KEXINIT",
+    "KEX30"
+   ],
+   "runs": [
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.009,
+       "received": [
+        {
+         "t": 0.01,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 1.01,
+       "received": []
+      },
+      {
+       "sent": "KEX30",
+       "t": 2.011,
+       "received": [
+        {
+         "t": 2.017,
+         "type": 31
+        },
+        {
+         "t": 2.017,
+         "type": 21
+        }
+       ]
+      },
+      {
+       "final_watch": []
+      }
+     ],
+     "closed_at_end": false
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.012,
+       "received": [
+        {
+         "t": 0.012,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 1.013,
+       "received": []
+      },
+      {
+       "sent": "KEX30",
+       "t": 2.015,
+       "received": [
+        {
+         "t": 2.02,
+         "type": 31
+        },
+        {
+         "t": 2.02,
+         "type": 21
+        }
+       ]
+      },
+      {
+       "final_watch": []
+      }
+     ],
+     "closed_at_end": false
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.012,
+       "received": [
+        {
+         "t": 0.013,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 1.014,
+       "received": []
+      },
+      {
+       "sent": "KEX30",
+       "t": 2.015,
+       "received": [
+        {
+         "t": 2.019,
+         "type": 31
+        },
+        {
+         "t": 2.019,
+         "type": 21
+        }
+       ]
+      },
+      {
+       "final_watch": []
+      }
+     ],
+     "closed_at_end": false
+    }
+   ],
+   "summary": [
+    [
+     "KEX30",
+     [
+      3
+     ]
+    ],
+    [
+     "KEXINIT",
+     []
+    ],
+    [
+     "KEX30",
+     [
+      31,
+      21
+     ]
+    ],
+    [
+     null,
+     []
+    ]
+   ],
+   "deterministic": true,
+   "server_log": [
+    "2026-11-07T15:16:57.820821050Z debug1: permanently_set_uid: 22/22 [preauth]",
+    "2026-11-07T15:16:57.820845913Z debug3: ssh_sandbox_child: setting PR_SET_NO_NEW_PRIVS [preauth]",
+    "2026-11-07T15:16:57.820848585Z debug3: ssh_sandbox_child: attaching seccomp filter program [preauth]",
+    "2026-11-07T15:16:57.821620608Z debug3: append_hostkey_type: ssh-rsa key not permitted by HostkeyAlgorithms [preauth]",
+    "2026-11-07T15:16:57.821622784Z debug1: list_hostkey_types: ssh-ed25519,rsa-sha2-512,rsa-sha2-256 [preauth]",
+    "2026-11-07T15:16:57.821661167Z debug3: send packet: type 20 [preauth]",
+    "2026-11-07T15:16:57.821671567Z debug1: SSH2_MSG_KEXINIT sent [preauth]",
+    "2026-11-07T15:16:57.922905279Z debug3: receive packet: type 20 [preauth]",
+    "2026-11-07T15:16:57.922968590Z debug1: SSH2_MSG_KEXINIT received [preauth]",
+    "2026-11-07T15:16:57.922971422Z debug2: local server KEXINIT proposal [preauth]",
+    "2026-11-07T15:16:57.922974670Z debug2: KEX algorithms: mlkem768x25519-sha256,sntrup761x25519-sha512,sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group14-sha256,ext-info-s,kex-strict-s-v00@openssh.com [preauth]",
+    "2026-11-07T15:16:57.922980238Z debug2: host key algorithms: ssh-ed25519,rsa-sha2-512,rsa-sha2-256 [preauth]",
+    "2026-11-07T15:16:57.923026909Z debug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr [preauth]",
+    "2026-11-07T15:16:57.923029421Z debug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr [preauth]",
+    "2026-11-07T15:16:57.923031517Z debug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1 [preauth]",
+    "2026-11-07T15:16:57.923033613Z debug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1 [preauth]",
+    "2026-11-07T15:16:57.923036221Z debug2: compression ctos: none,zlib@openssh.com [preauth]",
+    "2026-11-07T15:16:57.923038477Z debug2: compression stoc: none,zlib@openssh.com [preauth]",
+    "2026-11-07T15:16:57.923040557Z debug2: languages ctos:  [preauth]",
+    "2026-11-07T15:16:57.923043501Z debug2: languages stoc:  [preauth]",
+    "2026-11-07T15:16:57.923045133Z debug2: first_kex_follows 0  [preauth]",
+    "2026-11-07T15:16:57.923046893Z debug2: reserved 0  [preauth]",
+    "2026-11-07T15:16:57.923048621Z debug2: peer client KEXINIT proposal [preauth]",
+    "2026-11-07T15:16:57.923050669Z debug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org [preauth]",
+    "2026-11-07T15:16:57.923053037Z debug2: host key algorithms: ssh-ed25519,rsa-sha2-256,ecdsa-sha2-nistp256 [preauth]",
+    "2026-11-07T15:16:57.923055197Z debug2: ciphers ctos: aes128-ctr [preauth]",
+    "2026-11-07T15:16:57.923057293Z debug2: ciphers stoc: aes128-ctr [preauth]",
+    "2026-11-07T15:16:57.923061069Z debug2: MACs ctos: hmac-sha2-256 [preauth]",
+    "2026-11-07T15:16:57.923063069Z debug2: MACs stoc: hmac-sha2-256 [preauth]",
+    "2026-11-07T15:16:57.923065821Z debug2: compression ctos: none [preauth]",
+    "2026-11-07T15:16:57.923068157Z debug2: compression stoc: none [preauth]",
+    "2026-11-07T15:16:57.923070893Z debug2: languages ctos:  [preauth]",
+    "2026-11-07T15:16:57.923073309Z debug2: languages stoc:  [preauth]",
+    "2026-11-07T15:16:57.923076381Z debug2: first_kex_follows 0  [preauth]",
+    "2026-11-07T15:16:57.923079981Z debug2: reserved 0  [preauth]",
+    "2026-11-07T15:16:57.923084813Z debug1: kex: algorithm: curve25519-sha256 [preauth]",
+    "2026-11-07T15:16:57.923088956Z debug1: kex: host key algorithm: ssh-ed25519 [preauth]",
+    "2026-11-07T15:16:57.923091372Z debug1: kex: client->server cipher: aes128-ctr MAC: hmac-sha2-256 compression: none [preauth]",
+    "2026-11-07T15:16:57.923095356Z debug1: kex: server->client cipher: aes128-ctr MAC: hmac-sha2-256 compression: none [preauth]",
+    "2026-11-07T15:16:57.923097516Z debug1: expecting SSH2_MSG_KEX_ECDH_INIT [preauth]"
+   ]
+  },
+  {
+   "class": "M1-kex30-kex30",
+   "sut": "dropbear",
+   "order": "theirs-order",
+   "word": [
+    "KEX30",
+    "KEX30"
+   ],
+   "runs": [
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.002,
+       "received": [
+        {
+         "t": 0.003,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEX30",
+       "t": 1.003,
+       "received": [
+        {
+         "t": 1.004,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "final_watch": []
+      }
+     ],
+     "closed_at_end": false
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.002,
+       "received": [
+        {
+         "t": 0.002,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEX30",
+       "t": 1.003,
+       "received": [
+        {
+         "t": 1.004,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "final_watch": []
+      }
+     ],
+     "closed_at_end": false
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.002,
+       "received": [
+        {
+         "t": 0.003,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEX30",
+       "t": 1.003,
+       "received": [
+        {
+         "t": 1.004,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "final_watch": []
+      }
+     ],
+     "closed_at_end": false
+    }
+   ],
+   "summary": [
+    [
+     "KEX30",
+     [
+      3
+     ]
+    ],
+    [
+     "KEX30",
+     [
+      3
+     ]
+    ],
+    [
+     null,
+     []
+    ]
+   ],
+   "deterministic": true,
+   "server_log": [
+    "2026-11-07T15:17:03.376369182Z [3881] Nov 07 15:17:03 Exit before auth from <172.17.0.1:35320>: Exited normally",
+    "2026-11-07T15:17:03.377914042Z [3889] Nov 07 15:17:03 Child connection from 172.17.0.1:35386",
+    "2026-11-07T15:17:03.461871095Z [3886] Nov 07 15:17:03 Exit before auth from <172.17.0.1:35362>: Unexpected packet type 50, expected 30",
+    "2026-11-07T15:17:03.464022412Z [3890] Nov 07 15:17:03 Child connection from 172.17.0.1:35400",
+    "2026-11-07T15:17:04.572854011Z [3888] Nov 07 15:17:04 Exit before auth from <172.17.0.1:35370>: Premature kexdh_init message received",
+    "2026-11-07T15:17:04.575991507Z [3891] Nov 07 15:17:04 Child connection from 172.17.0.1:35408",
+    "2026-11-07T15:17:04.775239837Z [3890] Nov 07 15:17:04 Exit before auth from <172.17.0.1:35400>: Premature kexdh_init message received",
+    "2026-11-07T15:17:04.778097928Z [3892] Nov 07 15:17:04 Child connection from 172.17.0.1:35416",
+    "2026-11-07T15:17:05.685071872Z [3891] Nov 07 15:17:05 Exit before auth from <172.17.0.1:35408>: Request for connection before auth",
+    "2026-11-07T15:17:05.688136265Z [3893] Nov 07 15:17:05 Child connection from 172.17.0.1:35418",
+    "2026-11-07T15:17:05.885326605Z [3892] Nov 07 15:17:05 Exit before auth from <172.17.0.1:35416>: Request for connection before auth",
+    "2026-11-07T15:17:05.887942172Z [3894] Nov 07 15:17:05 Child connection from 172.17.0.1:35426",
+    "2026-11-07T15:17:06.801482912Z [3893] Nov 07 15:17:06 Password auth succeeded for 'tester' from 172.17.0.1:35418",
+    "2026-11-07T15:17:06.902551746Z [3893] Nov 07 15:17:06 Exit (tester) from <172.17.0.1:35418>: Premature kexdh_init message received",
+    "2026-11-07T15:17:06.905035827Z [3895] Nov 07 15:17:06 Child connection from 172.17.0.1:47148",
+    "2026-11-07T15:17:06.999251021Z [3894] Nov 07 15:17:06 Password auth succeeded for 'tester' from 172.17.0.1:35426",
+    "2026-11-07T15:17:07.100602620Z [3894] Nov 07 15:17:07 Exit (tester) from <172.17.0.1:35426>: Unexpected newkeys message",
+    "2026-11-07T15:17:07.103182795Z [3896] Nov 07 15:17:07 Child connection from 172.17.0.1:47158",
+    "2026-11-07T15:17:07.383866195Z [3889] Nov 07 15:17:07 Exit before auth from <172.17.0.1:35386>: Exited normally",
+    "2026-11-07T15:17:07.385753035Z [3897] Nov 07 15:17:07 Child connection from 172.17.0.1:47160",
+    "2026-11-07T15:17:08.018316011Z [3895] Nov 07 15:17:08 Password auth succeeded for 'tester' from 172.17.0.1:47148",
+    "2026-11-07T15:17:08.214888744Z [3896] Nov 07 15:17:08 Password auth succeeded for 'tester' from 172.17.0.1:47158",
+    "2026-11-07T15:17:08.321312966Z [3895] Nov 07 15:17:08 Exit (tester) from <172.17.0.1:47148>: Exited normally",
+    "2026-11-07T15:17:08.322816562Z [3898] Nov 07 15:17:08 Child connection from 172.17.0.1:47164",
+    "2026-11-07T15:17:09.117789413Z [3896] Nov 07 15:17:09 Exit (tester) from <172.17.0.1:47158>: Exited normally",
+    "2026-11-07T15:17:09.120023528Z [3899] Nov 07 15:17:09 Child connection from 172.17.0.1:47168",
+    "2026-11-07T15:17:09.334717117Z [3898] Nov 07 15:17:09 Password auth succeeded for 'tester' from 172.17.0.1:47164",
+    "2026-11-07T15:17:09.642566153Z [3898] Nov 07 15:17:09 Exit (tester) from <172.17.0.1:47164>: Unexpected packet type 90, expected 21",
+    "2026-11-07T15:17:09.645402341Z [3900] Nov 07 15:17:09 Child connection from 172.17.0.1:47170",
+    "2026-11-07T15:17:10.128137252Z [3899] Nov 07 15:17:10 Password auth succeeded for 'tester' from 172.17.0.1:47168",
+    "2026-11-07T15:17:10.534390037Z [3899] Nov 07 15:17:10 Exit (tester) from <172.17.0.1:47168>: Exited normally",
+    "2026-11-07T15:17:10.535929729Z [3901] Nov 07 15:17:10 Child connection from 172.17.0.1:47172",
+    "2026-11-07T15:17:10.658194421Z [3900] Nov 07 15:17:10 Password auth succeeded for 'tester' from 172.17.0.1:47170",
+    "2026-11-07T15:17:10.860385146Z [3900] Nov 07 15:17:10 Exit (tester) from <172.17.0.1:47170>: Unexpected packet type 20, expected 30",
+    "2026-11-07T15:17:10.862716668Z [3902] Nov 07 15:17:10 Child connection from 172.17.0.1:47184",
+    "2026-11-07T15:17:11.390629880Z [3897] Nov 07 15:17:11 Exit before auth from <172.17.0.1:47160>: Exited normally",
+    "2026-11-07T15:17:11.548189464Z [3901] Nov 07 15:17:11 Password auth succeeded for 'tester' from 172.17.0.1:47172",
+    "2026-11-07T15:17:11.750425165Z [3901] Nov 07 15:17:11 Exit (tester) from <172.17.0.1:47172>: Unexpected packet type 50, expected 30",
+    "2026-11-07T15:17:11.752916125Z [3903] Nov 07 15:17:11 Child connection from 172.17.0.1:47192",
+    "2026-11-07T15:17:11.873536181Z [3902] Nov 07 15:17:11 Password auth succeeded for 'tester' from 172.17.0.1:47184"
+   ]
+  },
+  {
+   "class": "M1-kex30-kex30",
+   "sut": "dropbear",
+   "order": "ours-order",
+   "word": [
+    "KEX30",
+    "KEXINIT",
+    "KEX30"
+   ],
+   "runs": [
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.002,
+       "received": [
+        {
+         "t": 0.003,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 1.003,
+       "received": []
+      },
+      {
+       "sent": "KEX30",
+       "t": 2.004,
+       "received": [
+        {
+         "t": 2.009,
+         "type": 31
+        },
+        {
+         "t": 2.009,
+         "type": 21
+        }
+       ]
+      },
+      {
+       "final_watch": []
+      }
+     ],
+     "closed_at_end": false
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.003,
+       "received": [
+        {
+         "t": 0.004,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 1.004,
+       "received": []
+      },
+      {
+       "sent": "KEX30",
+       "t": 2.005,
+       "received": [
+        {
+         "t": 2.008,
+         "type": 31
+        },
+        {
+         "t": 2.008,
+         "type": 21
+        }
+       ]
+      },
+      {
+       "final_watch": []
+      }
+     ],
+     "closed_at_end": false
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.003,
+       "received": [
+        {
+         "t": 0.003,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 1.003,
+       "received": []
+      },
+      {
+       "sent": "KEX30",
+       "t": 2.004,
+       "received": [
+        {
+         "t": 2.009,
+         "type": 31
+        },
+        {
+         "t": 2.009,
+         "type": 21
+        }
+       ]
+      },
+      {
+       "final_watch": []
+      }
+     ],
+     "closed_at_end": false
+    }
+   ],
+   "summary": [
+    [
+     "KEX30",
+     [
+      3
+     ]
+    ],
+    [
+     "KEXINIT",
+     []
+    ],
+    [
+     "KEX30",
+     [
+      31,
+      21
+     ]
+    ],
+    [
+     null,
+     []
+    ]
+   ],
+   "deterministic": true,
+   "server_log": [
+    "2026-11-07T15:17:20.564395440Z [3939] Nov 07 15:17:20 Child connection from 172.17.0.1:35938",
+    "2026-11-07T15:17:20.565539569Z [3940] Nov 07 15:17:20 Child connection from 172.17.0.1:35946",
+    "2026-11-07T15:17:20.565964924Z [3940] Nov 07 15:17:20 Exit before auth from <172.17.0.1:35946>: Exited normally",
+    "2026-11-07T15:17:20.578921622Z [3936] Nov 07 15:17:20 Exit before auth from <172.17.0.1:35896>: Unexpected packet type 90, expected 30",
+    "2026-11-07T15:17:20.581762369Z [3941] Nov 07 15:17:20 Child connection from 172.17.0.1:35962",
+    "2026-11-07T15:17:20.665730047Z [3939] Nov 07 15:17:20 Exit before auth from <172.17.0.1:35938>: Unexpected packet type 5, expected 20",
+    "2026-11-07T15:17:20.668604379Z [3942] Nov 07 15:17:20 Child connection from 172.17.0.1:35976",
+    "2026-11-07T15:17:20.769810572Z [3942] Nov 07 15:17:20 Exit before auth from <172.17.0.1:35976>: Unexpected packet type 5, expected 20",
+    "2026-11-07T15:17:20.771855426Z [3943] Nov 07 15:17:20 Child connection from 172.17.0.1:35990",
+    "2026-11-07T15:17:20.872966724Z [3943] Nov 07 15:17:20 Exit before auth from <172.17.0.1:35990>: Unexpected packet type 5, expected 20",
+    "2026-11-07T15:17:21.661583149Z [3938] Nov 07 15:17:21 Exit before auth from <172.17.0.1:35922>: Unexpected packet type 90, expected 30",
+    "2026-11-07T15:17:21.664400169Z [3944] Nov 07 15:17:21 Child connection from 172.17.0.1:36002",
+    "2026-11-07T15:17:21.794448265Z [3941] Nov 07 15:17:21 Exit before auth from <172.17.0.1:35962>: Unexpected packet type 90, expected 21",
+    "2026-11-07T15:17:21.797618513Z [3945] Nov 07 15:17:21 Child connection from 172.17.0.1:36014",
+    "2026-11-07T15:17:21.950532653Z [3924] Nov 07 15:17:21 Exit before auth from <172.17.0.1:35802>: Exited normally",
+    "2026-11-07T15:17:21.952219431Z [3946] Nov 07 15:17:21 Child connection from 172.17.0.1:36028",
+    "2026-11-07T15:17:22.977325023Z [3944] Nov 07 15:17:22 Exit before auth from <172.17.0.1:36002>: Unexpected packet type 50, expected 21",
+    "2026-11-07T15:17:22.979573810Z [3947] Nov 07 15:17:22 Child connection from 172.17.0.1:36038",
+    "2026-11-07T15:17:23.012577948Z [3945] Nov 07 15:17:23 Exit before auth from <172.17.0.1:36014>: Unexpected packet type 20, expected 21",
+    "2026-11-07T15:17:23.015175371Z [3948] Nov 07 15:17:23 Child connection from 172.17.0.1:36042",
+    "2026-11-07T15:17:24.123285725Z [3948] Nov 07 15:17:24 Exit before auth from <172.17.0.1:36042>: Unexpected packet type 20, expected 30",
+    "2026-11-07T15:17:24.125813117Z [3949] Nov 07 15:17:24 Child connection from 172.17.0.1:36058",
+    "2026-11-07T15:17:24.190679407Z [3947] Nov 07 15:17:24 Exit before auth from <172.17.0.1:36038>: Unexpected packet type 20, expected 21",
+    "2026-11-07T15:17:24.192211340Z [3950] Nov 07 15:17:24 Child connection from 172.17.0.1:36060",
+    "2026-11-07T15:17:25.234960099Z [3949] Nov 07 15:17:25 Exit before auth from <172.17.0.1:36058>: Unexpected packet type 20, expected 30",
+    "2026-11-07T15:17:25.237598561Z [3951] Nov 07 15:17:25 Child connection from 172.17.0.1:36066",
+    "2026-11-07T15:17:25.300692554Z [3950] Nov 07 15:17:25 Exit before auth from <172.17.0.1:36060>: Unexpected packet type 5, expected 30",
+    "2026-11-07T15:17:25.302373925Z [3952] Nov 07 15:17:25 Child connection from 172.17.0.1:36082",
+    "2026-11-07T15:17:25.573412218Z [3953] Nov 07 15:17:25 Child connection from 172.17.0.1:36086",
+    "2026-11-07T15:17:25.825388803Z [3953] Nov 07 15:17:25 Exit before auth from <172.17.0.1:36086>: Unexpected packet type 5, expected 20",
+    "2026-11-07T15:17:26.346050864Z [3951] Nov 07 15:17:26 Exit before auth from <172.17.0.1:36066>: Unexpected packet type 5, expected 30",
+    "2026-11-07T15:17:26.348746462Z [3954] Nov 07 15:17:26 Child connection from 172.17.0.1:37914",
+    "2026-11-07T15:17:26.413460594Z [3952] Nov 07 15:17:26 Exit before auth from <172.17.0.1:36082>: Unexpected packet type 50, expected 30",
+    "2026-11-07T15:17:26.416052625Z [3955] Nov 07 15:17:26 Child connection from 172.17.0.1:37926",
+    "2026-11-07T15:17:26.427843498Z [3956] Nov 07 15:17:26 Child connection from 172.17.0.1:37936",
+    "2026-11-07T15:17:26.678914703Z [3956] Nov 07 15:17:26 Exit before auth from <172.17.0.1:37936>: Unexpected packet type 5, expected 20",
+    "2026-11-07T15:17:26.958156460Z [3946] Nov 07 15:17:26 Exit before auth from <172.17.0.1:36028>: Exited normally",
+    "2026-11-07T15:17:27.281053674Z [3957] Nov 07 15:17:27 Child connection from 172.17.0.1:37940",
+    "2026-11-07T15:17:27.356698131Z [3954] Nov 07 15:17:27 Exit before auth from <172.17.0.1:37914>: Unexpected newkeys message",
+    "2026-11-07T15:17:27.359003302Z [3958] Nov 07 15:17:27 Child connection from 172.17.0.1:37954"
+   ]
+  },
+  {
+   "class": "M1-kex30-kexinit",
+   "sut": "openssh",
+   "order": "theirs-order",
+   "word": [
+    "KEX30",
+    "KEXINIT"
+   ],
+   "runs": [
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.009,
+       "received": [
+        {
+         "t": 0.009,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 1.01,
+       "received": []
+      },
+      {
+       "final_watch": []
+      }
+     ],
+     "closed_at_end": false
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.01,
+       "received": [
+        {
+         "t": 0.011,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 1.012,
+       "received": []
+      },
+      {
+       "final_watch": []
+      }
+     ],
+     "closed_at_end": false
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.011,
+       "received": [
+        {
+         "t": 0.012,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 1.013,
+       "received": []
+      },
+      {
+       "final_watch": []
+      }
+     ],
+     "closed_at_end": false
+    }
+   ],
+   "summary": [
+    [
+     "KEX30",
+     [
+      3
+     ]
+    ],
+    [
+     "KEXINIT",
+     []
+    ],
+    [
+     null,
+     []
+    ]
+   ],
+   "deterministic": true,
+   "server_log": [
+    "2026-11-07T15:17:39.900273842Z debug2: host key algorithms: ssh-ed25519,rsa-sha2-256,ecdsa-sha2-nistp256",
+    "2026-11-07T15:17:39.900275937Z debug2: ciphers ctos: aes128-ctr",
+    "2026-11-07T15:17:39.900277905Z debug2: ciphers stoc: aes128-ctr",
+    "2026-11-07T15:17:39.900279729Z debug2: MACs ctos: hmac-sha2-256",
+    "2026-11-07T15:17:39.900281121Z debug2: MACs stoc: hmac-sha2-256",
+    "2026-11-07T15:17:39.900282033Z debug2: compression ctos: none",
+    "2026-11-07T15:17:39.900283041Z debug2: compression stoc: none",
+    "2026-11-07T15:17:39.900283969Z debug2: languages ctos: ",
+    "2026-11-07T15:17:39.900284977Z debug2: languages stoc: ",
+    "2026-11-07T15:17:39.900285905Z debug2: first_kex_follows 0 ",
+    "2026-11-07T15:17:39.900286865Z debug2: reserved 0 ",
+    "2026-11-07T15:17:39.900287793Z debug1: kex: algorithm: curve25519-sha256",
+    "2026-11-07T15:17:39.900289169Z debug1: kex: host key algorithm: ssh-ed25519",
+    "2026-11-07T15:17:39.900290513Z debug1: kex: client->server cipher: aes128-ctr MAC: hmac-sha2-256 compression: none",
+    "2026-11-07T15:17:39.900291841Z debug1: kex: server->client cipher: aes128-ctr MAC: hmac-sha2-256 compression: none",
+    "2026-11-07T15:17:39.900292833Z debug1: expecting SSH2_MSG_KEX_ECDH_INIT",
+    "2026-11-07T15:17:39.988656984Z debug3: receive packet: type 5 [preauth]",
+    "2026-11-07T15:17:39.988702103Z debug3: send packet: type 6 [preauth]",
+    "2026-11-07T15:17:40.001178696Z debug3: receive packet: type 30",
+    "2026-11-07T15:17:40.001256631Z debug1: SSH2_MSG_KEX_ECDH_INIT received",
+    "2026-11-07T15:17:40.004185457Z debug3: mm_sshkey_sign: entering",
+    "2026-11-07T15:17:40.004258528Z debug3: mm_request_send: entering, type 6",
+    "2026-11-07T15:17:40.004262704Z debug3: mm_sshkey_sign: waiting for MONITOR_ANS_SIGN",
+    "2026-11-07T15:17:40.004265408Z debug3: mm_request_receive_expect: entering, type 7",
+    "2026-11-07T15:17:40.004267712Z debug3: mm_request_receive: entering",
+    "2026-11-07T15:17:40.004270640Z debug3: mm_request_receive: entering",
+    "2026-11-07T15:17:40.004273040Z debug3: monitor_read: checking request 6",
+    "2026-11-07T15:17:40.004275952Z debug3: mm_answer_sign: entering",
+    "2026-11-07T15:17:40.004309520Z debug1: mm_answer_sign: hostkey ssh-ed25519 index 0",
+    "2026-11-07T15:17:40.005820876Z debug3: mm_answer_sign: ssh-ed25519 KEX signature len=83",
+    "2026-11-07T15:17:40.005865628Z debug3: mm_request_send: entering, type 7",
+    "2026-11-07T15:17:40.005870140Z debug3: mm_sshkey_sign: ssh-ed25519 signature len=83",
+    "2026-11-07T15:17:40.005873020Z debug3: send packet: type 31",
+    "2026-11-07T15:17:40.005875964Z debug3: send packet: type 21",
+    "2026-11-07T15:17:40.005878443Z debug1: ssh_packet_send2_wrapped: resetting send seqnr 6",
+    "2026-11-07T15:17:40.005881643Z debug2: ssh_set_newkeys: mode 1",
+    "2026-11-07T15:17:40.005885131Z debug1: ssh_set_newkeys: rekeying out, input 728 bytes 19 blocks, output 3032 bytes 108 blocks",
+    "2026-11-07T15:17:40.005888331Z debug1: rekey out after 4294967296 blocks",
+    "2026-11-07T15:17:40.005891147Z debug1: SSH2_MSG_NEWKEYS sent",
+    "2026-11-07T15:17:40.005895963Z debug1: expecting SSH2_MSG_NEWKEYS"
+   ]
+  },
+  {
+   "class": "M1-kex30-kexinit",
+   "sut": "openssh",
+   "order": "ours-order",
+   "word": [
+    "KEX30",
+    "KEXINIT",
+    "KEXINIT"
+   ],
+   "runs": [
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.01,
+       "received": [
+        {
+         "t": 0.01,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 1.011,
+       "received": []
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 2.012,
+       "received": [
+        {
+         "t": 2.012,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "final_watch": []
+      }
+     ],
+     "closed_at_end": false
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.013,
+       "received": [
+        {
+         "t": 0.014,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 1.015,
+       "received": []
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 2.017,
+       "received": [
+        {
+         "t": 2.018,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "final_watch": []
+      }
+     ],
+     "closed_at_end": false
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.012,
+       "received": [
+        {
+         "t": 0.012,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 1.013,
+       "received": []
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 2.014,
+       "received": [
+        {
+         "t": 2.015,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "final_watch": []
+      }
+     ],
+     "closed_at_end": false
+    }
+   ],
+   "summary": [
+    [
+     "KEX30",
+     [
+      3
+     ]
+    ],
+    [
+     "KEXINIT",
+     []
+    ],
+    [
+     "KEXINIT",
+     [
+      3
+     ]
+    ],
+    [
+     null,
+     []
+    ]
+   ],
+   "deterministic": true,
+   "server_log": [
+    "2026-11-07T15:17:56.953950855Z debug1: permanently_set_uid: 22/22 [preauth]",
+    "2026-11-07T15:17:56.953952551Z debug3: ssh_sandbox_child: setting PR_SET_NO_NEW_PRIVS [preauth]",
+    "2026-11-07T15:17:56.953954407Z debug3: ssh_sandbox_child: attaching seccomp filter program [preauth]",
+    "2026-11-07T15:17:56.954666366Z debug3: append_hostkey_type: ssh-rsa key not permitted by HostkeyAlgorithms [preauth]",
+    "2026-11-07T15:17:56.954707870Z debug1: list_hostkey_types: ssh-ed25519,rsa-sha2-512,rsa-sha2-256 [preauth]",
+    "2026-11-07T15:17:56.954710190Z debug3: send packet: type 20 [preauth]",
+    "2026-11-07T15:17:56.954712574Z debug1: SSH2_MSG_KEXINIT sent [preauth]",
+    "2026-11-07T15:17:57.055632468Z debug3: receive packet: type 20 [preauth]",
+    "2026-11-07T15:17:57.055666756Z debug1: SSH2_MSG_KEXINIT received [preauth]",
+    "2026-11-07T15:17:57.055670948Z debug2: local server KEXINIT proposal [preauth]",
+    "2026-11-07T15:17:57.055675284Z debug2: KEX algorithms: mlkem768x25519-sha256,sntrup761x25519-sha512,sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group14-sha256,ext-info-s,kex-strict-s-v00@openssh.com [preauth]",
+    "2026-11-07T15:17:57.055680484Z debug2: host key algorithms: ssh-ed25519,rsa-sha2-512,rsa-sha2-256 [preauth]",
+    "2026-11-07T15:17:57.055683332Z debug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr [preauth]",
+    "2026-11-07T15:17:57.055687108Z debug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr [preauth]",
+    "2026-11-07T15:17:57.055691428Z debug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1 [preauth]",
+    "2026-11-07T15:17:57.055695844Z debug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1 [preauth]",
+    "2026-11-07T15:17:57.055699395Z debug2: compression ctos: none,zlib@openssh.com [preauth]",
+    "2026-11-07T15:17:57.055703523Z debug2: compression stoc: none,zlib@openssh.com [preauth]",
+    "2026-11-07T15:17:57.055706899Z debug2: languages ctos:  [preauth]",
+    "2026-11-07T15:17:57.055711699Z debug2: languages stoc:  [preauth]",
+    "2026-11-07T15:17:57.055716739Z debug2: first_kex_follows 0  [preauth]",
+    "2026-11-07T15:17:57.055719267Z debug2: reserved 0  [preauth]",
+    "2026-11-07T15:17:57.055722131Z debug2: peer client KEXINIT proposal [preauth]",
+    "2026-11-07T15:17:57.055724931Z debug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org [preauth]",
+    "2026-11-07T15:17:57.055728419Z debug2: host key algorithms: ssh-ed25519,rsa-sha2-256,ecdsa-sha2-nistp256 [preauth]",
+    "2026-11-07T15:17:57.055731491Z debug2: ciphers ctos: aes128-ctr [preauth]",
+    "2026-11-07T15:17:57.055734707Z debug2: ciphers stoc: aes128-ctr [preauth]",
+    "2026-11-07T15:17:57.055737699Z debug2: MACs ctos: hmac-sha2-256 [preauth]",
+    "2026-11-07T15:17:57.055740611Z debug2: MACs stoc: hmac-sha2-256 [preauth]",
+    "2026-11-07T15:17:57.055744227Z debug2: compression ctos: none [preauth]",
+    "2026-11-07T15:17:57.055747779Z debug2: compression stoc: none [preauth]",
+    "2026-11-07T15:17:57.055750675Z debug2: languages ctos:  [preauth]",
+    "2026-11-07T15:17:57.055754883Z debug2: languages stoc:  [preauth]",
+    "2026-11-07T15:17:57.055758643Z debug2: first_kex_follows 0  [preauth]",
+    "2026-11-07T15:17:57.055793890Z debug2: reserved 0  [preauth]",
+    "2026-11-07T15:17:57.055796370Z debug1: kex: algorithm: curve25519-sha256 [preauth]",
+    "2026-11-07T15:17:57.055798866Z debug1: kex: host key algorithm: ssh-ed25519 [preauth]",
+    "2026-11-07T15:17:57.055804098Z debug1: kex: client->server cipher: aes128-ctr MAC: hmac-sha2-256 compression: none [preauth]",
+    "2026-11-07T15:17:57.055807490Z debug1: kex: server->client cipher: aes128-ctr MAC: hmac-sha2-256 compression: none [preauth]",
+    "2026-11-07T15:17:57.055809906Z debug1: expecting SSH2_MSG_KEX_ECDH_INIT [preauth]"
+   ]
+  },
+  {
+   "class": "M1-kex30-kexinit",
+   "sut": "dropbear",
+   "order": "theirs-order",
+   "word": [
+    "KEX30",
+    "KEXINIT"
+   ],
+   "runs": [
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.003,
+       "received": [
+        {
+         "t": 0.003,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 1.003,
+       "received": []
+      },
+      {
+       "final_watch": []
+      }
+     ],
+     "closed_at_end": false
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.003,
+       "received": [
+        {
+         "t": 0.003,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 1.004,
+       "received": []
+      },
+      {
+       "final_watch": []
+      }
+     ],
+     "closed_at_end": false
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.002,
+       "received": [
+        {
+         "t": 0.003,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 1.003,
+       "received": []
+      },
+      {
+       "final_watch": []
+      }
+     ],
+     "closed_at_end": false
+    }
+   ],
+   "summary": [
+    [
+     "KEX30",
+     [
+      3
+     ]
+    ],
+    [
+     "KEXINIT",
+     []
+    ],
+    [
+     null,
+     []
+    ]
+   ],
+   "deterministic": true,
+   "server_log": [
+    "2026-11-07T15:18:03.111236995Z [4053] Nov 07 15:18:03 Exit before auth from <172.17.0.1:33820>: Exited normally",
+    "2026-11-07T15:18:03.111952186Z [4054] Nov 07 15:18:03 Child connection from 172.17.0.1:33830",
+    "2026-11-07T15:18:03.113592053Z [4055] Nov 07 15:18:03 Child connection from 172.17.0.1:33840",
+    "2026-11-07T15:18:04.164501269Z [4052] Nov 07 15:18:04 Exit before auth from <172.17.0.1:33808>: Unexpected newkeys message",
+    "2026-11-07T15:18:04.167728172Z [4056] Nov 07 15:18:04 Child connection from 172.17.0.1:33856",
+    "2026-11-07T15:18:04.195986339Z [4051] Nov 07 15:18:04 Exit before auth from <172.17.0.1:33806>: Unexpected packet type 5, expected 21",
+    "2026-11-07T15:18:04.198645681Z [4057] Nov 07 15:18:04 Child connection from 172.17.0.1:33862",
+    "2026-11-07T15:18:04.424155888Z [4054] Nov 07 15:18:04 Exit before auth from <172.17.0.1:33830>: Exited normally",
+    "2026-11-07T15:18:05.308136789Z [4057] Nov 07 15:18:05 Exit before auth from <172.17.0.1:33862>: Request for connection before auth",
+    "2026-11-07T15:18:05.311545641Z [4058] Nov 07 15:18:05 Child connection from 172.17.0.1:33882",
+    "2026-11-07T15:18:05.483712002Z [4056] Nov 07 15:18:05 Password auth succeeded for 'tester' from 172.17.0.1:33856",
+    "2026-11-07T15:18:05.584831767Z [4056] Nov 07 15:18:05 Exit (tester) from <172.17.0.1:33856>: Premature kexdh_init message received",
+    "2026-11-07T15:18:05.588176876Z [4059] Nov 07 15:18:05 Child connection from 172.17.0.1:33894",
+    "2026-11-07T15:18:06.420978175Z [4058] Nov 07 15:18:06 Password auth succeeded for 'tester' from 172.17.0.1:33882",
+    "2026-11-07T15:18:06.469634433Z [4050] Nov 07 15:18:06 Exit before auth from <172.17.0.1:33804>: Exited normally",
+    "2026-11-07T15:18:06.471505273Z [4060] Nov 07 15:18:06 Child connection from 172.17.0.1:51396",
+    "2026-11-07T15:18:06.624076525Z [4058] Nov 07 15:18:06 Exit (tester) from <172.17.0.1:33882>: Premature kexdh_init message received",
+    "2026-11-07T15:18:06.626777562Z [4061] Nov 07 15:18:06 Child connection from 172.17.0.1:51406",
+    "2026-11-07T15:18:06.701752732Z [4059] Nov 07 15:18:06 Password auth succeeded for 'tester' from 172.17.0.1:33894",
+    "2026-11-07T15:18:06.904384752Z [4059] Nov 07 15:18:06 Exit (tester) from <172.17.0.1:33894>: Premature kexdh_init message received",
+    "2026-11-07T15:18:06.906559844Z [4062] Nov 07 15:18:06 Child connection from 172.17.0.1:51420",
+    "2026-11-07T15:18:07.655885522Z [4055] Nov 07 15:18:07 Exit before auth from <172.17.0.1:33840>: Integrity error (bad packet size 278468662)",
+    "2026-11-07T15:18:07.736484828Z [4061] Nov 07 15:18:07 Password auth succeeded for 'tester' from 172.17.0.1:51406",
+    "2026-11-07T15:18:07.909667657Z [4063] Nov 07 15:18:07 Child connection from 172.17.0.1:51428",
+    "2026-11-07T15:18:07.939641290Z [4061] Nov 07 15:18:07 Exit (tester) from <172.17.0.1:51406>: Premature kexdh_init message received",
+    "2026-11-07T15:18:07.941852222Z [4064] Nov 07 15:18:07 Child connection from 172.17.0.1:51436",
+    "2026-11-07T15:18:08.015614927Z [4062] Nov 07 15:18:08 Password auth succeeded for 'tester' from 172.17.0.1:51420",
+    "2026-11-07T15:18:08.318725040Z [4062] Nov 07 15:18:08 Exit (tester) from <172.17.0.1:51420>: Unexpected packet type 20, expected 30",
+    "2026-11-07T15:18:08.321294415Z [4065] Nov 07 15:18:08 Child connection from 172.17.0.1:51444",
+    "2026-11-07T15:18:09.050685548Z [4064] Nov 07 15:18:09 Password auth succeeded for 'tester' from 172.17.0.1:51436",
+    "2026-11-07T15:18:09.252929269Z [4064] Nov 07 15:18:09 Exit (tester) from <172.17.0.1:51436>: Unexpected newkeys message",
+    "2026-11-07T15:18:09.255327542Z [4066] Nov 07 15:18:09 Child connection from 172.17.0.1:51448",
+    "2026-11-07T15:18:09.434335480Z [4065] Nov 07 15:18:09 Password auth succeeded for 'tester' from 172.17.0.1:51444",
+    "2026-11-07T15:18:09.637041163Z [4065] Nov 07 15:18:09 Exit (tester) from <172.17.0.1:51444>: Unexpected newkeys message",
+    "2026-11-07T15:18:09.639565179Z [4067] Nov 07 15:18:09 Child connection from 172.17.0.1:51456",
+    "2026-11-07T15:18:10.363787050Z [4066] Nov 07 15:18:10 Password auth succeeded for 'tester' from 172.17.0.1:51448",
+    "2026-11-07T15:18:10.475869778Z [4060] Nov 07 15:18:10 Exit before auth from <172.17.0.1:51396>: Exited normally",
+    "2026-11-07T15:18:10.750691564Z [4067] Nov 07 15:18:10 Password auth succeeded for 'tester' from 172.17.0.1:51456",
+    "2026-11-07T15:18:10.868951318Z [4066] Nov 07 15:18:10 Exit (tester) from <172.17.0.1:51448>: Exited normally",
+    "2026-11-07T15:18:10.870612369Z [4068] Nov 07 15:18:10 Child connection from 172.17.0.1:51468"
+   ]
+  },
+  {
+   "class": "M1-kex30-kexinit",
+   "sut": "dropbear",
+   "order": "ours-order",
+   "word": [
+    "KEX30",
+    "KEXINIT",
+    "KEXINIT"
+   ],
+   "runs": [
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.003,
+       "received": [
+        {
+         "t": 0.003,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 1.004,
+       "received": []
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 2.006,
+       "received": [
+        {
+         "t": 2.007,
+         "closed": "EOFError()"
+        }
+       ]
+      }
+     ],
+     "closed_at_end": true
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.002,
+       "received": [
+        {
+         "t": 0.003,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 1.003,
+       "received": []
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 2.005,
+       "received": [
+        {
+         "t": 2.006,
+         "closed": "EOFError()"
+        }
+       ]
+      }
+     ],
+     "closed_at_end": true
+    },
+    {
+     "steps": [
+      {
+       "recv_before_first_input": 20
+      },
+      {
+       "sent": "KEX30",
+       "t": 0.002,
+       "received": [
+        {
+         "t": 0.003,
+         "type": 3
+        }
+       ]
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 1.003,
+       "received": []
+      },
+      {
+       "sent": "KEXINIT",
+       "t": 2.005,
+       "received": [
+        {
+         "t": 2.006,
+         "closed": "EOFError()"
+        }
+       ]
+      }
+     ],
+     "closed_at_end": true
+    }
+   ],
+   "summary": [
+    [
+     "KEX30",
+     [
+      3
+     ]
+    ],
+    [
+     "KEXINIT",
+     []
+    ],
+    [
+     "KEXINIT",
+     [
+      "CLOSE"
+     ]
+    ]
+   ],
+   "deterministic": true,
+   "server_log": [
+    "2026-11-07T15:18:11.032747354Z [4069] Nov 07 15:18:11 Child connection from 172.17.0.1:51480",
+    "2026-11-07T15:18:11.455256487Z [4067] Nov 07 15:18:11 Exit (tester) from <172.17.0.1:51456>: Premature kexdh_init message received",
+    "2026-11-07T15:18:11.458036819Z [4070] Nov 07 15:18:11 Child connection from 172.17.0.1:51492",
+    "2026-11-07T15:18:11.982860581Z [4068] Nov 07 15:18:11 Password auth succeeded for 'tester' from 172.17.0.1:51468",
+    "2026-11-07T15:18:12.450241444Z [4063] Nov 07 15:18:12 Exit before auth from <172.17.0.1:51428>: Integrity error (bad packet size 3001592931)",
+    "2026-11-07T15:18:12.569929772Z [4070] Nov 07 15:18:12 Password auth succeeded for 'tester' from 172.17.0.1:51492",
+    "2026-11-07T15:18:12.585175753Z [4068] Nov 07 15:18:12 Exit (tester) from <172.17.0.1:51468>: Unexpected newkeys message",
+    "2026-11-07T15:18:12.588128276Z [4071] Nov 07 15:18:12 Child connection from 172.17.0.1:51502",
+    "2026-11-07T15:18:12.705690902Z [4072] Nov 07 15:18:12 Child connection from 172.17.0.1:51518",
+    "2026-11-07T15:18:12.979455438Z [4070] Nov 07 15:18:12 Exit (tester) from <172.17.0.1:51492>: Unexpected packet type 50, expected 21",
+    "2026-11-07T15:18:12.982780356Z [4073] Nov 07 15:18:12 Child connection from 172.17.0.1:51530",
+    "2026-11-07T15:18:13.037136830Z [4069] Nov 07 15:18:13 Exit before auth from <172.17.0.1:51480>: Unexpected packet type 20, expected 30",
+    "2026-11-07T15:18:13.039442096Z [4074] Nov 07 15:18:13 Child connection from 172.17.0.1:51542",
+    "2026-11-07T15:18:13.702766362Z [4071] Nov 07 15:18:13 Password auth succeeded for 'tester' from 172.17.0.1:51502",
+    "2026-11-07T15:18:14.011078729Z [4071] Nov 07 15:18:14 Exit (tester) from <172.17.0.1:51502>: Unexpected packet type 20, expected 21",
+    "2026-11-07T15:18:14.013546473Z [4075] Nov 07 15:18:14 Child connection from 172.17.0.1:51550",
+    "2026-11-07T15:18:14.094426288Z [4073] Nov 07 15:18:14 Password auth succeeded for 'tester' from 172.17.0.1:51530",
+    "2026-11-07T15:18:14.402529714Z [4073] Nov 07 15:18:14 Exit (tester) from <172.17.0.1:51530>: Unexpected packet type 20, expected 21",
+    "2026-11-07T15:18:14.405790488Z [4076] Nov 07 15:18:14 Child connection from 172.17.0.1:51554",
+    "2026-11-07T15:18:15.042860129Z [4074] Nov 07 15:18:15 Exit before auth from <172.17.0.1:51542>: Unexpected packet type 20, expected 30",
+    "2026-11-07T15:18:15.045538175Z [4077] Nov 07 15:18:15 Child connection from 172.17.0.1:51560",
+    "2026-11-07T15:18:15.125347492Z [4075] Nov 07 15:18:15 Password auth succeeded for 'tester' from 172.17.0.1:51550",
+    "2026-11-07T15:18:15.515133267Z [4076] Nov 07 15:18:15 Password auth succeeded for 'tester' from 172.17.0.1:51554",
+    "2026-11-07T15:18:15.832777467Z [4075] Nov 07 15:18:15 Exit (tester) from <172.17.0.1:51550>: Premature kexdh_init message received",
+    "2026-11-07T15:18:15.834842097Z [4078] Nov 07 15:18:15 Child connection from 172.17.0.1:51570",
+    "2026-11-07T15:18:16.323024663Z [4076] Nov 07 15:18:16 Exit (tester) from <172.17.0.1:51554>: Exited normally",
+    "2026-11-07T15:18:16.324601075Z [4079] Nov 07 15:18:16 Child connection from 172.17.0.1:33644",
+    "2026-11-07T15:18:16.947301252Z [4078] Nov 07 15:18:16 Password auth succeeded for 'tester' from 172.17.0.1:51570",
+    "2026-11-07T15:18:17.049340813Z [4077] Nov 07 15:18:17 Exit before auth from <172.17.0.1:51560>: Unexpected packet type 20, expected 30",
+    "2026-11-07T15:18:17.258623613Z [4072] Nov 07 15:18:17 Exit before auth from <172.17.0.1:51518>: Integrity error (bad packet size 173937939)",
+    "2026-11-07T15:18:17.438201688Z [4079] Nov 07 15:18:17 Password auth succeeded for 'tester' from 172.17.0.1:33644"
+   ]
+  }
+ ]
+}

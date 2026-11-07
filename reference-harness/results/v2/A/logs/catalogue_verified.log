@@ -1,0 +1,62 @@
+ours:A_dropbear                          STRICT-KEX-FIRST-KEXINIT             CONFIRMED not applicable: our mapper never negotiates strict KEX
+ours:A_dropbear                          STRICT-KEX-REPEATED-MSG              CONFIRMED not applicable: our mapper never negotiates strict KEX
+ours:A_dropbear                          UA-BEFORE-SR-AUTH                    CONFIRMED 
+ours:A_dropbear                          D1-UA-SUCCESS-WITHOUT-SR             CONFIRMED 
+ours:A_dropbear                          D5-SR-AFTER-AUTH-ACCEPTED            CONFIRMED 
+ours:A_dropbear                          D7-KEX-ERROR-TOLERATED               CONFIRMED 
+ours:A_dropbear                          D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED  CONFIRMED 
+ours:A_gossh                             D4-UA-AFTER-SUCCESS-NOT-IGNORED      CONFIRMED 
+ours:A_openssh                           REKEY-KEXINIT-REPLY                  CONFIRMED 
+ours:A_openssh                           STRICT-KEX-FIRST-KEXINIT             CONFIRMED not applicable: our mapper never negotiates strict KEX
+ours:A_openssh                           STRICT-KEX-NON-KEX-MSG               CONFIRMED not applicable: our mapper never negotiates strict KEX
+ours:A_openssh                           STRICT-KEX-REPEATED-MSG              CONFIRMED not applicable: our mapper never negotiates strict KEX
+ours:A_openssh                           D3-REKEY-PREAUTH-REFUSED             CONFIRMED 
+ours:A_openssh                           D4-UA-AFTER-SUCCESS-NOT-IGNORED      CONFIRMED 
+ours:A_openssh                           D7-KEX-ERROR-TOLERATED               CONFIRMED 
+ours:A_openssh                           D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED  CONFIRMED 
+ours:A_openssh                           D9-OUT-OF-PLACE-KEX-MSG-TOLERATED    CONFIRMED 
+ours:B_dropbear                          STRICT-KEX-FIRST-KEXINIT             CONFIRMED not applicable: our mapper never negotiates strict KEX
+ours:B_dropbear                          STRICT-KEX-REPEATED-MSG              CONFIRMED not applicable: our mapper never negotiates strict KEX
+ours:B_dropbear                          UA-BEFORE-SR-AUTH                    CONFIRMED 
+ours:B_dropbear                          D1-UA-SUCCESS-WITHOUT-SR             CONFIRMED 
+ours:B_dropbear                          D5-SR-AFTER-AUTH-ACCEPTED            CONFIRMED 
+ours:B_dropbear                          D6-SR-CONN-PREAUTH-SILENT-CLOSE      CONFIRMED 
+ours:B_dropbear                          D7-KEX-ERROR-TOLERATED               CONFIRMED 
+ours:B_dropbear                          D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED  CONFIRMED 
+ours:B_gossh                             D4-UA-AFTER-SUCCESS-NOT-IGNORED      CONFIRMED 
+ours:B_gossh                             D6-SR-CONN-PREAUTH-SILENT-CLOSE      CONFIRMED 
+theirs-on-our-SUTs:dropbear_nonstrict    STRICT-KEX-FIRST-KEXINIT             CONFIRMED 
+theirs-on-our-SUTs:dropbear_nonstrict    STRICT-KEX-REPEATED-MSG              CONFIRMED 
+theirs-on-our-SUTs:dropbear_nonstrict    UA-BEFORE-SR-AUTH                    CONFIRMED 
+theirs-on-our-SUTs:dropbear_nonstrict    D1-UA-SUCCESS-WITHOUT-SR             CONFIRMED 
+theirs-on-our-SUTs:dropbear_nonstrict    D5-SR-AFTER-AUTH-ACCEPTED            CONFIRMED 
+theirs-on-our-SUTs:dropbear_nonstrict    D6-SR-CONN-PREAUTH-SILENT-CLOSE      CONFIRMED 
+theirs-on-our-SUTs:dropbear_nonstrict    D7-KEX-ERROR-TOLERATED               CONFIRMED 
+theirs-on-our-SUTs:dropbear_nonstrict    D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED  CONFIRMED 
+theirs-on-our-SUTs:dropbear_strict       UA-BEFORE-SR-AUTH                    CONFIRMED 
+theirs-on-our-SUTs:dropbear_strict       D1-UA-SUCCESS-WITHOUT-SR             CONFIRMED 
+theirs-on-our-SUTs:dropbear_strict       D5-SR-AFTER-AUTH-ACCEPTED            CONFIRMED 
+theirs-on-our-SUTs:dropbear_strict       D6-SR-CONN-PREAUTH-SILENT-CLOSE      CONFIRMED 
+theirs-on-our-SUTs:dropbear_strict       D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED  CONFIRMED 
+theirs-on-our-SUTs:gossh_nonstrict       D4-UA-AFTER-SUCCESS-NOT-IGNORED      CONFIRMED 
+theirs-on-our-SUTs:gossh_nonstrict       D6-SR-CONN-PREAUTH-SILENT-CLOSE      CONFIRMED 
+theirs-on-our-SUTs:gossh_strict          D4-UA-AFTER-SUCCESS-NOT-IGNORED      CONFIRMED 
+theirs-on-our-SUTs:gossh_strict          D6-SR-CONN-PREAUTH-SILENT-CLOSE      CONFIRMED 
+theirs-on-our-SUTs:openssh_nonstrict     CONN-BEFORE-AUTH                     CONFIRMED 
+theirs-on-our-SUTs:openssh_nonstrict     REKEY-KEXINIT-REPLY                  CONFIRMED 
+theirs-on-our-SUTs:openssh_nonstrict     STRICT-KEX-FIRST-KEXINIT             CONFIRMED 
+theirs-on-our-SUTs:openssh_nonstrict     STRICT-KEX-NON-KEX-MSG               CONFIRMED 
+theirs-on-our-SUTs:openssh_nonstrict     STRICT-KEX-REPEATED-MSG              CONFIRMED 
+theirs-on-our-SUTs:openssh_nonstrict     D2-CONN-MSG-PREAUTH-KEPT             CONFIRMED 
+theirs-on-our-SUTs:openssh_nonstrict     D3-REKEY-PREAUTH-REFUSED             CONFIRMED 
+theirs-on-our-SUTs:openssh_nonstrict     D4-UA-AFTER-SUCCESS-NOT-IGNORED      CONFIRMED 
+theirs-on-our-SUTs:openssh_nonstrict     D7-KEX-ERROR-TOLERATED               CONFIRMED 
+theirs-on-our-SUTs:openssh_nonstrict     D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED  CONFIRMED 
+theirs-on-our-SUTs:openssh_nonstrict     D9-OUT-OF-PLACE-KEX-MSG-TOLERATED    CONFIRMED 
+theirs-on-our-SUTs:openssh_strict        CONN-BEFORE-AUTH                     CONFIRMED 
+theirs-on-our-SUTs:openssh_strict        REKEY-KEXINIT-REPLY                  CONFIRMED 
+theirs-on-our-SUTs:openssh_strict        D2-CONN-MSG-PREAUTH-KEPT             CONFIRMED 
+theirs-on-our-SUTs:openssh_strict        D3-REKEY-PREAUTH-REFUSED             CONFIRMED 
+theirs-on-our-SUTs:openssh_strict        D4-UA-AFTER-SUCCESS-NOT-IGNORED      CONFIRMED 
+theirs-on-our-SUTs:openssh_strict        D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED  CONFIRMED 
+theirs-on-our-SUTs:openssh_strict        D9-OUT-OF-PLACE-KEX-MSG-TOLERATED    CONFIRMED 

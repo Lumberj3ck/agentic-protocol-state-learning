@@ -1,0 +1,11 @@
+{"time": "12:45", "sut": "all", "kind": "harness_fix", "who": "agent", "what": "gx synced into another project's box directory; repointed to research/proto-sm"}
+{"time": "12:50", "sut": "all", "kind": "human_correction", "who": "user", "what": "Own SSH client engine abandoned (write stopped); user directed: reuse published Fiterau-Brostean mapper, sequential phase 1, reproduce published finding first"}
+{"time": "13:12", "sut": "all", "kind": "mapper_fix", "who": "agent", "what": "P1: opt-in modern algorithms (group14-sha256, rsa-sha2-256) in published mapper"}
+{"time": "13:12", "sut": "all", "kind": "mapper_fix", "who": "agent", "what": "P2: credentials from env instead of hard-coded upstream values"}
+{"time": "13:25", "sut": "dropbear2020", "kind": "mapper_fix", "who": "agent", "what": "P3: mapper crashed when learner disconnects (upstream bug)"}
+{"time": "13:26", "sut": "all", "kind": "human_correction", "who": "user", "what": "Disk 99%: rmi our superseded psm-* images after each build, never prune box-wide (after agent's box-wide builder prune at 12:58)"}
+{"time": "13:16", "sut": "openssh", "kind": "mapper_fix", "who": "agent", "what": "P4: per-connection KEXINIT cookie; double KEXINIT made mapper hash the wrong I_C and crash on OpenSSH (harness artifact, caught as a crash not a model difference)"}
+{"time": "13:25", "sut": "all", "kind": "mapper_fix", "who": "agent (reviewer subagent found it)", "what": "P5: IGNORE/CH_* inputs blocked 30 s then crashed the mapper (clear_to_send never set upstream)"}
+{"time": "13:20", "sut": "all", "kind": "harness_fix", "who": "agent", "what": "Equivalence oracle too weak (random words; then state-prefix): first Dropbear and Go models under-learned; added rekey-aware targeted oracle"}
+{"time": "13:16", "sut": "all", "kind": "harness_fix", "who": "agent", "what": "Learner died on mapper crash; RobustSUL now logs, reconnects, retries"}
+{"time": "15:01", "sut": "openssh", "kind": "harness_fix", "who": "agent", "what": "Scheduling: OpenSSH learning ~5x slower than Dropbear/Go (keeps connections open after errors, so few NO_CONN sink shortcuts); B alphabet abandoned for OpenSSH, covered by replays"}

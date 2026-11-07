@@ -1,0 +1,1 @@
+- dropbear 2024.85-r0: Alpine 3.20 package, base alpine@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc, mapper profile modern, SUT 127.0.0.1:2535, mapper 8535

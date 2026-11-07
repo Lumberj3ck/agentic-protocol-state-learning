@@ -1,0 +1,2971 @@
+{
+ "ours:A_dropbear": {
+  "path": "results/models/A_dropbear.dot",
+  "converted": true,
+  "states": 10,
+  "alphabet": [
+   "KEX30",
+   "KEXINIT",
+   "NEWKEYS",
+   "SR_AUTH",
+   "UA_PW_OK"
+  ],
+  "hits": {
+   "AUTH-WITHOUT-CREDENTIALS": null,
+   "CH-CLOSE-REPLY": null,
+   "CONN-BEFORE-AUTH": null,
+   "IGNORE-DEBUG-TOLERATED": null,
+   "KEX-SERVER-SENDS-NON-KEX": null,
+   "KEXINIT-DUPLICATE": null,
+   "RECV-AFTER-DISCONNECT": null,
+   "REKEY-KEXINIT-REPLY": null,
+   "SEND-AFTER-DISCONNECT": null,
+   "SR-ACCEPT-BEFORE-NEWKEYS": null,
+   "STRICT-KEX-FIRST-KEXINIT": [
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS+EXT_INFO"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "KEXINIT"
+    }
+   ],
+   "STRICT-KEX-NON-KEX-MSG": null,
+   "STRICT-KEX-REPEATED-MSG": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "UA-BEFORE-SR-AUTH": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS+EXT_INFO"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    }
+   ],
+   "UNAUTH-CHANNEL-OPEN": null,
+   "D1-UA-SUCCESS-WITHOUT-SR": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS+EXT_INFO"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    }
+   ],
+   "D2-CONN-MSG-PREAUTH-KEPT": null,
+   "D3-REKEY-PREAUTH-REFUSED": null,
+   "D4-UA-AFTER-SUCCESS-NOT-IGNORED": null,
+   "D5-SR-AFTER-AUTH-ACCEPTED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS+EXT_INFO"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    }
+   ],
+   "D6-SR-CONN-PREAUTH-SILENT-CLOSE": null,
+   "D7-KEX-ERROR-TOLERATED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED": [
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED": null
+  }
+ },
+ "ours:A_gossh": {
+  "path": "results/models/A_gossh.dot",
+  "converted": true,
+  "states": 13,
+  "alphabet": [
+   "KEX30",
+   "KEXINIT",
+   "NEWKEYS",
+   "SR_AUTH",
+   "UA_PW_OK"
+  ],
+  "hits": {
+   "AUTH-WITHOUT-CREDENTIALS": null,
+   "CH-CLOSE-REPLY": null,
+   "CONN-BEFORE-AUTH": null,
+   "IGNORE-DEBUG-TOLERATED": null,
+   "KEX-SERVER-SENDS-NON-KEX": null,
+   "KEXINIT-DUPLICATE": null,
+   "RECV-AFTER-DISCONNECT": null,
+   "REKEY-KEXINIT-REPLY": null,
+   "SEND-AFTER-DISCONNECT": null,
+   "SR-ACCEPT-BEFORE-NEWKEYS": null,
+   "STRICT-KEX-FIRST-KEXINIT": null,
+   "STRICT-KEX-NON-KEX-MSG": null,
+   "STRICT-KEX-REPEATED-MSG": null,
+   "UA-BEFORE-SR-AUTH": null,
+   "UNAUTH-CHANNEL-OPEN": null,
+   "D1-UA-SUCCESS-WITHOUT-SR": null,
+   "D2-CONN-MSG-PREAUTH-KEPT": null,
+   "D3-REKEY-PREAUTH-REFUSED": null,
+   "D4-UA-AFTER-SUCCESS-NOT-IGNORED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS+EXT_INFO"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "NO_CONN"
+    }
+   ],
+   "D5-SR-AFTER-AUTH-ACCEPTED": null,
+   "D6-SR-CONN-PREAUTH-SILENT-CLOSE": null,
+   "D7-KEX-ERROR-TOLERATED": null,
+   "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED": null,
+   "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED": null
+  }
+ },
+ "ours:A_openssh": {
+  "path": "results/models/A_openssh.dot",
+  "converted": true,
+  "states": 10,
+  "alphabet": [
+   "KEX30",
+   "KEXINIT",
+   "NEWKEYS",
+   "SR_AUTH",
+   "UA_PW_OK"
+  ],
+  "hits": {
+   "AUTH-WITHOUT-CREDENTIALS": null,
+   "CH-CLOSE-REPLY": null,
+   "CONN-BEFORE-AUTH": null,
+   "IGNORE-DEBUG-TOLERATED": null,
+   "KEX-SERVER-SENDS-NON-KEX": null,
+   "KEXINIT-DUPLICATE": null,
+   "RECV-AFTER-DISCONNECT": null,
+   "REKEY-KEXINIT-REPLY": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS+EXT_INFO"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "SEND-AFTER-DISCONNECT": null,
+   "SR-ACCEPT-BEFORE-NEWKEYS": null,
+   "STRICT-KEX-FIRST-KEXINIT": [
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "STRICT-KEX-NON-KEX-MSG": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "STRICT-KEX-REPEATED-MSG": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "UA-BEFORE-SR-AUTH": null,
+   "UNAUTH-CHANNEL-OPEN": null,
+   "D1-UA-SUCCESS-WITHOUT-SR": null,
+   "D2-CONN-MSG-PREAUTH-KEPT": null,
+   "D3-REKEY-PREAUTH-REFUSED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS+EXT_INFO"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D4-UA-AFTER-SUCCESS-NOT-IGNORED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS+EXT_INFO"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS+GLOBAL_REQUEST"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D5-SR-AFTER-AUTH-ACCEPTED": null,
+   "D6-SR-CONN-PREAUTH-SILENT-CLOSE": null,
+   "D7-KEX-ERROR-TOLERATED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED": [
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "UNIMPLEMENTED"
+    }
+   ]
+  }
+ },
+ "ours:B_dropbear": {
+  "path": "results/models/B_dropbear.dot",
+  "converted": true,
+  "states": 14,
+  "alphabet": [
+   "CH_OPEN",
+   "KEX30",
+   "KEXINIT",
+   "NEWKEYS",
+   "SR_AUTH",
+   "SR_CONN",
+   "UA_PW_OK"
+  ],
+  "hits": {
+   "AUTH-WITHOUT-CREDENTIALS": null,
+   "CH-CLOSE-REPLY": null,
+   "CONN-BEFORE-AUTH": null,
+   "IGNORE-DEBUG-TOLERATED": null,
+   "KEX-SERVER-SENDS-NON-KEX": null,
+   "KEXINIT-DUPLICATE": null,
+   "RECV-AFTER-DISCONNECT": null,
+   "REKEY-KEXINIT-REPLY": null,
+   "SEND-AFTER-DISCONNECT": null,
+   "SR-ACCEPT-BEFORE-NEWKEYS": null,
+   "STRICT-KEX-FIRST-KEXINIT": [
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS+EXT_INFO"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "KEXINIT"
+    }
+   ],
+   "STRICT-KEX-NON-KEX-MSG": null,
+   "STRICT-KEX-REPEATED-MSG": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "UA-BEFORE-SR-AUTH": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS+EXT_INFO"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    }
+   ],
+   "UNAUTH-CHANNEL-OPEN": null,
+   "D1-UA-SUCCESS-WITHOUT-SR": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS+EXT_INFO"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    }
+   ],
+   "D2-CONN-MSG-PREAUTH-KEPT": null,
+   "D3-REKEY-PREAUTH-REFUSED": null,
+   "D4-UA-AFTER-SUCCESS-NOT-IGNORED": null,
+   "D5-SR-AFTER-AUTH-ACCEPTED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS+EXT_INFO"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    }
+   ],
+   "D6-SR-CONN-PREAUTH-SILENT-CLOSE": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS+EXT_INFO"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_CONN",
+     "out": "NO_CONN"
+    }
+   ],
+   "D7-KEX-ERROR-TOLERATED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED": [
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED": null
+  }
+ },
+ "ours:B_gossh": {
+  "path": "results/models/B_gossh.dot",
+  "converted": true,
+  "states": 17,
+  "alphabet": [
+   "CH_OPEN",
+   "KEX30",
+   "KEXINIT",
+   "NEWKEYS",
+   "SR_AUTH",
+   "SR_CONN",
+   "UA_PW_OK"
+  ],
+  "hits": {
+   "AUTH-WITHOUT-CREDENTIALS": null,
+   "CH-CLOSE-REPLY": null,
+   "CONN-BEFORE-AUTH": null,
+   "IGNORE-DEBUG-TOLERATED": null,
+   "KEX-SERVER-SENDS-NON-KEX": null,
+   "KEXINIT-DUPLICATE": null,
+   "RECV-AFTER-DISCONNECT": null,
+   "REKEY-KEXINIT-REPLY": null,
+   "SEND-AFTER-DISCONNECT": null,
+   "SR-ACCEPT-BEFORE-NEWKEYS": null,
+   "STRICT-KEX-FIRST-KEXINIT": null,
+   "STRICT-KEX-NON-KEX-MSG": null,
+   "STRICT-KEX-REPEATED-MSG": null,
+   "UA-BEFORE-SR-AUTH": null,
+   "UNAUTH-CHANNEL-OPEN": null,
+   "D1-UA-SUCCESS-WITHOUT-SR": null,
+   "D2-CONN-MSG-PREAUTH-KEPT": null,
+   "D3-REKEY-PREAUTH-REFUSED": null,
+   "D4-UA-AFTER-SUCCESS-NOT-IGNORED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS+EXT_INFO"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "NO_CONN"
+    }
+   ],
+   "D5-SR-AFTER-AUTH-ACCEPTED": null,
+   "D6-SR-CONN-PREAUTH-SILENT-CLOSE": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS+EXT_INFO"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_CONN",
+     "out": "NO_CONN"
+    }
+   ],
+   "D7-KEX-ERROR-TOLERATED": null,
+   "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED": null,
+   "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED": null
+  }
+ },
+ "theirs-published:asyncssh-v1-random-eq": {
+  "path": "vendor/agentic-protocol-state-learning/results/runs/asyncssh-v1-random-eq/model.dot",
+  "converted": false,
+  "states": 6,
+  "alphabet": [
+   "CH_CLOSE",
+   "CH_DATA",
+   "CH_EOF",
+   "CH_OPEN",
+   "CH_REQUEST_EXEC",
+   "DEBUG",
+   "DISCONNECT",
+   "IGNORE",
+   "KEX30",
+   "KEXINIT",
+   "NEWKEYS",
+   "SR_AUTH",
+   "SR_CONN",
+   "UA_NONE",
+   "UA_PW_NOK",
+   "UA_PW_OK",
+   "UNIMPLEMENTED"
+  ],
+  "hits": {
+   "AUTH-WITHOUT-CREDENTIALS": null,
+   "CH-CLOSE-REPLY": null,
+   "CONN-BEFORE-AUTH": null,
+   "IGNORE-DEBUG-TOLERATED": null,
+   "KEX-SERVER-SENDS-NON-KEX": null,
+   "KEXINIT-DUPLICATE": null,
+   "RECV-AFTER-DISCONNECT": null,
+   "REKEY-KEXINIT-REPLY": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "IGNORE+UA_SUCCESS"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "IGNORE+DISCONNECT+CLOSED"
+    }
+   ],
+   "SEND-AFTER-DISCONNECT": null,
+   "SR-ACCEPT-BEFORE-NEWKEYS": null,
+   "STRICT-KEX-FIRST-KEXINIT": [
+    {
+     "in": "DEBUG",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    }
+   ],
+   "STRICT-KEX-NON-KEX-MSG": null,
+   "STRICT-KEX-REPEATED-MSG": null,
+   "UA-BEFORE-SR-AUTH": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "UA_NONE",
+     "out": "IGNORE+UA_FAILURE"
+    }
+   ],
+   "UNAUTH-CHANNEL-OPEN": null,
+   "D1-UA-SUCCESS-WITHOUT-SR": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "IGNORE+UA_SUCCESS"
+    }
+   ],
+   "D2-CONN-MSG-PREAUTH-KEPT": null,
+   "D3-REKEY-PREAUTH-REFUSED": null,
+   "D4-UA-AFTER-SUCCESS-NOT-IGNORED": null,
+   "D5-SR-AFTER-AUTH-ACCEPTED": null,
+   "D6-SR-CONN-PREAUTH-SILENT-CLOSE": null,
+   "D7-KEX-ERROR-TOLERATED": null,
+   "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED": null,
+   "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED": null
+  }
+ },
+ "theirs-published:dropbear-v1-random-eq": {
+  "path": "vendor/agentic-protocol-state-learning/results/runs/dropbear-v1-random-eq/model.dot",
+  "converted": false,
+  "states": 3,
+  "alphabet": [
+   "CH_CLOSE",
+   "CH_DATA",
+   "CH_EOF",
+   "CH_OPEN",
+   "CH_REQUEST_EXEC",
+   "DEBUG",
+   "DISCONNECT",
+   "IGNORE",
+   "KEX30",
+   "KEXINIT",
+   "NEWKEYS",
+   "SR_AUTH",
+   "SR_CONN",
+   "UA_NONE",
+   "UA_PW_NOK",
+   "UA_PW_OK",
+   "UNIMPLEMENTED"
+  ],
+  "hits": {
+   "AUTH-WITHOUT-CREDENTIALS": null,
+   "CH-CLOSE-REPLY": null,
+   "CONN-BEFORE-AUTH": null,
+   "IGNORE-DEBUG-TOLERATED": null,
+   "KEX-SERVER-SENDS-NON-KEX": null,
+   "KEXINIT-DUPLICATE": null,
+   "RECV-AFTER-DISCONNECT": null,
+   "REKEY-KEXINIT-REPLY": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "UNIMPLEMENTED"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    }
+   ],
+   "SEND-AFTER-DISCONNECT": null,
+   "SR-ACCEPT-BEFORE-NEWKEYS": null,
+   "STRICT-KEX-FIRST-KEXINIT": [
+    {
+     "in": "DEBUG",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    }
+   ],
+   "STRICT-KEX-NON-KEX-MSG": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "DEBUG",
+     "out": "NO_RESP"
+    }
+   ],
+   "STRICT-KEX-REPEATED-MSG": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "UA-BEFORE-SR-AUTH": null,
+   "UNAUTH-CHANNEL-OPEN": null,
+   "D1-UA-SUCCESS-WITHOUT-SR": null,
+   "D2-CONN-MSG-PREAUTH-KEPT": null,
+   "D3-REKEY-PREAUTH-REFUSED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "UNIMPLEMENTED"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    }
+   ],
+   "D4-UA-AFTER-SUCCESS-NOT-IGNORED": null,
+   "D5-SR-AFTER-AUTH-ACCEPTED": null,
+   "D6-SR-CONN-PREAUTH-SILENT-CLOSE": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "UNIMPLEMENTED"
+    },
+    {
+     "in": "SR_CONN",
+     "out": "CLOSED"
+    }
+   ],
+   "D7-KEX-ERROR-TOLERATED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED": [
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "UNIMPLEMENTED"
+    },
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    }
+   ]
+  }
+ },
+ "theirs-published:erlang-otp-v3vm": {
+  "path": "vendor/agentic-protocol-state-learning/results/runs/erlang-otp-v3vm/model.dot",
+  "converted": false,
+  "states": 12,
+  "alphabet": [
+   "CH_CLOSE",
+   "CH_DATA",
+   "CH_EOF",
+   "CH_OPEN",
+   "CH_REQUEST_EXEC",
+   "DEBUG",
+   "DISCONNECT",
+   "IGNORE",
+   "KEX30",
+   "KEXINIT",
+   "NEWKEYS",
+   "SR_AUTH",
+   "SR_CONN",
+   "UA_NONE",
+   "UA_PW_NOK",
+   "UA_PW_OK",
+   "UNIMPLEMENTED"
+  ],
+  "hits": {
+   "AUTH-WITHOUT-CREDENTIALS": null,
+   "CH-CLOSE-REPLY": null,
+   "CONN-BEFORE-AUTH": null,
+   "IGNORE-DEBUG-TOLERATED": null,
+   "KEX-SERVER-SENDS-NON-KEX": null,
+   "KEXINIT-DUPLICATE": null,
+   "RECV-AFTER-DISCONNECT": null,
+   "REKEY-KEXINIT-REPLY": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "DISCONNECT+CLOSED"
+    }
+   ],
+   "SEND-AFTER-DISCONNECT": null,
+   "SR-ACCEPT-BEFORE-NEWKEYS": null,
+   "STRICT-KEX-FIRST-KEXINIT": null,
+   "STRICT-KEX-NON-KEX-MSG": null,
+   "STRICT-KEX-REPEATED-MSG": null,
+   "UA-BEFORE-SR-AUTH": null,
+   "UNAUTH-CHANNEL-OPEN": null,
+   "D1-UA-SUCCESS-WITHOUT-SR": null,
+   "D2-CONN-MSG-PREAUTH-KEPT": null,
+   "D3-REKEY-PREAUTH-REFUSED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "DISCONNECT+CLOSED"
+    }
+   ],
+   "D4-UA-AFTER-SUCCESS-NOT-IGNORED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "DISCONNECT+CLOSED"
+    }
+   ],
+   "D5-SR-AFTER-AUTH-ACCEPTED": null,
+   "D6-SR-CONN-PREAUTH-SILENT-CLOSE": null,
+   "D7-KEX-ERROR-TOLERATED": null,
+   "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED": null,
+   "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED": null
+  }
+ },
+ "theirs-published:golang-xcrypto-v3vm": {
+  "path": "vendor/agentic-protocol-state-learning/results/runs/golang-xcrypto-v3vm/model.dot",
+  "converted": false,
+  "states": 14,
+  "alphabet": [
+   "CH_CLOSE",
+   "CH_DATA",
+   "CH_EOF",
+   "CH_OPEN",
+   "CH_REQUEST_EXEC",
+   "DEBUG",
+   "DISCONNECT",
+   "IGNORE",
+   "KEX30",
+   "KEXINIT",
+   "NEWKEYS",
+   "SR_AUTH",
+   "SR_CONN",
+   "UA_NONE",
+   "UA_PW_NOK",
+   "UA_PW_OK",
+   "UNIMPLEMENTED"
+  ],
+  "hits": {
+   "AUTH-WITHOUT-CREDENTIALS": null,
+   "CH-CLOSE-REPLY": null,
+   "CONN-BEFORE-AUTH": null,
+   "IGNORE-DEBUG-TOLERATED": null,
+   "KEX-SERVER-SENDS-NON-KEX": null,
+   "KEXINIT-DUPLICATE": null,
+   "RECV-AFTER-DISCONNECT": null,
+   "REKEY-KEXINIT-REPLY": null,
+   "SEND-AFTER-DISCONNECT": null,
+   "SR-ACCEPT-BEFORE-NEWKEYS": null,
+   "STRICT-KEX-FIRST-KEXINIT": null,
+   "STRICT-KEX-NON-KEX-MSG": null,
+   "STRICT-KEX-REPEATED-MSG": null,
+   "UA-BEFORE-SR-AUTH": null,
+   "UNAUTH-CHANNEL-OPEN": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "KEXINIT"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "CH_OPEN",
+     "out": "CH_OPEN_SUCCESS"
+    }
+   ],
+   "D1-UA-SUCCESS-WITHOUT-SR": null,
+   "D2-CONN-MSG-PREAUTH-KEPT": null,
+   "D3-REKEY-PREAUTH-REFUSED": null,
+   "D4-UA-AFTER-SUCCESS-NOT-IGNORED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "CLOSED"
+    }
+   ],
+   "D5-SR-AFTER-AUTH-ACCEPTED": null,
+   "D6-SR-CONN-PREAUTH-SILENT-CLOSE": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_CONN",
+     "out": "CLOSED"
+    }
+   ],
+   "D7-KEX-ERROR-TOLERATED": null,
+   "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED": null,
+   "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED": null
+  }
+ },
+ "theirs-published:mina-sshd-v3vm": {
+  "path": "vendor/agentic-protocol-state-learning/results/runs/mina-sshd-v3vm/model.dot",
+  "converted": false,
+  "states": 21,
+  "alphabet": [
+   "CH_CLOSE",
+   "CH_DATA",
+   "CH_EOF",
+   "CH_OPEN",
+   "CH_REQUEST_EXEC",
+   "DEBUG",
+   "DISCONNECT",
+   "IGNORE",
+   "KEX30",
+   "KEXINIT",
+   "NEWKEYS",
+   "SR_AUTH",
+   "SR_CONN",
+   "UA_NONE",
+   "UA_PW_NOK",
+   "UA_PW_OK",
+   "UNIMPLEMENTED"
+  ],
+  "hits": {
+   "AUTH-WITHOUT-CREDENTIALS": null,
+   "CH-CLOSE-REPLY": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    },
+    {
+     "in": "CH_OPEN",
+     "out": "CH_OPEN_SUCCESS"
+    },
+    {
+     "in": "SR_CONN",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "CH_CLOSE",
+     "out": "NO_RESP"
+    }
+   ],
+   "CONN-BEFORE-AUTH": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "CH_OPEN",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "IGNORE-DEBUG-TOLERATED": null,
+   "KEX-SERVER-SENDS-NON-KEX": null,
+   "KEXINIT-DUPLICATE": null,
+   "RECV-AFTER-DISCONNECT": null,
+   "REKEY-KEXINIT-REPLY": null,
+   "SEND-AFTER-DISCONNECT": null,
+   "SR-ACCEPT-BEFORE-NEWKEYS": null,
+   "STRICT-KEX-FIRST-KEXINIT": null,
+   "STRICT-KEX-NON-KEX-MSG": null,
+   "STRICT-KEX-REPEATED-MSG": null,
+   "UA-BEFORE-SR-AUTH": null,
+   "UNAUTH-CHANNEL-OPEN": null,
+   "D1-UA-SUCCESS-WITHOUT-SR": null,
+   "D2-CONN-MSG-PREAUTH-KEPT": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "CH_OPEN",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D3-REKEY-PREAUTH-REFUSED": null,
+   "D4-UA-AFTER-SUCCESS-NOT-IGNORED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D5-SR-AFTER-AUTH-ACCEPTED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    },
+    {
+     "in": "SR_CONN",
+     "out": "SERVICE_ACCEPT"
+    }
+   ],
+   "D6-SR-CONN-PREAUTH-SILENT-CLOSE": null,
+   "D7-KEX-ERROR-TOLERATED": null,
+   "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED": null,
+   "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED": null
+  }
+ },
+ "theirs-published:openssh-alpine-edge-v3vm": {
+  "path": "vendor/agentic-protocol-state-learning/results/runs/openssh-alpine-edge-v3vm/model.dot",
+  "converted": false,
+  "states": 13,
+  "alphabet": [
+   "CH_CLOSE",
+   "CH_DATA",
+   "CH_EOF",
+   "CH_OPEN",
+   "CH_REQUEST_EXEC",
+   "DEBUG",
+   "DISCONNECT",
+   "IGNORE",
+   "KEX30",
+   "KEXINIT",
+   "NEWKEYS",
+   "SR_AUTH",
+   "SR_CONN",
+   "UA_NONE",
+   "UA_PW_NOK",
+   "UA_PW_OK",
+   "UNIMPLEMENTED"
+  ],
+  "hits": {
+   "AUTH-WITHOUT-CREDENTIALS": null,
+   "CH-CLOSE-REPLY": null,
+   "CONN-BEFORE-AUTH": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "CH_OPEN",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "IGNORE-DEBUG-TOLERATED": null,
+   "KEX-SERVER-SENDS-NON-KEX": null,
+   "KEXINIT-DUPLICATE": null,
+   "RECV-AFTER-DISCONNECT": null,
+   "REKEY-KEXINIT-REPLY": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "SEND-AFTER-DISCONNECT": null,
+   "SR-ACCEPT-BEFORE-NEWKEYS": null,
+   "STRICT-KEX-FIRST-KEXINIT": null,
+   "STRICT-KEX-NON-KEX-MSG": null,
+   "STRICT-KEX-REPEATED-MSG": null,
+   "UA-BEFORE-SR-AUTH": null,
+   "UNAUTH-CHANNEL-OPEN": null,
+   "D1-UA-SUCCESS-WITHOUT-SR": null,
+   "D2-CONN-MSG-PREAUTH-KEPT": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "CH_OPEN",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D3-REKEY-PREAUTH-REFUSED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D4-UA-AFTER-SUCCESS-NOT-IGNORED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS+GLOBAL_REQUEST"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D5-SR-AFTER-AUTH-ACCEPTED": null,
+   "D6-SR-CONN-PREAUTH-SILENT-CLOSE": null,
+   "D7-KEX-ERROR-TOLERATED": null,
+   "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED": [
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    }
+   ]
+  }
+ },
+ "theirs-published:openssh-v1-random-eq": {
+  "path": "vendor/agentic-protocol-state-learning/results/runs/openssh-v1-random-eq/model.dot",
+  "converted": false,
+  "states": 8,
+  "alphabet": [
+   "CH_CLOSE",
+   "CH_DATA",
+   "CH_EOF",
+   "CH_OPEN",
+   "CH_REQUEST_EXEC",
+   "DEBUG",
+   "DISCONNECT",
+   "IGNORE",
+   "KEX30",
+   "KEXINIT",
+   "NEWKEYS",
+   "SR_AUTH",
+   "SR_CONN",
+   "UA_NONE",
+   "UA_PW_NOK",
+   "UA_PW_OK",
+   "UNIMPLEMENTED"
+  ],
+  "hits": {
+   "AUTH-WITHOUT-CREDENTIALS": null,
+   "CH-CLOSE-REPLY": null,
+   "CONN-BEFORE-AUTH": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "CH_OPEN",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "IGNORE-DEBUG-TOLERATED": null,
+   "KEX-SERVER-SENDS-NON-KEX": null,
+   "KEXINIT-DUPLICATE": null,
+   "RECV-AFTER-DISCONNECT": null,
+   "REKEY-KEXINIT-REPLY": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "SEND-AFTER-DISCONNECT": null,
+   "SR-ACCEPT-BEFORE-NEWKEYS": null,
+   "STRICT-KEX-FIRST-KEXINIT": null,
+   "STRICT-KEX-NON-KEX-MSG": null,
+   "STRICT-KEX-REPEATED-MSG": null,
+   "UA-BEFORE-SR-AUTH": null,
+   "UNAUTH-CHANNEL-OPEN": null,
+   "D1-UA-SUCCESS-WITHOUT-SR": null,
+   "D2-CONN-MSG-PREAUTH-KEPT": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "CH_OPEN",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D3-REKEY-PREAUTH-REFUSED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D4-UA-AFTER-SUCCESS-NOT-IGNORED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS+GLOBAL_REQUEST"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D5-SR-AFTER-AUTH-ACCEPTED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS+GLOBAL_REQUEST"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    }
+   ],
+   "D6-SR-CONN-PREAUTH-SILENT-CLOSE": null,
+   "D7-KEX-ERROR-TOLERATED": null,
+   "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED": [
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    }
+   ]
+  }
+ },
+ "theirs-published:openssh-v3vm": {
+  "path": "vendor/agentic-protocol-state-learning/results/runs/openssh-v3vm/model.dot",
+  "converted": false,
+  "states": 22,
+  "alphabet": [
+   "CH_CLOSE",
+   "CH_DATA",
+   "CH_EOF",
+   "CH_OPEN",
+   "CH_REQUEST_EXEC",
+   "DEBUG",
+   "DISCONNECT",
+   "IGNORE",
+   "KEX30",
+   "KEXINIT",
+   "NEWKEYS",
+   "SR_AUTH",
+   "SR_CONN",
+   "UA_NONE",
+   "UA_PW_NOK",
+   "UA_PW_OK",
+   "UNIMPLEMENTED"
+  ],
+  "hits": {
+   "AUTH-WITHOUT-CREDENTIALS": null,
+   "CH-CLOSE-REPLY": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS+GLOBAL_REQUEST"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "KEXINIT"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "CH_OPEN",
+     "out": "CH_OPEN_SUCCESS"
+    },
+    {
+     "in": "CH_CLOSE",
+     "out": "NO_RESP"
+    }
+   ],
+   "CONN-BEFORE-AUTH": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "CH_OPEN",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "IGNORE-DEBUG-TOLERATED": null,
+   "KEX-SERVER-SENDS-NON-KEX": null,
+   "KEXINIT-DUPLICATE": null,
+   "RECV-AFTER-DISCONNECT": null,
+   "REKEY-KEXINIT-REPLY": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "SEND-AFTER-DISCONNECT": null,
+   "SR-ACCEPT-BEFORE-NEWKEYS": null,
+   "STRICT-KEX-FIRST-KEXINIT": null,
+   "STRICT-KEX-NON-KEX-MSG": null,
+   "STRICT-KEX-REPEATED-MSG": null,
+   "UA-BEFORE-SR-AUTH": null,
+   "UNAUTH-CHANNEL-OPEN": null,
+   "D1-UA-SUCCESS-WITHOUT-SR": null,
+   "D2-CONN-MSG-PREAUTH-KEPT": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "CH_OPEN",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D3-REKEY-PREAUTH-REFUSED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D4-UA-AFTER-SUCCESS-NOT-IGNORED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS+GLOBAL_REQUEST"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D5-SR-AFTER-AUTH-ACCEPTED": null,
+   "D6-SR-CONN-PREAUTH-SILENT-CLOSE": null,
+   "D7-KEX-ERROR-TOLERATED": null,
+   "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED": [
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    }
+   ]
+  }
+ },
+ "theirs-published:paramiko-v3vm": {
+  "path": "vendor/agentic-protocol-state-learning/results/runs/paramiko-v3vm/model.dot",
+  "converted": false,
+  "states": 14,
+  "alphabet": [
+   "CH_CLOSE",
+   "CH_DATA",
+   "CH_EOF",
+   "CH_OPEN",
+   "CH_REQUEST_EXEC",
+   "DEBUG",
+   "DISCONNECT",
+   "IGNORE",
+   "KEX30",
+   "KEXINIT",
+   "NEWKEYS",
+   "SR_AUTH",
+   "SR_CONN",
+   "UA_NONE",
+   "UA_PW_NOK",
+   "UA_PW_OK",
+   "UNIMPLEMENTED"
+  ],
+  "hits": {
+   "AUTH-WITHOUT-CREDENTIALS": null,
+   "CH-CLOSE-REPLY": null,
+   "CONN-BEFORE-AUTH": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "CH_OPEN",
+     "out": "CH_OPEN_FAILURE"
+    }
+   ],
+   "IGNORE-DEBUG-TOLERATED": null,
+   "KEX-SERVER-SENDS-NON-KEX": null,
+   "KEXINIT-DUPLICATE": null,
+   "RECV-AFTER-DISCONNECT": null,
+   "REKEY-KEXINIT-REPLY": null,
+   "SEND-AFTER-DISCONNECT": null,
+   "SR-ACCEPT-BEFORE-NEWKEYS": null,
+   "STRICT-KEX-FIRST-KEXINIT": null,
+   "STRICT-KEX-NON-KEX-MSG": null,
+   "STRICT-KEX-REPEATED-MSG": null,
+   "UA-BEFORE-SR-AUTH": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "UA_NONE",
+     "out": "UA_FAILURE"
+    }
+   ],
+   "UNAUTH-CHANNEL-OPEN": null,
+   "D1-UA-SUCCESS-WITHOUT-SR": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    }
+   ],
+   "D2-CONN-MSG-PREAUTH-KEPT": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "CH_OPEN",
+     "out": "CH_OPEN_FAILURE"
+    }
+   ],
+   "D3-REKEY-PREAUTH-REFUSED": null,
+   "D4-UA-AFTER-SUCCESS-NOT-IGNORED": null,
+   "D5-SR-AFTER-AUTH-ACCEPTED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    }
+   ],
+   "D6-SR-CONN-PREAUTH-SILENT-CLOSE": null,
+   "D7-KEX-ERROR-TOLERATED": null,
+   "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED": null,
+   "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    }
+   ]
+  }
+ },
+ "theirs-published:russh-v3vm": {
+  "path": "vendor/agentic-protocol-state-learning/results/runs/russh-v3vm/model.dot",
+  "converted": false,
+  "states": 14,
+  "alphabet": [
+   "CH_CLOSE",
+   "CH_DATA",
+   "CH_EOF",
+   "CH_OPEN",
+   "CH_REQUEST_EXEC",
+   "DEBUG",
+   "DISCONNECT",
+   "IGNORE",
+   "KEX30",
+   "KEXINIT",
+   "NEWKEYS",
+   "SR_AUTH",
+   "SR_CONN",
+   "UA_NONE",
+   "UA_PW_NOK",
+   "UA_PW_OK",
+   "UNIMPLEMENTED"
+  ],
+  "hits": {
+   "AUTH-WITHOUT-CREDENTIALS": null,
+   "CH-CLOSE-REPLY": null,
+   "CONN-BEFORE-AUTH": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "CH_OPEN",
+     "out": "NO_RESP"
+    }
+   ],
+   "IGNORE-DEBUG-TOLERATED": null,
+   "KEX-SERVER-SENDS-NON-KEX": null,
+   "KEXINIT-DUPLICATE": null,
+   "RECV-AFTER-DISCONNECT": null,
+   "REKEY-KEXINIT-REPLY": null,
+   "SEND-AFTER-DISCONNECT": null,
+   "SR-ACCEPT-BEFORE-NEWKEYS": null,
+   "STRICT-KEX-FIRST-KEXINIT": null,
+   "STRICT-KEX-NON-KEX-MSG": null,
+   "STRICT-KEX-REPEATED-MSG": null,
+   "UA-BEFORE-SR-AUTH": null,
+   "UNAUTH-CHANNEL-OPEN": null,
+   "D1-UA-SUCCESS-WITHOUT-SR": null,
+   "D2-CONN-MSG-PREAUTH-KEPT": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "CH_OPEN",
+     "out": "NO_RESP"
+    }
+   ],
+   "D3-REKEY-PREAUTH-REFUSED": null,
+   "D4-UA-AFTER-SUCCESS-NOT-IGNORED": null,
+   "D5-SR-AFTER-AUTH-ACCEPTED": null,
+   "D6-SR-CONN-PREAUTH-SILENT-CLOSE": null,
+   "D7-KEX-ERROR-TOLERATED": null,
+   "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED": null,
+   "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED": null
+  }
+ },
+ "theirs-published:wolfssh-v3vm": {
+  "path": "vendor/agentic-protocol-state-learning/results/runs/wolfssh-v3vm/model.dot",
+  "converted": false,
+  "states": 16,
+  "alphabet": [
+   "CH_CLOSE",
+   "CH_DATA",
+   "CH_EOF",
+   "CH_OPEN",
+   "CH_REQUEST_EXEC",
+   "DEBUG",
+   "DISCONNECT",
+   "IGNORE",
+   "KEX30",
+   "KEXINIT",
+   "NEWKEYS",
+   "SR_AUTH",
+   "SR_CONN",
+   "UA_NONE",
+   "UA_PW_NOK",
+   "UA_PW_OK",
+   "UNIMPLEMENTED"
+  ],
+  "hits": {
+   "AUTH-WITHOUT-CREDENTIALS": null,
+   "CH-CLOSE-REPLY": null,
+   "CONN-BEFORE-AUTH": null,
+   "IGNORE-DEBUG-TOLERATED": null,
+   "KEX-SERVER-SENDS-NON-KEX": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "KEXINIT"
+    },
+    {
+     "in": "UA_NONE",
+     "out": "UA_FAILURE"
+    }
+   ],
+   "KEXINIT-DUPLICATE": null,
+   "RECV-AFTER-DISCONNECT": null,
+   "REKEY-KEXINIT-REPLY": null,
+   "SEND-AFTER-DISCONNECT": null,
+   "SR-ACCEPT-BEFORE-NEWKEYS": null,
+   "STRICT-KEX-FIRST-KEXINIT": null,
+   "STRICT-KEX-NON-KEX-MSG": null,
+   "STRICT-KEX-REPEATED-MSG": null,
+   "UA-BEFORE-SR-AUTH": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "UA_NONE",
+     "out": "UA_FAILURE"
+    }
+   ],
+   "UNAUTH-CHANNEL-OPEN": null,
+   "D1-UA-SUCCESS-WITHOUT-SR": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "SERVICE_ACCEPT+UA_SUCCESS"
+    }
+   ],
+   "D2-CONN-MSG-PREAUTH-KEPT": null,
+   "D3-REKEY-PREAUTH-REFUSED": null,
+   "D4-UA-AFTER-SUCCESS-NOT-IGNORED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "DISCONNECT+CLOSED"
+    }
+   ],
+   "D5-SR-AFTER-AUTH-ACCEPTED": null,
+   "D6-SR-CONN-PREAUTH-SILENT-CLOSE": null,
+   "D7-KEX-ERROR-TOLERATED": null,
+   "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED": null,
+   "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED": null
+  }
+ },
+ "theirs-on-our-SUTs:dropbear_nonstrict": {
+  "path": "results/v2/A/tm_models/dropbear_nonstrict/model.dot",
+  "converted": false,
+  "states": 8,
+  "alphabet": [
+   "CH_OPEN",
+   "KEX30",
+   "KEXINIT",
+   "NEWKEYS",
+   "SR_AUTH",
+   "SR_CONN",
+   "UA_PW_OK"
+  ],
+  "hits": {
+   "AUTH-WITHOUT-CREDENTIALS": null,
+   "CH-CLOSE-REPLY": null,
+   "CONN-BEFORE-AUTH": null,
+   "IGNORE-DEBUG-TOLERATED": null,
+   "KEX-SERVER-SENDS-NON-KEX": null,
+   "KEXINIT-DUPLICATE": null,
+   "RECV-AFTER-DISCONNECT": null,
+   "REKEY-KEXINIT-REPLY": null,
+   "SEND-AFTER-DISCONNECT": null,
+   "SR-ACCEPT-BEFORE-NEWKEYS": null,
+   "STRICT-KEX-FIRST-KEXINIT": [
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    }
+   ],
+   "STRICT-KEX-NON-KEX-MSG": null,
+   "STRICT-KEX-REPEATED-MSG": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "UA-BEFORE-SR-AUTH": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    }
+   ],
+   "UNAUTH-CHANNEL-OPEN": null,
+   "D1-UA-SUCCESS-WITHOUT-SR": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    }
+   ],
+   "D2-CONN-MSG-PREAUTH-KEPT": null,
+   "D3-REKEY-PREAUTH-REFUSED": null,
+   "D4-UA-AFTER-SUCCESS-NOT-IGNORED": null,
+   "D5-SR-AFTER-AUTH-ACCEPTED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    }
+   ],
+   "D6-SR-CONN-PREAUTH-SILENT-CLOSE": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_CONN",
+     "out": "CLOSED"
+    }
+   ],
+   "D7-KEX-ERROR-TOLERATED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED": [
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED": null
+  }
+ },
+ "theirs-on-our-SUTs:dropbear_strict": {
+  "path": "results/v2/A/tm_models/dropbear_strict/model.dot",
+  "converted": false,
+  "states": 11,
+  "alphabet": [
+   "CH_OPEN",
+   "KEX30",
+   "KEXINIT",
+   "NEWKEYS",
+   "SR_AUTH",
+   "SR_CONN",
+   "UA_PW_OK"
+  ],
+  "hits": {
+   "AUTH-WITHOUT-CREDENTIALS": null,
+   "CH-CLOSE-REPLY": null,
+   "CONN-BEFORE-AUTH": null,
+   "IGNORE-DEBUG-TOLERATED": null,
+   "KEX-SERVER-SENDS-NON-KEX": null,
+   "KEXINIT-DUPLICATE": null,
+   "RECV-AFTER-DISCONNECT": null,
+   "REKEY-KEXINIT-REPLY": null,
+   "SEND-AFTER-DISCONNECT": null,
+   "SR-ACCEPT-BEFORE-NEWKEYS": null,
+   "STRICT-KEX-FIRST-KEXINIT": null,
+   "STRICT-KEX-NON-KEX-MSG": null,
+   "STRICT-KEX-REPEATED-MSG": null,
+   "UA-BEFORE-SR-AUTH": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    }
+   ],
+   "UNAUTH-CHANNEL-OPEN": null,
+   "D1-UA-SUCCESS-WITHOUT-SR": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    }
+   ],
+   "D2-CONN-MSG-PREAUTH-KEPT": null,
+   "D3-REKEY-PREAUTH-REFUSED": null,
+   "D4-UA-AFTER-SUCCESS-NOT-IGNORED": null,
+   "D5-SR-AFTER-AUTH-ACCEPTED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    }
+   ],
+   "D6-SR-CONN-PREAUTH-SILENT-CLOSE": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_CONN",
+     "out": "CLOSED"
+    }
+   ],
+   "D7-KEX-ERROR-TOLERATED": null,
+   "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED": [
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED": null
+  }
+ },
+ "theirs-on-our-SUTs:gossh_nonstrict": {
+  "path": "results/v2/A/tm_models/gossh_nonstrict/model.dot",
+  "converted": false,
+  "states": 9,
+  "alphabet": [
+   "CH_OPEN",
+   "KEX30",
+   "KEXINIT",
+   "NEWKEYS",
+   "SR_AUTH",
+   "SR_CONN",
+   "UA_PW_OK"
+  ],
+  "hits": {
+   "AUTH-WITHOUT-CREDENTIALS": null,
+   "CH-CLOSE-REPLY": null,
+   "CONN-BEFORE-AUTH": null,
+   "IGNORE-DEBUG-TOLERATED": null,
+   "KEX-SERVER-SENDS-NON-KEX": null,
+   "KEXINIT-DUPLICATE": null,
+   "RECV-AFTER-DISCONNECT": null,
+   "REKEY-KEXINIT-REPLY": null,
+   "SEND-AFTER-DISCONNECT": null,
+   "SR-ACCEPT-BEFORE-NEWKEYS": null,
+   "STRICT-KEX-FIRST-KEXINIT": null,
+   "STRICT-KEX-NON-KEX-MSG": null,
+   "STRICT-KEX-REPEATED-MSG": null,
+   "UA-BEFORE-SR-AUTH": null,
+   "UNAUTH-CHANNEL-OPEN": null,
+   "D1-UA-SUCCESS-WITHOUT-SR": null,
+   "D2-CONN-MSG-PREAUTH-KEPT": null,
+   "D3-REKEY-PREAUTH-REFUSED": null,
+   "D4-UA-AFTER-SUCCESS-NOT-IGNORED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "CLOSED"
+    }
+   ],
+   "D5-SR-AFTER-AUTH-ACCEPTED": null,
+   "D6-SR-CONN-PREAUTH-SILENT-CLOSE": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_CONN",
+     "out": "CLOSED"
+    }
+   ],
+   "D7-KEX-ERROR-TOLERATED": null,
+   "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED": null,
+   "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED": null
+  }
+ },
+ "theirs-on-our-SUTs:gossh_strict": {
+  "path": "results/v2/A/tm_models/gossh_strict/model.dot",
+  "converted": false,
+  "states": 9,
+  "alphabet": [
+   "CH_OPEN",
+   "KEX30",
+   "KEXINIT",
+   "NEWKEYS",
+   "SR_AUTH",
+   "SR_CONN",
+   "UA_PW_OK"
+  ],
+  "hits": {
+   "AUTH-WITHOUT-CREDENTIALS": null,
+   "CH-CLOSE-REPLY": null,
+   "CONN-BEFORE-AUTH": null,
+   "IGNORE-DEBUG-TOLERATED": null,
+   "KEX-SERVER-SENDS-NON-KEX": null,
+   "KEXINIT-DUPLICATE": null,
+   "RECV-AFTER-DISCONNECT": null,
+   "REKEY-KEXINIT-REPLY": null,
+   "SEND-AFTER-DISCONNECT": null,
+   "SR-ACCEPT-BEFORE-NEWKEYS": null,
+   "STRICT-KEX-FIRST-KEXINIT": null,
+   "STRICT-KEX-NON-KEX-MSG": null,
+   "STRICT-KEX-REPEATED-MSG": null,
+   "UA-BEFORE-SR-AUTH": null,
+   "UNAUTH-CHANNEL-OPEN": null,
+   "D1-UA-SUCCESS-WITHOUT-SR": null,
+   "D2-CONN-MSG-PREAUTH-KEPT": null,
+   "D3-REKEY-PREAUTH-REFUSED": null,
+   "D4-UA-AFTER-SUCCESS-NOT-IGNORED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "CLOSED"
+    }
+   ],
+   "D5-SR-AFTER-AUTH-ACCEPTED": null,
+   "D6-SR-CONN-PREAUTH-SILENT-CLOSE": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_CONN",
+     "out": "CLOSED"
+    }
+   ],
+   "D7-KEX-ERROR-TOLERATED": null,
+   "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED": null,
+   "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED": null
+  }
+ },
+ "theirs-on-our-SUTs:openssh_nonstrict": {
+  "path": "results/v2/A/tm_models/openssh_nonstrict/model.dot",
+  "converted": false,
+  "states": 10,
+  "alphabet": [
+   "CH_OPEN",
+   "KEX30",
+   "KEXINIT",
+   "NEWKEYS",
+   "SR_AUTH",
+   "SR_CONN",
+   "UA_PW_OK"
+  ],
+  "hits": {
+   "AUTH-WITHOUT-CREDENTIALS": null,
+   "CH-CLOSE-REPLY": null,
+   "CONN-BEFORE-AUTH": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "CH_OPEN",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "IGNORE-DEBUG-TOLERATED": null,
+   "KEX-SERVER-SENDS-NON-KEX": null,
+   "KEXINIT-DUPLICATE": null,
+   "RECV-AFTER-DISCONNECT": null,
+   "REKEY-KEXINIT-REPLY": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "SEND-AFTER-DISCONNECT": null,
+   "SR-ACCEPT-BEFORE-NEWKEYS": null,
+   "STRICT-KEX-FIRST-KEXINIT": [
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    }
+   ],
+   "STRICT-KEX-NON-KEX-MSG": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "STRICT-KEX-REPEATED-MSG": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "UA-BEFORE-SR-AUTH": null,
+   "UNAUTH-CHANNEL-OPEN": null,
+   "D1-UA-SUCCESS-WITHOUT-SR": null,
+   "D2-CONN-MSG-PREAUTH-KEPT": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "CH_OPEN",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D3-REKEY-PREAUTH-REFUSED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D4-UA-AFTER-SUCCESS-NOT-IGNORED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS+GLOBAL_REQUEST"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D5-SR-AFTER-AUTH-ACCEPTED": null,
+   "D6-SR-CONN-PREAUTH-SILENT-CLOSE": null,
+   "D7-KEX-ERROR-TOLERATED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED": [
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "UNIMPLEMENTED"
+    }
+   ]
+  }
+ },
+ "theirs-on-our-SUTs:openssh_strict": {
+  "path": "results/v2/A/tm_models/openssh_strict/model.dot",
+  "converted": false,
+  "states": 12,
+  "alphabet": [
+   "CH_OPEN",
+   "KEX30",
+   "KEXINIT",
+   "NEWKEYS",
+   "SR_AUTH",
+   "SR_CONN",
+   "UA_PW_OK"
+  ],
+  "hits": {
+   "AUTH-WITHOUT-CREDENTIALS": null,
+   "CH-CLOSE-REPLY": null,
+   "CONN-BEFORE-AUTH": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "CH_OPEN",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "IGNORE-DEBUG-TOLERATED": null,
+   "KEX-SERVER-SENDS-NON-KEX": null,
+   "KEXINIT-DUPLICATE": null,
+   "RECV-AFTER-DISCONNECT": null,
+   "REKEY-KEXINIT-REPLY": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "SEND-AFTER-DISCONNECT": null,
+   "SR-ACCEPT-BEFORE-NEWKEYS": null,
+   "STRICT-KEX-FIRST-KEXINIT": null,
+   "STRICT-KEX-NON-KEX-MSG": null,
+   "STRICT-KEX-REPEATED-MSG": null,
+   "UA-BEFORE-SR-AUTH": null,
+   "UNAUTH-CHANNEL-OPEN": null,
+   "D1-UA-SUCCESS-WITHOUT-SR": null,
+   "D2-CONN-MSG-PREAUTH-KEPT": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "CH_OPEN",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D3-REKEY-PREAUTH-REFUSED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEXINIT",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D4-UA-AFTER-SUCCESS-NOT-IGNORED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "SR_AUTH",
+     "out": "SERVICE_ACCEPT"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UA_SUCCESS+GLOBAL_REQUEST"
+    },
+    {
+     "in": "UA_PW_OK",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D5-SR-AFTER-AUTH-ACCEPTED": null,
+   "D6-SR-CONN-PREAUTH-SILENT-CLOSE": null,
+   "D7-KEX-ERROR-TOLERATED": null,
+   "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED": [
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    }
+   ],
+   "D9-OUT-OF-PLACE-KEX-MSG-TOLERATED": [
+    {
+     "in": "KEXINIT",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "KEX31+NEWKEYS"
+    },
+    {
+     "in": "NEWKEYS",
+     "out": "NO_RESP"
+    },
+    {
+     "in": "KEX30",
+     "out": "UNIMPLEMENTED"
+    }
+   ]
+  }
+ }
+}

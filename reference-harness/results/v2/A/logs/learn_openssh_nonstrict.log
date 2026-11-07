@@ -1,0 +1,47 @@
+-----------------------------------
+Learning Finished.
+Learning Rounds:  6
+Number of states: 10
+Time (in seconds)
+  Total                : 850.49
+  Learning algorithm   : 194.19
+  Conformance checking : 656.3
+Learning Algorithm
+ # Membership Queries  : 163
+ # MQ Saved by Caching : 0
+ # Steps               : 972
+Equivalence Query
+ # Membership Queries  : 1169
+ # Steps               : 7854
+-----------------------------------
+Model saved to results/v2/A/tm_models/openssh_nonstrict/model.dot.
+{
+  "sut": "openssh",
+  "port": 2201,
+  "strict_kex": false,
+  "alphabet": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "SR_CONN",
+    "UA_PW_OK",
+    "CH_OPEN"
+  ],
+  "mapper_kw": {
+    "timeout": 0.4,
+    "quiet": 0.1
+  },
+  "instances": 3,
+  "states": 10,
+  "rounds": 6,
+  "mq": 163,
+  "mq_steps": 972,
+  "eq": 1169,
+  "eq_steps": 7854,
+  "nondet_events": 0,
+  "reset_failures": 0,
+  "seconds": 850.5,
+  "strict_kex_active": false,
+  "learner": "teammate smlearn.learn (RobustSUL, ParallelEqOracle, SSH_SEED_PATHS) @ 76b49e1, AALpy run_KV"
+}
