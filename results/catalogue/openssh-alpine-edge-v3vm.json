@@ -1,0 +1,53 @@
+{
+  "openssh-alpine-edge-v3vm": {
+    "AUTH-WITHOUT-CREDENTIALS": null,
+    "CH-CLOSE-REPLY": null,
+    "CONN-BEFORE-AUTH": [
+      {
+        "in": "KEXINIT",
+        "out": "NO_RESP"
+      },
+      {
+        "in": "KEX30",
+        "out": "KEX31+NEWKEYS"
+      },
+      {
+        "in": "NEWKEYS",
+        "out": "NO_RESP"
+      },
+      {
+        "in": "CH_OPEN",
+        "out": "UNIMPLEMENTED"
+      }
+    ],
+    "IGNORE-DEBUG-TOLERATED": null,
+    "KEX-SERVER-SENDS-NON-KEX": null,
+    "KEXINIT-DUPLICATE": null,
+    "RECV-AFTER-DISCONNECT": null,
+    "REKEY-KEXINIT-REPLY": [
+      {
+        "in": "KEXINIT",
+        "out": "NO_RESP"
+      },
+      {
+        "in": "KEX30",
+        "out": "KEX31+NEWKEYS"
+      },
+      {
+        "in": "NEWKEYS",
+        "out": "NO_RESP"
+      },
+      {
+        "in": "KEXINIT",
+        "out": "UNIMPLEMENTED"
+      }
+    ],
+    "SEND-AFTER-DISCONNECT": null,
+    "SR-ACCEPT-BEFORE-NEWKEYS": null,
+    "STRICT-KEX-FIRST-KEXINIT": null,
+    "STRICT-KEX-NON-KEX-MSG": null,
+    "STRICT-KEX-REPEATED-MSG": null,
+    "UA-BEFORE-SR-AUTH": null,
+    "UNAUTH-CHANNEL-OPEN": null
+  }
+}

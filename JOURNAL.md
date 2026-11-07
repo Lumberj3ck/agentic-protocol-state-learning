@@ -98,3 +98,6 @@ Every result, decision and exchange with the team, with links to the outputs.
   libssh 0.12.2 rejects the stray NEWKEYS in its packet filter and sets SSH_SESSION_STATE_ERROR without DISCONNECT or closing; later packets are dropped before decryption; keys untouched.
   Our target's event loop keeps polling (socket open ≥ 120 s, idle CPU); other connections unaffected. The open-socket part depends on the embedding application. Informational / low.
   russh: stray NEWKEYS outside KEX falls through to a no-op `_ => Ok(())` arm.
+- First v3 model: OpenSSH 10.6p2 (`results/runs/openssh-alpine-edge-v3vm/`): 13 states, 9 rounds, 488 MQ + 2053 EQ, 870 s on 8 containers, 0 nondeterminism, 0 reset failures.
+  Catalogue (`results/catalogue/openssh-alpine-edge-v3vm.json`): 13 ok, 2 violated, both known behaviours (calibration):
+  CONN-BEFORE-AUTH (CH_OPEN before auth → UNIMPLEMENTED, as SPIN 2017 reported for OpenSSH 6.9) and REKEY-KEXINIT-REPLY (OpenSSH refuses pre-auth rekey, predicted in `literature/ssh-ground-truth.md`).
