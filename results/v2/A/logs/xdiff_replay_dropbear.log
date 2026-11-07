@@ -10,3 +10,11 @@ dropbear KEX30 KEX30
    model ours=KEX31+NEWKEYS theirs=UNIMPL | live ours=KEX31+NEWKEYS theirs=UNIMPL | live-agree=False ours-model-ok=True theirs-model-ok=True taint=None det=True/True
 dropbear KEX30 KEXINIT
    model ours=NO_CONN theirs=NO_RESP | live ours=NO_CONN theirs=NO_RESP | live-agree=False ours-model-ok=True theirs-model-ok=True taint=None det=True/True
+dropbear KEXINIT KEX30 NEWKEYS KEXINIT NEWKEYS KEX30
+   model ours=NO_CONN theirs=KEX31+NEWKEYS | live ours=NO_CONN theirs=KEX31+NEWKEYS | live-agree=False ours-model-ok=True theirs-model-ok=True taint=5 det=True/True
+dropbear KEXINIT KEX30 NEWKEYS KEXINIT NEWKEYS NEWKEYS
+   model ours=NO_CONN theirs=UNIMPL | live ours=NO_CONN theirs=UNIMPL | live-agree=False ours-model-ok=True theirs-model-ok=True taint=5 det=True/True
+dropbear KEXINIT KEX30 NEWKEYS UA_PK_OK CH_OPEN CH_OPEN
+   model ours=CH_MAX theirs=CH_OPEN_SUCCESS | live ours=CH_MAX theirs=CH_OPEN_SUCCESS | live-agree=False ours-model-ok=True theirs-model-ok=True taint=None det=True/True
+dropbear KEXINIT KEX30 NEWKEYS UA_PK_OK CH_OPEN KEXINIT CH_OPEN
+   model ours=CH_MAX theirs=NO_CONN | live ours=CH_MAX theirs=NO_CONN | live-agree=False ours-model-ok=True theirs-model-ok=True taint=None det=True/True

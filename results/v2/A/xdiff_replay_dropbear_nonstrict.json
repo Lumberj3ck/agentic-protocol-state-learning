@@ -1,0 +1,739 @@
+{
+ "strict_kex": false,
+ "reps": 3,
+ "rows": [
+  {
+   "sut": "dropbear",
+   "sequence": [
+    "CH_OPEN"
+   ],
+   "model_ours": [
+    "NO_RESP"
+   ],
+   "model_theirs": [
+    "NO_CONN"
+   ],
+   "live_ours_raw": [
+    [
+     "KEXINIT"
+    ],
+    [
+     "KEXINIT"
+    ],
+    [
+     "KEXINIT"
+    ]
+   ],
+   "live_theirs_raw": [
+    [
+     "CLOSED"
+    ],
+    [
+     "CLOSED"
+    ],
+    [
+     "CLOSED"
+    ]
+   ],
+   "ours_det": true,
+   "theirs_det": true,
+   "live_ours": [
+    "NO_RESP"
+   ],
+   "live_theirs": [
+    "NO_CONN"
+   ],
+   "ours_live_matches_model": true,
+   "theirs_live_matches_model": true,
+   "live_first_mismatch": 0,
+   "ours_taint_index": null,
+   "auto_kexinit": true,
+   "comparable": true
+  },
+  {
+   "sut": "dropbear",
+   "sequence": [
+    "SR_AUTH"
+   ],
+   "model_ours": [
+    "NO_RESP"
+   ],
+   "model_theirs": [
+    "NO_CONN"
+   ],
+   "live_ours_raw": [
+    [
+     "KEXINIT"
+    ],
+    [
+     "KEXINIT"
+    ],
+    [
+     "KEXINIT"
+    ]
+   ],
+   "live_theirs_raw": [
+    [
+     "CLOSED"
+    ],
+    [
+     "CLOSED"
+    ],
+    [
+     "CLOSED"
+    ]
+   ],
+   "ours_det": true,
+   "theirs_det": true,
+   "live_ours": [
+    "NO_RESP"
+   ],
+   "live_theirs": [
+    "NO_CONN"
+   ],
+   "ours_live_matches_model": true,
+   "theirs_live_matches_model": true,
+   "live_first_mismatch": 0,
+   "ours_taint_index": null,
+   "auto_kexinit": true,
+   "comparable": true
+  },
+  {
+   "sut": "dropbear",
+   "sequence": [
+    "SR_CONN"
+   ],
+   "model_ours": [
+    "NO_RESP"
+   ],
+   "model_theirs": [
+    "NO_CONN"
+   ],
+   "live_ours_raw": [
+    [
+     "KEXINIT"
+    ],
+    [
+     "KEXINIT"
+    ],
+    [
+     "KEXINIT"
+    ]
+   ],
+   "live_theirs_raw": [
+    [
+     "CLOSED"
+    ],
+    [
+     "CLOSED"
+    ],
+    [
+     "CLOSED"
+    ]
+   ],
+   "ours_det": true,
+   "theirs_det": true,
+   "live_ours": [
+    "NO_RESP"
+   ],
+   "live_theirs": [
+    "NO_CONN"
+   ],
+   "ours_live_matches_model": true,
+   "theirs_live_matches_model": true,
+   "live_first_mismatch": 0,
+   "ours_taint_index": null,
+   "auto_kexinit": true,
+   "comparable": true
+  },
+  {
+   "sut": "dropbear",
+   "sequence": [
+    "UA_PK_OK"
+   ],
+   "model_ours": [
+    "NO_RESP"
+   ],
+   "model_theirs": [
+    "NO_CONN"
+   ],
+   "live_ours_raw": [
+    [
+     "KEXINIT"
+    ],
+    [
+     "KEXINIT"
+    ],
+    [
+     "KEXINIT"
+    ]
+   ],
+   "live_theirs_raw": [
+    [
+     "CLOSED"
+    ],
+    [
+     "CLOSED"
+    ],
+    [
+     "CLOSED"
+    ]
+   ],
+   "ours_det": true,
+   "theirs_det": true,
+   "live_ours": [
+    "NO_RESP"
+   ],
+   "live_theirs": [
+    "NO_CONN"
+   ],
+   "ours_live_matches_model": true,
+   "theirs_live_matches_model": true,
+   "live_first_mismatch": 0,
+   "ours_taint_index": null,
+   "auto_kexinit": true,
+   "comparable": true
+  },
+  {
+   "sut": "dropbear",
+   "sequence": [
+    "KEX30",
+    "KEX30"
+   ],
+   "model_ours": [
+    "UNIMPL",
+    "KEX31+NEWKEYS"
+   ],
+   "model_theirs": [
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "live_ours_raw": [
+    [
+     "KEXINIT+UNIMPL",
+     "KEX31+NEWKEYS+EXT_INFO"
+    ],
+    [
+     "KEXINIT+UNIMPL",
+     "KEX31+NEWKEYS+EXT_INFO"
+    ],
+    [
+     "KEXINIT+UNIMPL",
+     "KEX31+NEWKEYS+EXT_INFO"
+    ]
+   ],
+   "live_theirs_raw": [
+    [
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ],
+    [
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ],
+    [
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ]
+   ],
+   "ours_det": true,
+   "theirs_det": true,
+   "live_ours": [
+    "UNIMPL",
+    "KEX31+NEWKEYS"
+   ],
+   "live_theirs": [
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "ours_live_matches_model": true,
+   "theirs_live_matches_model": true,
+   "live_first_mismatch": 1,
+   "ours_taint_index": null,
+   "auto_kexinit": true,
+   "comparable": true
+  },
+  {
+   "sut": "dropbear",
+   "sequence": [
+    "KEX30",
+    "KEXINIT"
+   ],
+   "model_ours": [
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "model_theirs": [
+    "UNIMPL",
+    "NO_RESP"
+   ],
+   "live_ours_raw": [
+    [
+     "KEXINIT+UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT+UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT+UNIMPL",
+     "NO_CONN"
+    ]
+   ],
+   "live_theirs_raw": [
+    [
+     "UNIMPLEMENTED",
+     "NO_RESP"
+    ],
+    [
+     "UNIMPLEMENTED",
+     "NO_RESP"
+    ],
+    [
+     "UNIMPLEMENTED",
+     "NO_RESP"
+    ]
+   ],
+   "ours_det": true,
+   "theirs_det": true,
+   "live_ours": [
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "live_theirs": [
+    "UNIMPL",
+    "NO_RESP"
+   ],
+   "ours_live_matches_model": true,
+   "theirs_live_matches_model": true,
+   "live_first_mismatch": 1,
+   "ours_taint_index": null,
+   "auto_kexinit": true,
+   "comparable": true
+  },
+  {
+   "sut": "dropbear",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "KEXINIT",
+    "NEWKEYS",
+    "KEX30"
+   ],
+   "model_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "KEXINIT",
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "model_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "KEXINIT",
+    "UNIMPL",
+    "KEX31+NEWKEYS"
+   ],
+   "live_ours_raw": [
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "KEXINIT",
+     "UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "KEXINIT",
+     "UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "KEXINIT",
+     "UNIMPL",
+     "NO_CONN"
+    ]
+   ],
+   "live_theirs_raw": [
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "KEXINIT",
+     "UNIMPLEMENTED",
+     "KEX31+NEWKEYS"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "KEXINIT",
+     "UNIMPLEMENTED",
+     "KEX31+NEWKEYS"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "KEXINIT",
+     "UNIMPLEMENTED",
+     "KEX31+NEWKEYS"
+    ]
+   ],
+   "ours_det": true,
+   "theirs_det": true,
+   "live_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "KEXINIT",
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "live_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "KEXINIT",
+    "UNIMPL",
+    "KEX31+NEWKEYS"
+   ],
+   "ours_live_matches_model": true,
+   "theirs_live_matches_model": true,
+   "live_first_mismatch": 5,
+   "ours_taint_index": 5,
+   "auto_kexinit": false,
+   "comparable": true
+  },
+  {
+   "sut": "dropbear",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "KEXINIT",
+    "NEWKEYS",
+    "NEWKEYS"
+   ],
+   "model_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "KEXINIT",
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "model_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "KEXINIT",
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "live_ours_raw": [
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "KEXINIT",
+     "UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "KEXINIT",
+     "UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "KEXINIT",
+     "UNIMPL",
+     "NO_CONN"
+    ]
+   ],
+   "live_theirs_raw": [
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "KEXINIT",
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "KEXINIT",
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "KEXINIT",
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ]
+   ],
+   "ours_det": true,
+   "theirs_det": true,
+   "live_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "KEXINIT",
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "live_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "KEXINIT",
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "ours_live_matches_model": true,
+   "theirs_live_matches_model": true,
+   "live_first_mismatch": 5,
+   "ours_taint_index": 5,
+   "auto_kexinit": false,
+   "comparable": true
+  },
+  {
+   "sut": "dropbear",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "UA_PK_OK",
+    "CH_OPEN",
+    "CH_OPEN"
+   ],
+   "model_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UA_SUCCESS",
+    "CH_OPEN_SUCCESS",
+    "CH_MAX"
+   ],
+   "model_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UA_SUCCESS",
+    "CH_OPEN_SUCCESS",
+    "CH_OPEN_SUCCESS"
+   ],
+   "live_ours_raw": [
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UA_SUCCESS",
+     "CH_OPEN_SUCCESS",
+     "CH_MAX"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UA_SUCCESS",
+     "CH_OPEN_SUCCESS",
+     "CH_MAX"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UA_SUCCESS",
+     "CH_OPEN_SUCCESS",
+     "CH_MAX"
+    ]
+   ],
+   "live_theirs_raw": [
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "UA_SUCCESS",
+     "CH_OPEN_SUCCESS",
+     "CH_OPEN_SUCCESS"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "UA_SUCCESS",
+     "CH_OPEN_SUCCESS",
+     "CH_OPEN_SUCCESS"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "UA_SUCCESS",
+     "CH_OPEN_SUCCESS",
+     "CH_OPEN_SUCCESS"
+    ]
+   ],
+   "ours_det": true,
+   "theirs_det": true,
+   "live_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UA_SUCCESS",
+    "CH_OPEN_SUCCESS",
+    "CH_MAX"
+   ],
+   "live_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UA_SUCCESS",
+    "CH_OPEN_SUCCESS",
+    "CH_OPEN_SUCCESS"
+   ],
+   "ours_live_matches_model": true,
+   "theirs_live_matches_model": true,
+   "live_first_mismatch": 5,
+   "ours_taint_index": null,
+   "auto_kexinit": false,
+   "comparable": false
+  },
+  {
+   "sut": "dropbear",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "UA_PK_OK",
+    "CH_OPEN",
+    "KEXINIT",
+    "CH_OPEN"
+   ],
+   "model_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UA_SUCCESS",
+    "CH_OPEN_SUCCESS",
+    "KEXINIT",
+    "CH_MAX"
+   ],
+   "model_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UA_SUCCESS",
+    "CH_OPEN_SUCCESS",
+    "KEXINIT",
+    "NO_CONN"
+   ],
+   "live_ours_raw": [
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UA_SUCCESS",
+     "CH_OPEN_SUCCESS",
+     "KEXINIT",
+     "CH_MAX"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UA_SUCCESS",
+     "CH_OPEN_SUCCESS",
+     "KEXINIT",
+     "CH_MAX"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UA_SUCCESS",
+     "CH_OPEN_SUCCESS",
+     "KEXINIT",
+     "CH_MAX"
+    ]
+   ],
+   "live_theirs_raw": [
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "UA_SUCCESS",
+     "CH_OPEN_SUCCESS",
+     "KEXINIT",
+     "CLOSED"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "UA_SUCCESS",
+     "CH_OPEN_SUCCESS",
+     "KEXINIT",
+     "CLOSED"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "UA_SUCCESS",
+     "CH_OPEN_SUCCESS",
+     "KEXINIT",
+     "CLOSED"
+    ]
+   ],
+   "ours_det": true,
+   "theirs_det": true,
+   "live_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UA_SUCCESS",
+    "CH_OPEN_SUCCESS",
+    "KEXINIT",
+    "CH_MAX"
+   ],
+   "live_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UA_SUCCESS",
+    "CH_OPEN_SUCCESS",
+    "KEXINIT",
+    "NO_CONN"
+   ],
+   "ours_live_matches_model": true,
+   "theirs_live_matches_model": true,
+   "live_first_mismatch": 6,
+   "ours_taint_index": null,
+   "auto_kexinit": false,
+   "comparable": false
+  }
+ ]
+}

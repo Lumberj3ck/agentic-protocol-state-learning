@@ -23,6 +23,7 @@ def main():
     p.add_argument("--walks-per-state", type=int, default=20)
     p.add_argument("--max-suffix", type=int, default=6)
     p.add_argument("--out", type=Path, required=True)
+    p.add_argument("--seeds", type=Path, help="JSON list of extra seed words (their mechanism for refuted witnesses)")
     a = p.parse_args()
     alphabet = a.alphabet.split(",")
     a.out.mkdir(parents=True, exist_ok=True)
@@ -30,7 +31,7 @@ def main():
     mappers = [tc.tm_mapper(a.sut, bool(a.strict)) for _ in range(a.instances)]
     sul = RobustSUL(mappers[0], log)
     eq = ParallelEqOracle(alphabet, sul, mappers[1:] or mappers, log, walks_per_state=a.walks_per_state,
-                          max_suffix=a.max_suffix, seed_paths=SSH_SEED_PATHS)
+                          max_suffix=a.max_suffix, seed_paths=SSH_SEED_PATHS + (json.loads(a.seeds.read_text()) if a.seeds else []))
     t0 = time.time()
     model, info = run_KV(alphabet, sul, eq, automaton_type="mealy", cache_and_non_det_check=False,
                          return_data=True, print_level=1)
@@ -40,7 +41,7 @@ def main():
              "rounds": info.get("learning_rounds"), "mq": sul.num_queries, "mq_steps": sul.num_steps,
              "eq": eq.num_queries, "eq_steps": eq.num_steps, "nondet_events": sul.nondet_events,
              "reset_failures": sul.reset_failures + eq.reset_failures, "seconds": round(time.time() - t0, 1),
-             "strict_kex_active": mappers[0].strict_kex_active,
+             "strict_kex_active": mappers[0].strict_kex_active, "extra_seeds": str(a.seeds) if a.seeds else None,
              "learner": "teammate smlearn.learn (RobustSUL, ParallelEqOracle, SSH_SEED_PATHS) @ 76b49e1, AALpy run_KV"}
     (a.out / "learn.json").write_text(json.dumps(stats, indent=2) + "\n")
     for m in mappers:

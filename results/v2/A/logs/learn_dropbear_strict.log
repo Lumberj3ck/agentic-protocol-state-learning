@@ -1,0 +1,47 @@
+-----------------------------------
+Learning Finished.
+Learning Rounds:  7
+Number of states: 11
+Time (in seconds)
+  Total                : 573.55
+  Learning algorithm   : 105.94
+  Conformance checking : 467.61
+Learning Algorithm
+ # Membership Queries  : 123
+ # MQ Saved by Caching : 0
+ # Steps               : 601
+Equivalence Query
+ # Membership Queries  : 1038
+ # Steps               : 6701
+-----------------------------------
+Model saved to results/v2/A/tm_models/dropbear_strict/model.dot.
+{
+  "sut": "dropbear",
+  "port": 2202,
+  "strict_kex": true,
+  "alphabet": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "SR_CONN",
+    "UA_PW_OK",
+    "CH_OPEN"
+  ],
+  "mapper_kw": {
+    "timeout": 0.4,
+    "quiet": 0.1
+  },
+  "instances": 3,
+  "states": 11,
+  "rounds": 7,
+  "mq": 123,
+  "mq_steps": 601,
+  "eq": 1038,
+  "eq_steps": 6701,
+  "nondet_events": 0,
+  "reset_failures": 0,
+  "seconds": 573.6,
+  "strict_kex_active": true,
+  "learner": "teammate smlearn.learn (RobustSUL, ParallelEqOracle, SSH_SEED_PATHS) @ 76b49e1, AALpy run_KV"
+}

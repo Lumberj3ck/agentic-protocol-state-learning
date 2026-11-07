@@ -1,0 +1,16 @@
+dropbear CH_OPEN
+   model ours=NO_RESP theirs=NO_CONN | live ours=NO_RESP theirs=NO_CONN | live-agree=False ours-model-ok=True theirs-model-ok=True taint=None det=True/True
+dropbear SR_AUTH
+   model ours=NO_RESP theirs=NO_CONN | live ours=NO_RESP theirs=NO_CONN | live-agree=False ours-model-ok=True theirs-model-ok=True taint=None det=True/True
+dropbear SR_CONN
+   model ours=NO_RESP theirs=NO_CONN | live ours=NO_RESP theirs=NO_CONN | live-agree=False ours-model-ok=True theirs-model-ok=True taint=None det=True/True
+dropbear UA_PK_OK
+   model ours=NO_RESP theirs=NO_CONN | live ours=NO_RESP theirs=NO_CONN | live-agree=False ours-model-ok=True theirs-model-ok=True taint=None det=True/True
+dropbear KEX30 KEX30
+   model ours=KEX31+NEWKEYS theirs=UNIMPL | live ours=KEX31+NEWKEYS theirs=UNIMPL | live-agree=False ours-model-ok=True theirs-model-ok=True taint=None det=True/True
+dropbear KEXINIT NEWKEYS
+   model ours=UNIMPL theirs=NO_CONN | live ours=UNIMPL theirs=NO_CONN | live-agree=False ours-model-ok=True theirs-model-ok=True taint=None det=True/True
+dropbear KEXINIT KEX30 KEX30
+   model ours=UNIMPL theirs=NO_CONN | live ours=UNIMPL theirs=NO_CONN | live-agree=False ours-model-ok=True theirs-model-ok=True taint=None det=True/True
+dropbear KEXINIT KEX30 NEWKEYS KEXINIT NEWKEYS KEX30
+   model ours=NO_CONN theirs=KEX31+NEWKEYS | live ours=NO_CONN theirs=KEX31+NEWKEYS | live-agree=False ours-model-ok=True theirs-model-ok=True taint=5 det=True/True

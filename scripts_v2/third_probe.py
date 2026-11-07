@@ -44,6 +44,12 @@ def build(sym):
         m.add_string(X25519PrivateKey.generate().public_key().public_bytes_raw())
     elif sym == "NEWKEYS":
         m.add_byte(bytes([21]))
+    elif sym == "UA_PW_OK":
+        m.add_byte(bytes([50]))
+        for f in ("tester", "ssh-connection", "password"):
+            m.add_string(f)
+        m.add_boolean(False)
+        m.add_string("correct-horse-battery")
     elif sym == "SR_AUTH":
         m.add_byte(bytes([5]))
         m.add_string("ssh-userauth")
@@ -116,6 +122,7 @@ CASES = [
     ("M1-kex30-kex30", "dropbear", ["KEX30", "KEX30"], ["KEX30", "KEXINIT", "KEX30"]),
     ("M1-kex30-kexinit", "openssh", ["KEX30", "KEXINIT"], ["KEX30", "KEXINIT", "KEXINIT"]),
     ("M1-kex30-kexinit", "dropbear", ["KEX30", "KEXINIT"], ["KEX30", "KEXINIT", "KEXINIT"]),
+    ("M2-openssh-first-ua", "openssh", ["UA_PW_OK"], ["UA_PW_OK", "KEXINIT"]),
 ]
 
 
@@ -128,7 +135,10 @@ def main():
     out = sys.argv[sys.argv.index("--out") + 1]
     reps = int(sys.argv[sys.argv.index("--reps") + 1])
     res = {"paramiko": paramiko.__version__, "started": datetime.now(timezone.utc).isoformat(), "window_s": WIN, "cases": []}
+    only = sys.argv[sys.argv.index("--only") + 1] if "--only" in sys.argv else None
     for cid, sut, theirs, ours in CASES:
+        if only and cid != only:
+            continue
         port, cont = SUTS[sut]
         for label, word in (("theirs-order", theirs), ("ours-order", ours)):
             since = datetime.now(timezone.utc).isoformat()

@@ -24,3 +24,12 @@
 - 16:18 Cross-harness model diff (`psm.xharness diff`) Go: 10 coarse classes; double live replay (`results/v2/A/xdiff_replay_gossh_nonstrict.json`): 6 are H2, 2 are CH_MAX (not comparable), 2 are errors in THEIR learned model: after `KEXINIT KEX30 NEWKEYS SR_AUTH KEXINIT KEX30 NEWKEYS`, their model predicts SR_AUTH -> SR_ACCEPT and UA -> NO_CONN, but their own mapper live gives NO_CONN and UA_SUCCESS, same as ours (their model merges "rekeyed after SR_AUTH" with "after the initial KEXINIT").
 - 16:19 Dropbear double replay crashed on a connection-setup EOF (Dropbear MAX_UNAUTH_PER_IP 5, shared with the learners); `tm_query` now retries like their `reset_with_retry`; rerun.
 - 16:19 The Write tool refused `results/v2/A/summary.md` (subagent rule against report files); its content goes to the lead in the final message instead.
+- 16:20 Their learner, our servers: OpenSSH non-strict 10 states (850 s), strict 12 (727 s); Dropbear strict 11 (574 s); 0 nondeterminism events in every run.
+  Their own strict vs non-strict models: Go equivalent; Dropbear 3 classes, OpenSSH 21 coarse classes, all initial-KEX errors or stray NEWKEYS (strict: CLOSED; the latter is their CANDIDATE-001 sequence-number reset).
+- 16:21 Dropbear double replay (`results/v2/A/xdiff_replay_dropbear_nonstrict.json`): both harnesses reproduce their own models live on all 10 classes, 3/3 deterministic.
+  Classes: 4 H2, 2 H1, 2 our NEWKEYS taint (pre-auth rekey with NEWKEYS before KEX30), 2 CH_MAX.
+- 16:22 OpenSSH model diff on alphabet A: 12 classes, 3 auto-KEXINIT (H1/H2), 9 our NEWKEYS taint; double replay running.
+- 16:23 Third client, OpenSSH with USERAUTH_REQUEST as the first packet: closed in both orders, 3/3 (`results/v2/A/third_probe_openssh_ua.json`): H2.
+- 16:24 Catalogues (`results/v2/A/catalogue_results.json`): on the shared alphabet our models and theirs (learned on the same servers) have identical hit sets for Dropbear (8 patterns) and Go (D4, D6); OpenSSH identical on alphabet A, theirs adds CONN-BEFORE-AUTH and D2 (CH_OPEN, not in our A alphabet).
+  The STRICT-KEX-* patterns hit every non-strict model; not applicable, since strict KEX was not negotiated.
+- 16:24 Started their learner on the full 17-input alphabet, strict (their default), on our three servers, and a Go re-learn seeded with the two refuted words (their `--seeds` mechanism).
