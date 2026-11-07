@@ -92,3 +92,4 @@
   Three-way A diff (results/diff/A_threeway.json, normalised): 53 distinguishing sequences; replaying the 40 not yet replayed (results/replay/A_threeway_replay.json).
 - 15:01 Stopped B_openssh (hypothesis 1 = 16 states at 14:50; the rekey-aware equivalence phase would need ~1800 words at ~8 fresh OpenSSH queries/min, far past the 16:30 freeze, and it loads the 1-CPU OpenSSH container used by the final replays).
   OpenSSH has NO converged B model; its SR_CONN / CH_OPEN behaviour is established by three-server replays only (results/final/verified_B_only.md). Cache kept: results/learning/B_openssh/cache_at_stop.json.
+- 15:12 REVIEW E1/E2 (results/review/sr_conn.md): both REAL (11 seqs x 5 x 3; 60 stock-paramiko connections incl. strict KEX; server source). E1 = report D6; E2 merged into D5 (same mechanism as C3). Dropbear source even has "/* TODO this should be a MSG_DISCONNECT */" (svr-service.c).
