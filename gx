@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Run a command on the GX10 box: sync code up, run it there, sync results/ back.
+# Usage: ./gx .venv/bin/python -m pytest      (runs in ~/research/proto-sm on the box; override with GX_RDIR)
+set -uo pipefail
+REMOTE="${GX_REMOTE:-gx10}"
+RDIR="${GX_RDIR:-research/proto-sm}"
+HERE="$(cd "$(dirname "$0")" && pwd)"
+rsync -az --exclude .git --exclude .venv --exclude data/ --exclude results/ "$HERE/" "$REMOTE:$RDIR/" || { echo "gx: sync up failed" >&2; exit 97; }
+ssh -o BatchMode=yes "$REMOTE" "cd $RDIR && export PATH=\$HOME/.local/bin:\$PATH OMP_NUM_THREADS=\${OMP_NUM_THREADS:-3} && $(printf '%q ' "$@")"
+rc=$?
+mkdir -p "$HERE/results"
+rsync -az "$REMOTE:$RDIR/results/" "$HERE/results/" || echo "gx: sync back failed" >&2
+exit $rc
