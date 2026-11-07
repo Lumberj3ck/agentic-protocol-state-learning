@@ -211,8 +211,8 @@ All are in JOURNAL.md.
 
 # v2 (from 2026-11-07 16:00; v1 above is frozen at tag `submission-1700`)
 
-Status: INTERIM. Streams A (harness differential) and B1 (more servers) ran 16:10-16:30 with replay-based comparisons; streams B2 (version sweep) and C (mapper gaps) were not run (see JOURNAL.md 16:10).
-Findings below are labelled CONFIRMED only after a skeptic review; otherwise PENDING REVIEW.
+Status: FINAL for submission (tag `submission-v2`). Done: A (harness differential), B1 (seven more servers), B2 (version sweep, replays). Not done: C (strict KEX in our mapper, channel fixes); learned models for the sweep versions and for six of the seven new servers (runs were still going at the freeze).
+v2 server behaviours are observations replayed on live servers; they have not had the skeptic review that v1 classes had (see "v2 review status").
 
 ## v2-A: two independently built harnesses on the same servers
 
@@ -220,7 +220,22 @@ Summary: `results/v2/A/summary.md` (two independent harnesses: 0 server-level di
 
 ## v2-B1: more implementations
 
-Results: `results/v2/B1/class_matrix.md` (9 implementations x D1-D9), `results/v2/class_matrix_servers.md`, server versions in `suts/*/VERSION.md`.
+Seven more server implementations, each built from a pinned image, verified with a stock paramiko login, and driven by the same v1 mapper (diffie-hellman-group14-sha256, rsa-sha2-256, aes128-ctr, hmac-sha2-256 negotiated with all seven):
+
+| implementation | version | how obtained |
+|---|---|---|
+| Paramiko (server) | 5.1.0 | PyPI, python:3.12-slim by digest |
+| AsyncSSH | 2.17.0 | PyPI, same base |
+| Erlang/OTP ssh | OTP 29.1.2 (ssh 6.0.7) | erlang:29.1.2.0-slim by digest |
+| libssh | 0.12.2 | release tarball with sha256, debian bookworm-slim by digest |
+| russh | 0.65.1 | crates.io, rust 1.92.0 image by digest |
+| Apache MINA SSHD | 2.20.1 | Maven Central, temurin 21 images by digest |
+| wolfSSH | 1.6.0 (wolfSSL 5.9.4) | release tarballs with sha256 |
+
+Dockerfiles adapted from the teammate's targets (Apache-2.0), credited in each `suts/<impl>/VERSION.md`.
+Each server's answer to the nine v1 class representatives (3 reps; candidate sequences 5 reps with server logs, all deterministic) is in `results/v2/B1/class_matrix.md` and `results/v2/class_matrix_servers.md` (the second marks cells whose prefix differs, e.g. libssh and russh send EXT_INFO one step later); raw replays in `results/v2/B1/*_final_seqs.json` and `results/v2/B1/candidate_replay.json`.
+The same per-server policies seen in v1 recur: some servers answer out-of-place messages with UNIMPLEMENTED, some disconnect, some accept them; D1 (authentication without a prior service request) is accepted by five of the ten servers.
+Learned model so far: Paramiko, 8 states (`results/models/b1_paramiko_A.dot`); MINA finished after the freeze and is not part of this submission.
 
 ## v2-B2: version sweep (UNREVIEWED)
 
@@ -238,4 +253,4 @@ Results: `results/v2/B1/class_matrix.md` (9 implementations x D1-D9), `results/v
 
 ## v2: what we cannot conclude (additions)
 
-- No learned models for the new implementations or for the teammate harness in this interim: comparisons are on replayed concrete sequences (D1-D9 representatives and the 39 v1 divergence points), so states not reached by those sequences are not compared.
+- For the new implementations and the version sweep, comparisons are on replayed concrete sequences (the D1-D9 representatives and the 39 v1 divergence points), not on learned models (only Paramiko's converged before the freeze), so states those sequences do not reach are not compared. The teammate-harness comparison (v2-A) does include learned models.
