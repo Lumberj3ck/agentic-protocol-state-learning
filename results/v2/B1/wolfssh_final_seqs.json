@@ -1,0 +1,570 @@
+{
+ "started": "2026-11-07T15:10:46.880137+00:00",
+ "reps": 3,
+ "targets": {
+  "wolfssh": {
+   "mapper_port": 8307,
+   "container": "psm-b1-wolfssh"
+  }
+ },
+ "sequences": [
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "CH_OPEN"
+   ],
+   "results": {
+    "wolfssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 16.51,
+     "server_log": []
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "UA_PK_OK"
+   ],
+   "results": {
+    "wolfssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT+UA_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT+UA_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT+UA_SUCCESS"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT+UA_SUCCESS"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 11.45,
+     "server_log": []
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "CH_OPEN"
+   ],
+   "results": {
+    "wolfssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 12.89,
+     "server_log": []
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "KEXINIT"
+   ],
+   "results": {
+    "wolfssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "KEXINIT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "KEXINIT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "KEXINIT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "KEXINIT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 13.65,
+     "server_log": []
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "UA_PK_OK"
+   ],
+   "results": {
+    "wolfssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 16.01,
+     "server_log": []
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "SR_AUTH"
+   ],
+   "results": {
+    "wolfssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 15.7,
+     "server_log": []
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "SR_CONN"
+   ],
+   "results": {
+    "wolfssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 12.87,
+     "server_log": []
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "KEX30"
+   ],
+   "results": {
+    "wolfssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 7.78,
+     "server_log": []
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEX30"
+   ],
+   "results": {
+    "wolfssh": {
+     "observations": [
+      [
+       "KEXINIT+DISCONNECT"
+      ],
+      [
+       "KEXINIT+DISCONNECT"
+      ],
+      [
+       "KEXINIT+DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT+DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 2.57,
+     "server_log": []
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEXINIT"
+   ],
+   "results": {
+    "wolfssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 5.12,
+     "server_log": []
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "KEXINIT",
+    "SR_AUTH"
+   ],
+   "results": {
+    "wolfssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "KEXINIT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "KEXINIT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "KEXINIT",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "KEXINIT",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 18.29,
+     "server_log": []
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  }
+ ]
+}

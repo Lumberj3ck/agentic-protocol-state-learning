@@ -2,7 +2,7 @@
 use std::{sync::Arc, time::Duration};
 use russh::{server::{self, Auth, Msg, Server as _, Session}, Channel, ChannelId};
 use russh::keys::PublicKey;
-use russh::server::VerifiedPublicKey;
+use russh::server::{PublicKeyOffer, VerifiedPublicKey};
 
 #[derive(Clone)]
 struct Server;
@@ -32,12 +32,12 @@ impl server::Handler for Server {
 
     // Offered (no signature yet): approve only the key in authorized_keys; the library then verifies the signature
     // and calls auth_publickey with a VerifiedPublicKey.
-    async fn auth_publickey_offered(&mut self, user: &str, key: &PublicKey) -> Result<Auth, Self::Error> {
-        Ok(if user == "tester" && authorized(key) { Auth::Accept } else { Auth::reject() })
+    async fn auth_publickey_offered(&mut self, user: &str, key: PublicKeyOffer<'_>) -> Result<Auth, Self::Error> {
+        Ok(if user == "tester" && authorized(key.public_key) { Auth::Accept } else { Auth::reject() })
     }
 
-    async fn auth_publickey(&mut self, user: &str, _key: VerifiedPublicKey<'_>) -> Result<Auth, Self::Error> {
-        Ok(if user == "tester" { Auth::Accept } else { Auth::reject() })
+    async fn auth_publickey(&mut self, user: &str, key: VerifiedPublicKey<'_>) -> Result<Auth, Self::Error> {
+        Ok(if user == "tester" && authorized(key.public_key) { Auth::Accept } else { Auth::reject() })
     }
 
     async fn channel_open_session(

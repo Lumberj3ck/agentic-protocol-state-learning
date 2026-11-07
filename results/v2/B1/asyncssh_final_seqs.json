@@ -1,0 +1,981 @@
+{
+ "started": "2026-11-07T15:09:52.908781+00:00",
+ "reps": 3,
+ "targets": {
+  "asyncssh": {
+   "mapper_port": 8302,
+   "container": "psm-b1-asyncssh"
+  }
+ },
+ "sequences": [
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "CH_OPEN"
+   ],
+   "results": {
+    "asyncssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 16.58,
+     "server_log": [
+      "INFO:asyncssh:[conn=2] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=2]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=2]   Peer address: 172.17.0.1, port 42328",
+      "DEBUG:asyncssh:[conn=2] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=2] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=2] Requesting key exchange",
+      "INFO:asyncssh:[conn=3] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=3]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=3]   Peer address: 172.17.0.1, port 42336",
+      "DEBUG:asyncssh:[conn=3] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=3] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=3] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=3] Received key exchange request",
+      "DEBUG:asyncssh:[conn=3] Beginning key exchange",
+      "/usr/local/lib/python3.12/site-packages/asyncssh/crypto/dh.py:30: CryptographyDeprecationWarning: Diffie-Hellman over finite fields (FFDH) is deprecated and support will be removed in a future release. Use a more modern key exchange algorithm.",
+      "  self._pn = dh.DHParameterNumbers(p, g)",
+      "/usr/local/lib/python3.12/site-packages/asyncssh/crypto/dh.py:43: CryptographyDeprecationWarning: Diffie-Hellman over finite fields (FFDH) is deprecated and support will be removed in a future release. Use a more modern key exchange algorithm.",
+      "  peer_key = dh.DHPublicNumbers(peer_public, self._pn).public_key()",
+      "DEBUG:asyncssh:[conn=3] Completed key exchange",
+      "INFO:asyncssh:[conn=3] Beginning auth for user tester",
+      "DEBUG:asyncssh:[conn=3] Verifying request with rsa-sha2-256 key",
+      "INFO:asyncssh:[conn=3] Auth for user tester succeeded",
+      "INFO:asyncssh:[conn=3] Sending server host keys disabled",
+      "DEBUG:asyncssh:[conn=3, chan=0] Set write buffer limits: low-water=16384, high-water=65536",
+      "INFO:asyncssh:[conn=3, chan=0] New SSH session requested",
+      "INFO:asyncssh:[conn=3, chan=0] Closing channel due to connection close",
+      "INFO:asyncssh:[conn=4] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=4]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=4]   Peer address: 172.17.0.1, port 51578",
+      "DEBUG:asyncssh:[conn=4] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=4] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=4] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=4] Received key exchange request",
+      "DEBUG:asyncssh:[conn=4] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=4] Completed key exchange",
+      "INFO:asyncssh:[conn=4] Beginning auth for user tester",
+      "DEBUG:asyncssh:[conn=4] Verifying request with rsa-sha2-256 key",
+      "INFO:asyncssh:[conn=4] Auth for user tester succeeded",
+      "INFO:asyncssh:[conn=4] Sending server host keys disabled",
+      "DEBUG:asyncssh:[conn=4, chan=0] Set write buffer limits: low-water=16384, high-water=65536",
+      "INFO:asyncssh:[conn=4, chan=0] New SSH session requested",
+      "INFO:asyncssh:[conn=4, chan=0] Closing channel due to connection close",
+      "INFO:asyncssh:[conn=5] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=5]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=5]   Peer address: 172.17.0.1, port 51594",
+      "DEBUG:asyncssh:[conn=5] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=5] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=5] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=5] Received key exchange request",
+      "DEBUG:asyncssh:[conn=5] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=5] Completed key exchange",
+      "INFO:asyncssh:[conn=5] Beginning auth for user tester",
+      "DEBUG:asyncssh:[conn=5] Verifying request with rsa-sha2-256 key",
+      "INFO:asyncssh:[conn=5] Auth for user tester succeeded",
+      "INFO:asyncssh:[conn=5] Sending server host keys disabled",
+      "DEBUG:asyncssh:[conn=5, chan=0] Set write buffer limits: low-water=16384, high-water=65536",
+      "INFO:asyncssh:[conn=5, chan=0] New SSH session requested"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "UA_PK_OK"
+   ],
+   "results": {
+    "asyncssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "UA_SUCCESS"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 11.37,
+     "server_log": [
+      "INFO:asyncssh:[conn=5, chan=0] Closing channel due to connection close",
+      "INFO:asyncssh:[conn=6] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=6]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=6]   Peer address: 172.17.0.1, port 52130",
+      "DEBUG:asyncssh:[conn=6] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=6] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=6] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=6] Received key exchange request",
+      "DEBUG:asyncssh:[conn=6] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=6] Completed key exchange",
+      "INFO:asyncssh:[conn=6] Beginning auth for user tester",
+      "DEBUG:asyncssh:[conn=6] Verifying request with rsa-sha2-256 key",
+      "INFO:asyncssh:[conn=6] Auth for user tester succeeded",
+      "INFO:asyncssh:[conn=6] Sending server host keys disabled",
+      "INFO:asyncssh:[conn=7] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=7]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=7]   Peer address: 172.17.0.1, port 52144",
+      "DEBUG:asyncssh:[conn=7] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=7] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=7] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=7] Received key exchange request",
+      "DEBUG:asyncssh:[conn=7] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=7] Completed key exchange",
+      "INFO:asyncssh:[conn=7] Beginning auth for user tester",
+      "DEBUG:asyncssh:[conn=7] Verifying request with rsa-sha2-256 key",
+      "INFO:asyncssh:[conn=7] Auth for user tester succeeded",
+      "INFO:asyncssh:[conn=7] Sending server host keys disabled",
+      "INFO:asyncssh:[conn=8] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=8]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=8]   Peer address: 172.17.0.1, port 55476",
+      "DEBUG:asyncssh:[conn=8] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=8] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=8] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=8] Received key exchange request",
+      "DEBUG:asyncssh:[conn=8] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=8] Completed key exchange",
+      "INFO:asyncssh:[conn=8] Beginning auth for user tester",
+      "DEBUG:asyncssh:[conn=8] Verifying request with rsa-sha2-256 key",
+      "INFO:asyncssh:[conn=8] Auth for user tester succeeded",
+      "INFO:asyncssh:[conn=8] Sending server host keys disabled"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "CH_OPEN"
+   ],
+   "results": {
+    "asyncssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 12.87,
+     "server_log": [
+      "INFO:asyncssh:[conn=9] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=9]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=9]   Peer address: 172.17.0.1, port 55484",
+      "DEBUG:asyncssh:[conn=9] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=9] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=9] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=9] Received key exchange request",
+      "DEBUG:asyncssh:[conn=9] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=9] Completed key exchange",
+      "INFO:asyncssh:[conn=9] Sending disconnect: Invalid request before authentication was complete (2)",
+      "INFO:asyncssh:[conn=10] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=10]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=10]   Peer address: 172.17.0.1, port 55500",
+      "DEBUG:asyncssh:[conn=10] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=10] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=10] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=10] Received key exchange request",
+      "DEBUG:asyncssh:[conn=10] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=10] Completed key exchange",
+      "INFO:asyncssh:[conn=10] Sending disconnect: Invalid request before authentication was complete (2)",
+      "INFO:asyncssh:[conn=11] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=11]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=11]   Peer address: 172.17.0.1, port 43088",
+      "DEBUG:asyncssh:[conn=11] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=11] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=11] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=11] Received key exchange request",
+      "DEBUG:asyncssh:[conn=11] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=11] Completed key exchange",
+      "INFO:asyncssh:[conn=11] Sending disconnect: Invalid request before authentication was complete (2)"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "KEXINIT"
+   ],
+   "results": {
+    "asyncssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "KEXINIT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "KEXINIT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "KEXINIT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "KEXINIT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 13.63,
+     "server_log": [
+      "INFO:asyncssh:[conn=12] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=12]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=12]   Peer address: 172.17.0.1, port 43090",
+      "DEBUG:asyncssh:[conn=12] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=12] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=12] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=12] Received key exchange request",
+      "DEBUG:asyncssh:[conn=12] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=12] Completed key exchange",
+      "DEBUG:asyncssh:[conn=12] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=12] Received key exchange request",
+      "DEBUG:asyncssh:[conn=12] Beginning key exchange",
+      "INFO:asyncssh:[conn=13] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=13]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=13]   Peer address: 172.17.0.1, port 54212",
+      "DEBUG:asyncssh:[conn=13] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=13] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=13] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=13] Received key exchange request",
+      "DEBUG:asyncssh:[conn=13] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=13] Completed key exchange",
+      "DEBUG:asyncssh:[conn=13] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=13] Received key exchange request",
+      "DEBUG:asyncssh:[conn=13] Beginning key exchange",
+      "INFO:asyncssh:[conn=14] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=14]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=14]   Peer address: 172.17.0.1, port 54218",
+      "DEBUG:asyncssh:[conn=14] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=14] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=14] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=14] Received key exchange request",
+      "DEBUG:asyncssh:[conn=14] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=14] Completed key exchange",
+      "DEBUG:asyncssh:[conn=14] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=14] Received key exchange request",
+      "DEBUG:asyncssh:[conn=14] Beginning key exchange"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "UA_PK_OK"
+   ],
+   "results": {
+    "asyncssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "NO_RESP"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "NO_RESP"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 16.76,
+     "server_log": [
+      "INFO:asyncssh:[conn=15] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=15]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=15]   Peer address: 172.17.0.1, port 57384",
+      "DEBUG:asyncssh:[conn=15] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=15] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=15] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=15] Received key exchange request",
+      "DEBUG:asyncssh:[conn=15] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=15] Completed key exchange",
+      "INFO:asyncssh:[conn=15] Beginning auth for user tester",
+      "DEBUG:asyncssh:[conn=15] Verifying request with rsa-sha2-256 key",
+      "INFO:asyncssh:[conn=15] Auth for user tester succeeded",
+      "INFO:asyncssh:[conn=15] Sending server host keys disabled",
+      "INFO:asyncssh:[conn=16] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=16]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=16]   Peer address: 172.17.0.1, port 57386",
+      "DEBUG:asyncssh:[conn=16] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=16] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=16] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=16] Received key exchange request",
+      "DEBUG:asyncssh:[conn=16] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=16] Completed key exchange",
+      "INFO:asyncssh:[conn=16] Beginning auth for user tester",
+      "DEBUG:asyncssh:[conn=16] Verifying request with rsa-sha2-256 key",
+      "INFO:asyncssh:[conn=16] Auth for user tester succeeded",
+      "INFO:asyncssh:[conn=16] Sending server host keys disabled",
+      "INFO:asyncssh:[conn=17] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=17]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=17]   Peer address: 172.17.0.1, port 37228",
+      "DEBUG:asyncssh:[conn=17] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=17] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=17] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=17] Received key exchange request",
+      "DEBUG:asyncssh:[conn=17] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=17] Completed key exchange",
+      "INFO:asyncssh:[conn=17] Beginning auth for user tester",
+      "DEBUG:asyncssh:[conn=17] Verifying request with rsa-sha2-256 key",
+      "INFO:asyncssh:[conn=17] Auth for user tester succeeded",
+      "INFO:asyncssh:[conn=17] Sending server host keys disabled"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "SR_AUTH"
+   ],
+   "results": {
+    "asyncssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 15.84,
+     "server_log": [
+      "INFO:asyncssh:[conn=18] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=18]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=18]   Peer address: 172.17.0.1, port 37240",
+      "DEBUG:asyncssh:[conn=18] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=18] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=18] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=18] Received key exchange request",
+      "DEBUG:asyncssh:[conn=18] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=18] Completed key exchange",
+      "INFO:asyncssh:[conn=18] Beginning auth for user tester",
+      "DEBUG:asyncssh:[conn=18] Verifying request with rsa-sha2-256 key",
+      "INFO:asyncssh:[conn=18] Auth for user tester succeeded",
+      "INFO:asyncssh:[conn=18] Sending server host keys disabled",
+      "INFO:asyncssh:[conn=18] Sending disconnect: Unexpected service in service request (7)",
+      "INFO:asyncssh:[conn=19] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=19]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=19]   Peer address: 172.17.0.1, port 59828",
+      "DEBUG:asyncssh:[conn=19] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=19] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=19] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=19] Received key exchange request",
+      "DEBUG:asyncssh:[conn=19] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=19] Completed key exchange",
+      "INFO:asyncssh:[conn=19] Beginning auth for user tester",
+      "DEBUG:asyncssh:[conn=19] Verifying request with rsa-sha2-256 key",
+      "INFO:asyncssh:[conn=19] Auth for user tester succeeded",
+      "INFO:asyncssh:[conn=19] Sending server host keys disabled",
+      "INFO:asyncssh:[conn=19] Sending disconnect: Unexpected service in service request (7)",
+      "INFO:asyncssh:[conn=20] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=20]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=20]   Peer address: 172.17.0.1, port 59834",
+      "DEBUG:asyncssh:[conn=20] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=20] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=20] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=20] Received key exchange request",
+      "DEBUG:asyncssh:[conn=20] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=20] Completed key exchange",
+      "INFO:asyncssh:[conn=20] Beginning auth for user tester",
+      "DEBUG:asyncssh:[conn=20] Verifying request with rsa-sha2-256 key",
+      "INFO:asyncssh:[conn=20] Auth for user tester succeeded",
+      "INFO:asyncssh:[conn=20] Sending server host keys disabled",
+      "INFO:asyncssh:[conn=20] Sending disconnect: Unexpected service in service request (7)"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "SR_CONN"
+   ],
+   "results": {
+    "asyncssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 12.86,
+     "server_log": [
+      "INFO:asyncssh:[conn=21] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=21]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=21]   Peer address: 172.17.0.1, port 48382",
+      "DEBUG:asyncssh:[conn=21] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=21] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=21] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=21] Received key exchange request",
+      "DEBUG:asyncssh:[conn=21] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=21] Completed key exchange",
+      "INFO:asyncssh:[conn=21] Sending disconnect: Unexpected service in service request (7)",
+      "INFO:asyncssh:[conn=22] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=22]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=22]   Peer address: 172.17.0.1, port 48392",
+      "DEBUG:asyncssh:[conn=22] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=22] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=22] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=22] Received key exchange request",
+      "DEBUG:asyncssh:[conn=22] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=22] Completed key exchange",
+      "INFO:asyncssh:[conn=22] Sending disconnect: Unexpected service in service request (7)",
+      "INFO:asyncssh:[conn=23] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=23]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=23]   Peer address: 172.17.0.1, port 34948",
+      "DEBUG:asyncssh:[conn=23] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=23] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=23] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=23] Received key exchange request",
+      "DEBUG:asyncssh:[conn=23] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=23] Completed key exchange",
+      "INFO:asyncssh:[conn=23] Sending disconnect: Unexpected service in service request (7)"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "KEX30"
+   ],
+   "results": {
+    "asyncssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 7.75,
+     "server_log": [
+      "INFO:asyncssh:[conn=24] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=24]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=24]   Peer address: 172.17.0.1, port 34960",
+      "DEBUG:asyncssh:[conn=24] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=24] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=24] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=24] Received key exchange request",
+      "DEBUG:asyncssh:[conn=24] Beginning key exchange",
+      "INFO:asyncssh:[conn=24] Sending disconnect: Key exchange not in progress (2)",
+      "INFO:asyncssh:[conn=25] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=25]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=25]   Peer address: 172.17.0.1, port 34968",
+      "DEBUG:asyncssh:[conn=25] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=25] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=25] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=25] Received key exchange request",
+      "DEBUG:asyncssh:[conn=25] Beginning key exchange",
+      "INFO:asyncssh:[conn=25] Sending disconnect: Key exchange not in progress (2)",
+      "INFO:asyncssh:[conn=26] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=26]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=26]   Peer address: 172.17.0.1, port 53576",
+      "DEBUG:asyncssh:[conn=26] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=26] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=26] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=26] Received key exchange request",
+      "DEBUG:asyncssh:[conn=26] Beginning key exchange",
+      "INFO:asyncssh:[conn=26] Sending disconnect: Key exchange not in progress (2)"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEX30"
+   ],
+   "results": {
+    "asyncssh": {
+     "observations": [
+      [
+       "KEXINIT+DISCONNECT"
+      ],
+      [
+       "KEXINIT+DISCONNECT"
+      ],
+      [
+       "KEXINIT+DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT+DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 2.57,
+     "server_log": [
+      "INFO:asyncssh:[conn=27] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=27]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=27]   Peer address: 172.17.0.1, port 53590",
+      "DEBUG:asyncssh:[conn=27] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=27] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=27] Requesting key exchange",
+      "INFO:asyncssh:[conn=27] Sending disconnect: Key exchange not in progress (2)",
+      "INFO:asyncssh:[conn=28] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=28]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=28]   Peer address: 172.17.0.1, port 53604",
+      "DEBUG:asyncssh:[conn=28] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=28] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=28] Requesting key exchange",
+      "INFO:asyncssh:[conn=28] Sending disconnect: Key exchange not in progress (2)",
+      "INFO:asyncssh:[conn=29] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=29]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=29]   Peer address: 172.17.0.1, port 53610",
+      "DEBUG:asyncssh:[conn=29] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=29] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=29] Requesting key exchange",
+      "INFO:asyncssh:[conn=29] Sending disconnect: Key exchange not in progress (2)"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEXINIT"
+   ],
+   "results": {
+    "asyncssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 5.12,
+     "server_log": [
+      "INFO:asyncssh:[conn=30] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=30]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=30]   Peer address: 172.17.0.1, port 53616",
+      "DEBUG:asyncssh:[conn=30] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=30] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=30] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=30] Received key exchange request",
+      "DEBUG:asyncssh:[conn=30] Beginning key exchange",
+      "INFO:asyncssh:[conn=30] Sending disconnect: Key exchange already in progress (2)",
+      "INFO:asyncssh:[conn=31] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=31]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=31]   Peer address: 172.17.0.1, port 53618",
+      "DEBUG:asyncssh:[conn=31] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=31] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=31] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=31] Received key exchange request",
+      "DEBUG:asyncssh:[conn=31] Beginning key exchange",
+      "INFO:asyncssh:[conn=31] Sending disconnect: Key exchange already in progress (2)",
+      "INFO:asyncssh:[conn=32] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=32]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=32]   Peer address: 172.17.0.1, port 52650",
+      "DEBUG:asyncssh:[conn=32] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=32] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=32] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=32] Received key exchange request",
+      "DEBUG:asyncssh:[conn=32] Beginning key exchange",
+      "INFO:asyncssh:[conn=32] Sending disconnect: Key exchange already in progress (2)"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "KEXINIT",
+    "SR_AUTH"
+   ],
+   "results": {
+    "asyncssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "KEXINIT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "KEXINIT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "KEXINIT",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "KEXINIT",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 18.25,
+     "server_log": [
+      "INFO:asyncssh:[conn=33] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=33]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=33]   Peer address: 172.17.0.1, port 52658",
+      "DEBUG:asyncssh:[conn=33] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=33] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=33] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=33] Received key exchange request",
+      "DEBUG:asyncssh:[conn=33] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=33] Completed key exchange",
+      "INFO:asyncssh:[conn=33] Beginning auth for user tester",
+      "DEBUG:asyncssh:[conn=33] Verifying request with rsa-sha2-256 key",
+      "INFO:asyncssh:[conn=33] Auth for user tester succeeded",
+      "INFO:asyncssh:[conn=33] Sending server host keys disabled",
+      "DEBUG:asyncssh:[conn=33] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=33] Received key exchange request",
+      "DEBUG:asyncssh:[conn=33] Beginning key exchange",
+      "INFO:asyncssh:[conn=33] Sending disconnect: Unexpected service in service request (7)",
+      "INFO:asyncssh:[conn=34] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=34]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=34]   Peer address: 172.17.0.1, port 52660",
+      "DEBUG:asyncssh:[conn=34] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=34] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=34] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=34] Received key exchange request",
+      "DEBUG:asyncssh:[conn=34] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=34] Completed key exchange",
+      "INFO:asyncssh:[conn=34] Beginning auth for user tester",
+      "DEBUG:asyncssh:[conn=34] Verifying request with rsa-sha2-256 key",
+      "INFO:asyncssh:[conn=34] Auth for user tester succeeded",
+      "INFO:asyncssh:[conn=34] Sending server host keys disabled",
+      "DEBUG:asyncssh:[conn=34] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=34] Received key exchange request",
+      "DEBUG:asyncssh:[conn=34] Beginning key exchange",
+      "INFO:asyncssh:[conn=34] Sending disconnect: Unexpected service in service request (7)",
+      "INFO:asyncssh:[conn=35] Accepted SSH client connection",
+      "INFO:asyncssh:[conn=35]   Local address: 172.17.0.7, port 22",
+      "INFO:asyncssh:[conn=35]   Peer address: 172.17.0.1, port 38160",
+      "DEBUG:asyncssh:[conn=35] Sending version SSH-2.0-AsyncSSH_2.17.0",
+      "DEBUG:asyncssh:[conn=35] Received version SSH-2.0-paramiko_3.1.0",
+      "DEBUG:asyncssh:[conn=35] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=35] Received key exchange request",
+      "DEBUG:asyncssh:[conn=35] Beginning key exchange",
+      "DEBUG:asyncssh:[conn=35] Completed key exchange",
+      "INFO:asyncssh:[conn=35] Beginning auth for user tester",
+      "DEBUG:asyncssh:[conn=35] Verifying request with rsa-sha2-256 key",
+      "INFO:asyncssh:[conn=35] Auth for user tester succeeded",
+      "INFO:asyncssh:[conn=35] Sending server host keys disabled",
+      "DEBUG:asyncssh:[conn=35] Requesting key exchange",
+      "DEBUG:asyncssh:[conn=35] Received key exchange request",
+      "DEBUG:asyncssh:[conn=35] Beginning key exchange",
+      "INFO:asyncssh:[conn=35] Sending disconnect: Unexpected service in service request (7)"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  }
+ ]
+}

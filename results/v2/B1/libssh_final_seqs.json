@@ -1,0 +1,614 @@
+{
+ "started": "2026-11-07T15:09:52.876212+00:00",
+ "reps": 3,
+ "targets": {
+  "libssh": {
+   "mapper_port": 8304,
+   "container": "psm-b1-libssh"
+  }
+ },
+ "sequences": [
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "CH_OPEN"
+   ],
+   "results": {
+    "libssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "EXT_INFO",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 16.68,
+     "server_log": [
+      "Socket error: disconnected",
+      "Socket error: disconnected",
+      "Socket error: disconnected"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "UA_PK_OK"
+   ],
+   "results": {
+    "libssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "UA_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "UA_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "UA_SUCCESS"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "EXT_INFO",
+        "UA_SUCCESS"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 11.38,
+     "server_log": [
+      "Socket error: disconnected",
+      "Socket error: disconnected",
+      "Socket error: disconnected"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "CH_OPEN"
+   ],
+   "results": {
+    "libssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "SR_ACCEPT",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "SR_ACCEPT",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "SR_ACCEPT",
+       "NO_RESP"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "EXT_INFO",
+        "SR_ACCEPT",
+        "NO_RESP"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 13.63,
+     "server_log": [
+      "Socket error: disconnected",
+      "Socket error: disconnected",
+      "Socket error: disconnected"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "KEXINIT"
+   ],
+   "results": {
+    "libssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "SR_ACCEPT",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "SR_ACCEPT",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "SR_ACCEPT",
+       "NO_RESP"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "EXT_INFO",
+        "SR_ACCEPT",
+        "NO_RESP"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 13.63,
+     "server_log": [
+      "Socket error: disconnected",
+      "Socket error: disconnected",
+      "Socket error: disconnected"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "UA_PK_OK"
+   ],
+   "results": {
+    "libssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "NO_RESP"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "EXT_INFO",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "NO_RESP"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 16.82,
+     "server_log": [
+      "Socket error: disconnected",
+      "Socket error: disconnected",
+      "Socket error: disconnected"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "SR_AUTH"
+   ],
+   "results": {
+    "libssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "SR_ACCEPT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "SR_ACCEPT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "SR_ACCEPT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "EXT_INFO",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "SR_ACCEPT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 16.64,
+     "server_log": [
+      "Socket error: disconnected",
+      "Socket error: disconnected",
+      "Socket error: disconnected"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "SR_CONN"
+   ],
+   "results": {
+    "libssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "SR_ACCEPT",
+       "SR_ACCEPT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "SR_ACCEPT",
+       "SR_ACCEPT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "SR_ACCEPT",
+       "SR_ACCEPT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "EXT_INFO",
+        "SR_ACCEPT",
+        "SR_ACCEPT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 13.64,
+     "server_log": [
+      "Socket error: disconnected",
+      "Socket error: disconnected",
+      "Socket error: disconnected"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "KEX30"
+   ],
+   "results": {
+    "libssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 7.77,
+     "server_log": [
+      "Socket error: disconnected",
+      "Packet filter: rejected packet (type 30)",
+      "Packet filter: rejected packet (type 30)",
+      "Packet filter: rejected packet (type 30)"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEX30"
+   ],
+   "results": {
+    "libssh": {
+     "observations": [
+      [
+       "KEXINIT+DISCONNECT"
+      ],
+      [
+       "KEXINIT+DISCONNECT"
+      ],
+      [
+       "KEXINIT+DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT+DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 2.56,
+     "server_log": [
+      "Packet filter: rejected packet (type 30)",
+      "Packet filter: rejected packet (type 30)",
+      "Packet filter: rejected packet (type 30)"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEXINIT"
+   ],
+   "results": {
+    "libssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 5.12,
+     "server_log": [
+      "Packet filter: rejected packet (type 20)",
+      "Packet filter: rejected packet (type 20)",
+      "Packet filter: rejected packet (type 20)"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "KEXINIT",
+    "SR_AUTH"
+   ],
+   "results": {
+    "libssh": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "KEXINIT",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "KEXINIT",
+       "NO_RESP"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS",
+       "EXT_INFO",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "KEXINIT",
+       "NO_RESP"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "EXT_INFO",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "KEXINIT",
+        "NO_RESP"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 19.1,
+     "server_log": [
+      "Socket error: disconnected",
+      "Socket error: disconnected"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  }
+ ]
+}
