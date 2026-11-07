@@ -216,7 +216,7 @@ Findings below are labelled CONFIRMED only after a skeptic review; otherwise PEN
 
 ## v2-A: two independently built harnesses on the same servers
 
-Results: `results/v2/A/harness_disagreements.md` (method, counts and per-class verdicts), `results/v2/A/alphabet_map.json`, `catalogue-v2/`, `results/v2/A/catalogue_results.json`.
+Summary: `results/v2/A/summary.md` (two independent harnesses: 0 server-level disagreements; 120 of 120 KEXINIT-first replay pairs agree; model classes: ours wrong 26, theirs wrong 2, setup 4). Results: `results/v2/A/harness_disagreements.md` (method, counts and per-class verdicts), `results/v2/A/alphabet_map.json`, `catalogue-v2/`, `results/v2/A/catalogue_results.json`.
 
 ## v2-B1: more implementations
 
@@ -226,9 +226,15 @@ Results: `results/v2/B1/class_matrix.md` (9 implementations x D1-D9), `results/v
 
 - 12 OpenSSH versions (7.5p1-9.9p2, Alpine packages, plus v1's 10.0p1) and 6 Dropbear versions (2017.75-2024.86, plus v1's 2020.81, 2022.83, 2025.88), each pinned by Alpine release, package version and base digest (`suts/sweep/*/Dockerfile`, `VERSION.md`); class representatives replayed 3x per version, all deterministic (`results/v2/B2/version_matrix.md`).
 - OpenSSH: D1-D8 unchanged from 7.5p1 to 10.0p1. D9 (duplicate KEXINIT in the initial KEX) changed between 8.8p1 (connection closed) and 9.0p1 (UNIMPLEMENTED).
-- Dropbear: every class unchanged from 2017.75 to 2025.88; 2022.82 is the first version that sends EXT_INFO, which shifts the prefix but not the class behaviour.
+- Dropbear: every class unchanged at the divergence point from 2017.75 to 2025.88 (2020.81, 2022.83 and 2025.88 from v1, whose models are equivalent: `results/diff/dropbear2025_vs_2020_A.json`). EXT_INFO first appears between 2019.78 and 2020.81 (v1 `results/final/final_check_dropbear2020.json`); that boundary is also where the mapper profile switches from legacy to modern, so a change exactly there is confounded. The "(changed)" marks at 2022.82 in the matrix come only from the shifted prefix.
 - Not available as aarch64 packages: OpenSSH 6.9p1 and Dropbear 2016 (Alpine <= 3.5 has no aarch64 image); not attempted.
+- Generated Dockerfiles and VERSION.md per version: `suts/sweep/`.
 - Not yet skeptic-reviewed.
+
+## v2 review status
+
+- Code review of all v2 changes (separate session): `notes/code_review_v2.md`. It found no bug that flips a reported comparison; its corrections to claims are applied in this section and in `results/v2/A/summary.md`; its minor items (strict-KEX witness note, second B1 matrix script, third-client KEX method, russh lock, duplicated mapping code) are listed there and not yet fixed.
+- Skeptic review of the v2 server behaviours (B1 table, sweep): not done in this session; all v2 server behaviours are observations, not confirmed findings.
 
 ## v2: what we cannot conclude (additions)
 

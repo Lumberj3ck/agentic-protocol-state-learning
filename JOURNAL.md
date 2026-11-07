@@ -120,3 +120,4 @@
   OpenSSH 7.5p1 -> 10.0p1: D1-D8 identical in every version; D9 representative (duplicate KEXINIT) changed between 8.8p1 (NO_CONN) and 9.0p1 (UNIMPL).
   Dropbear 2017.75 -> 2025.88: identical at every divergence point; the table's "changed" marks at 2022.82 come only from the prefix (EXT_INFO first sent in 2022.82), not from the class behaviour.
   Not yet skeptic-reviewed (the reviewer agent was stopped by safeguards at 16:18).
+- 16:36 Code review of v2 by a separate session (notes/code_review_v2.md): no comparison flipped; corrected the Dropbear EXT_INFO claim, committed the sweep Dockerfiles (suts/sweep/), reclassified H2 as ours-wrong and the strict count to 72 in results/v2/A/summary.md. Minor review items listed as open. Also: at 16:34 the lead started python3 on the laptop by mistake (empty stdin, no-op). Tagged submission-v2.
