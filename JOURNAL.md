@@ -115,3 +115,4 @@
   libssh sends EXT_INFO one step later than the others (after the client's NEWKEYS), so its prefix differs and its NO_RESP cells may be timing; must be checked.
   D1 (auth without service request) accepted by Paramiko, AsyncSSH, libssh (and Dropbear); rejected by Erlang (DISCONNECT), MINA and OpenSSH (UNIMPL), Go (close).
 - 16:16 Queued alphabet-A learning for all 18 sweep versions in parallel (harness/v2_sweep_learn.sh; each starts after its replay; models results/models/b2_*_A.dot).
+- 16:18 B1 class matrix (results/v2/B1/class_matrix.md, 9 implementations incl. wolfSSH) agrees with the lead's. New candidates sent to the skeptic: libssh accepts SERVICE_REQUEST ssh-connection before auth (SR_ACCEPT; checking whether any channel works unauthenticated); wolfSSH sends an unsolicited SERVICE_ACCEPT with UA_SUCCESS when auth arrives without a service request.
