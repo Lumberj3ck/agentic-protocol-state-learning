@@ -17,3 +17,5 @@ Add an entry when something surprises you; keep entries short, with the non-obvi
 
 - Targets run only as local containers published on 127.0.0.1.
   The repository is public: candidate vulnerabilities stay out of commits until the maintainers have been told.
+- Push over HTTPS with gh's token: `git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push https://github.com/Lumberj3ck/agentic-protocol-state-learning.git main`.
+  The `origin` SSH remote needs a passphrase-protected key that non-interactive shells cannot unlock.

@@ -108,6 +108,10 @@ SSH_SEED_PATHS = [
     ["KEXINIT", "KEX30", "NEWKEYS", "SR_AUTH", "UA_PW_OK", "KEXINIT", "KEX30", "NEWKEYS", "CH_OPEN", "CH_CLOSE"],
     ["KEXINIT", "KEX30", "NEWKEYS", "SR_AUTH", "UA_PW_NOK", "UA_PW_NOK", "UA_NONE", "UA_PW_OK", "CH_OPEN"],
     ["KEXINIT", "KEX30", "NEWKEYS", "SR_AUTH", "UA_PW_OK", "CH_OPEN", "CH_OPEN", "CH_CLOSE", "CH_CLOSE"],
+    # Rekey before authentication: without it the Go x/crypto model merged "rekeyed, unauthenticated"
+    # with "authenticated" and the catalogue reported a channel open without auth that the real server
+    # refuses (results/catalogue/verified-5.json, REFUTED).
+    ["KEXINIT", "KEX30", "NEWKEYS", "KEXINIT", "KEX30", "NEWKEYS", "SR_AUTH", "UA_PW_OK", "CH_OPEN"],
 ]
 
 
@@ -184,7 +188,7 @@ class ParallelEqOracle(Oracle):
 
 
 def learn(name: str, instances: int = 4, alphabet=None, out_dir: Path | None = None,
-          walks_per_state: int = 20, max_suffix: int = 6, **mapper_kw):
+          walks_per_state: int = 20, max_suffix: int = 6, extra_seeds=(), **mapper_kw):
     from smlearn.ssh.mapper import INPUTS
     alphabet = list(alphabet or INPUTS)
     target = testbed.load_target(name)
@@ -199,7 +203,7 @@ def learn(name: str, instances: int = 4, alphabet=None, out_dir: Path | None = N
         sul = RobustSUL(mappers[0], log)
         eq = ParallelEqOracle(alphabet, sul, mappers[1:] or mappers, log,
                               walks_per_state=walks_per_state, max_suffix=max_suffix,
-                              seed_paths=SSH_SEED_PATHS)
+                              seed_paths=SSH_SEED_PATHS + [list(w) for w in extra_seeds])
         t0 = time.time()
         model, info = run_KV(alphabet, sul, eq, automaton_type="mealy",
                              cache_and_non_det_check=False, return_data=True, print_level=1)
@@ -213,7 +217,8 @@ def learn(name: str, instances: int = 4, alphabet=None, out_dir: Path | None = N
             "eq": eq.num_queries, "eq_steps": eq.num_steps,
             "nondet_events": sul.nondet_events, "seconds": round(elapsed, 1),
             "reset_failures": sul.reset_failures + eq.reset_failures,
-            "eq_oracle": {"seed_paths": SSH_SEED_PATHS, "walks_per_state": walks_per_state,
+            "eq_oracle": {"seed_paths": SSH_SEED_PATHS, "extra_seeds": [list(w) for w in extra_seeds],
+                          "walks_per_state": walks_per_state,
                           "max_suffix": max_suffix},
             "strict_kex_active": getattr(mappers[0], "strict_kex_active", None),
         }
@@ -237,12 +242,14 @@ def main():
     p.add_argument("--timeout", type=float)
     p.add_argument("--quiet", type=float)
     p.add_argument("--no-strict-kex", action="store_true")
+    p.add_argument("--seeds", type=Path, help="JSON list of extra seed words, e.g. refuted catalogue witnesses")
     a = p.parse_args()
     kw = {k: v for k, v in {"timeout": a.timeout, "quiet": a.quiet}.items() if v is not None}
     if a.no_strict_kex:
         kw["strict_kex"] = False
+    seeds = json.loads(a.seeds.read_text()) if a.seeds else ()
     _, stats = learn(a.target, a.instances, a.alphabet.split(",") if a.alphabet else None,
-                     a.out, a.walks_per_state, a.max_suffix, **kw)
+                     a.out, a.walks_per_state, a.max_suffix, extra_seeds=seeds, **kw)
     print(json.dumps(stats, indent=2))
 
 

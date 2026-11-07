@@ -1,0 +1,216 @@
+{
+  "results/runs/openssh-alpine-edge-v3vm/model.dot": [
+    {
+      "pattern": "CONN-BEFORE-AUTH",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "CH_OPEN"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UNIMPLEMENTED"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UNIMPLEMENTED"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    },
+    {
+      "pattern": "REKEY-KEXINIT-REPLY",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "KEXINIT"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UNIMPLEMENTED"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UNIMPLEMENTED"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    }
+  ],
+  "results/runs/erlang-otp-v3vm/model.dot": [
+    {
+      "pattern": "REKEY-KEXINIT-REPLY",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "KEXINIT"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "DISCONNECT+CLOSED"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "DISCONNECT+CLOSED"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    }
+  ],
+  "results/runs/golang-xcrypto-v3vm/model.dot": [
+    {
+      "pattern": "UNAUTH-CHANNEL-OPEN",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "CH_OPEN"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "CH_OPEN_SUCCESS"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "CLOSED"
+      ],
+      "deterministic": true,
+      "verdict": "REFUTED"
+    }
+  ],
+  "results/runs/paramiko-v3vm/model.dot": [
+    {
+      "pattern": "CONN-BEFORE-AUTH",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "CH_OPEN"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "CH_OPEN_FAILURE"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "CH_OPEN_FAILURE"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    },
+    {
+      "pattern": "UA-BEFORE-SR-AUTH",
+      "level": "SHOULD",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "UA_NONE"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UA_FAILURE"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UA_FAILURE"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    }
+  ],
+  "results/runs/wolfssh-v3vm/model.dot": [
+    {
+      "pattern": "KEX-SERVER-SENDS-NON-KEX",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "KEXINIT",
+        "UA_NONE"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "KEXINIT",
+        "UA_FAILURE"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "KEXINIT",
+        "UA_FAILURE"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    },
+    {
+      "pattern": "UA-BEFORE-SR-AUTH",
+      "level": "SHOULD",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "UA_NONE"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UA_FAILURE"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UA_FAILURE"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    }
+  ]
+}

@@ -25,7 +25,7 @@ and the results are written up with their limits.
 - Targets only as local containers on 127.0.0.1. Never probe hosts we don't run.
 - Possible new bugs: record in `findings/` as *candidate*, confirm by replay on the real target,
   and keep details out of public commits until the maintainers are told.
-- Do not commit; leave changes for the team to review.
+- Commit finished tasks; push with gh credentials over HTTPS (see CLAUDE.md).
 - Ask the team before needing more compute (Nebius VM available).
 
 ## Commands

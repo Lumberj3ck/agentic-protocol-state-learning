@@ -1,0 +1,108 @@
+-----------------------------------
+Learning Finished.
+Learning Rounds:  12
+Number of states: 14
+Time (in seconds)
+  Total                : 1287.54
+  Learning algorithm   : 756.88
+  Conformance checking : 530.66
+Learning Algorithm
+ # Membership Queries  : 782
+ # MQ Saved by Caching : 0
+ # Steps               : 4618
+Equivalence Query
+ # Membership Queries  : 2832
+ # Steps               : 18501
+-----------------------------------
+Model saved to results/runs/golang-xcrypto-v3vm/model.dot.
+{
+  "target": "golang-xcrypto",
+  "implementation": "Go golang.org/x/crypto/ssh",
+  "source": "golang.org/x/crypto v0.58.0, https://proxy.golang.org/golang.org/x/crypto/@v/v0.58.0.info (https://go.googlesource.com/crypto, refs/tags/v0.58.0)",
+  "alphabet": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "SR_CONN",
+    "UA_PW_OK",
+    "UA_PW_NOK",
+    "UA_NONE",
+    "CH_OPEN",
+    "CH_CLOSE",
+    "CH_EOF",
+    "CH_DATA",
+    "CH_REQUEST_EXEC",
+    "IGNORE",
+    "DEBUG",
+    "UNIMPLEMENTED",
+    "DISCONNECT"
+  ],
+  "mapper_kw": {
+    "timeout": 0.4,
+    "quiet": 0.1
+  },
+  "instances": 6,
+  "states": 14,
+  "rounds": 12,
+  "mq": 782,
+  "mq_steps": 4618,
+  "eq": 2832,
+  "eq_steps": 18501,
+  "nondet_events": 0,
+  "seconds": 1287.5,
+  "reset_failures": 0,
+  "eq_oracle": {
+    "seed_paths": [
+      [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "CH_OPEN",
+        "CH_REQUEST_EXEC",
+        "CH_EOF",
+        "CH_CLOSE"
+      ],
+      [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "CH_OPEN",
+        "CH_CLOSE"
+      ],
+      [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_NOK",
+        "UA_PW_NOK",
+        "UA_NONE",
+        "UA_PW_OK",
+        "CH_OPEN"
+      ],
+      [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "CH_OPEN",
+        "CH_OPEN",
+        "CH_CLOSE",
+        "CH_CLOSE"
+      ]
+    ],
+    "walks_per_state": 20,
+    "max_suffix": 6
+  },
+  "strict_kex_active": true
+}
+EXIT 0

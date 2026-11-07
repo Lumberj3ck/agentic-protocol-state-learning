@@ -1,0 +1,90 @@
+{
+  "target": "paramiko",
+  "implementation": "Paramiko (Python)",
+  "source": "PyPI paramiko==5.1.0 (https://pypi.org/project/paramiko/5.1.0/)",
+  "alphabet": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "SR_CONN",
+    "UA_PW_OK",
+    "UA_PW_NOK",
+    "UA_NONE",
+    "CH_OPEN",
+    "CH_CLOSE",
+    "CH_EOF",
+    "CH_DATA",
+    "CH_REQUEST_EXEC",
+    "IGNORE",
+    "DEBUG",
+    "UNIMPLEMENTED",
+    "DISCONNECT"
+  ],
+  "mapper_kw": {
+    "timeout": 0.4,
+    "quiet": 0.1
+  },
+  "instances": 6,
+  "states": 14,
+  "rounds": 11,
+  "mq": 668,
+  "mq_steps": 3777,
+  "eq": 2443,
+  "eq_steps": 15176,
+  "nondet_events": 0,
+  "seconds": 1173.9,
+  "reset_failures": 0,
+  "eq_oracle": {
+    "seed_paths": [
+      [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "CH_OPEN",
+        "CH_REQUEST_EXEC",
+        "CH_EOF",
+        "CH_CLOSE"
+      ],
+      [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "CH_OPEN",
+        "CH_CLOSE"
+      ],
+      [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_NOK",
+        "UA_PW_NOK",
+        "UA_NONE",
+        "UA_PW_OK",
+        "CH_OPEN"
+      ],
+      [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "CH_OPEN",
+        "CH_OPEN",
+        "CH_CLOSE",
+        "CH_CLOSE"
+      ]
+    ],
+    "walks_per_state": 20,
+    "max_suffix": 6
+  },
+  "strict_kex_active": true
+}

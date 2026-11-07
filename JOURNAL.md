@@ -101,3 +101,13 @@ Every result, decision and exchange with the team, with links to the outputs.
 - First v3 model: OpenSSH 10.6p2 (`results/runs/openssh-alpine-edge-v3vm/`): 13 states, 9 rounds, 488 MQ + 2053 EQ, 870 s on 8 containers, 0 nondeterminism, 0 reset failures.
   Catalogue (`results/catalogue/openssh-alpine-edge-v3vm.json`): 13 ok, 2 violated, both known behaviours (calibration):
   CONN-BEFORE-AUTH (CH_OPEN before auth → UNIMPLEMENTED, as SPIN 2017 reported for OpenSSH 6.9) and REKEY-KEXINIT-REPLY (OpenSSH refuses pre-auth rekey, predicted in `literature/ssh-ground-truth.md`).
+- v3 models finished on the VM so far: erlang-otp 12 states (770 s), golang-xcrypto 14 (1288 s), paramiko 14 (1174 s), wolfssh 16 (1161 s), openssh-alpine-edge 13 (870 s).
+- Catalogue on those 5 found 8 violations. **Claude did not trust them**: the Go model reported CH_OPEN_SUCCESS without authentication after a pre-auth rekey (an auth bypass if real).
+  Replay on the real container (`scripts/replay.py`) refuted it: the real server closes the connection. The learner had never queried that prefix (0 of 3614 queries) and merged "rekeyed, unauthenticated" with "authenticated".
+  New step `src/smlearn/verify.py`: every catalogue witness is replayed 3× on a fresh container and marked CONFIRMED or REFUTED; refuted words are written as seeds for relearning.
+  Result (`results/catalogue/verified-5.json`): 7 CONFIRMED, 1 REFUTED (the Go one).
+  - OpenSSH 10.6: CONN-BEFORE-AUTH (UNIMPLEMENTED), REKEY-KEXINIT-REPLY (refuses pre-auth rekey): known.
+  - Erlang/OTP 29: REKEY-KEXINIT-REPLY (disconnects on pre-auth rekey).
+  - Paramiko 5.1.0: CONN-BEFORE-AUTH (CH_OPEN_FAILURE instead of disconnect), UA-BEFORE-SR-AUTH.
+  - **wolfSSH 1.6.0: KEX-SERVER-SENDS-NON-KEX** — after its own rekey KEXINIT and before NEWKEYS it answers a user-auth request with USERAUTH_FAILURE (RFC 4253 §7.1 MUST NOT for the sender); also UA-BEFORE-SR-AUTH. Candidate, needs source verification.
+  Learner: added a pre-auth-rekey seed path and `--seeds` (refuted witnesses as extra tests); Go relearn `golang-xcrypto-v4vm` started on the VM.
