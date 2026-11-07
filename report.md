@@ -12,7 +12,7 @@ Learned models and three-server replays give 39 distinct divergence points, all 
 Each server applies one consistent policy to a message in the wrong place:
 - Go closes the connection without a word;
 - OpenSSH answers UNIMPLEMENTED and carries on;
-- Dropbear tends to accept.
+- Dropbear accepts out-of-order service and authentication requests, but closes on most misplaced key-exchange messages.
 
 **Who follows the RFCs:**
 - Measured against MUSTs, Go and Dropbear met every one we tested.
@@ -28,7 +28,7 @@ Each server applies one consistent policy to a message in the wrong place:
 **Are they real?**
 - Every class was replayed against all three servers (5 to 10 repetitions, 0 nondeterministic runs).
 - A skeptical-review agent tried and failed to explain each as a harness artifact, using an independent client (stock paramiko, other key exchange, strict KEX on and off) and the servers' own logs and source.
-- Along the way the harness itself produced artifacts that would have looked like findings: a wrong exchange-hash input, a crashing input, and a corrupted encrypted stream after a misplaced NEWKEYS. Those were caught, fixed or filtered, and are listed under Method.
+- Along the way the harness itself produced artifacts that would have looked like findings: a wrong exchange-hash input, a crashing input, and a corrupted encrypted stream after a misplaced NEWKEYS. Those were caught, fixed or filtered (`vendor/PATCHES.md`; Method; cost section).
 
 **Old findings still hold.**
 NDSS 2023's Dropbear "authentication without service request" (D1) and SPIN 2017's OpenSSH "no rekey before authentication" (D3) are unchanged in the 2025 releases.
@@ -49,23 +49,25 @@ All servers ran in Docker on the GX10 box, bound to 127.0.0.1 only; nothing outs
 | Dropbear | 2025.88 (`SSH-2.0-dropbear_2025.88`) | Alpine 3.22 `dropbear=2025.88-r1` | RSA host key added |
 | Go x/crypto/ssh | v0.58.0 (`SSH-2.0-Go`), Go 1.26.0 | `suts/gossh/go.mod` + `go.sum` | minimal server in `suts/gossh/main.go`; RSA host key added |
 | Dropbear (validation only) | 2020.81 | Alpine 3.13 `dropbear=2020.81-r0` | the version analysed in NDSS 2023 |
+| Dropbear (validation only) | 2022.83 | Alpine 3.17 `dropbear=2022.83-r1` | the version of the published ssh-fuzzer Dropbear model |
 
 ## Method
 
 We build on the published method rather than from scratch (`notes/literature.md`).
 de Ruiter & Poll (USENIX Sec 2015) learned TLS state machines with a mapper and LearnLib and treated model differences as leads to be checked by hand.
 Fiterau-Brostean et al. (SPIN 2017; NDSS 2023) did the same for SSH with a mapper built on a heavily modified Paramiko.
-We reuse that mapper unmodified except for three small patches (`vendor/PATCHES.md`): an opt-in algorithm profile for current servers, credentials from the environment, and a crash fix when the learner disconnects.
+We reuse that mapper (upstream commit in `vendor/ssh-fuzzer.COMMIT`) with five small, numbered patches (`vendor/PATCHES.md`): P1 an opt-in algorithm profile for current servers (diffie-hellman-group14-sha256, rsa-sha2-256), P2 credentials from the environment, P3 a crash fix when the learner disconnects, P4 one KEXINIT cookie per connection (otherwise a duplicate KEXINIT made the mapper hash the wrong exchange-hash input), P5 sending channel and IGNORE messages without a key-exchange gate that upstream never opens.
+A control run with the unpatched upstream mapper gives the same answers where both work (`results/replay/dropbear2022_upstream_mapper_check.json`).
 We wrote no SSH protocol or crypto code ourselves.
 
 - Learner: AALpy 2.0.0 L* (`psm/learn.py`) talking to the mapper's line protocol (`psm/mapper_client.py`).
 - Abstraction (the published one): one input symbol per client message; the output is the `+`-joined names of all server messages received in a fixed window, `NO_RESP` if none, `NO_CONN` once the TCP connection is closed (a sink). The mapper drops server `IGNORE`/`DEBUG`.
 - Identical mapper settings for every compared SUT (published "Dropbear" timing profile: 0.3 s first-response / 0.35 s total window, 0.25 s between inputs).
 - Nondeterminism: every query is checked against a prefix cache; any conflict, and a random 10% of fresh queries, are re-run and decided by majority, and every event is logged (`results/learning/<sut>/nondet.jsonl`), so it cannot silently corrupt a model (`psm/robust_sul.py`).
-- Equivalence: random walks from every learned state (AALpy `StatePrefixEqOracle`).
-- Diff: product-automaton BFS for shortest distinguishing sequences (`psm/diff.py`).
+- Equivalence: for every learned state, its access sequence followed by (nothing | a full rekey) and every input sequence of length up to 2, then random walks from every state (`psm/oracles.py`, AALpy `StatePrefixEqOracle`). Random words alone produced wrong models twice (Validation, item 3).
+- Diff: product-automaton BFS for shortest distinguishing sequences (`psm/diff.py`). OpenSSH's `hostkeys-00@openssh.com` GLOBAL_REQUEST after UA_SUCCESS is normalised away before comparing (`reference/normalize.json`).
 - Evidence: every reported disagreement is replayed as a concrete sequence against all servers, repeated, with each observation and the server's own log stored under `results/replay/` (`psm/replay.py`).
-- A skeptical reviewer subagent tries to explain each disagreement as a harness artifact before we accept it (`results/review/`).
+- Verification: a replayed sequence counts only if every server answered identically in every repetition, the servers differ, and no trace is tainted by a known mapper limitation (a NEWKEYS without a completed key exchange corrupts the mapper's own stream) at or before the divergence (`psm/verify.py`, `psm/taint.py`).- A skeptical reviewer subagent tries to explain each disagreement as a harness artifact before we accept it (`results/review/`).
 
 ## Validation: reproducing published results first
 
@@ -120,8 +122,8 @@ The disagreements are not random: each implementation applies one consistent pol
 - **Go x/crypto/ssh: fail closed, silently.** Every unexpected message in any state ends the connection, with no UNIMPLEMENTED and no DISCONNECT (server logs: `unexpected message type N (expected one of [...])`).
   This is the strictest and simplest state machine, and it meets every MUST we tested, but it skips the SHOULD-level DISCONNECT and turns a harmless post-auth duplicate request into a dropped session (D4).
 - **OpenSSH: ignore and report.** Before authentication sshd routes every message it does not expect to `dispatch_protocol_error`, which answers UNIMPLEMENTED and carries on (`auth2.c`, `dispatch.c`).
-  That single design choice explains D1, D2, D3 and D4 for OpenSSH, including its two letter-of-the-RFC violations (§6 and §9), neither of which has a security effect we could find.
-- **Dropbear: permissive.** It accepts out-of-order service requests and authentication (D1, D5), rekeys anywhere, and is the only one to follow RFC 4252 §5.1's SHOULD on repeated authentication (D4).
+  That single design choice explains D1, D2, D3, D4 and D9 for OpenSSH, including its two letter-of-the-RFC violations (§6 and §9), neither of which has a security effect we could find.
+- **Dropbear: permissive at the service and authentication layer, strict in key exchange.** It accepts out-of-order service requests and authentication (D1, D5), accepts a rekey before authentication (D3), and is the only one to follow RFC 4252 §5.1's SHOULD on repeated authentication (D4); but like Go it closes on most misplaced key-exchange messages (D9), answering UNIMPLEMENTED only for a few errors inside a running exchange (D7).
   Its learned model on this alphabet is identical for 2020.81, 2022.83 and 2025.88 (`results/diff/dropbear2025_vs_2022_A.json`, `results/diff/dropbear2025_vs_2020_A.json`): five years of releases did not change this behaviour.
 
 ### Relation to earlier findings
