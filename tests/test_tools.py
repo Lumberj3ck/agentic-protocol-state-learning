@@ -41,3 +41,17 @@ def test_check_traces_reports_mismatch(tmp_path, capsys, monkeypatch):
     out = json.loads((tmp_path / "o.json").read_text())
     assert out["checked"] == 3 and len(out["mismatches"]) == 1 and out["skipped_alphabet"] == 1
     assert out["mismatches"][0]["sequence"] == ["a", "a"]
+
+
+def test_diff_to_seqs_extracts_distinguishing_sequences(tmp_path, monkeypatch):
+    from psm import diff, diff_to_seqs
+    a, b = toy_machine(), toy_machine()
+    b.states[2].output_fun["b"] = "NO_RESP"
+    save_automaton_to_file(a, str(tmp_path / "a"), file_type="dot")
+    save_automaton_to_file(b, str(tmp_path / "b"), file_type="dot")
+    monkeypatch.setattr("sys.argv", ["x", str(tmp_path / "a.dot"), str(tmp_path / "b.dot"), "--out", str(tmp_path / "d.json")])
+    diff.main()
+    seqs = diff_to_seqs.sequences(json.loads((tmp_path / "d.json").read_text()))
+    assert seqs[0] == ["a", "b", "b"]
+    for s in seqs:  # every extracted sequence really distinguishes the two machines
+        assert check_traces.predict(a, s) != check_traces.predict(b, s)
