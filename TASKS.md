@@ -18,3 +18,13 @@ Open (next session, in priority order):
 2. [ ] Strict-KEX mode in the mapper (send kex-strict-c-v00, reset sequence numbers at NEWKEYS) to learn the strict branch: D7/D8/D9 change there (reviews used stock paramiko).
 3. [ ] Mapper P6: CH_MAX / dead-connection check; fix other CH_* inputs (Python 3 crash) to extend into the connection layer.
 4. [ ] Decide with a human whether to report OpenSSH's RFC 4252 §6 / RFC 4253 §9 letter deviations upstream.
+
+# v2 TASKS (from 16:00; streams run in parallel, see PROMPT.md v2 layout)
+
+- [ ] A1 Run the teammate harness (strict KEX off and on) against our OpenSSH 10.0p1 / Dropbear 2025.88 / Go 0.58.0 containers; map alphabets; diff against our A/B models.
+- [ ] A2 Adjudicate every harness-vs-harness disagreement (replay both harnesses + stock paramiko). Count and classify (bug in ours / bug in theirs / setup difference).
+- [ ] A3 Run their catalogue on our models; write our D1-D9 as candidate catalogue JSON (catalogue-v2/ in our repo, not theirs).
+- [ ] B1 Onboard Erlang/OTP, AsyncSSH, russh, libssh, wolfSSH, MINA, Paramiko server with our mapper; learn A (and B where feasible); replay D1-D9 representatives.
+- [ ] B2 Version sweep: OpenSSH 6.9p1..10.x, Dropbear 2016..2025; replay D1-D9 representatives on each; find change points; learn A models at change points.
+- [ ] C1 Strict KEX in mapper copy (v2); C2 CH_MAX/liveness + CH_* Python 3 fixes; C3 OpenSSH alphabet B to convergence; C4 re-learn affected models and diff v1 vs v2 abstraction.
+- [ ] L Skeptic review per new finding; report v2 sections; journal merge; push.
