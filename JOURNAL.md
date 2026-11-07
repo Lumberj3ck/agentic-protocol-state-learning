@@ -75,3 +75,6 @@
   B diff Dropbear vs Go (results/diff/B_dropbear_vs_gossh.json): 8 coarse classes = the 7 A classes + SR_CONN after auth (Dropbear SR_ACCEPT, Go closes). Pre-auth SR_CONN and CH_OPEN: both close (agree).
 - 14:06 Started A_openssh with the rekey oracle on its own mapper (8121), cache seeded from B_openssh's 14:04 checkpoint, as insurance for the 14:30 gate. Third reviewer (results/review/remaining_classes.md) on classes C1-C5.
 - 14:12 Note on timestamps: entries between 12:50 and ~13:30 (and the matching results/loopcost.jsonl times) were written from my own estimate before checking the clock and run ~5-10 min late; order is correct.
+- 14:30 GATE. Full encrypted handshake (KEX, service request, publickey auth, rekey) learned and converged for Dropbear 2020.81/2022.83/2025.88 and Go; OpenSSH A run (rekey oracle) has hypothesis 1 (9 states) and is in equivalence checking; B_openssh still filling its first table (cache 83 KB).
+  Decision: do NOT fall back to the unencrypted phase; >= 2 servers have the full handshake, and every cross-server claim rests on three-server replays anyway.
+  Condition: if A_openssh has not converged by 15:45, report OpenSSH's model as unconverged and base OpenSSH claims on replays only. B_openssh keeps running and is used only if it finishes before the 16:30 freeze.

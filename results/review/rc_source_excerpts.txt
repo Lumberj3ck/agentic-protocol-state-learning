@@ -1,0 +1,492 @@
+# Source excerpts for results/review/remaining_classes.md (fetched 2026-11-07 from raw.githubusercontent.com)
+# openssh-portable tag V_10_0_P1; mkj/dropbear tag DROPBEAR_2025.88 (src/); golang/crypto tag v0.58.0 (ssh/)
+
+## openssh/auth2.c:170-181
+void
+do_authentication2(struct ssh *ssh)
+{
+	Authctxt *authctxt = ssh->authctxt;
+
+	ssh_dispatch_init(ssh, &dispatch_protocol_error);
+	if (ssh->kex->ext_info_c)
+		ssh_dispatch_set(ssh, SSH2_MSG_EXT_INFO, &kex_input_ext_info);
+	ssh_dispatch_set(ssh, SSH2_MSG_SERVICE_REQUEST, &input_service_request);
+	ssh_dispatch_run_fatal(ssh, DISPATCH_BLOCK, &authctxt->success);
+	ssh->authctxt = NULL;
+}
+
+## openssh/auth2.c:196-204
+
+	if (strcmp(service, "ssh-userauth") == 0) {
+		if (!authctxt->success) {
+			acceptit = 1;
+			/* now we can handle user-auth requests */
+			ssh_dispatch_set(ssh, SSH2_MSG_USERAUTH_REQUEST,
+			    &input_userauth_request);
+		}
+	}
+
+## openssh/auth2.c:430-440
+
+	if (authenticated == 1) {
+		/* turn off userauth */
+		ssh_dispatch_set(ssh, SSH2_MSG_USERAUTH_REQUEST,
+		    &dispatch_protocol_ignore);
+		if ((r = sshpkt_start(ssh, SSH2_MSG_USERAUTH_SUCCESS)) != 0 ||
+		    (r = sshpkt_send(ssh)) != 0 ||
+		    (r = ssh_packet_write_wait(ssh)) != 0)
+			fatal_fr(r, "send success packet");
+		/* now we can break out */
+		authctxt->success = 1;
+
+## openssh/serverloop.c:876-897
+server_init_dispatch(struct ssh *ssh)
+{
+	debug("server_init_dispatch");
+	ssh_dispatch_init(ssh, &dispatch_protocol_error);
+	ssh_dispatch_set(ssh, SSH2_MSG_CHANNEL_CLOSE, &channel_input_oclose);
+	ssh_dispatch_set(ssh, SSH2_MSG_CHANNEL_DATA, &channel_input_data);
+	ssh_dispatch_set(ssh, SSH2_MSG_CHANNEL_EOF, &channel_input_ieof);
+	ssh_dispatch_set(ssh, SSH2_MSG_CHANNEL_EXTENDED_DATA, &channel_input_extended_data);
+	ssh_dispatch_set(ssh, SSH2_MSG_CHANNEL_OPEN, &server_input_channel_open);
+	ssh_dispatch_set(ssh, SSH2_MSG_CHANNEL_OPEN_CONFIRMATION, &channel_input_open_confirmation);
+	ssh_dispatch_set(ssh, SSH2_MSG_CHANNEL_OPEN_FAILURE, &channel_input_open_failure);
+	ssh_dispatch_set(ssh, SSH2_MSG_CHANNEL_REQUEST, &server_input_channel_req);
+	ssh_dispatch_set(ssh, SSH2_MSG_CHANNEL_WINDOW_ADJUST, &channel_input_window_adjust);
+	ssh_dispatch_set(ssh, SSH2_MSG_GLOBAL_REQUEST, &server_input_global_request);
+	/* client_alive */
+	ssh_dispatch_set(ssh, SSH2_MSG_CHANNEL_SUCCESS, &server_input_keep_alive);
+	ssh_dispatch_set(ssh, SSH2_MSG_CHANNEL_FAILURE, &server_input_keep_alive);
+	ssh_dispatch_set(ssh, SSH2_MSG_REQUEST_SUCCESS, &server_input_keep_alive);
+	ssh_dispatch_set(ssh, SSH2_MSG_REQUEST_FAILURE, &server_input_keep_alive);
+	/* rekeying */
+	ssh_dispatch_set(ssh, SSH2_MSG_KEXINIT, &kex_input_kexinit);
+}
+
+## openssh/dispatch.c:40-59
+dispatch_protocol_error(int type, u_int32_t seq, struct ssh *ssh)
+{
+	int r;
+
+	logit("dispatch_protocol_error: type %d seq %u", type, seq);
+	if ((r = sshpkt_start(ssh, SSH2_MSG_UNIMPLEMENTED)) != 0 ||
+	    (r = sshpkt_put_u32(ssh, seq)) != 0 ||
+	    (r = sshpkt_send(ssh)) != 0 ||
+	    (r = ssh_packet_write_wait(ssh)) != 0)
+		sshpkt_fatal(ssh, r, "%s", __func__);
+	return 0;
+}
+
+int
+dispatch_protocol_ignore(int type, u_int32_t seq, struct ssh *ssh)
+{
+	logit("dispatch_protocol_ignore: type %d seq %u", type, seq);
+	return 0;
+}
+
+
+## openssh/kex.c:235-258
+int
+kex_protocol_error(int type, u_int32_t seq, struct ssh *ssh)
+{
+	int r;
+
+	/* If in strict mode, any unexpected message is an error */
+	if ((ssh->kex->flags & KEX_INITIAL) && ssh->kex->kex_strict) {
+		ssh_packet_disconnect(ssh, "strict KEX violation: "
+		    "unexpected packet type %u (seqnr %u)", type, seq);
+	}
+	error_f("type %u seq %u", type, seq);
+	if ((r = sshpkt_start(ssh, SSH2_MSG_UNIMPLEMENTED)) != 0 ||
+	    (r = sshpkt_put_u32(ssh, seq)) != 0 ||
+	    (r = sshpkt_send(ssh)) != 0)
+		return r;
+	return 0;
+}
+
+static void
+kex_reset_dispatch(struct ssh *ssh)
+{
+	ssh_dispatch_range(ssh, SSH2_MSG_TRANSPORT_MIN,
+	    SSH2_MSG_TRANSPORT_MAX, &kex_protocol_error);
+}
+
+## openssh/kex.c:393-400
+kex_send_newkeys(struct ssh *ssh)
+{
+	int r;
+
+	kex_reset_dispatch(ssh);
+	if ((r = sshpkt_start(ssh, SSH2_MSG_NEWKEYS)) != 0 ||
+	    (r = sshpkt_send(ssh)) != 0)
+		return r;
+
+## openssh/kex.c:525-535
+{
+	struct kex *kex = ssh->kex;
+	int r, initial = (kex->flags & KEX_INITIAL) != 0;
+	char *cp, **prop;
+
+	debug("SSH2_MSG_NEWKEYS received");
+	if (kex->ext_info_c && initial)
+		ssh_dispatch_set(ssh, SSH2_MSG_EXT_INFO, &kex_input_ext_info);
+	ssh_dispatch_set(ssh, SSH2_MSG_NEWKEYS, &kex_protocol_error);
+	ssh_dispatch_set(ssh, SSH2_MSG_KEXINIT, &kex_input_kexinit);
+	if ((r = sshpkt_get_end(ssh)) != 0)
+
+## openssh/kex.c:950-967
+
+	/* Check whether peer supports ext_info/kex_strict */
+	if ((kex->flags & KEX_INITIAL) != 0) {
+		if (kex->server) {
+			kex->ext_info_c = kexalgs_contains(peer, "ext-info-c");
+			kex->kex_strict = kexalgs_contains(peer,
+			    "kex-strict-c-v00@openssh.com");
+		} else {
+			kex->ext_info_s = kexalgs_contains(peer, "ext-info-s");
+			kex->kex_strict = kexalgs_contains(peer,
+			    "kex-strict-s-v00@openssh.com");
+		}
+		if (kex->kex_strict) {
+			debug3_f("will use strict KEX ordering");
+			if (seq != 0)
+				ssh_packet_disconnect(ssh,
+				    "strict KEX violation: "
+				    "KEXINIT was not the first packet");
+
+## openssh/packet.c:1049-1058
+static int
+ssh_packet_need_rekeying(struct ssh *ssh, u_int outbound_packet_len)
+{
+	struct session_state *state = ssh->state;
+	u_int32_t out_blocks;
+
+	/* XXX client can't cope with rekeying pre-auth */
+	if (!state->after_authentication)
+		return 0;
+
+
+## dropbear/process-packet.c:44-72
+
+	unsigned char type;
+	unsigned int i;
+	unsigned int first_strict_kex = ses.kexstate.strict_kex && !ses.kexstate.recvfirstnewkeys;
+	time_t now;
+
+	TRACE2(("enter process_packet"))
+
+	type = buf_getbyte(ses.payload);
+	TRACE(("process_packet: packet type = %d,  len %d", type, ses.payload->len))
+
+	now = monotonic_now();
+	ses.last_packet_time_keepalive_recv = now;
+
+
+	if (type == SSH_MSG_DISCONNECT) {
+		/* Allowed at any time */
+		dropbear_close("Disconnect received");
+	}
+
+	/* These packets may be received at any time,
+	   except during first kex with strict kex */
+	if (!first_strict_kex) {
+		switch(type) {
+			case SSH_MSG_IGNORE:
+				goto out;
+			case SSH_MSG_DEBUG:
+				goto out;
+			case SSH_MSG_UNIMPLEMENTED:
+
+## dropbear/process-packet.c:88-145
+	/* This applies for KEX, where the spec says the next packet MUST be
+	 * NEWKEYS */
+	if (ses.requirenext != 0) {
+		if (ses.requirenext == type)
+		{
+			/* Got what we expected */
+			TRACE(("got expected packet %d during kexinit", type))
+		}
+		else
+		{
+			/* RFC4253 7.1 - various messages are allowed at this point.
+			The only ones we know about have already been handled though,
+			so just return "unimplemented" */
+			if (type >= 1 && type <= 49
+				&& type != SSH_MSG_SERVICE_REQUEST
+				&& type != SSH_MSG_SERVICE_ACCEPT
+				&& type != SSH_MSG_KEXINIT
+				&& !first_strict_kex)
+			{
+				TRACE(("unknown allowed packet during kexinit"))
+				recv_unimplemented();
+				goto out;
+			}
+			else
+			{
+				TRACE(("disallowed packet during kexinit"))
+				dropbear_exit("Unexpected packet type %d, expected %d", type,
+						ses.requirenext);
+			}
+		}
+	}
+
+	/* Check if we should ignore this packet. Used currently only for
+	 * KEX code, with first_kex_packet_follows */
+	if (ses.ignorenext) {
+		TRACE(("Ignoring packet, type = %d", type))
+		ses.ignorenext = 0;
+		goto out;
+	}
+
+	/* Only clear the flag after we have checked ignorenext */
+	if (ses.requirenext != 0 && ses.requirenext == type)
+	{
+		ses.requirenext = 0;
+	}
+
+
+	/* Kindly the protocol authors gave all the preauth packets type values
+	 * less-than-or-equal-to 60 ( == MAX_UNAUTH_PACKET_TYPE ).
+	 * NOTE: if the protocol changes and new types are added, revisit this 
+	 * assumption */
+	if ( !ses.authstate.authdone && type > MAX_UNAUTH_PACKET_TYPE ) {
+		dropbear_exit("Received message %d before userauth", type);
+	}
+
+	for (i = 0; ; i++) {
+		if (ses.packettypes[i].type == 0) {
+			/* end of list */
+
+## dropbear/common-kex.c:568-574
+	/* the rest of ses.kexhashbuf will be done after DH exchange */
+
+	ses.kexstate.recvkexinit = 1;
+
+	if (ses.kexstate.strict_kex && !ses.kexstate.donefirstkex && ses.recvseq != 1) {
+		dropbear_exit("First packet wasn't kexinit");
+	}
+
+## dropbear/svr-kex.c:92-106
+
+	send_msg_newkeys();
+
+#if DROPBEAR_EXT_INFO
+	/* Only send it following the first newkeys */
+	if (!ses.kexstate.donesecondkex && ses.allow_ext_info) {
+		send_msg_ext_info();
+	}
+#endif
+
+	ses.requirenext = SSH_MSG_NEWKEYS;
+	TRACE(("leave recv_msg_kexdh_init"))
+}
+
+
+
+## dropbear/svr-service.c:36-70
+ * 1 if not */
+void recv_msg_service_request() {
+
+	char * name;
+	unsigned int len;
+
+	TRACE(("enter recv_msg_service_request"))
+
+	name = buf_getstring(ses.payload, &len);
+
+	/* ssh-userauth */
+	if (len == SSH_SERVICE_USERAUTH_LEN && 
+			strncmp(SSH_SERVICE_USERAUTH, name, len) == 0) {
+
+		send_msg_service_accept(name, len);
+		m_free(name);
+		TRACE(("leave recv_msg_service_request: done ssh-userauth"))
+		return;
+	}
+
+	/* ssh-connection */
+	if (len == SSH_SERVICE_CONNECTION_LEN &&
+			(strncmp(SSH_SERVICE_CONNECTION, name, len) == 0)) {
+		if (ses.authstate.authdone != 1) {
+			dropbear_exit("Request for connection before auth");
+		}
+
+		send_msg_service_accept(name, len);
+		m_free(name);
+		TRACE(("leave recv_msg_service_request: done ssh-connection"))
+		return;
+	}
+
+	m_free(name);
+	/* TODO this should be a MSG_DISCONNECT */
+
+## dropbear/svr-auth.c:74-88
+
+	char *username = NULL, *servicename = NULL, *methodname = NULL;
+	unsigned int userlen, servicelen, methodlen;
+	int valid_user = 0;
+
+	TRACE(("enter recv_msg_userauth_request"))
+
+	/* for compensating failure delay */
+	gettime_wrapper(&ses.authstate.auth_starttime);
+
+	/* ignore packets if auth is already done */
+	if (ses.authstate.authdone == 1) {
+		TRACE(("leave recv_msg_userauth_request: authdone already"))
+		return;
+	}
+
+## dropbear/svr-session.c:50-60
+static const packettype svr_packettypes[] = {
+	{SSH_MSG_CHANNEL_DATA, recv_msg_channel_data},
+	{SSH_MSG_CHANNEL_WINDOW_ADJUST, recv_msg_channel_window_adjust},
+	{SSH_MSG_USERAUTH_REQUEST, recv_msg_userauth_request}, /* server */
+	{SSH_MSG_SERVICE_REQUEST, recv_msg_service_request}, /* server */
+	{SSH_MSG_KEXINIT, recv_msg_kexinit},
+	{SSH_MSG_KEXDH_INIT, recv_msg_kexdh_init}, /* server */
+	{SSH_MSG_NEWKEYS, recv_msg_newkeys},
+	{SSH_MSG_GLOBAL_REQUEST, recv_msg_global_request_remotetcp},
+	{SSH_MSG_CHANNEL_REQUEST, recv_msg_channel_request},
+	{SSH_MSG_CHANNEL_OPEN, recv_msg_channel_open},
+
+## go/handshake.go:235-252
+func (t *handshakeTransport) readLoop() {
+	first := true
+	for {
+		p, err := t.readOnePacket(first)
+		first = false
+		if err != nil {
+			t.readError = err
+			close(t.incoming)
+			break
+		}
+		// If this is the first kex, and strict KEX mode is enabled,
+		// we don't ignore any messages, as they may be used to manipulate
+		// the packet sequence numbers.
+		if !(t.sessionID == nil && t.strictMode) && (p[0] == msgIgnore || p[0] == msgDebug) {
+			continue
+		}
+		t.incoming <- p
+	}
+
+## go/handshake.go:438-450
+
+	if debugHandshake {
+		t.printPacket(p, false)
+	}
+
+	if first && p[0] != msgKexInit {
+		return nil, fmt.Errorf("ssh: first packet should be msgKexInit")
+	}
+
+	if p[0] != msgKexInit {
+		return p, nil
+	}
+
+
+## go/handshake.go:755-763
+			return err
+		}
+	}
+
+	if packet, err := t.conn.readPacket(); err != nil {
+		return err
+	} else if packet[0] != msgNewKeys {
+		return unexpectedMessageError(msgNewKeys, packet[0])
+	}
+
+## go/transport.go:140-160
+func (s *connectionState) readPacket(r *bufio.Reader, strictMode bool) ([]byte, error) {
+	packet, err := s.packetCipher.readCipherPacket(s.seqNum, r)
+	s.seqNum++
+	if err == nil && len(packet) == 0 {
+		err = errors.New("ssh: zero length packet")
+	}
+
+	if len(packet) > 0 {
+		switch packet[0] {
+		case msgNewKeys:
+			select {
+			case cipher := <-s.pendingKeyChange:
+				s.packetCipher = cipher
+				if strictMode {
+					s.seqNum = 0
+				}
+			default:
+				return nil, errors.New("ssh: got bogus newkeys message")
+			}
+
+		case msgDisconnect:
+
+## go/server.go:425-445
+
+	var packet []byte
+	if packet, err = s.transport.readPacket(); err != nil {
+		return nil, err
+	}
+
+	var serviceRequest serviceRequestMsg
+	if err = Unmarshal(packet, &serviceRequest); err != nil {
+		return nil, err
+	}
+	if serviceRequest.Service != serviceUserAuth {
+		return nil, errors.New("ssh: requested service '" + serviceRequest.Service + "' before authenticating")
+	}
+	serviceAccept := serviceAcceptMsg{
+		Service: serviceUserAuth,
+	}
+	if err := s.transport.writePacket(Marshal(&serviceAccept)); err != nil {
+		return nil, err
+	}
+
+	perms, err := s.serverAuthenticate(config)
+
+## go/mux.go:254-278
+	switch packet[0] {
+	case msgChannelOpen:
+		return m.handleChannelOpen(packet)
+	case msgGlobalRequest, msgRequestSuccess, msgRequestFailure:
+		return m.handleGlobalPacket(packet)
+	case msgPing:
+		var msg pingMsg
+		if err := Unmarshal(packet, &msg); err != nil {
+			return fmt.Errorf("failed to unmarshal ping@openssh.com message: %w", err)
+		}
+		return m.sendMessage(pongMsg(msg))
+	}
+
+	// assume a channel packet.
+	if len(packet) < 5 {
+		return parseError(packet[0])
+	}
+	id := binary.BigEndian.Uint32(packet[1:])
+	ch := m.chanList.getChan(id)
+	if ch == nil {
+		return m.handleUnknownChannelPacket(id, packet)
+	}
+
+	return ch.handlePacket(packet)
+}
+
+## go/mux.go:370-389
+func (m *mux) handleUnknownChannelPacket(id uint32, packet []byte) error {
+	msg, err := decode(packet)
+	if err != nil {
+		return err
+	}
+
+	switch msg := msg.(type) {
+	// RFC 4254 section 5.4 says unrecognized channel requests should
+	// receive a failure response.
+	case *channelRequestMsg:
+		if msg.WantReply {
+			return m.sendMessage(channelRequestFailureMsg{
+				PeersID: msg.PeersID,
+			})
+		}
+		return nil
+	default:
+		return fmt.Errorf("ssh: invalid channel %d", id)
+	}
+}
