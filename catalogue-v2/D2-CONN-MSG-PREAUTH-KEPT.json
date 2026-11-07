@@ -1,0 +1,15 @@
+{
+  "id": "D2-CONN-MSG-PREAUTH-KEPT",
+  "title": "Channel open before authentication does not end the connection",
+  "source": "RFC 4252 §6",
+  "quote": "If the server receives such a message before authentication, it MUST disconnect, preferably with a SSH_MSG_DISCONNECT.",
+  "level": "MUST",
+  "rationale": "After the initial KEX (with or without an accepted ssh-userauth SERVICE_REQUEST) and before authentication, CH_OPEN is answered without CLOSED/NO_CONN/DISCONNECT (v1 D2: OpenSSH answers UNIMPLEMENTED). Close detected only in a later step also matches; check the next output when replaying. Written by proto-sm stream A (v2) from v1 class D2 (report.md); vocabulary: teammate mapper (UNIMPLEMENTED, SERVICE_ACCEPT, CLOSED/NO_CONN, UA_PW_OK). An accepting word is a behaviour witness, not necessarily a bug.",
+  "automaton": {"initial": "init", "accept": ["bug"], "transitions": [
+      {"from":"init","to":"ki","in":"KEXINIT","out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"ki","to":"kr","in":"KEX30","out_has":["NEWKEYS"],"out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"kr","to":"post","in":"NEWKEYS","out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]}, {"from":"post","to":"sr","in":"SR_AUTH","out_has":["SERVICE_ACCEPT"],"out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"post","to":"bug","in":"CH_OPEN","out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"sr","to":"bug","in":"CH_OPEN","out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]}
+  ]}
+}

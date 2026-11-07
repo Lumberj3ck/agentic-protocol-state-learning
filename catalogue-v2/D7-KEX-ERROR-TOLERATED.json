@@ -1,0 +1,14 @@
+{
+  "id": "D7-KEX-ERROR-TOLERATED",
+  "title": "Protocol error inside the initial key exchange answered with UNIMPLEMENTED, KEX continues",
+  "source": "RFC 4253 §7 (unspecified); draft-miller-sshm-strict-kex-01 §3.2",
+  "quote": "During initial KEX, terminate the connection if any unexpected or out-of-sequence packet is received. (strict KEX only)",
+  "level": "unspecified",
+  "rationale": "NEWKEYS before KEX30, or a duplicate KEX30, answered with UNIMPLEMENTED and the connection kept (v1 D7: OpenSSH, Dropbear, non-strict only). Written by proto-sm stream A (v2) from v1 class D7 (report.md); vocabulary: teammate mapper (UNIMPLEMENTED, SERVICE_ACCEPT, CLOSED/NO_CONN, UA_PW_OK). An accepting word is a behaviour witness, not necessarily a bug.",
+  "automaton": {"initial": "init", "accept": ["bug"], "transitions": [
+      {"from":"init","to":"ki","in":"KEXINIT","out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"ki","to":"kr","in":"KEX30","out_has":["NEWKEYS"],"out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"ki","to":"bug","in":"NEWKEYS","out_has":["UNIMPLEMENTED"],"out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"kr","to":"bug","in":"KEX30","out_has":["UNIMPLEMENTED"],"out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]}
+  ]}
+}

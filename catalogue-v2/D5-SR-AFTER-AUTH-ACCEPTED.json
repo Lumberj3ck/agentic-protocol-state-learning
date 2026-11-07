@@ -1,0 +1,14 @@
+{
+  "id": "D5-SR-AFTER-AUTH-ACCEPTED",
+  "title": "SERVICE_REQUEST after authentication is accepted",
+  "source": "RFC 4253 §10",
+  "quote": "If the server supports the service (and permits the client to use it), it MUST respond with the following: byte SSH_MSG_SERVICE_ACCEPT",
+  "level": "unspecified",
+  "rationale": "After successful authentication, SR_AUTH or SR_CONN answered with SERVICE_ACCEPT (v1 D5: Dropbear; OpenSSH UNIMPLEMENTED, Go closes). The RFC does not say whether a second request is permitted. Written by proto-sm stream A (v2) from v1 class D5 (report.md); vocabulary: teammate mapper (UNIMPLEMENTED, SERVICE_ACCEPT, CLOSED/NO_CONN, UA_PW_OK). An accepting word is a behaviour witness, not necessarily a bug.",
+  "automaton": {"initial": "init", "accept": ["bug"], "transitions": [
+      {"from":"init","to":"ki","in":"KEXINIT","out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"ki","to":"kr","in":"KEX30","out_has":["NEWKEYS"],"out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"kr","to":"post","in":"NEWKEYS","out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]}, {"from":"post","to":"sr","in":"SR_AUTH","out_has":["SERVICE_ACCEPT"],"out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]}, {"from":"sr","to":"au","in":"UA_PW_OK","out_has":["UA_SUCCESS"],"out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"au","to":"bug","in":["SR_AUTH","SR_CONN"],"out_has":["SERVICE_ACCEPT"]}
+  ]}
+}

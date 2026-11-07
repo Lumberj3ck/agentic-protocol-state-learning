@@ -1,0 +1,922 @@
+{
+ "started": "2026-11-07T15:09:52.893361+00:00",
+ "reps": 3,
+ "targets": {
+  "erlang-otp": {
+   "mapper_port": 8303,
+   "container": "psm-b1-erlang-otp"
+  }
+ },
+ "sequences": [
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "CH_OPEN"
+   ],
+   "results": {
+    "erlang-otp": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "CH_OPEN_SUCCESS"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 16.61,
+     "server_log": []
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "UA_PK_OK"
+   ],
+   "results": {
+    "erlang-otp": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 10.71,
+     "server_log": [
+      "=INFO REPORT==== 7-Nov-2026::15:10:12.526522 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:37592",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {service_request,server}",
+      "Module = ssh_connection_handler, Line = 1439.",
+      "Details:",
+      "  Message ssh_msg_userauth_request in wrong state ({service_request,server})",
+      "",
+      "=INFO REPORT==== 7-Nov-2026::15:10:16.073130 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:37600",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {service_request,server}",
+      "Module = ssh_connection_handler, Line = 1439.",
+      "Details:",
+      "  Message ssh_msg_userauth_request in wrong state ({service_request,server})",
+      "",
+      "=INFO REPORT==== 7-Nov-2026::15:10:19.641521 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:48780",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {service_request,server}",
+      "Module = ssh_connection_handler, Line = 1439.",
+      "Details:",
+      "  Message ssh_msg_userauth_request in wrong state ({service_request,server})",
+      ""
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "CH_OPEN"
+   ],
+   "results": {
+    "erlang-otp": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "NO_CONN"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "NO_CONN"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 11.85,
+     "server_log": [
+      "=INFO REPORT==== 7-Nov-2026::15:10:23.965194 ===",
+      "Accept failed on for connection: normal",
+      "=INFO REPORT==== 7-Nov-2026::15:10:27.920894 ===",
+      "Accept failed on for connection: normal",
+      "=INFO REPORT==== 7-Nov-2026::15:10:31.863238 ===",
+      "Accept failed on for connection: normal"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "KEXINIT"
+   ],
+   "results": {
+    "erlang-otp": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 12.86,
+     "server_log": [
+      "=INFO REPORT==== 7-Nov-2026::15:10:35.824060 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:54480",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {userauth,server}",
+      "Module = ssh_connection_handler, Line = 1439.",
+      "Details:",
+      "  Unhandled event in state {userauth,server} and type internal:",
+      "{{ssh_msg_kexinit,32842853074725123407759664859572824586,",
+      "                  [\"diffie-hellman-group14-sha256\",",
+      "                   \"diffie-hellman-group14-sha1\",\"diffie-hellman-group1-sha1\",",
+      "                   \"ext-info-c\"],",
+      "                  [\"rsa-sha2-256\",\"ssh-rsa\",\"ssh-dss\",",
+      "                   \" ... (3429 bytes skipped)",
+      "",
+      "=INFO REPORT==== 7-Nov-2026::15:10:40.106963 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:36868",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {userauth,server}",
+      "Module = ssh_connection_handler, Line = 1439.",
+      "Details:",
+      "  Unhandled event in state {userauth,server} and type internal:",
+      "{{ssh_msg_kexinit,181145684860033649917967058803486502689,",
+      "                  [\"diffie-hellman-group14-sha256\",",
+      "                   \"diffie-hellman-group14-sha1\",\"diffie-hellman-group1-sha1\",",
+      "                   \"ext-info-c\"],",
+      "                  [\"rsa-sha2-256\",\"ssh-rsa\",\"ssh-dss\",",
+      "                    ... (3429 bytes skipped)",
+      "",
+      "=INFO REPORT==== 7-Nov-2026::15:10:44.401009 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:36870",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {userauth,server}",
+      "Module = ssh_connection_handler, Line = 1439.",
+      "Details:",
+      "  Unhandled event in state {userauth,server} and type internal:",
+      "{{ssh_msg_kexinit,78807193241374941292691123599296808951,",
+      "                  [\"diffie-hellman-group14-sha256\",",
+      "                   \"diffie-hellman-group14-sha1\",\"diffie-hellman-group1-sha1\",",
+      "                   \"ext-info-c\"],",
+      "                  [\"rsa-sha2-256\",\"ssh-rsa\",\"ssh-dss\",",
+      "                   \" ... (3430 bytes skipped)",
+      ""
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "UA_PK_OK"
+   ],
+   "results": {
+    "erlang-otp": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 16.1,
+     "server_log": [
+      "=INFO REPORT==== 7-Nov-2026::15:10:49.780023 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:36886",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {connected,server}",
+      "Module = ssh_connection_handler, Line = 1439.",
+      "Details:",
+      "  Message ssh_msg_userauth_request in wrong state ({connected,server})",
+      "",
+      "=INFO REPORT==== 7-Nov-2026::15:10:55.152413 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:37490",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {connected,server}",
+      "Module = ssh_connection_handler, Line = 1439.",
+      "Details:",
+      "  Message ssh_msg_userauth_request in wrong state ({connected,server})",
+      "",
+      "=INFO REPORT==== 7-Nov-2026::15:11:00.523194 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:37504",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {connected,server}",
+      "Module = ssh_connection_handler, Line = 1439.",
+      "Details:",
+      "  Message ssh_msg_userauth_request in wrong state ({connected,server})",
+      ""
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "SR_AUTH"
+   ],
+   "results": {
+    "erlang-otp": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 15.83,
+     "server_log": [
+      "=INFO REPORT==== 7-Nov-2026::15:11:05.812102 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:38948",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {connected,server}",
+      "Module = ssh_connection_handler, Line = 1439.",
+      "Details:",
+      "  Message ssh_msg_service_request in wrong state ({connected,server})",
+      "",
+      "=INFO REPORT==== 7-Nov-2026::15:11:11.098506 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:34582",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {connected,server}",
+      "Module = ssh_connection_handler, Line = 1439.",
+      "Details:",
+      "  Message ssh_msg_service_request in wrong state ({connected,server})",
+      "",
+      "=INFO REPORT==== 7-Nov-2026::15:11:16.374565 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:34588",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {connected,server}",
+      "Module = ssh_connection_handler, Line = 1439.",
+      "Details:",
+      "  Message ssh_msg_service_request in wrong state ({connected,server})",
+      ""
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "SR_CONN"
+   ],
+   "results": {
+    "erlang-otp": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 12.87,
+     "server_log": [
+      "=INFO REPORT==== 7-Nov-2026::15:11:20.693413 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:54748",
+      "Disconnects with code = 7 [RFC4253 11.1]: Service not available",
+      "State = {userauth,server}",
+      "Module = ssh_connection_handler, Line = 710.",
+      "Details:",
+      "  Unknown service: \"ssh-connection\"",
+      "",
+      "=INFO REPORT==== 7-Nov-2026::15:11:24.980858 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:54764",
+      "Disconnects with code = 7 [RFC4253 11.1]: Service not available",
+      "State = {userauth,server}",
+      "Module = ssh_connection_handler, Line = 710.",
+      "Details:",
+      "  Unknown service: \"ssh-connection\"",
+      "",
+      "=INFO REPORT==== 7-Nov-2026::15:11:29.263251 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:54774",
+      "Disconnects with code = 7 [RFC4253 11.1]: Service not available",
+      "State = {userauth,server}",
+      "Module = ssh_connection_handler, Line = 710.",
+      "Details:",
+      "  Unknown service: \"ssh-connection\"",
+      ""
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "KEX30"
+   ],
+   "results": {
+    "erlang-otp": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 7.76,
+     "server_log": [
+      "=INFO REPORT==== 7-Nov-2026::15:11:31.872519 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:59562",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {new_keys,server,init}",
+      "Module = ssh_connection_handler, Line = 1439.",
+      "Details:",
+      "  Message ssh_msg_kexdh_init in wrong state ({new_keys,server,init})",
+      "",
+      "=INFO REPORT==== 7-Nov-2026::15:11:34.459470 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:59566",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {new_keys,server,init}",
+      "Module = ssh_connection_handler, Line = 1439.",
+      "Details:",
+      "  Message ssh_msg_kexdh_init in wrong state ({new_keys,server,init})",
+      "",
+      "=INFO REPORT==== 7-Nov-2026::15:11:37.048773 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:59578",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {new_keys,server,init}",
+      "Module = ssh_connection_handler, Line = 1439.",
+      "Details:",
+      "  Message ssh_msg_kexdh_init in wrong state ({new_keys,server,init})",
+      ""
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEX30"
+   ],
+   "results": {
+    "erlang-otp": {
+     "observations": [
+      [
+       "KEXINIT+DISCONNECT"
+      ],
+      [
+       "KEXINIT+DISCONNECT"
+      ],
+      [
+       "KEXINIT+DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT+DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 2.57,
+     "server_log": [
+      "=INFO REPORT==== 7-Nov-2026::15:11:37.930039 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:51936",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {kexinit,server,init}",
+      "Module = ssh_connection_handler, Line = 1500.",
+      "Details:",
+      "  Bad packet: Decrypted, but can't decode error:function_clause",
+      "",
+      "=INFO REPORT==== 7-Nov-2026::15:11:38.786247 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:51942",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {kexinit,server,init}",
+      "Module = ssh_connection_handler, Line = 1500.",
+      "Details:",
+      "  Bad packet: Decrypted, but can't decode error:function_clause",
+      "",
+      "=INFO REPORT==== 7-Nov-2026::15:11:39.643629 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:51946",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {kexinit,server,init}",
+      "Module = ssh_connection_handler, Line = 1500.",
+      "Details:",
+      "  Bad packet: Decrypted, but can't decode error:function_clause",
+      ""
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEXINIT"
+   ],
+   "results": {
+    "erlang-otp": {
+     "observations": [
+      [
+       "KEXINIT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 5.12,
+     "server_log": [
+      "=INFO REPORT==== 7-Nov-2026::15:11:41.374673 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:51952",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {key_exchange,server,init}",
+      "Module = ssh_connection_handler, Line = 1439.",
+      "Details:",
+      "  Unhandled event in state {key_exchange,server,init} and type internal:",
+      "{{ssh_msg_kexinit,102811598688779802554869632304373799584,",
+      "                  [\"diffie-hellman-group14-sha256\",",
+      "                   \"diffie-hellman-group14-sha1\",\"diffie-hellman-group1-sha1\",",
+      "                   \"ext-info-c\"],",
+      "                  [\"rsa-sha2-256\",\"ssh-rsa\",\"ssh-dss\",",
+      "  ... (3448 bytes skipped)",
+      "",
+      "=INFO REPORT==== 7-Nov-2026::15:11:43.081898 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:51958",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {key_exchange,server,init}",
+      "Module = ssh_connection_handler, Line = 1439.",
+      "Details:",
+      "  Unhandled event in state {key_exchange,server,init} and type internal:",
+      "{{ssh_msg_kexinit,118830848116886714774879372100136751686,",
+      "                  [\"diffie-hellman-group14-sha256\",",
+      "                   \"diffie-hellman-group14-sha1\",\"diffie-hellman-group1-sha1\",",
+      "                   \"ext-info-c\"],",
+      "                  [\"rsa-sha2-256\",\"ssh-rsa\",\"ssh-dss\",",
+      "  ... (3446 bytes skipped)",
+      "",
+      "=INFO REPORT==== 7-Nov-2026::15:11:44.788651 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:51960",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {key_exchange,server,init}",
+      "Module = ssh_connection_handler, Line = 1439.",
+      "Details:",
+      "  Unhandled event in state {key_exchange,server,init} and type internal:",
+      "{{ssh_msg_kexinit,209421258648737229830429348579356257028,",
+      "                  [\"diffie-hellman-group14-sha256\",",
+      "                   \"diffie-hellman-group14-sha1\",\"diffie-hellman-group1-sha1\",",
+      "                   \"ext-info-c\"],",
+      "                  [\"rsa-sha2-256\",\"ssh-rsa\",\"ssh-dss\",",
+      "  ... (3446 bytes skipped)",
+      ""
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  },
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "KEXINIT",
+    "SR_AUTH"
+   ],
+   "results": {
+    "erlang-otp": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "KEXINIT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "KEXINIT",
+       "DISCONNECT"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "SR_ACCEPT",
+       "UA_SUCCESS",
+       "KEXINIT",
+       "DISCONNECT"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "SR_ACCEPT",
+        "UA_SUCCESS",
+        "KEXINIT",
+        "DISCONNECT"
+       ],
+       "count": 3
+      }
+     ],
+     "deterministic": true,
+     "seconds": 18.35,
+     "server_log": [
+      "=INFO REPORT==== 7-Nov-2026::15:11:50.947303 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:51962",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {key_exchange,server,renegotiate}",
+      "Module = ssh_connection_handler, Line = 1439.",
+      "Details:",
+      "  Message ssh_msg_service_request in wrong state ({key_exchange,server,",
+      "                                                 renegotiate})",
+      "",
+      "=INFO REPORT==== 7-Nov-2026::15:11:57.041309 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:56058",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {key_exchange,server,renegotiate}",
+      "Module = ssh_connection_handler, Line = 1439.",
+      "Details:",
+      "  Message ssh_msg_service_request in wrong state ({key_exchange,server,",
+      "                                                 renegotiate})",
+      "",
+      "=INFO REPORT==== 7-Nov-2026::15:12:03.157524 ===",
+      "Erlang SSH server version: 6.0.7 (OpenSSL 3.5.7 9 Jun 2026).",
+      "Address: 172.17.0.11:22",
+      "Peer client version: \"SSH-2.0-paramiko_3.1.0\"",
+      "Peer address: 172.17.0.1:45330",
+      "Disconnects with code = 2 [RFC4253 11.1]: Protocol error",
+      "State = {key_exchange,server,renegotiate}",
+      "Module = ssh_connection_handler, Line = 1439.",
+      "Details:",
+      "  Message ssh_msg_service_request in wrong state ({key_exchange,server,",
+      "                                                 renegotiate})",
+      ""
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  }
+ ]
+}

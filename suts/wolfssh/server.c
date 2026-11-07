@@ -1,4 +1,6 @@
-/* Minimal test server; protocol handling belongs entirely to wolfSSH. */
+/* B1 adaptation of vendor/agentic-protocol-state-learning/targets/wolfssh/server.c (Apache-2.0):
+   user tester, password + publickey (/etc/psm/authorized_keys), RSA host key.
+   Minimal test server; protocol handling belongs entirely to wolfSSH. */
 #include <wolfssl/options.h>
 #include <wolfssh/ssh.h>
 #include <wolfssh/error.h>
@@ -10,18 +12,54 @@
 #include <stdlib.h>
 #include <string.h>
 
+static int b64v(int c) {
+    if (c >= 'A' && c <= 'Z') return c - 'A';
+    if (c >= 'a' && c <= 'z') return c - 'a' + 26;
+    if (c >= '0' && c <= '9') return c - '0' + 52;
+    if (c == '+') return 62;
+    if (c == '/') return 63;
+    return -1;
+}
+static int b64dec(const char* in, unsigned char* out, int max) {
+    int n = 0, acc = 0, bits = 0;
+    for (; *in; in++) {
+        int v = b64v((unsigned char)*in);
+        if (v < 0) continue;
+        acc = (acc << 6) | v; bits += 6;
+        if (bits >= 8) { bits -= 8; if (n < max) out[n++] = (acc >> bits) & 0xff; }
+    }
+    return n;
+}
+static int key_authorized(const byte* blob, word32 blobSz) {
+    FILE* f = fopen("/etc/psm/authorized_keys", "r");
+    char line[8192];
+    unsigned char dec[8192];
+    int ok = 0;
+    if (!f) return 0;
+    while (!ok && fgets(line, sizeof line, f)) {
+        char *save = NULL, *t = strtok_r(line, " \t\r\n", &save), *b = strtok_r(NULL, " \t\r\n", &save);
+        if (!t || !b) continue;
+        int n = b64dec(b, dec, sizeof dec);
+        ok = (n > 0 && (word32)n == blobSz && memcmp(dec, blob, blobSz) == 0);
+    }
+    fclose(f);
+    return ok;
+}
 static int auth(byte type, WS_UserAuthData* d, void* ctx) {
     (void)ctx;
+    int user_ok = d->usernameSz == 6 && memcmp(d->username, "tester", 6) == 0;
+    if (type == WOLFSSH_USERAUTH_PUBLICKEY)
+        return user_ok && key_authorized(d->sf.publicKey.publicKey, d->sf.publicKey.publicKeySz)
+            ? WOLFSSH_USERAUTH_SUCCESS : WOLFSSH_USERAUTH_INVALID_PUBLICKEY;
     if (type != WOLFSSH_USERAUTH_PASSWORD)
         return WOLFSSH_USERAUTH_INVALID_AUTHTYPE;
-    return d->usernameSz == 4 && memcmp(d->username, "test", 4) == 0 &&
-        d->sf.password.passwordSz == 4 &&
-        memcmp(d->sf.password.password, "test", 4) == 0
+    return user_ok && d->sf.password.passwordSz == 21 &&
+        memcmp(d->sf.password.password, "correct-horse-battery", 21) == 0
         ? WOLFSSH_USERAUTH_SUCCESS : WOLFSSH_USERAUTH_FAILURE;
 }
 static int auth_types(WOLFSSH* ssh, void* ctx) {
     (void)ssh; (void)ctx;
-    return WOLFSSH_USERAUTH_PASSWORD;
+    return WOLFSSH_USERAUTH_PASSWORD | WOLFSSH_USERAUTH_PUBLICKEY;
 }
 static int exec_request(WOLFSSH_CHANNEL* channel, void* ctx) {
     (void)channel;

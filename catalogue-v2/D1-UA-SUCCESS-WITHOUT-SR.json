@@ -1,0 +1,14 @@
+{
+  "id": "D1-UA-SUCCESS-WITHOUT-SR",
+  "title": "Correct USERAUTH_REQUEST without prior SERVICE_REQUEST succeeds",
+  "source": "RFC 4253 §10; RFC 4251 §1",
+  "quote": "The client sends a service request once a secure transport layer connection has been established.",
+  "level": "unspecified",
+  "rationale": "Directly after the initial KEX, a correct authentication request (no SERVICE_REQUEST sent) is answered with UA_SUCCESS. No MUST/SHOULD forbids it (v1 D1: Dropbear; NDSS 2023). Written by proto-sm stream A (v2) from v1 class D1 (report.md); vocabulary: teammate mapper (UNIMPLEMENTED, SERVICE_ACCEPT, CLOSED/NO_CONN, UA_PW_OK). An accepting word is a behaviour witness, not necessarily a bug.",
+  "automaton": {"initial": "init", "accept": ["bug"], "transitions": [
+      {"from":"init","to":"ki","in":"KEXINIT","out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"ki","to":"kr","in":"KEX30","out_has":["NEWKEYS"],"out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"kr","to":"post","in":"NEWKEYS","out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"post","to":"bug","in":"UA_PW_OK","out_has":["UA_SUCCESS"]}
+  ]}
+}

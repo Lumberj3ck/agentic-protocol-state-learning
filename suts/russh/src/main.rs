@@ -1,13 +1,14 @@
 // russh server for stream B1. Adapted from vendor/agentic-protocol-state-learning/targets/russh (Apache-2.0).
 use std::{sync::Arc, time::Duration};
 use russh::{server::{self, Auth, Msg, Server as _, Session}, Channel, ChannelId};
-use russh::keys::{PublicKey, PublicKeyBase64};
+use russh::keys::PublicKey;
+use russh::server::VerifiedPublicKey;
 
 #[derive(Clone)]
 struct Server;
 
 fn authorized(key: &PublicKey) -> bool {
-    let blob = key.public_key_base64();
+    let blob = key.to_openssh().unwrap_or_default().split_whitespace().nth(1).unwrap_or("").to_string();
     match std::fs::read_to_string("/etc/psm/authorized_keys") {
         Ok(s) => s.lines().any(|l| l.split_whitespace().nth(1) == Some(blob.as_str())),
         Err(_) => false,
@@ -29,8 +30,14 @@ impl server::Handler for Server {
         Ok(if user == "tester" && password == "correct-horse-battery" { Auth::Accept } else { Auth::reject() })
     }
 
-    async fn auth_publickey(&mut self, user: &str, key: &PublicKey) -> Result<Auth, Self::Error> {
+    // Offered (no signature yet): approve only the key in authorized_keys; the library then verifies the signature
+    // and calls auth_publickey with a VerifiedPublicKey.
+    async fn auth_publickey_offered(&mut self, user: &str, key: &PublicKey) -> Result<Auth, Self::Error> {
         Ok(if user == "tester" && authorized(key) { Auth::Accept } else { Auth::reject() })
+    }
+
+    async fn auth_publickey(&mut self, user: &str, _key: VerifiedPublicKey<'_>) -> Result<Auth, Self::Error> {
+        Ok(if user == "tester" { Auth::Accept } else { Auth::reject() })
     }
 
     async fn channel_open_session(

@@ -1,0 +1,11 @@
+{
+  "id": "D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED",
+  "title": "KEX30 or NEWKEYS as the very first message answered with UNIMPLEMENTED",
+  "source": "draft-miller-sshm-strict-kex-01 §3.2 (strict only); RFC 4253 §7.1 unspecified",
+  "quote": "Key exchange begins by each side sending SSH_MSG_KEXINIT",
+  "level": "unspecified",
+  "rationale": "First input KEX30 or NEWKEYS (no client KEXINIT yet) answered with UNIMPLEMENTED and the connection kept (v1 D8: OpenSSH, Dropbear). CAVEAT: our mapper then sends its own KEXINIT automatically, the teammate's never does, so the two harnesses test different message sequences here. Written by proto-sm stream A (v2) from v1 class D8 (report.md); vocabulary: teammate mapper (UNIMPLEMENTED, SERVICE_ACCEPT, CLOSED/NO_CONN, UA_PW_OK). An accepting word is a behaviour witness, not necessarily a bug.",
+  "automaton": {"initial": "init", "accept": ["bug"], "transitions": [
+      {"from":"init","to":"bug","in":["KEX30","NEWKEYS"],"out_has":["UNIMPLEMENTED"],"out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]}
+  ]}
+}

@@ -1,0 +1,15 @@
+{
+  "id": "D3-REKEY-PREAUTH-REFUSED",
+  "title": "Client KEXINIT after the initial KEX but before authentication is not answered with KEXINIT",
+  "source": "RFC 4253 §9",
+  "quote": "When this message is received, a party MUST respond with its own SSH_MSG_KEXINIT message, except when the received SSH_MSG_KEXINIT already was a reply.",
+  "level": "MUST",
+  "rationale": "Pre-auth rekey: KEXINIT after NEWKEYS (with or without SERVICE_ACCEPT) answered without KEXINIT (v1 D3: OpenSSH answers UNIMPLEMENTED, deliberately). Narrower than the catalogue's REKEY-KEXINIT-REPLY, which also covers post-auth. Written by proto-sm stream A (v2) from v1 class D3 (report.md); vocabulary: teammate mapper (UNIMPLEMENTED, SERVICE_ACCEPT, CLOSED/NO_CONN, UA_PW_OK). An accepting word is a behaviour witness, not necessarily a bug.",
+  "automaton": {"initial": "init", "accept": ["bug"], "transitions": [
+      {"from":"init","to":"ki","in":"KEXINIT","out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"ki","to":"kr","in":"KEX30","out_has":["NEWKEYS"],"out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"kr","to":"post","in":"NEWKEYS","out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]}, {"from":"post","to":"sr","in":"SR_AUTH","out_has":["SERVICE_ACCEPT"],"out_lacks":["CLOSED","NO_CONN","DISCONNECT","BAD_PACKET"]},
+      {"from":"post","to":"bug","in":"KEXINIT","out_lacks":["KEXINIT"]},
+      {"from":"sr","to":"bug","in":"KEXINIT","out_lacks":["KEXINIT"]}
+  ]}
+}
