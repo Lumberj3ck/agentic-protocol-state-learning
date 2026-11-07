@@ -1,0 +1,21 @@
+...............sF                                                        [100%]
+=================================== FAILURES ===================================
+______________ test_rekey_after_auth_installs_fresh_keys[libssh] _______________
+
+mapper = <smlearn.ssh.mapper.SSHMapper object at 0x7f76119730e0>
+
+    def test_rekey_after_auth_installs_fresh_keys(mapper):
+        out = run(mapper, ["KEXINIT", "KEX30", "NEWKEYS", "SR_AUTH", "UA_PW_OK",
+                           "KEXINIT", "KEX30", "NEWKEYS", "CH_OPEN"])
+        assert "KEXINIT" in out[5].split("+"), out
+        assert "KEX31" in out[6].split("+") and "NEWKEYS" in out[6].split("+"), out
+>       assert "CH_OPEN_SUCCESS" in out[8].split("+"), out
+E       AssertionError: ['NO_RESP', 'KEX31+NEWKEYS', 'NO_RESP', 'SERVICE_ACCEPT', 'UA_SUCCESS', 'KEXINIT', ...]
+E       assert 'CH_OPEN_SUCCESS' in ['NO_RESP']
+E        +  where ['NO_RESP'] = <built-in method split of str object at 0x7f761265a310>('+')
+E        +    where <built-in method split of str object at 0x7f761265a310> = 'NO_RESP'.split
+
+tests/test_ssh_mapper.py:118: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_ssh_mapper.py::test_rekey_after_auth_installs_fresh_keys[libssh]
+1 failed, 15 passed, 1 skipped in 76.07s (0:01:16)

@@ -1,0 +1,14 @@
+kex: mlkem768x25519-sha256,mlkem1024nistp384-sha384,mlkem768nistp256-sha256,curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group-exchange-sha256,ext-info-s,kex-strict-s,kex-strict-s-v00@openssh.com
+host key: ecdsa-sha2-nistp256
+cipher c2s: aes256-gcm@openssh.com,aes192-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+cipher s2c: aes256-gcm@openssh.com,aes192-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+MAC c2s: hmac-sha2-256,hmac-sha2-512
+MAC s2c: hmac-sha2-256,hmac-sha2-512
+compression c2s: none
+compression s2c: none
+other UA_PW_OK ['NO_RESP', 'KEX31+NEWKEYS', 'NO_RESP', 'SERVICE_ACCEPT', 'UA_FAILURE']
+test UA_NONE ['NO_RESP', 'KEX31+NEWKEYS', 'NO_RESP', 'SERVICE_ACCEPT', 'UA_FAILURE']
+test UA_PW_OK ['NO_RESP', 'KEX31+NEWKEYS', 'NO_RESP', 'SERVICE_ACCEPT', 'UA_SUCCESS']
+channel: CH_OPEN_SUCCESS
+exec: CH_SUCCESS+CH_REQUEST+CH_EOF+CH_CLOSE+CLOSED
+exit statuses: [0]

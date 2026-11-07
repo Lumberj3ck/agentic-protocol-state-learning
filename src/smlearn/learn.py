@@ -43,6 +43,20 @@ class QueryLog:
             self.f.flush()
 
 
+def reset_with_retry(mapper, counter=None, attempts=6):
+    """Connection setup failures are infrastructure errors, not observations: retry with backoff, and count them."""
+    for k in range(attempts):
+        try:
+            mapper.reset()
+            return
+        except (EOFError, OSError):
+            if counter is not None:
+                counter.reset_failures += 1
+            if k == attempts - 1:
+                raise
+            time.sleep(0.2 * 2 ** k)
+
+
 class RobustSUL(SUL):
     """Runs each query on a mapper; answers are cached in a prefix tree.
 
@@ -56,9 +70,10 @@ class RobustSUL(SUL):
         self.mapper, self.log, self.votes = mapper, log, votes
         self.cache: dict[tuple, str] = {}
         self.nondet_events = 0
+        self.reset_failures = 0
 
     def _run(self, word):
-        self.mapper.reset()
+        reset_with_retry(self.mapper, self)
         return [self.mapper.step(i) for i in word]
 
     def query(self, word):
@@ -117,6 +132,7 @@ class ParallelEqOracle(Oracle):
         self.free = list(range(len(pool)))
         self.lock = threading.Lock()
         self.cache: dict[tuple, list] = {}
+        self.reset_failures = 0
 
     def _suffix(self):
         return tuple(self.rng.choice(self.alphabet) for _ in range(self.rng.randint(1, self.max_suffix)))
@@ -137,7 +153,7 @@ class ParallelEqOracle(Oracle):
             idx = self.free.pop()
         try:
             m = self.pool[idx]
-            m.reset()
+            reset_with_retry(m, self)
             return [m.step(i) for i in word]
         finally:
             with self.lock:
@@ -196,6 +212,7 @@ def learn(name: str, instances: int = 4, alphabet=None, out_dir: Path | None = N
             "mq": sul.num_queries, "mq_steps": sul.num_steps,
             "eq": eq.num_queries, "eq_steps": eq.num_steps,
             "nondet_events": sul.nondet_events, "seconds": round(elapsed, 1),
+            "reset_failures": sul.reset_failures + eq.reset_failures,
             "eq_oracle": {"seed_paths": SSH_SEED_PATHS, "walks_per_state": walks_per_state,
                           "max_suffix": max_suffix},
             "strict_kex_active": getattr(mappers[0], "strict_kex_active", None),

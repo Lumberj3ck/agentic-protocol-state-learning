@@ -1,0 +1,36 @@
+KEXINIT: CLOSED
+ERROR:paramiko.transport:Exception (server): Error reading SSH protocol banner
+INFO:paramiko.transport:Connected (version 2.0, client smlearn_0.1)
+ERROR:paramiko.transport:Traceback (most recent call last):
+ERROR:paramiko.transport:  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2227, in _check_banner
+ERROR:paramiko.transport:    buf = self.packetizer.readline(timeout)
+ERROR:paramiko.transport:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR:paramiko.transport:  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 395, in readline
+ERROR:paramiko.transport:    buf += self._read_timeout(timeout)
+ERROR:paramiko.transport:           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR:paramiko.transport:  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 665, in _read_timeout
+ERROR:paramiko.transport:    raise EOFError()
+ERROR:paramiko.transport:EOFError
+ERROR:paramiko.transport:
+ERROR:paramiko.transport:During handling of the above exception, another exception occurred:
+ERROR:paramiko.transport:
+ERROR:paramiko.transport:Traceback (most recent call last):
+ERROR:paramiko.transport:  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2043, in run
+ERROR:paramiko.transport:    self._check_banner()
+ERROR:paramiko.transport:  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2231, in _check_banner
+ERROR:paramiko.transport:    raise SSHException(
+ERROR:paramiko.transport:paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+ERROR:paramiko.transport:
+INFO:root:Connection ended: Error reading SSH protocol banner
+ERROR:paramiko.transport:Exception (server): Incompatible ssh peer (no acceptable kex algorithm)
+ERROR:paramiko.transport:Traceback (most recent call last):
+ERROR:paramiko.transport:  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2094, in run
+ERROR:paramiko.transport:    self._handler_table[ptype](m)
+ERROR:paramiko.transport:  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2214, in _negotiate_keys
+ERROR:paramiko.transport:    self._parse_kex_init(m)
+ERROR:paramiko.transport:  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2442, in _parse_kex_init
+ERROR:paramiko.transport:    raise IncompatiblePeer(
+ERROR:paramiko.transport:paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable kex algorithm)
+ERROR:paramiko.transport:
+INFO:root:Connection ended: Incompatible ssh peer (no acceptable kex algorithm)
+

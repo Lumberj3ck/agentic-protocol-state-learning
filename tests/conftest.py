@@ -2,7 +2,10 @@ import pytest
 
 from smlearn import testbed
 
-SSH_TARGETS = ["openssh", "dropbear", "asyncssh"]
+import os
+
+# SMLEARN_TARGETS=paramiko,golang runs the mapper tests against other targets/<name>.
+SSH_TARGETS = os.environ.get("SMLEARN_TARGETS", "openssh,dropbear,asyncssh").split(",")
 
 
 @pytest.fixture(scope="session", params=SSH_TARGETS)

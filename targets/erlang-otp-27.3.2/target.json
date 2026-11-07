@@ -1,0 +1,1 @@
+{"name": "erlang-otp-27.3.2", "implementation": "Erlang/OTP ssh 5.2.9 (OTP 27.3.2)", "source": "OTP 27.3.2 exactly; official docker.io/library/erlang:27.3.2.0-slim@sha256:eb71f4d1c00ef759d72b2160655c02bd74888713e9e47bed49532da2fe3edd8d", "port": 22, "user": "test", "password": "test"}

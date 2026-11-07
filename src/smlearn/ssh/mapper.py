@@ -35,6 +35,7 @@ class SSHMapper:
         self.sock = None
         self.trace = []
         self.strict_kex_active = False
+        self.server_kex = None
 
     def close(self):
         if self.sock is not None:
@@ -79,10 +80,12 @@ class SSHMapper:
         kind = payload[0]
         fields = Reader(payload[1:])
         if kind == 20:
+            if self.server_kex is None:
+                # Strict KEX is negotiated once, by the initial server KEXINIT.
+                fields.take(16)
+                offered = fields.string().split(b',')
+                self.strict_kex_active = self.strict_kex and b'kex-strict-s-v00@openssh.com' in offered
             self.server_kex = payload
-            fields.take(16)
-            offered = fields.string().split(b',')
-            self.strict_kex_active = self.strict_kex and b'kex-strict-s-v00@openssh.com' in offered
         elif kind == 31 and self.client_kex and self.server_kex and self.private_key:
             host_key, public = fields.string(), fields.string()
             fields.string()  # Host signature is deliberately not verified in this testbed.
@@ -141,7 +144,7 @@ class SSHMapper:
 
     def _payload(self, symbol):
         if symbol == 'KEXINIT':
-            kex = 'curve25519-sha256'
+            kex = 'curve25519-sha256,curve25519-sha256@libssh.org'
             if self.strict_kex:
                 kex += ',kex-strict-c-v00@openssh.com'
             lists = (kex, 'ssh-ed25519,rsa-sha2-256,ecdsa-sha2-nistp256',

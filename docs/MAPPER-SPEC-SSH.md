@@ -43,7 +43,7 @@ Nothing received during `reset()` is reported as output.
 
 Offer exactly one algorithm per category, so negotiation is deterministic:
 
-- kex: `curve25519-sha256` (plus `kex-strict-c-v00@openssh.com` when `strict_kex=True`)
+- kex: `curve25519-sha256,curve25519-sha256@libssh.org` (the same algorithm under its two names; the second is the only one Paramiko offers), plus `kex-strict-c-v00@openssh.com` when `strict_kex=True`
 - host key: `ssh-ed25519,rsa-sha2-256,ecdsa-sha2-nistp256` (the signature is not verified; this is a local testbed)
 - cipher: `aes128-ctr`
 - MAC: `hmac-sha2-256`
@@ -97,7 +97,9 @@ because how the server reacts to unexpected messages is exactly what we want to 
   otherwise the incoming direction is unchanged.
   (Re-installing already used keys would restart the AES-CTR keystream, and the peer would see a MAC failure that is
   an artifact of the mapper, not behaviour of the server.)
-- Strict KEX applies when the mapper offered it and the server's KEXINIT contained `kex-strict-s-v00@openssh.com`.
+- Strict KEX applies when the mapper offered it and the server's **first** KEXINIT of the connection contained `kex-strict-s-v00@openssh.com`.
+  It then stays in force for the whole connection: the marker is only meaningful in the initial KEXINIT and is ignored in later ones
+  (OpenSSH PROTOCOL §1.9; Go x/crypto/ssh and libssh omit it when rekeying but keep resetting sequence numbers).
   Then the outgoing sequence number resets to 0 when sending NEWKEYS installs new keys,
   and the incoming one resets to 0 when receiving NEWKEYS installs new keys.
 - Sequence numbers count every packet in each direction from the start of the connection (uint32, wrapping).

@@ -66,3 +66,31 @@ Every result, decision and exchange with the team, with links to the outputs.
 - Codex verification (`findings/CANDIDATE-001-verification.md`, logs `logs/agents/codex-verify-candidate-001.*`): confirmed at high confidence;
   reset in the packet layer before dispatch, keys and cipher state unchanged, repeated stray NEWKEYS resets again; present since 1edb00c (2023-12-18) through V_10_6_P1 and master.
   Corrections adopted: version label (no upstream V_10_6_P2 tag), client terminates during auth, and conditional ChaCha20 replay acceptance once a misbehaving peer has sent the stray NEWKEYS. Severity: informational / low.
+- 14:56 Team away for 30 min; authorised Nebius compute up to $20.
+  Created VM `smlearn-vm` (`computeinstance-e04dgd6jmc1cp0nacr`, cpu-d3 32vcpu-128gb, 200 GiB SSD, Ubuntu 24.04), public IP 213.239.172.162.
+  Cloud-init: key-only SSH, ufw allows only 22/tcp, Docker, uv, auto power-off after 6 h as a cost guard. Targets on the VM bind to 127.0.0.1 as everywhere.
+  **Must be deleted when done** (`nebius compute instance delete --id computeinstance-e04dgd6jmc1cp0nacr`).
+- Onboarding wave 1 spawned (one Codex agent each, `scripts/onboard.sh`, prompt template `agents/onboard-ssh-target.md`): paramiko, golang-xcrypto, erlang-otp, libssh.
+  `tests/conftest.py` now takes `SMLEARN_TARGETS`; mapper sources added to `logs/protected.sha256`.
+- VM ready; repo synced (no keys, no venv); on the VM 66 tests pass. Learning `v3vm` started there: openssh, dropbear, asyncssh, openssh-alpine-edge, 8 containers each (`scripts/learn_all.sh`).
+  Local v3 stopped and archived (`results/runs/*-v3-local-aborted/`) to free the laptop for agent builds.
+- Onboarding wave 1 results (Codex, one agent per target, reports in `targets/<name>/README.md` or `VALIDATION.md`):
+  - erlang-otp (OTP 29.1.2, ssh 6.0.7): all tests pass.
+  - golang-xcrypto (x/crypto v0.58.0) and libssh (0.12.2): all pass except rekey after auth.
+    Both agents traced it to the mapper: these servers omit the strict-KEX marker in rekey KEXINITs (as the extension allows) but keep resetting sequence numbers, while the mapper re-evaluated strict mode on every server KEXINIT. **Mapper bug #2.**
+  - paramiko (5.1.0): handshake fails; it only offers `curve25519-sha256@libssh.org`, the mapper only `curve25519-sha256`. **Mapper gap.**
+  - All three agents stopped and reported instead of working around the failure, as instructed.
+  Spec updated (strict KEX decided by the first KEXINIT and persistent; offer both curve25519 names); Codex fix 2 spawned (`logs/agents/codex-ssh-mapper-fix2.*`).
+  These do not affect the v3 models of openssh/dropbear/asyncssh, which repeat the marker on rekey and offer `curve25519-sha256`.
+- Onboarding wave 2 spawned: russh, wolfssh, mina-sshd, and erlang-otp-27.3.2 as a known-bug calibration control (CVE-2025-32433, fixed in 27.3.3).
+- Codex fix 2 done: both curve25519 names offered; strict KEX fixed by the first server KEXINIT. Codex: 202 passed on 8 targets; Claude re-ran paramiko, golang-xcrypto, libssh: 46 passed, 3 skipped.
+- Onboarding wave 2 (Codex): russh 0.65.1, wolfSSH 1.6.0 (wolfSSL 5.9.4), Apache MINA SSHD 2.20.1, Erlang/OTP 27.3.2 (ssh 5.2.9, calibration control): all 16 mapper tests pass on each.
+  **12 implementations onboarded by agents, all passing the same validation suite.**
+- OpenSSH 10.6 learning crashed on `closed during SSH identification`: OpenSSH ≥ 9.8 PerSourcePenalties throttles the learner's connection rate.
+  Target config now disables PerSourcePenalties and raises MaxStartups; the learner retries failed connection setup with backoff and counts `reset_failures`.
+- Stray-NEWKEYS experiment on all 12 targets (`results/seqnr/*.txt`), the first fully differential result:
+  - reset receive counter, reply UNIMPLEMENTED, keep keys: OpenSSH 9.2p1 and 10.6p2 only (CANDIDATE-001);
+  - disconnect: Dropbear, AsyncSSH, Paramiko, Go x/crypto, Erlang/OTP 29 and 27.3.2, wolfSSH, MINA SSHD;
+  - silently ignore, keep counter: russh;
+  - **no response to anything afterwards, connection left open: libssh 0.12.2** (candidate; Codex investigating, `logs/agents/codex-investigate-stray-newkeys.*`).
+- Learning `v3vm` started on the VM for the 8 new targets (6 containers each).

@@ -1,0 +1,17 @@
+strict_kex_active: True
+kex: curve25519-sha256,curve25519-sha256@libssh.org,curve448-sha512,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256,diffie-hellman-group18-sha512,diffie-hellman-group17-sha512,diffie-hellman-group16-sha512,diffie-hellman-group15-sha512,diffie-hellman-group14-sha256,ext-info-s,kex-strict-s-v00@openssh.com
+host-key: ecdsa-sha2-nistp256
+cipher-c2s: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+cipher-s2c: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+mac-c2s: hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+mac-s2c: hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+compression-c2s: none,zlib,zlib@openssh.com
+compression-s2c: none,zlib,zlib@openssh.com
+KEXINIT -> NO_RESP
+KEX30 -> KEX31+NEWKEYS
+NEWKEYS -> NO_RESP
+SR_AUTH -> SERVICE_ACCEPT
+UA_PW_OK -> UA_SUCCESS
+CH_OPEN -> CH_OPEN_SUCCESS
+CH_REQUEST_EXEC -> CH_SUCCESS+CH_EOF+CH_REQUEST+CH_CLOSE
+server CH_REQUEST payload: 62000000000000000b657869742d7374617475730000000000

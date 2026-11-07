@@ -1,0 +1,1 @@
+{"name":"golang-xcrypto","implementation":"Go golang.org/x/crypto/ssh","source":"golang.org/x/crypto v0.58.0, https://proxy.golang.org/golang.org/x/crypto/@v/v0.58.0.info (https://go.googlesource.com/crypto, refs/tags/v0.58.0)","port":22,"user":"test","password":"test"}

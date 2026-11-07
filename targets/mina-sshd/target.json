@@ -1,0 +1,1 @@
+{"name":"mina-sshd","implementation":"Apache MINA SSHD (Java)","source":"Maven Central org.apache.sshd:sshd-core:2.20.1 (https://repo.maven.apache.org/maven2/org/apache/sshd/sshd-core/2.20.1/)","port":22,"user":"test","password":"test"}

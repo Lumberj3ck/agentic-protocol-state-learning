@@ -62,6 +62,44 @@ def test_bad_mac():
 
 
 @pytest.mark.parametrize('strict', [False, True])
+def test_kexinit_offers_both_curve25519_names(strict):
+    mapper = SSHMapper('unused', 0, strict_kex=strict)
+    payload = mapper._payload('KEXINIT')
+    reader = Reader(payload)
+    assert reader.take(17) == b'\x14' + bytes(16)
+    expected = [b'curve25519-sha256', b'curve25519-sha256@libssh.org']
+    if strict:
+        expected.append(b'kex-strict-c-v00@openssh.com')
+    assert reader.string().split(b',') == expected
+    assert mapper.client_kex == payload
+
+
+@pytest.mark.parametrize('strict', [False, True])
+@pytest.mark.parametrize('initial_marker', [False, True])
+def test_strict_kex_uses_only_first_server_kexinit(strict, initial_marker):
+    mapper = SSHMapper('unused', 0, strict_kex=strict)
+
+    # Build server offers independently of whether the client enables strict KEX.
+    offer = SSHMapper('unused', 0)._payload('KEXINIT')
+    with_marker = offer.replace(b'kex-strict-c-v00@openssh.com',
+                                b'kex-strict-s-v00@openssh.com')
+    without_marker = SSHMapper('unused', 0, strict_kex=False)._payload('KEXINIT')
+    for marker in (initial_marker, not initial_marker, initial_marker):
+        payload = with_marker if marker else without_marker
+        mapper._received(payload)
+        assert mapper.server_kex == payload
+        assert mapper.strict_kex_active == (strict and initial_marker)
+        # Rekeys must continue to reset both sequence numbers in strict mode.
+        mapper.pending = {True: (bytes(16), bytes(16), bytes(32)),
+                          False: (bytes(16), bytes(16), bytes(32))}
+        for outgoing in (True, False):
+            direction = Direction()
+            direction.sequence = 7
+            mapper._install(direction, outgoing)
+            assert direction.sequence == (0 if strict and initial_marker else 7)
+
+
+@pytest.mark.parametrize('strict', [False, True])
 @pytest.mark.parametrize('first', [False, True])
 def test_pending_keys_consumed_per_direction(strict, first):
     mapper = SSHMapper('unused', 0)

@@ -1,0 +1,42 @@
+.F.FF..F.......sF                                                        [100%]
+=================================== FAILURES ===================================
+_____________________ test_happy_path_completes[paramiko] ______________________
+tests/test_ssh_mapper.py:37: in test_happy_path_completes
+    assert out[0] == "NO_RESP"                 # server KEXINIT was absorbed by reset()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: assert 'CLOSED' == 'NO_RESP'
+E     
+E     - NO_RESP
+E     + CLOSED
+_____________________ test_wrong_password_fails[paramiko] ______________________
+tests/test_ssh_mapper.py:53: in test_wrong_password_fails
+    assert "UA_FAILURE" in out[4].split("+")
+E   AssertionError: assert 'UA_FAILURE' in ['NO_CONN']
+E    +  where ['NO_CONN'] = <built-in method split of str object at 0x7f1f27cba9a0>('+')
+E    +    where <built-in method split of str object at 0x7f1f27cba9a0> = 'NO_CONN'.split
+___________________ test_session_works_after_auth[paramiko] ____________________
+tests/test_ssh_mapper.py:58: in test_session_works_after_auth
+    assert "CH_SUCCESS" in out[-1].split("+") or "CH_FAILURE" in out[-1].split("+")
+E   AssertionError: assert ('CH_SUCCESS' in ['NO_CONN'] or 'CH_FAILURE' in ['NO_CONN'])
+E    +  where ['NO_CONN'] = <built-in method split of str object at 0x7f1f27cba9a0>('+')
+E    +    where <built-in method split of str object at 0x7f1f27cba9a0> = 'NO_CONN'.split
+E    +  and   ['NO_CONN'] = <built-in method split of str object at 0x7f1f27cba9a0>('+')
+E    +    where <built-in method split of str object at 0x7f1f27cba9a0> = 'NO_CONN'.split
+_____________________ test_trace_records_packets[paramiko] _____________________
+tests/test_ssh_mapper.py:77: in test_trace_records_packets
+    assert (">", "KEX30") in names
+E   AssertionError: assert ('>', 'KEX30') in [('<', 'KEXINIT'), ('>', 'KEXINIT')]
+_____________ test_rekey_after_auth_installs_fresh_keys[paramiko] ______________
+tests/test_ssh_mapper.py:116: in test_rekey_after_auth_installs_fresh_keys
+    assert "KEXINIT" in out[5].split("+"), out
+E   AssertionError: ['CLOSED', 'NO_CONN', 'NO_CONN', 'NO_CONN', 'NO_CONN', 'NO_CONN', ...]
+E   assert 'KEXINIT' in ['NO_CONN']
+E    +  where ['NO_CONN'] = <built-in method split of str object at 0x7f1f27cba9a0>('+')
+E    +    where <built-in method split of str object at 0x7f1f27cba9a0> = 'NO_CONN'.split
+=========================== short test summary info ============================
+FAILED tests/test_ssh_mapper.py::test_happy_path_completes[paramiko] - Assert...
+FAILED tests/test_ssh_mapper.py::test_wrong_password_fails[paramiko] - Assert...
+FAILED tests/test_ssh_mapper.py::test_session_works_after_auth[paramiko] - As...
+FAILED tests/test_ssh_mapper.py::test_trace_records_packets[paramiko] - Asser...
+FAILED tests/test_ssh_mapper.py::test_rekey_after_auth_installs_fresh_keys[paramiko]
+5 failed, 11 passed, 1 skipped in 12.49s
