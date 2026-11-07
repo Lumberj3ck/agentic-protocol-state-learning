@@ -1,2 +1,55 @@
 seeded cache with 365 entries from results/learning/B_openssh_checkpoint_1405.json
 Hypothesis 1: 9 states.
+-----------------------------------
+Learning Finished.
+Learning Rounds:  1
+Number of states: 9
+Time (in seconds)
+  Total                : 2782.08
+  Learning algorithm   : 498.7
+  Conformance checking : 2283.38
+Learning Algorithm
+ # Membership Queries  : 702
+ # Steps               : 6175
+Equivalence Query
+ # Membership Queries  : 472
+ # Steps               : 3210
+-----------------------------------
+Model saved to results/models/A_openssh.dot.
+{
+ "name": "A_openssh",
+ "alphabet": [
+  "KEXINIT",
+  "KEX30",
+  "NEWKEYS",
+  "SR_AUTH",
+  "UA_PK_OK"
+ ],
+ "states": 9,
+ "learning_rounds": 1,
+ "aalpy_queries_learning": 702,
+ "aalpy_steps_learning": 6175,
+ "aalpy_queries_eq_oracle": 472,
+ "aalpy_steps_eq_oracle": 3210,
+ "sut": {
+  "cache_hits": 1062,
+  "sink_shortcuts": 547,
+  "sut_queries": 341,
+  "sut_steps": 3133,
+  "random_repeats": 35
+ },
+ "seconds": 2782.1,
+ "eq_oracle": {
+  "type": "rekey",
+  "walks_per_round": 150,
+  "walks_per_state": 15,
+  "len": [
+   3,
+   10
+  ]
+ },
+ "cache_in": "results/learning/B_openssh_checkpoint_1405.json",
+ "repeat_prob": 0.1,
+ "seed": 1,
+ "finished": "2026-11-07 14:51:45"
+}

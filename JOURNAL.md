@@ -87,3 +87,6 @@
 - 14:45 B-only replay on all three servers (results/replay/B_only_replay.json -> results/final/verified_B_only.md): 10 reportable, 1 agree (full happy path incl. CH_OPEN identical on all three).
   NEW E1: SR "ssh-connection" before auth: all three disconnect (RFC 4253 §10 MUST met); only OpenSSH sends DISCONNECT (SHOULD); Dropbear/Go silent close.
   E2: SR_CONN / SR_AUTH after auth: OpenSSH UNIMPL, Dropbear SR_ACCEPT, Go closes. Sent to a fourth reviewer (results/review/sr_conn.md).
+- 14:58 A_openssh (rekey oracle) CONVERGED: 9 states, 46 min (before the 15:45 condition). Full encrypted handshake now learned for all three current servers.
+  All three A models predict every replayed trace on their alphabet (results/checks/A_*_vs_replays.json, 0 mismatches).
+  Three-way A diff (results/diff/A_threeway.json, normalised): 53 distinguishing sequences; replaying the 40 not yet replayed (results/replay/A_threeway_replay.json).

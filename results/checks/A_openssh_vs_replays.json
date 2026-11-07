@@ -1,0 +1,478 @@
+{
+ "model": "results/models/A_openssh.dot",
+ "checked": 19,
+ "mismatches": [],
+ "skipped_alphabet": 2,
+ "rows": [
+  {
+   "replay": "results/replay/A_dropbear_vs_gossh_replay.json",
+   "target": "openssh",
+   "sequence": [
+    "KEX30"
+   ],
+   "observed": [
+    "KEXINIT+UNIMPL"
+   ],
+   "predicted": [
+    "KEXINIT+UNIMPL"
+   ],
+   "match": true
+  },
+  {
+   "replay": "results/replay/A_dropbear_vs_gossh_replay.json",
+   "target": "openssh",
+   "sequence": [
+    "NEWKEYS"
+   ],
+   "observed": [
+    "KEXINIT+UNIMPL"
+   ],
+   "predicted": [
+    "KEXINIT+UNIMPL"
+   ],
+   "match": true
+  },
+  {
+   "replay": "results/replay/A_dropbear_vs_gossh_replay.json",
+   "target": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "NEWKEYS"
+   ],
+   "observed": [
+    "KEXINIT",
+    "UNIMPL"
+   ],
+   "predicted": [
+    "KEXINIT",
+    "UNIMPL"
+   ],
+   "match": true
+  },
+  {
+   "replay": "results/replay/A_dropbear_vs_gossh_replay.json",
+   "target": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "KEX30"
+   ],
+   "observed": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "UNIMPL"
+   ],
+   "predicted": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "UNIMPL"
+   ],
+   "match": true
+  },
+  {
+   "replay": "results/replay/A_dropbear_vs_gossh_replay.json",
+   "target": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "UA_PK_OK"
+   ],
+   "observed": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UNIMPL"
+   ],
+   "predicted": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UNIMPL"
+   ],
+   "match": true
+  },
+  {
+   "replay": "results/replay/A_dropbear_vs_gossh_replay.json",
+   "target": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "KEXINIT",
+    "NEWKEYS"
+   ],
+   "observed": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "predicted": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "match": true
+  },
+  {
+   "replay": "results/replay/A_dropbear_vs_gossh_replay.json",
+   "target": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "SR_AUTH"
+   ],
+   "observed": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "SR_ACCEPT"
+   ],
+   "predicted": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "SR_ACCEPT"
+   ],
+   "match": true
+  },
+  {
+   "replay": "results/replay/A_dropbear_vs_gossh_replay.json",
+   "target": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "KEXINIT",
+    "NEWKEYS"
+   ],
+   "observed": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "predicted": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "match": true
+  },
+  {
+   "replay": "results/replay/A_dropbear_vs_gossh_replay.json",
+   "target": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "SR_AUTH"
+   ],
+   "observed": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST",
+    "UNIMPL"
+   ],
+   "predicted": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST",
+    "UNIMPL"
+   ],
+   "match": true
+  },
+  {
+   "replay": "results/replay/A_dropbear_vs_gossh_replay.json",
+   "target": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "UA_PK_OK"
+   ],
+   "observed": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST",
+    "UNIMPL"
+   ],
+   "predicted": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST",
+    "UNIMPL"
+   ],
+   "match": true
+  },
+  {
+   "replay": "results/replay/A_dropbear_vs_gossh_replay.json",
+   "target": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "KEXINIT",
+    "KEX30",
+    "KEX30"
+   ],
+   "observed": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UNIMPL",
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "predicted": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UNIMPL",
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "match": true
+  },
+  {
+   "replay": "results/replay/A_dropbear_vs_gossh_replay.json",
+   "target": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "KEXINIT",
+    "NEWKEYS"
+   ],
+   "observed": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST",
+    "KEXINIT",
+    "UNIMPL"
+   ],
+   "predicted": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST",
+    "KEXINIT",
+    "UNIMPL"
+   ],
+   "match": true
+  },
+  {
+   "replay": "results/replay/A_dropbear_vs_gossh_replay.json",
+   "target": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "KEXINIT",
+    "KEX30",
+    "KEX30"
+   ],
+   "observed": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST",
+    "KEXINIT",
+    "KEX31+NEWKEYS",
+    "UNIMPL"
+   ],
+   "predicted": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST",
+    "KEXINIT",
+    "KEX31+NEWKEYS",
+    "UNIMPL"
+   ],
+   "match": true
+  },
+  {
+   "replay": "results/replay/smoke_current.json",
+   "target": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK"
+   ],
+   "observed": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST"
+   ],
+   "predicted": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST"
+   ],
+   "match": true
+  },
+  {
+   "replay": "results/replay/smoke_current.json",
+   "target": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "UA_PK_OK"
+   ],
+   "observed": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UNIMPL"
+   ],
+   "predicted": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "UNIMPL"
+   ],
+   "match": true
+  },
+  {
+   "replay": "results/replay/smoke_current.json",
+   "target": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PW_OK"
+   ],
+   "observed": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST"
+   ],
+   "predicted": null,
+   "match": null
+  },
+  {
+   "replay": "results/replay/smoke_current.json",
+   "target": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PW_NOK"
+   ],
+   "observed": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_FAILURE"
+   ],
+   "predicted": null,
+   "match": null
+  },
+  {
+   "replay": "results/replay/p4_double_kexinit_openssh.json",
+   "target": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK"
+   ],
+   "observed": [
+    "KEXINIT",
+    "UNIMPL",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST"
+   ],
+   "predicted": [
+    "KEXINIT",
+    "UNIMPL",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST"
+   ],
+   "match": true
+  },
+  {
+   "replay": "results/replay/p4_double_kexinit_openssh.json",
+   "target": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK"
+   ],
+   "observed": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST"
+   ],
+   "predicted": [
+    "KEXINIT",
+    "KEX31+NEWKEYS+EXT_INFO",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS+GLOBAL_REQUEST"
+   ],
+   "match": true
+  }
+ ]
+}

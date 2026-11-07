@@ -1,0 +1,275 @@
+# Source excerpts for results/review/sr_conn.md (fetched 2026-11-07 from raw.githubusercontent.com)
+# openssh-portable tag V_10_0_P1; mkj/dropbear tag DROPBEAR_2025.88 (src/); golang/crypto tag v0.58.0 (ssh/)
+
+## openssh/auth2.c:170-181 (pre-auth dispatch: only SERVICE_REQUEST, then USERAUTH after accept)
+void
+do_authentication2(struct ssh *ssh)
+{
+	Authctxt *authctxt = ssh->authctxt;
+
+	ssh_dispatch_init(ssh, &dispatch_protocol_error);
+	if (ssh->kex->ext_info_c)
+		ssh_dispatch_set(ssh, SSH2_MSG_EXT_INFO, &kex_input_ext_info);
+	ssh_dispatch_set(ssh, SSH2_MSG_SERVICE_REQUEST, &input_service_request);
+	ssh_dispatch_run_fatal(ssh, DISPATCH_BLOCK, &authctxt->success);
+	ssh->authctxt = NULL;
+}
+
+## openssh/auth2.c:183-222 input_service_request
+static int
+input_service_request(int type, u_int32_t seq, struct ssh *ssh)
+{
+	Authctxt *authctxt = ssh->authctxt;
+	char *service = NULL;
+	int r, acceptit = 0;
+
+	if ((r = sshpkt_get_cstring(ssh, &service, NULL)) != 0 ||
+	    (r = sshpkt_get_end(ssh)) != 0)
+		goto out;
+
+	if (authctxt == NULL)
+		fatal("input_service_request: no authctxt");
+
+	if (strcmp(service, "ssh-userauth") == 0) {
+		if (!authctxt->success) {
+			acceptit = 1;
+			/* now we can handle user-auth requests */
+			ssh_dispatch_set(ssh, SSH2_MSG_USERAUTH_REQUEST,
+			    &input_userauth_request);
+		}
+	}
+	/* XXX all other service requests are denied */
+
+	if (acceptit) {
+		if ((r = sshpkt_start(ssh, SSH2_MSG_SERVICE_ACCEPT)) != 0 ||
+		    (r = sshpkt_put_cstring(ssh, service)) != 0 ||
+		    (r = sshpkt_send(ssh)) != 0 ||
+		    (r = ssh_packet_write_wait(ssh)) != 0)
+			goto out;
+	} else {
+		debug("bad service request %s", service);
+		ssh_packet_disconnect(ssh, "bad service request %s", service);
+	}
+	ssh_dispatch_set(ssh, SSH2_MSG_EXT_INFO, &dispatch_protocol_error);
+	r = 0;
+ out:
+	free(service);
+	return r;
+}
+
+## openssh/serverloop.c:875-900 server_init_dispatch (post-auth process; no SERVICE_REQUEST handler)
+static void
+server_init_dispatch(struct ssh *ssh)
+{
+	debug("server_init_dispatch");
+	ssh_dispatch_init(ssh, &dispatch_protocol_error);
+	ssh_dispatch_set(ssh, SSH2_MSG_CHANNEL_CLOSE, &channel_input_oclose);
+	ssh_dispatch_set(ssh, SSH2_MSG_CHANNEL_DATA, &channel_input_data);
+	ssh_dispatch_set(ssh, SSH2_MSG_CHANNEL_EOF, &channel_input_ieof);
+	ssh_dispatch_set(ssh, SSH2_MSG_CHANNEL_EXTENDED_DATA, &channel_input_extended_data);
+	ssh_dispatch_set(ssh, SSH2_MSG_CHANNEL_OPEN, &server_input_channel_open);
+	ssh_dispatch_set(ssh, SSH2_MSG_CHANNEL_OPEN_CONFIRMATION, &channel_input_open_confirmation);
+	ssh_dispatch_set(ssh, SSH2_MSG_CHANNEL_OPEN_FAILURE, &channel_input_open_failure);
+	ssh_dispatch_set(ssh, SSH2_MSG_CHANNEL_REQUEST, &server_input_channel_req);
+	ssh_dispatch_set(ssh, SSH2_MSG_CHANNEL_WINDOW_ADJUST, &channel_input_window_adjust);
+	ssh_dispatch_set(ssh, SSH2_MSG_GLOBAL_REQUEST, &server_input_global_request);
+	/* client_alive */
+	ssh_dispatch_set(ssh, SSH2_MSG_CHANNEL_SUCCESS, &server_input_keep_alive);
+	ssh_dispatch_set(ssh, SSH2_MSG_CHANNEL_FAILURE, &server_input_keep_alive);
+	ssh_dispatch_set(ssh, SSH2_MSG_REQUEST_SUCCESS, &server_input_keep_alive);
+	ssh_dispatch_set(ssh, SSH2_MSG_REQUEST_FAILURE, &server_input_keep_alive);
+	/* rekeying */
+	ssh_dispatch_set(ssh, SSH2_MSG_KEXINIT, &kex_input_kexinit);
+}
+
+## dropbear/src/svr-service.c:37-74 recv_msg_service_request
+void recv_msg_service_request() {
+
+	char * name;
+	unsigned int len;
+
+	TRACE(("enter recv_msg_service_request"))
+
+	name = buf_getstring(ses.payload, &len);
+
+	/* ssh-userauth */
+	if (len == SSH_SERVICE_USERAUTH_LEN && 
+			strncmp(SSH_SERVICE_USERAUTH, name, len) == 0) {
+
+		send_msg_service_accept(name, len);
+		m_free(name);
+		TRACE(("leave recv_msg_service_request: done ssh-userauth"))
+		return;
+	}
+
+	/* ssh-connection */
+	if (len == SSH_SERVICE_CONNECTION_LEN &&
+			(strncmp(SSH_SERVICE_CONNECTION, name, len) == 0)) {
+		if (ses.authstate.authdone != 1) {
+			dropbear_exit("Request for connection before auth");
+		}
+
+		send_msg_service_accept(name, len);
+		m_free(name);
+		TRACE(("leave recv_msg_service_request: done ssh-connection"))
+		return;
+	}
+
+	m_free(name);
+	/* TODO this should be a MSG_DISCONNECT */
+	dropbear_exit("Unrecognised SSH_MSG_SERVICE_REQUEST");
+
+
+}
+
+## dropbear/src/svr-session.c:257-300 svr_dropbear_exit (log, optional UNAUTH_CLOSE_DELAY (default 0), session_cleanup; no DISCONNECT)
+		/* before userauth */
+		snprintf(fullmsg, sizeof(fullmsg), "Exit before auth%s: %s", fromaddr, exitmsg);
+		add_delay = 1;
+	}
+
+	dropbear_log(LOG_INFO, "%s", fullmsg);
+
+	/* To make it harder for attackers, introduce a delay to keep an
+	 * unauthenticated session open a bit longer, thus blocking a connection
+	 * slot until after the delay. Without this, while there is a limit on
+	 * the amount of attempts an attacker can make at the same time
+	 * (MAX_UNAUTH_PER_IP), the time taken by dropbear to handle one attempt
+	 * is still short and thus for each of the allowed parallel attempts
+	 * many attempts can be chained one after the other. The attempt rate is
+	 * then:
+	 *     "MAX_UNAUTH_PER_IP / <process time of one attempt>".
+	 * With the delay, this rate becomes:
+	 *     "MAX_UNAUTH_PER_IP / UNAUTH_CLOSE_DELAY".
+	 */
+	if ((add_delay != 0) && (UNAUTH_CLOSE_DELAY > 0)) {
+		TRACE(("svr_dropbear_exit: start delay of %d seconds", UNAUTH_CLOSE_DELAY));
+		sleep(UNAUTH_CLOSE_DELAY);
+		TRACE(("svr_dropbear_exit: end delay of %d seconds", UNAUTH_CLOSE_DELAY));
+	}
+
+#if DROPBEAR_VFORK
+	/* For uclinux only the main server process should cleanup - we don't want
+	 * forked children doing that */
+	if (svr_ses.server_pid == getpid())
+#endif
+	{
+		/* must be after we've done with username etc */
+		session_cleanup();
+	}
+
+#if DROPBEAR_FUZZ
+	/* longjmp before cleaning up svr_opts */
+    if (fuzz.do_jmp) {
+        longjmp(fuzz.jmp, 1);
+    }
+#endif
+
+	if (svr_opts.hostkey) {
+		sign_key_free(svr_opts.hostkey);
+
+## golang/crypto ssh/server.go:353-377 NewServerConn (handshake error -> c.Close(), no DISCONNECT)
+func NewServerConn(c net.Conn, config *ServerConfig) (*ServerConn, <-chan NewChannel, <-chan *Request, error) {
+	fullConf := *config
+	fullConf.SetDefaults()
+	if fullConf.MaxAuthTries == 0 {
+		fullConf.MaxAuthTries = 6
+	}
+	if len(fullConf.PublicKeyAuthAlgorithms) == 0 {
+		fullConf.PublicKeyAuthAlgorithms = defaultPubKeyAuthAlgos
+	} else {
+		for _, algo := range fullConf.PublicKeyAuthAlgorithms {
+			if !slices.Contains(SupportedAlgorithms().PublicKeyAuths, algo) && !slices.Contains(InsecureAlgorithms().PublicKeyAuths, algo) {
+				c.Close()
+				return nil, nil, nil, fmt.Errorf("ssh: unsupported public key authentication algorithm %s", algo)
+			}
+		}
+	}
+
+	s := &connection{
+		sshConn: sshConn{conn: c},
+	}
+	perms, err := s.serverHandshake(&fullConf)
+	if err != nil {
+		c.Close()
+		return nil, nil, nil, err
+	}
+
+## golang/crypto ssh/server.go:422-450 serverHandshake: exactly one SERVICE_REQUEST, must be ssh-userauth
+	// We just did the key change, so the session ID is established.
+	s.sessionID = s.transport.getSessionID()
+	s.algorithms = s.transport.getAlgorithms()
+
+	var packet []byte
+	if packet, err = s.transport.readPacket(); err != nil {
+		return nil, err
+	}
+
+	var serviceRequest serviceRequestMsg
+	if err = Unmarshal(packet, &serviceRequest); err != nil {
+		return nil, err
+	}
+	if serviceRequest.Service != serviceUserAuth {
+		return nil, errors.New("ssh: requested service '" + serviceRequest.Service + "' before authenticating")
+	}
+	serviceAccept := serviceAcceptMsg{
+		Service: serviceUserAuth,
+	}
+	if err := s.transport.writePacket(Marshal(&serviceAccept)); err != nil {
+		return nil, err
+	}
+
+	perms, err := s.serverAuthenticate(config)
+	if err != nil {
+		return nil, err
+	}
+	s.mux = newMux(s.transport)
+	return perms, err
+
+## golang/crypto ssh/mux.go:254-277 onePacket (post-auth): non-channel message treated as channel message
+	switch packet[0] {
+	case msgChannelOpen:
+		return m.handleChannelOpen(packet)
+	case msgGlobalRequest, msgRequestSuccess, msgRequestFailure:
+		return m.handleGlobalPacket(packet)
+	case msgPing:
+		var msg pingMsg
+		if err := Unmarshal(packet, &msg); err != nil {
+			return fmt.Errorf("failed to unmarshal ping@openssh.com message: %w", err)
+		}
+		return m.sendMessage(pongMsg(msg))
+	}
+
+	// assume a channel packet.
+	if len(packet) < 5 {
+		return parseError(packet[0])
+	}
+	id := binary.BigEndian.Uint32(packet[1:])
+	ch := m.chanList.getChan(id)
+	if ch == nil {
+		return m.handleUnknownChannelPacket(id, packet)
+	}
+
+	return ch.handlePacket(packet)
+
+## golang/crypto ssh/mux.go:370-389 handleUnknownChannelPacket
+func (m *mux) handleUnknownChannelPacket(id uint32, packet []byte) error {
+	msg, err := decode(packet)
+	if err != nil {
+		return err
+	}
+
+	switch msg := msg.(type) {
+	// RFC 4254 section 5.4 says unrecognized channel requests should
+	// receive a failure response.
+	case *channelRequestMsg:
+		if msg.WantReply {
+			return m.sendMessage(channelRequestFailureMsg{
+				PeersID: msg.PeersID,
+			})
+		}
+		return nil
+	default:
+		return fmt.Errorf("ssh: invalid channel %d", id)
+	}
+}
