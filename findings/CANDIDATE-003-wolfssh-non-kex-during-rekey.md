@@ -1,5 +1,12 @@
 # CANDIDATE-003: wolfSSH sends USERAUTH_FAILURE during rekey
 
+## Context: related upstream work (checked 2026-11-07)
+
+- wolfSSH PR #1200 (merged 2026-08-28, "fix: reject service messages while keying") already enforces RFC 4253 §7.1 for SERVICE_REQUEST/SERVICE_ACCEPT between KEXINIT and NEWKEYS ("Issue: F-10569", an internal tracker).
+  This finding is the part of the same rule that fix does not cover: user-authentication and channel messages during a rekey.
+- Issue #1287 (reported 2026-09-30 via tlspuffin differential fuzzing, rated "Severity: Low" by the reporter, fixed in `91cb9ad` on 2026-10-12) is the auth-without-service-request behaviour our model also shows; we rediscovered it independently.
+- No public wolfSSH issue or PR about user-auth or channel messages during a rekey was found (searched issues and PRs for rekey/KEXINIT/keying/7.1). An internal report cannot be ruled out.
+
 ## Update: still present on wolfSSH master (checked 2026-11-07)
 
 Built `targets/wolfssh-master` from master commit `d043c6947787a428c288e4724be092e95dcf2554` (same server program and wolfSSL 5.9.4) and replayed side by side with 1.6.0

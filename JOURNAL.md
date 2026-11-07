@@ -157,3 +157,5 @@ Every result, decision and exchange with the team, with links to the outputs.
 - Deployed `index.html` alone (copied into a separate directory, so no repository files or keys were uploaded) to Vercel project `plov-site` (account lumberj3ck): https://plov-site.vercel.app (200).
   The first deployment of a new project becomes production automatically; deployment-specific URLs are behind Vercel's default protection.
   Redeploy: copy `index.html` into that directory and run `vercel deploy --prod --yes` there.
+- wolfSSH context: #1287 (auth without service request) was reported 2026-09-30 by tlspuffin differential fuzzing, rated Low, fixed 2026-10-12: our result is an independent rediscovery.
+  PR #1200 (2026-08-28) already enforces RFC 4253 §7.1 for service messages during keying; CANDIDATE-003 is the uncovered remainder (auth/channel messages). No public report of it found.
