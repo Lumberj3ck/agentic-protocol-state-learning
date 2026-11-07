@@ -1,6 +1,6 @@
 # Do independent SSH servers agree on the transport/auth state machine?
 
-Status: DRAFT (results sections are filled as evidence lands; see JOURNAL.md).
+Status: FINAL, 2026-11-07 15:30. Experiments frozen at 15:22; final verification passed (see "Final verification"). Day log: JOURNAL.md. Reproduction: README.md.
 
 ## Answer
 
@@ -139,6 +139,13 @@ The disagreements are not random: each implementation applies one consistent pol
 - Alphabet A (published 5 inputs), rekey-aware equivalence oracle, converged for all three current servers: OpenSSH 9 states, Dropbear 9, Go 12 (`results/models/A_*.dot`); each predicts every replayed trace on its alphabet (`results/checks/A_*_vs_replays.json`, 0 mismatches).
 - Alphabet B (+ SR_CONN, CH_OPEN) converged for Dropbear (13 states) and Go (16); restricted to A they are equivalent to the A models (`results/diff/B_vs_A_*_restricted.json`). OpenSSH's B run was stopped unconverged at 15:01; its B-only behaviour rests on replays alone (`results/final/verified_B_only.md`).
 - State counts are not a measure of implementation complexity: they include states made by the mapper (CH_MAX, the stream corrupted after NEWKEYS without a key exchange; `vendor/PATCHES.md`).
+
+## Final verification (after the freeze)
+
+- Test suite: 30 passed (`results/final/final_pytest.txt`).
+- One representative sequence per class plus the happy-path control, replayed again 5 times on all three servers: control agrees, all 10 representatives reportable, and every output identical to the one recorded earlier in the day (`results/final/final_check_verified.md`, `results/final/final_check_vs_earlier.txt`).
+- The published finding (D1) still reproduces on Dropbear 2020.81, 5 of 5 (`results/final/final_check_dropbear2020.json`).
+- Across all learning runs, 0 nondeterminism events and 0 harness errors were logged after the crash-survival fix (`results/loopcost_table.md`).
 
 ## What the method cannot conclude
 

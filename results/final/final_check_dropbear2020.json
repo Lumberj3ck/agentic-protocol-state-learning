@@ -1,0 +1,89 @@
+{
+ "started": "2026-11-07T14:24:10.889733+00:00",
+ "reps": 5,
+ "targets": {
+  "dropbear2020": {
+   "mapper_port": 8012,
+   "container": "psm-dropbear2020"
+  }
+ },
+ "sequences": [
+  {
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "UA_PK_OK"
+   ],
+   "results": {
+    "dropbear2020": {
+     "observations": [
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS"
+      ],
+      [
+       "KEXINIT",
+       "KEX31+NEWKEYS+EXT_INFO",
+       "NO_RESP",
+       "UA_SUCCESS"
+      ]
+     ],
+     "distinct": [
+      {
+       "outputs": [
+        "KEXINIT",
+        "KEX31+NEWKEYS+EXT_INFO",
+        "NO_RESP",
+        "UA_SUCCESS"
+       ],
+       "count": 5
+      }
+     ],
+     "deterministic": true,
+     "seconds": 19.67,
+     "server_log": [
+      "[233] Nov 07 14:24:10 Child connection from 172.17.0.1:60572",
+      "[233] Nov 07 14:24:10 Exit before auth from <172.17.0.1:60572>: Exited normally",
+      "[234] Nov 07 14:24:10 Child connection from 172.17.0.1:60586",
+      "[234] Nov 07 14:24:13 Pubkey auth succeeded for 'tester' with key sha1!! 92:ca:0d:cf:1b:df:ae:a9:fe:18:af:e6:89:3c:e9:81:63:9f:39:9a from 172.17.0.1:60586",
+      "[234] Nov 07 14:24:14 Exit (tester) from <172.17.0.1:60586>: Exited normally",
+      "[235] Nov 07 14:24:14 Child connection from 172.17.0.1:60596",
+      "[235] Nov 07 14:24:17 Pubkey auth succeeded for 'tester' with key sha1!! 92:ca:0d:cf:1b:df:ae:a9:fe:18:af:e6:89:3c:e9:81:63:9f:39:9a from 172.17.0.1:60596",
+      "[235] Nov 07 14:24:18 Exit (tester) from <172.17.0.1:60596>: Exited normally",
+      "[236] Nov 07 14:24:18 Child connection from 172.17.0.1:38172",
+      "[236] Nov 07 14:24:21 Pubkey auth succeeded for 'tester' with key sha1!! 92:ca:0d:cf:1b:df:ae:a9:fe:18:af:e6:89:3c:e9:81:63:9f:39:9a from 172.17.0.1:38172",
+      "[236] Nov 07 14:24:22 Exit (tester) from <172.17.0.1:38172>: Exited normally",
+      "[237] Nov 07 14:24:22 Child connection from 172.17.0.1:38186",
+      "[237] Nov 07 14:24:25 Pubkey auth succeeded for 'tester' with key sha1!! 92:ca:0d:cf:1b:df:ae:a9:fe:18:af:e6:89:3c:e9:81:63:9f:39:9a from 172.17.0.1:38186",
+      "[237] Nov 07 14:24:26 Exit (tester) from <172.17.0.1:38186>: Exited normally",
+      "[238] Nov 07 14:24:26 Child connection from 172.17.0.1:49672",
+      "[238] Nov 07 14:24:29 Pubkey auth succeeded for 'tester' with key sha1!! 92:ca:0d:cf:1b:df:ae:a9:fe:18:af:e6:89:3c:e9:81:63:9f:39:9a from 172.17.0.1:49672"
+     ]
+    }
+   },
+   "all_deterministic": true,
+   "targets_disagree": false
+  }
+ ]
+}

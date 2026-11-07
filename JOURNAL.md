@@ -95,3 +95,6 @@
 - 15:12 REVIEW E1/E2 (results/review/sr_conn.md): both REAL (11 seqs x 5 x 3; 60 stock-paramiko connections incl. strict KEX; server source). E1 = report D6; E2 merged into D5 (same mechanism as C3). Dropbear source even has "/* TODO this should be a MSG_DISCONNECT */" (svr-service.c).
 - 15:19 REVIEW D9 = K1-K4 (results/review/kex_phase.md): all REAL; unspecified divergence (RFC 4253 §7.1 binds the sender only). With strict KEX, OpenSSH disconnects on K1/K2 (initial KEX) like the others; K3/K4 unchanged. Mechanisms cited from source.
 - 15:22 FREEZE (early: all planned experiments complete; B_openssh deliberately abandoned at 15:01). Final verification next: full test suite, re-replay of one representative per class + control on all three servers, D1 on Dropbear 2020.81.
+- 15:24 FINAL VERIFICATION: 30 tests pass; representatives of all 9 classes + control re-replayed 5x on all three servers, outputs identical to earlier (results/final/final_check_vs_earlier.txt); D1 on Dropbear 2020.81 5/5.
+- 15:28 Stopped idle learning mappers (psm-mapper-L*, LA-, LB-); SUTs and replay mappers left running for re-checks. Box disk now 83%.
+- 15:30 report.md final. TASKS.md lists what a next session should do.
