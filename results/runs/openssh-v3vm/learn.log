@@ -1,0 +1,107 @@
+-----------------------------------
+Learning Finished.
+Learning Rounds:  13
+Number of states: 22
+Time (in seconds)
+  Total                : 2722.65
+  Learning algorithm   : 1958.34
+  Conformance checking : 764.31
+Learning Algorithm
+ # Membership Queries  : 1164
+ # MQ Saved by Caching : 0
+ # Steps               : 10033
+Equivalence Query
+ # Membership Queries  : 4260
+ # Steps               : 31307
+-----------------------------------
+Model saved to results/runs/openssh-v3vm/model.dot.
+{
+  "target": "openssh",
+  "implementation": "OpenSSH",
+  "source": "debian:bookworm-slim openssh-server",
+  "alphabet": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "SR_CONN",
+    "UA_PW_OK",
+    "UA_PW_NOK",
+    "UA_NONE",
+    "CH_OPEN",
+    "CH_CLOSE",
+    "CH_EOF",
+    "CH_DATA",
+    "CH_REQUEST_EXEC",
+    "IGNORE",
+    "DEBUG",
+    "UNIMPLEMENTED",
+    "DISCONNECT"
+  ],
+  "mapper_kw": {
+    "timeout": 0.4,
+    "quiet": 0.1
+  },
+  "instances": 8,
+  "states": 22,
+  "rounds": 13,
+  "mq": 1164,
+  "mq_steps": 10033,
+  "eq": 4260,
+  "eq_steps": 31307,
+  "nondet_events": 0,
+  "seconds": 2722.7,
+  "eq_oracle": {
+    "seed_paths": [
+      [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "CH_OPEN",
+        "CH_REQUEST_EXEC",
+        "CH_EOF",
+        "CH_CLOSE"
+      ],
+      [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "CH_OPEN",
+        "CH_CLOSE"
+      ],
+      [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_NOK",
+        "UA_PW_NOK",
+        "UA_NONE",
+        "UA_PW_OK",
+        "CH_OPEN"
+      ],
+      [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "CH_OPEN",
+        "CH_OPEN",
+        "CH_CLOSE",
+        "CH_CLOSE"
+      ]
+    ],
+    "walks_per_state": 20,
+    "max_suffix": 6
+  },
+  "strict_kex_active": true
+}
+EXIT 0

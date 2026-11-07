@@ -117,3 +117,6 @@ Every result, decision and exchange with the team, with links to the outputs.
   Confirmed RFC 4253 §7.1 MUST NOT violation: wolfSSH 1.6.0 sends USERAUTH_FAILURE between its rekey KEXINIT and NEWKEYS (also after a successful SERVICE_REQUEST); OpenSSH (refuses rekey) and Go (closes) do not.
   Root cause: `IsMessageAllowedServer` checks the keying state only for messages 1–49 (`src/internal.c:806–807`, v1.6.0-stable). Severity not assessed (attack analysis out of scope).
   Correction adopted: auth without SERVICE_REQUEST is behaviour, not a normative violation; the catalogue's SHOULD level for UA-BEFORE-SR-AUTH is a modelling choice (stated in README).
+- More v3 models: openssh (9.2p1) 22 states, mina-sshd 21, russh 14. Verify (`results/catalogue/verified-batch2.json`): 6/6 CONFIRMED.
+  OpenSSH: CH_CLOSE deferred until the client NEWKEYS during rekey (known, NDSS 2023), CONN-BEFORE-AUTH, REKEY-KEXINIT-REPLY (known). russh: CH_OPEN before auth silently ignored. MINA: CH_OPEN before auth → UNIMPLEMENTED.
+  **MINA SSHD 2.20.1**: after auth, SERVICE_REQUEST(ssh-connection) is accepted and the open channel stops responding (CH_CLOSE unanswered, exec → CH_FAILURE; a new channel works). Replayed with controls; CANDIDATE-004, Codex conformance trace spawned (`logs/agents/codex-conformance-mina.*`).
