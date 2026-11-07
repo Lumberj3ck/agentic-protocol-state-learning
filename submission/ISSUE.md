@@ -1,4 +1,4 @@
-# [Submission] <team name>: Agents build the mappers — differential state machine learning of 12 SSH implementations
+# [Submission] <team name>: Agents build the mappers — two-harness differential state machine learning of SSH
 
 <!-- Draft for the xemantic/claude-impact-lab-2026 "Project submission" issue form. Fill in team name and members before filing. -->
 
@@ -32,6 +32,12 @@ It is checkable by computation: the handshake completes or not, repeated queries
 
 ## The research loop
 
+Two arms of one experiment, merged in one repository (overview: `SYNTHESIS.md`):
+the agent-built mapper (repository root) and the published-mapper harness (`reference-harness/`, full history of TheWingTheWong/proto-sm).
+Cross-validation: on the same OpenSSH, Dropbear and Go servers the two harnesses had 0 server-level disagreements; of 32 learned-model disagreement classes the agent-built mapper was at fault in 2 (fixed by seeded relearning) and the published one in 26; 62 of 62 catalogue witnesses confirmed live on the published harness's models.
+
+Agent-built arm:
+
 1. **Literature:** Claude subagents turned RFC 4252–4254 and the strict-KEX draft into 15 bug patterns as automata, each with its quoted MUST/SHOULD (`literature/ssh-rfc-notes.md`, `catalogue/ssh/`), and collected what prior work predicts for our targets (`literature/ssh-ground-truth.md`).
 2. **Test first:** Claude wrote the mapper contract and validation tests before any mapper code (`docs/MAPPER-SPEC-SSH.md`, `tests/test_ssh_mapper.py`).
 3. **Mapper by an agent:** Codex (`codex exec`, sandboxed) implemented the SSH mapper from the RFCs, no SSH library (`src/smlearn/ssh/`, logs in `logs/agents/`); `logs/protected.sha256` checks it never edited tests or spec.
@@ -41,6 +47,8 @@ It is checkable by computation: the handshake completes or not, repeated queries
 7. **State in files:** `TASKS.md`, `JOURNAL.md` (every decision and result), `PROMPT.md` (continue in a new session).
 
 ## What the loop found
+
+- **Two independent harnesses agree on every server behaviour they share** (`SYNTHESIS.md`, `reference-harness/results/v2/A/summary.md`); the published-mapper arm adds 39 verified divergences in 9 classes on OpenSSH 10.0p1, Dropbear 2025.88 and Go, validated against the original authors' published traces (`reference-harness/report.md`).
 
 - **12 SSH implementations** onboarded by agents and passing one validation suite; 10 models learned and replay-verified (`results/SUMMARY.md`), 0 nondeterminism events.
 - **Calibration:** reproduced the CCS 2025 Dropbear strict-KEX violation on our exact version; the Terrapin on/off control; 8 behaviours predicted by SPIN 2017 / NDSS 2023; the known-vulnerable Erlang/OTP 27.3.2 (CVE-2025-32433) is flagged blind while patched OTP 29 is not; wolfSSH's auth-before-service-request, which wolfSSH fixed upstream on 2026-10-12 (unreleased), was rediscovered independently.

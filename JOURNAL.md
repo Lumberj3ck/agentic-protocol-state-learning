@@ -145,3 +145,7 @@ Every result, decision and exchange with the team, with links to the outputs.
   Plan: relearn all 12 targets with the bounded mapper (v5) so every model uses the same abstraction.
 - Team decision: stop for the hackathon submission. Codex fix 3 stopped before completion; its partial mapper/spec/test changes reverted so the committed mapper stays the validated one.
   One-channel bound recorded as the first open task. Nebius VM `computeinstance-e04dgd6jmc1cp0nacr` deleted (~1.5 h, roughly $1.2).
+- Merged the teammate's published-mapper arm (TheWingTheWong/proto-sm, Ansorjon Juraev, 66 commits, history kept) into `reference-harness/` via `git subtree add`.
+  Licenses compatible (Apache 2.0 + CC BY 4.0; bundled ssh-fuzzer is MIT); no secrets or large files.
+  Their cross-harness study: 0 server-level disagreements; model-disagreement classes attributed agent-built 2 (Go state merge, fixed by seeding) vs published 26; our catalogue 62/62 witnesses confirmed live.
+  Wrote `SYNTHESIS.md`; README and submission draft point to it.
