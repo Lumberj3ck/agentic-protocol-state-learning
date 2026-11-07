@@ -26,4 +26,7 @@ Observations to hand to a skeptic (NOT verified findings; mapper limits from ven
 - D4 (second USERAUTH after success): wolfssh and Erlang/OTP disconnect (RFC 4252 5.1 SHOULD silently ignore); paramiko, asyncssh, libssh, russh, Dropbear stay silent.
 - D1 (USERAUTH without SERVICE_REQUEST): paramiko, asyncssh, libssh, wolfssh accept like Dropbear; mina answers UNIMPL like OpenSSH; Erlang disconnects; russh ignores.
 - D2: paramiko answers CHANNEL_OPEN_FAILURE pre-auth and keeps the connection; libssh and russh stay silent.
-The planned 5-rep replay with server logs of these points (`reference/v2_b1_candidate_seqs.json`, output `results/v2/B1/candidate_replay.json`) was still running at finalisation; no MUST/SHOULD deviation is claimed yet.
+Update 16:40: the 5-rep replay of 8 candidate sequences on all 10 servers (`reference/v2_b1_candidate_seqs.json`, output `results/v2/B1/candidate_replay.json`, with server logs) finished: every cell is deterministic (5/5) and matches the matrix.
+libssh accepts SERVICE_REQUEST ssh-connection before authentication (`KEXINIT KEX30 NEWKEYS SR_CONN` -> SR_ACCEPT) but then ignores a CHANNEL_OPEN (NO_RESP), i.e. no pre-auth channel is created; RFC 4253 section 10 permits accepting a supported service, so this is an unspecified divergence, no security impact found.
+Erlang/OTP disconnects on a pre-auth rekey (`... SR_AUTH KEXINIT`), libssh ignores it silently: both depart from the letter of RFC 4253 section 9 (MUST respond with its own KEXINIT), as OpenSSH does (D3, same class); needs a skeptic before any claim.
+No new MUST/SHOULD deviation beyond the known classes D1-D9 is claimed.
