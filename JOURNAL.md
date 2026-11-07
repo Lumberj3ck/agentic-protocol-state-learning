@@ -134,3 +134,6 @@ Every result, decision and exchange with the team, with links to the outputs.
 - CANDIDATE-004 (Codex conformance trace, `findings/CANDIDATE-004-mina-sshd-service-request-after-auth.md`): MINA SSHD 2.20.1 replaces the active connection service on a post-auth
   SERVICE_REQUEST(ssh-connection) without closing old channels; failing to answer their CHANNEL_CLOSE conflicts with RFC 4254 §5.3.
 - Re-verification of all 10 finished models with the revised catalogue running (`results/catalogue/verified-all.*`). asyncssh and dropbear still learning on the VM.
+- Re-verification with the revised catalogue (`results/catalogue/verified-all.*`, `verified-libssh-erlang-rev2.json`): STRICT-KEX-FIRST-KEXINIT had the same over-strictness and was revised the same way (61 tests pass).
+  libssh strict-KEX hits now REFUTED (it disconnects at NEWKEYS); Erlang 27.3.2 control still CONFIRMED. libssh relearn `libssh-v4vm` started with its 3 refuted witnesses as seeds.
+  Totals (computed from the files): 23 distinct hits, 19 CONFIRMED, 4 REFUTED. `scripts/summarize.py` → `results/SUMMARY.md`.

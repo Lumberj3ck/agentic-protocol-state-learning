@@ -1,18 +1,115 @@
 {
   "id": "STRICT-KEX-FIRST-KEXINIT",
   "title": "Strict KEX: connection survives a first packet other than KEXINIT",
-  "source": "draft-miller-sshm-strict-kex-01 §3.2; OpenSSH PROTOCOL §1.9 (V_9_6_P1)",
+  "source": "draft-miller-sshm-strict-kex-01 \u00a73.2; OpenSSH PROTOCOL \u00a71.9 (V_9_6_P1)",
   "quote": "Because the message that signals support for strict KEX is enabled by the SSH_MSG_KEXINIT message, implementations MUST verify that the SSH_MSG_KEXINIT was the first message received from the peer. / This includes terminating the connection if the first packet received is not SSH2_MSG_KEXINIT.",
   "level": "MUST",
-  "rationale": "Violation: the first packet the mapper puts on the wire is not KEXINIT and the server does not tear the connection down, either on that packet or on the following client KEXINIT (which carries kex-strict-c-v00@openssh.com). The check may be retrospective, so silence on the stray packet is fine; NO_CHANNEL steps send nothing and do not count as a first packet.",
+  "rationale": "Violation: the first packet the mapper puts on the wire is not KEXINIT, and the connection survives the client KEXINIT (which carries kex-strict-c-v00@openssh.com), the client NEWKEYS, and then the server sends a real message without closing. The check may be retrospective, so silence on the stray packet and termination up to the client NEWKEYS are fine; NO_CHANNEL steps send nothing and do not count as a first packet. Revised 2026-11-07: the earlier version stopped at the client KEXINIT and flagged libssh 0.12.2, which disconnects at NEWKEYS.",
   "automaton": {
     "initial": "init",
-    "accept": ["bug"],
+    "accept": [
+      "bug"
+    ],
     "transitions": [
-      {"from": "init", "to": "init", "in": ["CH_CLOSE", "CH_EOF", "CH_DATA", "CH_REQUEST_EXEC"], "out_has": ["NO_CHANNEL"]},
-      {"from": "init", "to": "stray", "in_not": ["KEXINIT", "DISCONNECT"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET", "NO_CHANNEL"]},
-      {"from": "stray", "to": "stray", "in_not": ["KEXINIT", "DISCONNECT"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
-      {"from": "stray", "to": "bug", "in": "KEXINIT", "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]}
+      {
+        "from": "init",
+        "to": "init",
+        "in": [
+          "CH_CLOSE",
+          "CH_EOF",
+          "CH_DATA",
+          "CH_REQUEST_EXEC"
+        ],
+        "out_has": [
+          "NO_CHANNEL"
+        ]
+      },
+      {
+        "from": "init",
+        "to": "stray",
+        "in_not": [
+          "KEXINIT",
+          "DISCONNECT"
+        ],
+        "out_lacks": [
+          "CLOSED",
+          "NO_CONN",
+          "DISCONNECT",
+          "BAD_PACKET",
+          "NO_CHANNEL"
+        ]
+      },
+      {
+        "from": "stray",
+        "to": "stray",
+        "in_not": [
+          "KEXINIT",
+          "DISCONNECT"
+        ],
+        "out_lacks": [
+          "CLOSED",
+          "NO_CONN",
+          "DISCONNECT",
+          "BAD_PACKET"
+        ]
+      },
+      {
+        "from": "stray",
+        "to": "deferred",
+        "in": "KEXINIT",
+        "out_lacks": [
+          "CLOSED",
+          "NO_CONN",
+          "DISCONNECT",
+          "BAD_PACKET"
+        ]
+      },
+      {
+        "from": "deferred",
+        "to": "deferred",
+        "in_not": [
+          "NEWKEYS"
+        ],
+        "out_lacks": [
+          "CLOSED",
+          "NO_CONN",
+          "DISCONNECT",
+          "BAD_PACKET"
+        ]
+      },
+      {
+        "from": "deferred",
+        "to": "keyed",
+        "in": "NEWKEYS",
+        "out_lacks": [
+          "CLOSED",
+          "NO_CONN",
+          "DISCONNECT",
+          "BAD_PACKET"
+        ]
+      },
+      {
+        "from": "keyed",
+        "to": "keyed",
+        "out_lacks": [
+          "CLOSED",
+          "NO_CONN",
+          "DISCONNECT",
+          "BAD_PACKET"
+        ]
+      },
+      {
+        "from": "keyed",
+        "to": "bug",
+        "out_lacks": [
+          "CLOSED",
+          "NO_CONN",
+          "DISCONNECT",
+          "BAD_PACKET",
+          "NO_RESP",
+          "NO_CHANNEL"
+        ]
+      }
     ]
   }
 }

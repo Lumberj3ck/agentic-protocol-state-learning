@@ -60,6 +60,15 @@ State lives in files: [`TASKS.md`](TASKS.md) (prioritized queue),
   an apparent channel open without authentication in Go x/crypto/ssh came from two states the learner had merged; the real server closes the connection.
 - **Low-severity deviation:** AsyncSSH 2.17.0 authenticates and opens a channel without a prior `ssh-userauth` service request (Dropbear, Paramiko and wolfSSH do the same; Dropbear documents it as intended. No RFC sentence makes this a MUST or SHOULD: the catalogue's `UA-BEFORE-SR-AUTH` level is our modelling choice).
 
+## Learned models
+
+12 implementations onboarded; 10 models learned and verified so far (AsyncSSH and Dropbear still learning).
+Per-target states, learning cost and replay-verified catalogue hits: [`results/SUMMARY.md`](results/SUMMARY.md)
+(regenerate with `uv run python scripts/summarize.py`).
+Across these models (counting the superseded first Go model) the catalogue produced 23 distinct hits;
+with the current patterns, replay confirmed 19 and refuted 4 (model errors: the Go "auth bypass" and three libssh transitions), which were fed back to the learner as seeds.
+Two strict-KEX patterns were revised after replays showed they were too strict: termination may be deferred until NEWKEYS, which libssh does.
+
 ## Where it got stuck
 
 - The first learned models were incomplete (Dropbear: 3 states): uniform random equivalence testing never completes the handshake.

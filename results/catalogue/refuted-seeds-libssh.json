@@ -1,0 +1,25 @@
+[
+  [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "UA_PW_OK",
+    "CH_OPEN",
+    "CH_DATA",
+    "CH_CLOSE"
+  ],
+  [
+    "DEBUG",
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH"
+  ],
+  [
+    "KEXINIT",
+    "DEBUG",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH"
+  ]
+]

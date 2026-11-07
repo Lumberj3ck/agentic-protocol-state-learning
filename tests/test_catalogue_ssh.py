@@ -268,7 +268,7 @@ def test_strict_kex_small_models():
     for pid in ("STRICT-KEX-NON-KEX-MSG", "STRICT-KEX-FIRST-KEXINIT", "IGNORE-DEBUG-TOLERATED"):
         assert check(strict, PATTERNS[pid]) is None
     assert word(check(lax, PATTERNS["STRICT-KEX-NON-KEX-MSG"])) == ["KEXINIT", "IGNORE", "KEX30", "NEWKEYS", "KEXINIT"]
-    assert word(check(lax, PATTERNS["STRICT-KEX-FIRST-KEXINIT"])) == ["IGNORE", "KEXINIT"]
+    assert word(check(lax, PATTERNS["STRICT-KEX-FIRST-KEXINIT"])) == ["IGNORE", "KEXINIT", "KEX30", "NEWKEYS", "KEXINIT"]
     assert check(lax, PATTERNS["IGNORE-DEBUG-TOLERATED"]) is None
 
 

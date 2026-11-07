@@ -1,0 +1,588 @@
+{
+  "results/runs/openssh-v3vm/model.dot": [
+    {
+      "pattern": "CH-CLOSE-REPLY",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "KEXINIT",
+        "KEX30",
+        "CH_OPEN",
+        "CH_CLOSE"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "UA_SUCCESS+GLOBAL_REQUEST",
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "CH_OPEN_SUCCESS",
+        "NO_RESP"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "UA_SUCCESS+GLOBAL_REQUEST",
+        "KEXINIT",
+        "KEX31+NEWKEYS",
+        "CH_OPEN_SUCCESS",
+        "NO_RESP"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    },
+    {
+      "pattern": "CONN-BEFORE-AUTH",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "CH_OPEN"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UNIMPLEMENTED"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UNIMPLEMENTED"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    },
+    {
+      "pattern": "REKEY-KEXINIT-REPLY",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "KEXINIT"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UNIMPLEMENTED"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UNIMPLEMENTED"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    }
+  ],
+  "results/runs/openssh-alpine-edge-v3vm/model.dot": [
+    {
+      "pattern": "CONN-BEFORE-AUTH",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "CH_OPEN"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UNIMPLEMENTED"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UNIMPLEMENTED"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    },
+    {
+      "pattern": "REKEY-KEXINIT-REPLY",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "KEXINIT"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UNIMPLEMENTED"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UNIMPLEMENTED"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    }
+  ],
+  "results/runs/erlang-otp-v3vm/model.dot": [
+    {
+      "pattern": "REKEY-KEXINIT-REPLY",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "KEXINIT"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "DISCONNECT+CLOSED"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "DISCONNECT+CLOSED"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    }
+  ],
+  "results/runs/erlang-otp-27.3.2-v3vm/model.dot": [
+    {
+      "pattern": "CONN-BEFORE-AUTH",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "CH_OPEN"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    },
+    {
+      "pattern": "REKEY-KEXINIT-REPLY",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "KEXINIT"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "DISCONNECT+CLOSED"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "DISCONNECT+CLOSED"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    },
+    {
+      "pattern": "STRICT-KEX-NON-KEX-MSG",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "CH_OPEN",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "model": [
+        "NO_RESP",
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT"
+      ],
+      "real": [
+        "NO_RESP",
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    }
+  ],
+  "results/runs/libssh-v3vm/model.dot": [
+    {
+      "pattern": "CH-CLOSE-REPLY",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "UA_PW_OK",
+        "CH_OPEN",
+        "CH_DATA",
+        "CH_CLOSE"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS",
+        "CH_WINDOW_ADJUST",
+        "NO_RESP"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS",
+        "CH_WINDOW_ADJUST",
+        "CH_EOF+CH_CLOSE"
+      ],
+      "deterministic": true,
+      "verdict": "REFUTED"
+    },
+    {
+      "pattern": "CONN-BEFORE-AUTH",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "CH_OPEN"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    },
+    {
+      "pattern": "REKEY-KEXINIT-REPLY",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "KEXINIT"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    },
+    {
+      "pattern": "STRICT-KEX-FIRST-KEXINIT",
+      "level": "MUST",
+      "word": [
+        "DEBUG",
+        "KEXINIT"
+      ],
+      "model": [
+        "NO_RESP",
+        "NO_RESP"
+      ],
+      "real": [
+        "NO_RESP",
+        "NO_RESP"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    },
+    {
+      "pattern": "STRICT-KEX-NON-KEX-MSG",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "DEBUG",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH"
+      ],
+      "model": [
+        "NO_RESP",
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT"
+      ],
+      "real": [
+        "NO_RESP",
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "DISCONNECT+CLOSED",
+        "NO_CONN"
+      ],
+      "deterministic": true,
+      "verdict": "REFUTED"
+    },
+    {
+      "pattern": "UA-BEFORE-SR-AUTH",
+      "level": "SHOULD",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "UA_NONE"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UA_FAILURE"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UA_FAILURE"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    }
+  ],
+  "results/runs/mina-sshd-v3vm/model.dot": [
+    {
+      "pattern": "CH-CLOSE-REPLY",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "CH_OPEN",
+        "SR_CONN",
+        "CH_CLOSE"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS",
+        "SERVICE_ACCEPT",
+        "NO_RESP"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "SERVICE_ACCEPT",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS",
+        "SERVICE_ACCEPT",
+        "NO_RESP"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    },
+    {
+      "pattern": "CONN-BEFORE-AUTH",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "CH_OPEN"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UNIMPLEMENTED"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UNIMPLEMENTED"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    }
+  ],
+  "results/runs/paramiko-v3vm/model.dot": [
+    {
+      "pattern": "CONN-BEFORE-AUTH",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "CH_OPEN"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "CH_OPEN_FAILURE"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "CH_OPEN_FAILURE"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    },
+    {
+      "pattern": "UA-BEFORE-SR-AUTH",
+      "level": "SHOULD",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "UA_NONE"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UA_FAILURE"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UA_FAILURE"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    }
+  ],
+  "results/runs/russh-v3vm/model.dot": [
+    {
+      "pattern": "CONN-BEFORE-AUTH",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "CH_OPEN"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    }
+  ],
+  "results/runs/wolfssh-v3vm/model.dot": [
+    {
+      "pattern": "KEX-SERVER-SENDS-NON-KEX",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "KEXINIT",
+        "UA_NONE"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "KEXINIT",
+        "UA_FAILURE"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "KEXINIT",
+        "UA_FAILURE"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    },
+    {
+      "pattern": "UA-BEFORE-SR-AUTH",
+      "level": "SHOULD",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "UA_NONE"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UA_FAILURE"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UA_FAILURE"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    }
+  ],
+  "results/runs/golang-xcrypto-v4vm/model.dot": []
+}

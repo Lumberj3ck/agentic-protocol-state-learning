@@ -1,0 +1,24 @@
+openssh              CH-CLOSE-REPLY             CONFIRMED
+openssh              CONN-BEFORE-AUTH           CONFIRMED
+openssh              REKEY-KEXINIT-REPLY        CONFIRMED
+openssh-alpine-edge  CONN-BEFORE-AUTH           CONFIRMED
+openssh-alpine-edge  REKEY-KEXINIT-REPLY        CONFIRMED
+erlang-otp           REKEY-KEXINIT-REPLY        CONFIRMED
+erlang-otp-27.3.2    CONN-BEFORE-AUTH           CONFIRMED
+erlang-otp-27.3.2    REKEY-KEXINIT-REPLY        CONFIRMED
+erlang-otp-27.3.2    STRICT-KEX-NON-KEX-MSG     CONFIRMED
+libssh               CH-CLOSE-REPLY             REFUTED
+    at step 7 (CH_CLOSE): model NO_RESP, real CH_EOF+CH_CLOSE
+libssh               CONN-BEFORE-AUTH           CONFIRMED
+libssh               REKEY-KEXINIT-REPLY        CONFIRMED
+libssh               STRICT-KEX-FIRST-KEXINIT   CONFIRMED
+libssh               STRICT-KEX-NON-KEX-MSG     REFUTED
+    at step 4 (NEWKEYS): model NO_RESP, real DISCONNECT+CLOSED
+libssh               UA-BEFORE-SR-AUTH          CONFIRMED
+mina-sshd            CH-CLOSE-REPLY             CONFIRMED
+mina-sshd            CONN-BEFORE-AUTH           CONFIRMED
+paramiko             CONN-BEFORE-AUTH           CONFIRMED
+paramiko             UA-BEFORE-SR-AUTH          CONFIRMED
+russh                CONN-BEFORE-AUTH           CONFIRMED
+wolfssh              KEX-SERVER-SENDS-NON-KEX   CONFIRMED
+wolfssh              UA-BEFORE-SR-AUTH          CONFIRMED
