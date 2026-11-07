@@ -84,3 +84,6 @@
   C3 repeated / post-auth SERVICE_REQUEST: unspecified divergence.
   C4/C5 errors in KEX / KEX30 or NEWKEYS first: only on the NON-strict branch; with strict KEX, OpenSSH disconnects ("strict KEX violation", "KEXINIT was not the first packet"), Dropbear exits, Go closes: all comply.
   Harness facts: mapper auto-sends KEXINIT when the server's arrives first; NEWKEYS without completed KEX corrupts the mapper's outbound stream. Added psm/taint.py + psm/verify.py (discard nondeterministic, tainted, or agreeing sequences) and reference/normalize.json (OpenSSH hostkeys-00 GLOBAL_REQUEST after UA_SUCCESS, confirmed by sshd "notify_hostkeys").
+- 14:45 B-only replay on all three servers (results/replay/B_only_replay.json -> results/final/verified_B_only.md): 10 reportable, 1 agree (full happy path incl. CH_OPEN identical on all three).
+  NEW E1: SR "ssh-connection" before auth: all three disconnect (RFC 4253 §10 MUST met); only OpenSSH sends DISCONNECT (SHOULD); Dropbear/Go silent close.
+  E2: SR_CONN / SR_AUTH after auth: OpenSSH UNIMPL, Dropbear SR_ACCEPT, Go closes. Sent to a fourth reviewer (results/review/sr_conn.md).
