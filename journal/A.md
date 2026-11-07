@@ -41,3 +41,6 @@
   Two session channels: OpenSSH, Dropbear and Go all open both and exec on the second (our CH_MAX is a mapper artifact).
   CHANNEL_OPEN inside a post-auth rekey: Dropbear and Go close; OpenSSH holds the reply (CH_OPEN_SUCCESS after its NEWKEYS) and carries on (not in our OpenSSH alphabet, so not a harness class).
 - 16:36 Catalogue witnesses on models of our servers are being replayed live with the harness that produced each model (`scripts_v2/verify_witnesses.py`).
+- 16:45 Catalogue section written (`results/v2/A/harness_disagreements.md` Part 3).
+  At the lead's finalise call these were still running and are left alone: catalogue witness live replay (`results/v2/A/catalogue_verified.json`, about 19 of 62 done, all CONFIRMED so far), the seeded Go re-learn, and the full-alphabet strict learns on all three servers.
+  `results/v2/A/summary.md` was refused by the Write tool (subagent report-file rule); the summary text went to the lead in the final message.

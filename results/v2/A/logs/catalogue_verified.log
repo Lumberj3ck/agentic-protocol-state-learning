@@ -18,3 +18,8 @@ ours:A_openssh                           D9-OUT-OF-PLACE-KEX-MSG-TOLERATED    CO
 ours:B_dropbear                          STRICT-KEX-FIRST-KEXINIT             CONFIRMED not applicable: our mapper never negotiates strict KEX
 ours:B_dropbear                          STRICT-KEX-REPEATED-MSG              CONFIRMED not applicable: our mapper never negotiates strict KEX
 ours:B_dropbear                          UA-BEFORE-SR-AUTH                    CONFIRMED 
+ours:B_dropbear                          D1-UA-SUCCESS-WITHOUT-SR             CONFIRMED 
+ours:B_dropbear                          D5-SR-AFTER-AUTH-ACCEPTED            CONFIRMED 
+ours:B_dropbear                          D6-SR-CONN-PREAUTH-SILENT-CLOSE      CONFIRMED 
+ours:B_dropbear                          D7-KEX-ERROR-TOLERATED               CONFIRMED 
+ours:B_dropbear                          D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED  CONFIRMED 
