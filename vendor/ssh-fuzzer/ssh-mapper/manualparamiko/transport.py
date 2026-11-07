@@ -2918,7 +2918,12 @@ class Transport(threading.Thread, ClosingContextManager):
 
         m = Message()
         m.add_byte(cMSG_KEXINIT)
-        m.add_bytes(os.urandom(16))
+        # PSM patch P4: one cookie per connection, so repeated KEXINITs are byte-identical and the exchange
+        # hash input I_C is the same whichever KEXINIT the server keeps (upstream: fresh random cookie each time,
+        # which made the mapper reject a genuine host signature after KEXINIT KEXINIT KEX30 on OpenSSH).
+        if getattr(self, "_psm_cookie", None) is None:
+            self._psm_cookie = os.urandom(16)
+        m.add_bytes(self._psm_cookie)
         m.add_list(kex_algos)
         m.add_list(available_server_keys)
         m.add_list(self.preferred_ciphers)

@@ -51,10 +51,23 @@ class RobustSUL(SUL):
         return None
 
     # ---- execution -----------------------------------------------------------------
-    def _exec(self, word):
-        self.stats["sut_queries"] += 1
-        self.stats["sut_steps"] += len(word)
-        return tuple(self.client.query(list(word)))
+    def _harness_error(self, word, err):
+        self.stats["harness_errors"] += 1
+        with open(self.log_dir / "harness_errors.jsonl", "a") as f:
+            f.write(json.dumps({"time": time.strftime("%H:%M:%S"), "word": list(word), "error": repr(err)}) + "\n")
+        self.live = False
+        self.client.reconnect()
+
+    def _exec(self, word, attempts: int = 3):
+        for i in range(attempts):
+            self.stats["sut_queries"] += 1
+            self.stats["sut_steps"] += len(word)
+            try:
+                return tuple(self.client.query(list(word)))
+            except (ConnectionError, OSError) as e:  # mapper crashed: log, reconnect, retry
+                self._harness_error(word, e)
+                if i == attempts - 1:
+                    raise
 
     def _resolve(self, word, observations, previously_cached=None):
         """Re-run `word` until we have `repeats` extra observations; majority wins; log everything."""
@@ -125,7 +138,13 @@ class RobustSUL(SUL):
             o = self.sink
         else:
             self.stats["sut_steps"] += 1
-            o = self.client.step(letter)
+            try:
+                o = self.client.step(letter)
+            except (ConnectionError, OSError) as e:
+                self._harness_error(w, e)
+                ans = self._run(w)
+                self.outs = list(ans)
+                return ans[-1]
         cached = self.cache.get(w)
         if cached is not None and cached[-1] != o:
             ans = self._resolve(w, [tuple(self.outs) + (o,)], previously_cached=cached)

@@ -6,6 +6,7 @@ One line per reply: space-separated outputs, 'resetok' for each reset.
 from __future__ import annotations
 
 import socket
+import time
 
 
 class MapperClient:
@@ -24,6 +25,22 @@ class MapperClient:
         if not reply:
             raise ConnectionError(f"mapper closed the connection after {line!r}")
         return reply.decode().split()
+
+    def reconnect(self, wait: float = 60.0):
+        """The mapper container restarts itself after a crash; wait for it to listen again."""
+        try:
+            self.sock.close()
+        except OSError:
+            pass
+        deadline = time.time() + wait
+        while True:
+            try:
+                self._connect()
+                return
+            except OSError:
+                if time.time() > deadline:
+                    raise
+                time.sleep(1)
 
     def reset(self) -> None:
         r = self._request("reset")

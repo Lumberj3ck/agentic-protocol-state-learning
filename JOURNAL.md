@@ -32,3 +32,7 @@
   But the v1 model mispredicts one of them (results/checks/dropbear2020_v1.json): after auth + rekey it predicts UA_SUCCESS where the server says NO_RESP (still authenticated). Random walks rarely reach the 9-step path: the equivalence oracle is the weak point (the published run needed 12 h / 7742 tests). Kept as results/models/dropbear2020_v1_randomoracle.dot.
 - 13:11 v2: StatePrefixEqOracle (25 walks/state, len 10), cache seeded from v1.
 - 13:14 Decision: phase 1 counted as working end to end (validated mapper, learned model, checked against published traces); fan out now to current OpenSSH / Dropbear / Go with alphabet A = published {KEXINIT,KEX30,NEWKEYS,SR_AUTH,UA_PK_OK} and the v2 oracle, dedicated mappers on 8101-8103.
+- 13:16 A_openssh crashed: mapper died on `KEXINIT KEXINIT KEX30` with `Signature verification (rsa-sha2-256) failed`.
+  Diagnosis: OpenSSH answers the 2nd KEXINIT with UNIMPL and keeps the 1st for the exchange hash; the mapper drew a fresh cookie per KEXINIT and hashed the 2nd. Harness artifact.
+  Fix P4 (vendor/PATCHES.md): one cookie per connection. Verified by replay (results/replay/p4_double_kexinit_openssh.json): handshake + auth now complete after a duplicate KEXINIT.
+  Also: RobustSUL now survives mapper crashes (logs results/learning/<sut>/harness_errors.jsonl, reconnects to the auto-restarted mapper, retries). A_openssh relaunched from scratch.

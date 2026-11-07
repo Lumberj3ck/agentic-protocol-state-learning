@@ -114,3 +114,23 @@ def test_learns_toy_machine_end_to_end(tmp_path):
     eq = RandomWordEqOracle(["a", "b"], sul, num_walks=200, min_walk_len=2, max_walk_len=6)
     model = run_Lstar(["a", "b"], sul, eq, automaton_type="mealy", cache_and_non_det_check=False, print_level=0)
     assert model.size == 4
+
+
+def test_mapper_crash_is_logged_and_query_retried(tmp_path):
+    fm = FakeMapper(toy_machine())
+    client = MapperClient("127.0.0.1", fm.port)
+    sul = RobustSUL(client, log_dir=tmp_path, repeat_prob=0.0)
+    calls = {"n": 0}
+    real_query = client.query
+
+    def flaky_query(word):
+        calls["n"] += 1
+        if calls["n"] == 1:
+            raise ConnectionError("mapper closed the connection")
+        return real_query(word)
+
+    client.query = flaky_query
+    client.reconnect = lambda wait=60.0: None  # the fake mapper never actually went away
+    assert sul.query(("a", "b")) == ["KEXINIT", "KEX31+NEWKEYS"]
+    assert sul.stats["harness_errors"] == 1
+    assert "mapper closed" in (tmp_path / "harness_errors.jsonl").read_text()

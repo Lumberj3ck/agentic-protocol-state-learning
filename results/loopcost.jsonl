@@ -4,3 +4,4 @@
 {"time": "13:12", "sut": "all", "kind": "mapper_fix", "who": "agent", "what": "P2: credentials from env instead of hard-coded upstream values"}
 {"time": "13:25", "sut": "dropbear2020", "kind": "mapper_fix", "who": "agent", "what": "P3: mapper crashed when learner disconnects (upstream bug)"}
 {"time": "13:26", "sut": "all", "kind": "human_correction", "who": "user", "what": "Disk 99%: rmi our superseded psm-* images after each build, never prune box-wide (after agent's box-wide builder prune at 12:58)"}
+{"time": "13:16", "sut": "openssh", "kind": "mapper_fix", "who": "agent", "what": "P4: per-connection KEXINIT cookie; double KEXINIT made mapper hash the wrong I_C and crash on OpenSSH (harness artifact, caught as a crash not a model difference)"}
