@@ -1,0 +1,10 @@
+Port 22
+HostKey /etc/ssh/ssh_host_ed25519_key
+PasswordAuthentication yes
+KbdInteractiveAuthentication no
+PubkeyAuthentication yes
+UsePAM no
+PermitRootLogin no
+PerSourcePenalties no
+MaxStartups 100:30:200
+LogLevel DEBUG3
