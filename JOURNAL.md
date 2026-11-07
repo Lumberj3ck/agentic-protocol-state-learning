@@ -107,3 +107,4 @@
 - 16:10 Started stream A (harness differential) and stream B1 (new servers) as background agents with quotas and ports per PROMPT.md v2 layout.
   Version-sweep (B2) agent started with a truncated brief (my message was cut off) and was stopped before it ran anything. Streams B2 and C are NOT running.
 - 16:14 User lifted the 5-job box limit ('forget 5 limit, finish asap'). Raised streams A and B1 to 4 concurrent heavy jobs each (3 threads/job, disk floor unchanged).
+- 16:08 User: full scope, nothing sacrificed, as fast as possible. Restored full scope for A and B1 (up to 6-7 concurrent jobs each). Started C3 myself: v2_B_openssh (alphabet B, rekey oracle, cache seeded from v1's stopped run) on mapper 8611.
