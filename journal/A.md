@@ -44,3 +44,4 @@
 - 16:45 Catalogue section written (`results/v2/A/harness_disagreements.md` Part 3).
   At the lead's finalise call these were still running and are left alone: catalogue witness live replay (`results/v2/A/catalogue_verified.json`, about 19 of 62 done, all CONFIRMED so far), the seeded Go re-learn, and the full-alphabet strict learns on all three servers.
   `results/v2/A/summary.md` was refused by the Write tool (subagent report-file rule); the summary text went to the lead in the final message.
+- 16:50 Seeded Go re-learn (their --seeds with the 2 H5 words) finished: 11 states (was 9), 716 s; cross-diff vs B_gossh 8 classes (was 10): the 2 H5 classes are gone; their own refuted-witness loop fixes the model (`results/v2/A/xdiff_gossh_nonstrict_seeded.json`).

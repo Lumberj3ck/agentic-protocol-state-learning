@@ -1,0 +1,421 @@
+{
+ "inputs": [
+  "CH_OPEN",
+  "KEX30",
+  "KEXINIT",
+  "NEWKEYS",
+  "SR_AUTH",
+  "SR_CONN",
+  "UA_PK_OK"
+ ],
+ "n_states": [
+  16,
+  11
+ ],
+ "n_disagreements": 9,
+ "fine_classes": 9,
+ "classes": [
+  {
+   "input": "CH_OPEN",
+   "out1": "NO_RESP",
+   "out2": "NO_CONN",
+   "sequence": [
+    "CH_OPEN"
+   ],
+   "trace1": [
+    "NO_RESP"
+   ],
+   "trace2": [
+    "NO_CONN"
+   ],
+   "member_count": 1,
+   "examples": [],
+   "n_state_pairs": 1,
+   "comparable": true,
+   "auto_kexinit": true
+  },
+  {
+   "input": "KEX30",
+   "out1": "NO_RESP",
+   "out2": "NO_CONN",
+   "sequence": [
+    "KEX30"
+   ],
+   "trace1": [
+    "NO_RESP"
+   ],
+   "trace2": [
+    "NO_CONN"
+   ],
+   "member_count": 1,
+   "examples": [],
+   "n_state_pairs": 1,
+   "comparable": true,
+   "auto_kexinit": true
+  },
+  {
+   "input": "NEWKEYS",
+   "out1": "NO_RESP",
+   "out2": "NO_CONN",
+   "sequence": [
+    "NEWKEYS"
+   ],
+   "trace1": [
+    "NO_RESP"
+   ],
+   "trace2": [
+    "NO_CONN"
+   ],
+   "member_count": 1,
+   "examples": [],
+   "n_state_pairs": 1,
+   "comparable": true,
+   "auto_kexinit": true
+  },
+  {
+   "input": "SR_AUTH",
+   "out1": "NO_RESP",
+   "out2": "NO_CONN",
+   "sequence": [
+    "SR_AUTH"
+   ],
+   "trace1": [
+    "NO_RESP"
+   ],
+   "trace2": [
+    "NO_CONN"
+   ],
+   "member_count": 1,
+   "examples": [],
+   "n_state_pairs": 1,
+   "comparable": true,
+   "auto_kexinit": true
+  },
+  {
+   "input": "SR_CONN",
+   "out1": "NO_RESP",
+   "out2": "NO_CONN",
+   "sequence": [
+    "SR_CONN"
+   ],
+   "trace1": [
+    "NO_RESP"
+   ],
+   "trace2": [
+    "NO_CONN"
+   ],
+   "member_count": 1,
+   "examples": [],
+   "n_state_pairs": 1,
+   "comparable": true,
+   "auto_kexinit": true
+  },
+  {
+   "input": "UA_PK_OK",
+   "out1": "NO_RESP",
+   "out2": "NO_CONN",
+   "sequence": [
+    "UA_PK_OK"
+   ],
+   "trace1": [
+    "NO_RESP"
+   ],
+   "trace2": [
+    "NO_CONN"
+   ],
+   "member_count": 1,
+   "examples": [],
+   "n_state_pairs": 1,
+   "comparable": true,
+   "auto_kexinit": true
+  },
+  {
+   "input": "CH_OPEN",
+   "out1": "CH_MAX",
+   "out2": "CH_OPEN_SUCCESS",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "CH_OPEN",
+    "CH_OPEN"
+   ],
+   "trace1": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS",
+    "CH_OPEN_SUCCESS",
+    "CH_MAX"
+   ],
+   "trace2": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS",
+    "CH_OPEN_SUCCESS",
+    "CH_OPEN_SUCCESS"
+   ],
+   "member_count": 1,
+   "examples": [],
+   "n_state_pairs": 1,
+   "comparable": false,
+   "auto_kexinit": false
+  },
+  {
+   "input": "CH_OPEN",
+   "out1": "CH_MAX",
+   "out2": "NO_CONN",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "CH_OPEN",
+    "KEXINIT",
+    "CH_OPEN"
+   ],
+   "trace1": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS",
+    "CH_OPEN_SUCCESS",
+    "KEXINIT",
+    "CH_MAX"
+   ],
+   "trace2": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS",
+    "CH_OPEN_SUCCESS",
+    "KEXINIT",
+    "NO_CONN"
+   ],
+   "member_count": 2,
+   "examples": [
+    [
+     "KEXINIT",
+     "KEX30",
+     "NEWKEYS",
+     "SR_AUTH",
+     "UA_PK_OK",
+     "CH_OPEN",
+     "KEXINIT",
+     "KEX30",
+     "CH_OPEN"
+    ]
+   ],
+   "n_state_pairs": 2,
+   "comparable": false,
+   "auto_kexinit": false
+  }
+ ],
+ "disagreements": [
+  {
+   "access": [],
+   "input": "CH_OPEN",
+   "out1": "NO_RESP",
+   "out2": "NO_CONN",
+   "trace1": [
+    "NO_RESP"
+   ],
+   "trace2": [
+    "NO_CONN"
+   ],
+   "state1": "s0_init",
+   "state2": "s0"
+  },
+  {
+   "access": [],
+   "input": "KEX30",
+   "out1": "NO_RESP",
+   "out2": "NO_CONN",
+   "trace1": [
+    "NO_RESP"
+   ],
+   "trace2": [
+    "NO_CONN"
+   ],
+   "state1": "s0_init",
+   "state2": "s0"
+  },
+  {
+   "access": [],
+   "input": "NEWKEYS",
+   "out1": "NO_RESP",
+   "out2": "NO_CONN",
+   "trace1": [
+    "NO_RESP"
+   ],
+   "trace2": [
+    "NO_CONN"
+   ],
+   "state1": "s0_init",
+   "state2": "s0"
+  },
+  {
+   "access": [],
+   "input": "SR_AUTH",
+   "out1": "NO_RESP",
+   "out2": "NO_CONN",
+   "trace1": [
+    "NO_RESP"
+   ],
+   "trace2": [
+    "NO_CONN"
+   ],
+   "state1": "s0_init",
+   "state2": "s0"
+  },
+  {
+   "access": [],
+   "input": "SR_CONN",
+   "out1": "NO_RESP",
+   "out2": "NO_CONN",
+   "trace1": [
+    "NO_RESP"
+   ],
+   "trace2": [
+    "NO_CONN"
+   ],
+   "state1": "s0_init",
+   "state2": "s0"
+  },
+  {
+   "access": [],
+   "input": "UA_PK_OK",
+   "out1": "NO_RESP",
+   "out2": "NO_CONN",
+   "trace1": [
+    "NO_RESP"
+   ],
+   "trace2": [
+    "NO_CONN"
+   ],
+   "state1": "s0_init",
+   "state2": "s0"
+  },
+  {
+   "access": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "CH_OPEN"
+   ],
+   "input": "CH_OPEN",
+   "out1": "CH_MAX",
+   "out2": "CH_OPEN_SUCCESS",
+   "trace1": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS",
+    "CH_OPEN_SUCCESS",
+    "CH_MAX"
+   ],
+   "trace2": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS",
+    "CH_OPEN_SUCCESS",
+    "CH_OPEN_SUCCESS"
+   ],
+   "state1": "s9",
+   "state2": "s6"
+  },
+  {
+   "access": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "CH_OPEN",
+    "KEXINIT"
+   ],
+   "input": "CH_OPEN",
+   "out1": "CH_MAX",
+   "out2": "NO_CONN",
+   "trace1": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS",
+    "CH_OPEN_SUCCESS",
+    "KEXINIT",
+    "CH_MAX"
+   ],
+   "trace2": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS",
+    "CH_OPEN_SUCCESS",
+    "KEXINIT",
+    "NO_CONN"
+   ],
+   "state1": "s10",
+   "state2": "s9"
+  },
+  {
+   "access": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "CH_OPEN",
+    "KEXINIT",
+    "KEX30"
+   ],
+   "input": "CH_OPEN",
+   "out1": "CH_MAX",
+   "out2": "NO_CONN",
+   "trace1": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS",
+    "CH_OPEN_SUCCESS",
+    "KEXINIT",
+    "KEX31+NEWKEYS",
+    "CH_MAX"
+   ],
+   "trace2": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS",
+    "CH_OPEN_SUCCESS",
+    "KEXINIT",
+    "KEX31+NEWKEYS",
+    "NO_CONN"
+   ],
+   "state1": "s11",
+   "state2": "s10"
+  }
+ ],
+ "reachable_state_pairs": 15,
+ "transitions_compared": 105,
+ "transitions_agree": 96,
+ "ours": "results/models/B_gossh.dot",
+ "theirs": "results/v2/A/tm_models/gossh_nonstrict_seeded/model.dot"
+}
