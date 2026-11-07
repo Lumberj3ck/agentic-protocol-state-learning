@@ -14,5 +14,11 @@ Each patch is marked `PSM patch Pn` in the source. Diff against upstream to audi
   With identical payloads the exchange hash no longer depends on which KEXINIT the server keeps.
   Only sequences that previously crashed the mapper can change behaviour.
 - P5 `manualparamiko/transport.py` `_send_user_message`: send immediately instead of waiting on `clear_to_send`, which upstream never sets (its `.set()` is commented out).
-  Found 13:25 by the skeptical reviewer (results/review/ua_without_sr.md): every IGNORE / CH_* / TCP_FORWARD_* input waited 30 s and killed the mapper.
+  Found 13:25 by the skeptical reviewer (results/review/ua_without_sr.md): IGNORE and CH_OPEN (and other user messages) waited 30 s and killed the mapper.
+  Correction (second reviewer, results/review/ch_open_preauth.md): TCP_FORWARD_* never used this path (it calls _send_message directly).
   Without this patch none of those inputs can be learned.
+
+## Known unpatched mapper limitations (inputs NOT used in our alphabets)
+
+- CH_CLOSE, CH_EOF, CH_DATA, CH_EXTENDED_DATA, CH_REQUEST_PTY, CH_REQUEST_ENV, CH_WINDOW_ADJUST crash the mapper on Python 3 (`get_remote_chanid_fuzz()` does `dict.keys()[0]`).
+- CH_MAX: the mapper allows one channel, registers it even when the server rejects or the connection is dead, and then answers any further CH_OPEN with the mapper-made symbol CH_MAX without sending anything.

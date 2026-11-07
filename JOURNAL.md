@@ -67,3 +67,7 @@
   NEW: OpenSSH refuses client rekey BEFORE auth (KEXINIT after first NEWKEYS -> UNIMPL, also after SR_AUTH), accepts it after auth; Dropbear and Go accept rekey pre-auth.
   This is SPIN 2017's OpenSSH 6.9p1 "Rekey Fail Before Auth" finding, still present in OpenSSH 10.0. RFC 4253 §9: on KEXINIT a party "MUST respond with its own SSH_MSG_KEXINIT". Same mapper KEXINIT bytes are accepted after auth (internal control).
   UA after success: Dropbear NO_RESP (RFC 4252 §5 SHOULD silently ignore), OpenSSH UNIMPL, Go closes. Duplicate SR_AUTH: OpenSSH+Dropbear SR_ACCEPT, Go closes. SR_AUTH after auth: OpenSSH UNIMPL, Dropbear SR_ACCEPT, Go closes.
+- 13:58 REVIEW D2 (results/review/ch_open_preauth.md): REAL on all three (10 reps x 13 seqs x 3 servers; stock paramiko; server source).
+  OpenSSH 10.0p1: every message >= 80 before auth (90, 80, 94, 98) -> UNIMPLEMENTED, connection kept until LoginGraceTime (auth2.c do_authentication2 -> dispatch_protocol_error). Violates the letter of RFC 4252 §6 MUST-disconnect; no security impact (payload never parsed, no channel code pre-auth). Same in SPIN 2017's 6.9p1 model and in the CCS 2025 9.9p2 model, unclassified there.
+  Dropbear ("Exit before auth: Received message 90 before userauth") and Go ("unexpected message type 90") meet the MUST but send no DISCONNECT ("preferably").
+  Reviewer notes: P5 doc corrected (TCP_FORWARD_* never gated); other CH_* inputs crash mapper on Python 3 (unused); CH_MAX artifact confirmed.
