@@ -54,7 +54,21 @@ TODO
 
 ## What the method cannot conclude
 
-TODO
+- **An unlearned transition is not proof of absence.**
+  A learned model is only as good as the equivalence check.
+  Ours twice produced plausible, wrong models (Dropbear v1, Go with state-prefix walks) that a deeper test exposed (`results/checks/dropbear2020_v1.json`; JOURNAL 13:21, 13:29).
+  "Server X has no state where Y happens" means only "we did not find one with these tests".
+  Every behavioural claim in this report therefore rests on a replayed concrete sequence, not on the model alone.
+- **The alphabet bounds the conclusions.**
+  We learned 5 inputs (the published alphabet) and 7 with SR_CONN and CH_OPEN.
+  No other message types, no malformed fields, no strict KEX (the published mapper never offers `kex-strict-c-v00@openssh.com`), no ext-info, no keyboard-interactive, one key exchange method (`diffie-hellman-group14-sha256`, which OpenSSH 10.0 only offers because we re-enabled it).
+  The Terrapin-era strict-KEX rules are therefore untested here.
+- **The abstraction hides some behaviour.**
+  The mapper reports all messages that arrive within 0.35 s as one symbol, drops server IGNORE/DEBUG, does not show a TCP close that happens in the same step as a message, and caps channels at one (`CH_MAX` is a mapper-made symbol).
+  DISCONNECT reason codes are not part of the output.
+- **Configuration matters.**
+  We changed only what the mapper needed (RSA host key, one DH group in OpenSSH, `PerSourcePenalties no`); other defaults (MaxAuthTries, LoginGraceTime) were not varied.
+- **One version per implementation** for the current-release comparison, and one host (localhost, low latency); timing-dependent behaviour under load was not studied.
 
 ## Cost of the research loop, and what an agent can automate
 
