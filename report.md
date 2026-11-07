@@ -46,7 +46,12 @@ Before trusting anything on current releases, we checked the harness against wha
    The cause was our equivalence oracle (random words), not the mapper; with walks from every state the model grows from 7 to 9 states and predicts all 8 replayed traces (`results/checks/dropbear2020_v2.json`).
    This is the main methodological lesson: the mapper reproduced the published behaviour immediately, while the equivalence check is where an under-learned model hides.
 4. Our 2020.81 model and the published (unfinished; the run timed out after 12 h) 2022.83 model differ on only 2 transitions, both after a first message of KEX30 (`results/diff/dropbear2020_vs_published2022.json`); our side of both replays 5 of 5 on 2020.81 (`results/replay/dropbear2020_vs_published_diffs.json`).
-   VERSION-OR-GAP: TODO (Dropbear 2022.83 learning run).
+   To tell a version change from a gap in the published model, we also learned Dropbear 2022.83 itself, the version the published model was learned on.
+   Our 2022.83 model is equivalent to our 2020.81 model (`results/diff/dropbear2022_vs_2020.json`) and predicts all four published traces (`results/checks/dropbear2022_vs_published_traces.json`), yet it differs from the published 2022.83 model on the same two transitions (`results/diff/dropbear2022_vs_published2022.json`); our side replays 10 of 10 on 2022.83 (`results/replay/dropbear2022_vs_published_diffs.json`).
+   So it is not a version change.
+   It is not caused by our mapper patches either: the unpatched upstream mapper gives the same answers (`results/replay/dropbear2022_upstream_mapper_check.json`).
+   The remaining explanations, which we cannot separate today, are the published run's from-source Dropbear build versus our Alpine package, its environment, or the published hypothesis being incomplete (that run stopped at its 12 h limit without converging).
+   Both transitions lie on an unusual path (KEX30 sent before the client's KEXINIT), and the mapper sends its own KEXINIT automatically there, which makes this path the most timing- and implementation-sensitive one in the model.
 
 ## Results
 
