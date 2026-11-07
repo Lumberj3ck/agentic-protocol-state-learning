@@ -65,6 +65,7 @@ Every disagreement below is outside the normal handshake: it is how a server rea
 
 ### Confirmed disagreements
 
+The 64 replayed sequences reduce to 39 distinct divergence points (`results/final/divergence_points.txt`), grouped here into nine classes.
 Each row was replayed as a concrete sequence against all three servers (5 to 10 repetitions, all deterministic), survived a skeptical review that tried to explain it as a harness artifact, and was reproduced with an independent client (stock paramiko 5.1.0, other key exchange, strict KEX on and off) unless noted.
 Outputs are the mapper's: `NO_CONN` means the TCP connection was closed without an SSH DISCONNECT message.
 
@@ -78,6 +79,7 @@ Outputs are the mapper's: `NO_CONN` means the TCP connection was closed without 
 | D6 | SERVICE_REQUEST "ssh-connection" before authentication | DISCONNECT | closes, no DISCONNECT | closes, no DISCONNECT | RFC 4253 §10: SHOULD send DISCONNECT and MUST disconnect | All meet the MUST; only OpenSSH meets the SHOULD | `results/review/sr_conn.md` (E1: OpenSSH DISCONNECT code 2 "bad service request"; Dropbear/Go close within 2 ms, no packet), `results/final/verified_B_only.md` rows 7-8 |
 | D7 | Protocol errors inside a key exchange: NEWKEYS before KEX30, duplicate KEX30, NEWKEYS in a rekey without KEX30 | UNIMPL, KEX can continue | UNIMPL, KEX can continue | closes | Not specified by RFC 4253; the strict-KEX draft requires disconnect in the initial KEX | Only on the non-strict branch: with strict KEX all three disconnect | `results/review/remaining_classes.md` (C4), `results/final/verified_A_prelim.md` rows 3, 4, 12, 13 |
 | D8 | KEX30 or NEWKEYS as the very first message (then the mapper's automatic KEXINIT) | KEXINIT+UNIMPL | KEXINIT+UNIMPL | KEXINIT, then closes | Not specified; strict KEX requires KEXINIT first | Non-strict branch only; with strict KEX all three disconnect | `results/review/remaining_classes.md` (C5), `results/final/verified_A_prelim.md` rows 1-2 |
+| D9 | Messages out of place in or around a key exchange: duplicate KEXINIT, SERVICE_REQUEST during KEX, KEX30 or a second NEWKEYS outside any KEX, and SERVICE_REQUEST / USERAUTH_REQUEST / duplicate KEXINIT during a post-auth rekey (18 divergence points) | UNIMPL, connection kept | closes | closes | RFC 4253 §7.1 constrains only the sender ("MUST NOT send"); the receiver is unspecified | Unspecified divergence: OpenSSH ignore-and-report vs fail-closed | KEXP_REVIEW, `results/final/divergence_points.txt` |
 
 ### The pattern behind the rows
 

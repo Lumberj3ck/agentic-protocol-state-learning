@@ -97,3 +97,11 @@ Nondeterminism is detected by repeating queries and logged in `nondet.jsonl` (ma
 | `reference/` | inputs the box must read (published model, normalisation map) |
 | `results/` | everything produced: models, learning stats, diffs, replays, checks, reviews, final tables |
 | `notes/literature.md` | prior work and RFC clauses |
+
+Distinct divergence points (one line per class member) from the verified rows:
+
+```bash
+jq -r '[.rows[] | select(.status=="reportable") | {k: (.sequence[:.divergence_index+1]|join(" ")),
+  g: (.groups|to_entries|map("\(.key): \(.value|join(","))")|join(" | "))}] | group_by(.k)
+  | map("\(.[0].k)\t=> \(.[0].g)\t(\(length) seqs)") | .[]' results/final/verified_all.json
+```

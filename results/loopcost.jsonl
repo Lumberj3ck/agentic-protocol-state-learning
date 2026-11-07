@@ -9,4 +9,3 @@
 {"time": "13:20", "sut": "all", "kind": "harness_fix", "who": "agent", "what": "Equivalence oracle too weak (random words; then state-prefix): first Dropbear and Go models under-learned; added rekey-aware targeted oracle"}
 {"time": "13:16", "sut": "all", "kind": "harness_fix", "who": "agent", "what": "Learner died on mapper crash; RobustSUL now logs, reconnects, retries"}
 {"time": "15:01", "sut": "openssh", "kind": "harness_fix", "who": "agent", "what": "Scheduling: OpenSSH learning ~5x slower than Dropbear/Go (keeps connections open after errors, so few NO_CONN sink shortcuts); B alphabet abandoned for OpenSSH, covered by replays"}
-{"time": "15:05", "sut": "all", "kind": "human_correction", "who": "user", "what": "CLAUDE.md was still the stale false-calm copy; asked for a project CLAUDE.md, a README with reproduction steps, and the report TODO filled"}
