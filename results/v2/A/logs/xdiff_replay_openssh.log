@@ -16,3 +16,9 @@ openssh  KEXINIT KEX30 NEWKEYS NEWKEYS UA_PK_OK
    model ours=NO_CONN theirs=UNIMPL | live ours=NO_CONN theirs=UNIMPL | live-agree=False ours-model-ok=True theirs-model-ok=True taint=4 det=True/True
 openssh  KEXINIT KEX30 NEWKEYS SR_AUTH NEWKEYS UA_PK_OK
    model ours=NO_CONN theirs=UA_SUCCESS | live ours=NO_CONN theirs=UA_SUCCESS | live-agree=False ours-model-ok=True theirs-model-ok=True taint=5 det=True/True
+openssh  KEXINIT KEX30 NEWKEYS SR_AUTH UA_PK_OK NEWKEYS KEXINIT
+   model ours=NO_CONN theirs=KEXINIT | live ours=NO_CONN theirs=KEXINIT | live-agree=False ours-model-ok=True theirs-model-ok=True taint=6 det=True/True
+openssh  KEXINIT KEX30 NEWKEYS SR_AUTH UA_PK_OK NEWKEYS SR_AUTH
+   model ours=NO_CONN theirs=UNIMPL | live ours=NO_CONN theirs=UNIMPL | live-agree=False ours-model-ok=True theirs-model-ok=True taint=6 det=True/True
+openssh  KEXINIT KEX30 NEWKEYS SR_AUTH UA_PK_OK KEXINIT NEWKEYS KEX30
+   model ours=NO_CONN theirs=KEX31+NEWKEYS | live ours=NO_CONN theirs=KEX31+NEWKEYS | live-agree=False ours-model-ok=True theirs-model-ok=True taint=7 det=True/True

@@ -33,3 +33,11 @@
 - 16:24 Catalogues (`results/v2/A/catalogue_results.json`): on the shared alphabet our models and theirs (learned on the same servers) have identical hit sets for Dropbear (8 patterns) and Go (D4, D6); OpenSSH identical on alphabet A, theirs adds CONN-BEFORE-AUTH and D2 (CH_OPEN, not in our A alphabet).
   The STRICT-KEX-* patterns hit every non-strict model; not applicable, since strict KEX was not negotiated.
 - 16:24 Started their learner on the full 17-input alphabet, strict (their default), on our three servers, and a Go re-learn seeded with the two refuted words (their `--seeds` mechanism).
+- 16:33 All cross-harness classes double-replayed (both mappers, 3 reps): non-strict 32 classes and strict 27 classes; every class is deterministic, and every live trace matches its own harness's model except the 2 Go H5 classes (their model wrong, their mapper agrees with ours live).
+  Strict adds only strict-KEX classes (OpenSSH DISCONNECT, Dropbear close on initial-KEX errors; OpenSSH `KEX30 KEXINIT` -> DISCONNECT because the first packet was not KEXINIT).
+  Under strict KEX the OpenSSH stray-NEWKEYS classes vanish by coincidence: their mapper then sees OpenSSH reset its sequence number (their CANDIDATE-001), so the next packet fails and it reports CLOSED, the same as our corrupted stream.
+- 16:35 Third client, encrypted phase (`scripts_v2/third_probe2.py` -> `results/v2/A/third_probe2.json`, stock paramiko Transport, v1 rc_probe instrumentation imported unchanged, 3 reps):
+  Dropbear pre-auth rekey with 1 or 2 stray NEWKEYS: UNIMPLEMENTED per NEWKEYS, then 31 21, rekey completes, auth and `exec id` succeed (theirs right, our taint is the artifact).
+  Two session channels: OpenSSH, Dropbear and Go all open both and exec on the second (our CH_MAX is a mapper artifact).
+  CHANNEL_OPEN inside a post-auth rekey: Dropbear and Go close; OpenSSH holds the reply (CH_OPEN_SUCCESS after its NEWKEYS) and carries on (not in our OpenSSH alphabet, so not a harness class).
+- 16:36 Catalogue witnesses on models of our servers are being replayed live with the harness that produced each model (`scripts_v2/verify_witnesses.py`).

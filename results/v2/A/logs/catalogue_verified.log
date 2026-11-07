@@ -1,0 +1,12 @@
+ours:A_dropbear                          STRICT-KEX-FIRST-KEXINIT             CONFIRMED not applicable: our mapper never negotiates strict KEX
+ours:A_dropbear                          STRICT-KEX-REPEATED-MSG              CONFIRMED not applicable: our mapper never negotiates strict KEX
+ours:A_dropbear                          UA-BEFORE-SR-AUTH                    CONFIRMED 
+ours:A_dropbear                          D1-UA-SUCCESS-WITHOUT-SR             CONFIRMED 
+ours:A_dropbear                          D5-SR-AFTER-AUTH-ACCEPTED            CONFIRMED 
+ours:A_dropbear                          D7-KEX-ERROR-TOLERATED               CONFIRMED 
+ours:A_dropbear                          D8-KEX-MSG-BEFORE-KEXINIT-TOLERATED  CONFIRMED 
+ours:A_gossh                             D4-UA-AFTER-SUCCESS-NOT-IGNORED      CONFIRMED 
+ours:A_openssh                           REKEY-KEXINIT-REPLY                  CONFIRMED 
+ours:A_openssh                           STRICT-KEX-FIRST-KEXINIT             CONFIRMED not applicable: our mapper never negotiates strict KEX
+ours:A_openssh                           STRICT-KEX-NON-KEX-MSG               CONFIRMED not applicable: our mapper never negotiates strict KEX
+ours:A_openssh                           STRICT-KEX-REPEATED-MSG              CONFIRMED not applicable: our mapper never negotiates strict KEX

@@ -1,0 +1,1088 @@
+{
+ "strict_kex": false,
+ "reps": 3,
+ "rows": [
+  {
+   "sut": "openssh",
+   "sequence": [
+    "UA_PK_OK"
+   ],
+   "model_ours": [
+    "NO_RESP"
+   ],
+   "model_theirs": [
+    "NO_CONN"
+   ],
+   "live_ours_raw": [
+    [
+     "KEXINIT"
+    ],
+    [
+     "KEXINIT"
+    ],
+    [
+     "KEXINIT"
+    ]
+   ],
+   "live_theirs_raw": [
+    [
+     "CLOSED"
+    ],
+    [
+     "CLOSED"
+    ],
+    [
+     "CLOSED"
+    ]
+   ],
+   "ours_det": true,
+   "theirs_det": true,
+   "live_ours": [
+    "NO_RESP"
+   ],
+   "live_theirs": [
+    "NO_CONN"
+   ],
+   "ours_live_matches_model": true,
+   "theirs_live_matches_model": true,
+   "live_first_mismatch": 0,
+   "ours_taint_index": null,
+   "auto_kexinit": true,
+   "comparable": true
+  },
+  {
+   "sut": "openssh",
+   "sequence": [
+    "KEX30",
+    "KEX30"
+   ],
+   "model_ours": [
+    "UNIMPL",
+    "KEX31+NEWKEYS"
+   ],
+   "model_theirs": [
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "live_ours_raw": [
+    [
+     "KEXINIT+UNIMPL",
+     "KEX31+NEWKEYS+EXT_INFO"
+    ],
+    [
+     "KEXINIT+UNIMPL",
+     "KEX31+NEWKEYS+EXT_INFO"
+    ],
+    [
+     "KEXINIT+UNIMPL",
+     "KEX31+NEWKEYS+EXT_INFO"
+    ]
+   ],
+   "live_theirs_raw": [
+    [
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ],
+    [
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ],
+    [
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ]
+   ],
+   "ours_det": true,
+   "theirs_det": true,
+   "live_ours": [
+    "UNIMPL",
+    "KEX31+NEWKEYS"
+   ],
+   "live_theirs": [
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "ours_live_matches_model": true,
+   "theirs_live_matches_model": true,
+   "live_first_mismatch": 1,
+   "ours_taint_index": null,
+   "auto_kexinit": true,
+   "comparable": true
+  },
+  {
+   "sut": "openssh",
+   "sequence": [
+    "KEX30",
+    "KEXINIT"
+   ],
+   "model_ours": [
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "model_theirs": [
+    "UNIMPL",
+    "NO_RESP"
+   ],
+   "live_ours_raw": [
+    [
+     "KEXINIT+UNIMPL",
+     "UNIMPL"
+    ],
+    [
+     "KEXINIT+UNIMPL",
+     "UNIMPL"
+    ],
+    [
+     "KEXINIT+UNIMPL",
+     "UNIMPL"
+    ]
+   ],
+   "live_theirs_raw": [
+    [
+     "UNIMPLEMENTED",
+     "NO_RESP"
+    ],
+    [
+     "UNIMPLEMENTED",
+     "NO_RESP"
+    ],
+    [
+     "UNIMPLEMENTED",
+     "NO_RESP"
+    ]
+   ],
+   "ours_det": true,
+   "theirs_det": true,
+   "live_ours": [
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "live_theirs": [
+    "UNIMPL",
+    "NO_RESP"
+   ],
+   "ours_live_matches_model": true,
+   "theirs_live_matches_model": true,
+   "live_first_mismatch": 1,
+   "ours_taint_index": null,
+   "auto_kexinit": true,
+   "comparable": true
+  },
+  {
+   "sut": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "NEWKEYS",
+    "KEX30"
+   ],
+   "model_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "model_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "live_ours_raw": [
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UNIMPL",
+     "NO_CONN"
+    ]
+   ],
+   "live_theirs_raw": [
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ]
+   ],
+   "ours_det": true,
+   "theirs_det": true,
+   "live_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "live_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "ours_live_matches_model": true,
+   "theirs_live_matches_model": true,
+   "live_first_mismatch": 4,
+   "ours_taint_index": 4,
+   "auto_kexinit": false,
+   "comparable": true
+  },
+  {
+   "sut": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "NEWKEYS",
+    "KEXINIT"
+   ],
+   "model_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "model_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "live_ours_raw": [
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UNIMPL",
+     "NO_CONN"
+    ]
+   ],
+   "live_theirs_raw": [
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ]
+   ],
+   "ours_det": true,
+   "theirs_det": true,
+   "live_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "live_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "ours_live_matches_model": true,
+   "theirs_live_matches_model": true,
+   "live_first_mismatch": 4,
+   "ours_taint_index": 4,
+   "auto_kexinit": false,
+   "comparable": true
+  },
+  {
+   "sut": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "NEWKEYS",
+    "NEWKEYS"
+   ],
+   "model_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "model_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "live_ours_raw": [
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UNIMPL",
+     "NO_CONN"
+    ]
+   ],
+   "live_theirs_raw": [
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ]
+   ],
+   "ours_det": true,
+   "theirs_det": true,
+   "live_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "live_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "ours_live_matches_model": true,
+   "theirs_live_matches_model": true,
+   "live_first_mismatch": 4,
+   "ours_taint_index": 4,
+   "auto_kexinit": false,
+   "comparable": true
+  },
+  {
+   "sut": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "NEWKEYS",
+    "SR_AUTH"
+   ],
+   "model_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "model_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPL",
+    "SR_ACCEPT"
+   ],
+   "live_ours_raw": [
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UNIMPL",
+     "NO_CONN"
+    ]
+   ],
+   "live_theirs_raw": [
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "UNIMPLEMENTED",
+     "SERVICE_ACCEPT"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "UNIMPLEMENTED",
+     "SERVICE_ACCEPT"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "UNIMPLEMENTED",
+     "SERVICE_ACCEPT"
+    ]
+   ],
+   "ours_det": true,
+   "theirs_det": true,
+   "live_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "live_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPL",
+    "SR_ACCEPT"
+   ],
+   "ours_live_matches_model": true,
+   "theirs_live_matches_model": true,
+   "live_first_mismatch": 4,
+   "ours_taint_index": 4,
+   "auto_kexinit": false,
+   "comparable": true
+  },
+  {
+   "sut": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "NEWKEYS",
+    "UA_PK_OK"
+   ],
+   "model_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "model_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "live_ours_raw": [
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "UNIMPL",
+     "NO_CONN"
+    ]
+   ],
+   "live_theirs_raw": [
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ]
+   ],
+   "ours_det": true,
+   "theirs_det": true,
+   "live_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "live_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "ours_live_matches_model": true,
+   "theirs_live_matches_model": true,
+   "live_first_mismatch": 4,
+   "ours_taint_index": 4,
+   "auto_kexinit": false,
+   "comparable": true
+  },
+  {
+   "sut": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "NEWKEYS",
+    "UA_PK_OK"
+   ],
+   "model_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "model_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UNIMPL",
+    "UA_SUCCESS"
+   ],
+   "live_ours_raw": [
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "SR_ACCEPT",
+     "UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "SR_ACCEPT",
+     "UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "SR_ACCEPT",
+     "UNIMPL",
+     "NO_CONN"
+    ]
+   ],
+   "live_theirs_raw": [
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "SERVICE_ACCEPT",
+     "UNIMPLEMENTED",
+     "UA_SUCCESS+GLOBAL_REQUEST"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "SERVICE_ACCEPT",
+     "UNIMPLEMENTED",
+     "UA_SUCCESS+GLOBAL_REQUEST"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "SERVICE_ACCEPT",
+     "UNIMPLEMENTED",
+     "UA_SUCCESS+GLOBAL_REQUEST"
+    ]
+   ],
+   "ours_det": true,
+   "theirs_det": true,
+   "live_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "live_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UNIMPL",
+    "UA_SUCCESS"
+   ],
+   "ours_live_matches_model": true,
+   "theirs_live_matches_model": true,
+   "live_first_mismatch": 5,
+   "ours_taint_index": 5,
+   "auto_kexinit": false,
+   "comparable": true
+  },
+  {
+   "sut": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "NEWKEYS",
+    "KEXINIT"
+   ],
+   "model_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS",
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "model_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS",
+    "UNIMPL",
+    "KEXINIT"
+   ],
+   "live_ours_raw": [
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "SR_ACCEPT",
+     "UA_SUCCESS+GLOBAL_REQUEST",
+     "UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "SR_ACCEPT",
+     "UA_SUCCESS+GLOBAL_REQUEST",
+     "UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "SR_ACCEPT",
+     "UA_SUCCESS+GLOBAL_REQUEST",
+     "UNIMPL",
+     "NO_CONN"
+    ]
+   ],
+   "live_theirs_raw": [
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "SERVICE_ACCEPT",
+     "UA_SUCCESS+GLOBAL_REQUEST",
+     "UNIMPLEMENTED",
+     "KEXINIT"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "SERVICE_ACCEPT",
+     "UA_SUCCESS+GLOBAL_REQUEST",
+     "UNIMPLEMENTED",
+     "KEXINIT"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "SERVICE_ACCEPT",
+     "UA_SUCCESS+GLOBAL_REQUEST",
+     "UNIMPLEMENTED",
+     "KEXINIT"
+    ]
+   ],
+   "ours_det": true,
+   "theirs_det": true,
+   "live_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS",
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "live_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS",
+    "UNIMPL",
+    "KEXINIT"
+   ],
+   "ours_live_matches_model": true,
+   "theirs_live_matches_model": true,
+   "live_first_mismatch": 6,
+   "ours_taint_index": 6,
+   "auto_kexinit": false,
+   "comparable": true
+  },
+  {
+   "sut": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "NEWKEYS",
+    "SR_AUTH"
+   ],
+   "model_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS",
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "model_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS",
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "live_ours_raw": [
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "SR_ACCEPT",
+     "UA_SUCCESS+GLOBAL_REQUEST",
+     "UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "SR_ACCEPT",
+     "UA_SUCCESS+GLOBAL_REQUEST",
+     "UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "SR_ACCEPT",
+     "UA_SUCCESS+GLOBAL_REQUEST",
+     "UNIMPL",
+     "NO_CONN"
+    ]
+   ],
+   "live_theirs_raw": [
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "SERVICE_ACCEPT",
+     "UA_SUCCESS+GLOBAL_REQUEST",
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "SERVICE_ACCEPT",
+     "UA_SUCCESS+GLOBAL_REQUEST",
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "SERVICE_ACCEPT",
+     "UA_SUCCESS+GLOBAL_REQUEST",
+     "UNIMPLEMENTED",
+     "UNIMPLEMENTED"
+    ]
+   ],
+   "ours_det": true,
+   "theirs_det": true,
+   "live_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS",
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "live_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS",
+    "UNIMPL",
+    "UNIMPL"
+   ],
+   "ours_live_matches_model": true,
+   "theirs_live_matches_model": true,
+   "live_first_mismatch": 6,
+   "ours_taint_index": 6,
+   "auto_kexinit": false,
+   "comparable": true
+  },
+  {
+   "sut": "openssh",
+   "sequence": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "UA_PK_OK",
+    "KEXINIT",
+    "NEWKEYS",
+    "KEX30"
+   ],
+   "model_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS",
+    "KEXINIT",
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "model_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS",
+    "KEXINIT",
+    "UNIMPL",
+    "KEX31+NEWKEYS"
+   ],
+   "live_ours_raw": [
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "SR_ACCEPT",
+     "UA_SUCCESS+GLOBAL_REQUEST",
+     "KEXINIT",
+     "UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "SR_ACCEPT",
+     "UA_SUCCESS+GLOBAL_REQUEST",
+     "KEXINIT",
+     "UNIMPL",
+     "NO_CONN"
+    ],
+    [
+     "KEXINIT",
+     "KEX31+NEWKEYS+EXT_INFO",
+     "NO_RESP",
+     "SR_ACCEPT",
+     "UA_SUCCESS+GLOBAL_REQUEST",
+     "KEXINIT",
+     "UNIMPL",
+     "NO_CONN"
+    ]
+   ],
+   "live_theirs_raw": [
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "SERVICE_ACCEPT",
+     "UA_SUCCESS+GLOBAL_REQUEST",
+     "KEXINIT",
+     "UNIMPLEMENTED",
+     "KEX31+NEWKEYS"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "SERVICE_ACCEPT",
+     "UA_SUCCESS+GLOBAL_REQUEST",
+     "KEXINIT",
+     "UNIMPLEMENTED",
+     "KEX31+NEWKEYS"
+    ],
+    [
+     "NO_RESP",
+     "KEX31+NEWKEYS",
+     "NO_RESP",
+     "SERVICE_ACCEPT",
+     "UA_SUCCESS+GLOBAL_REQUEST",
+     "KEXINIT",
+     "UNIMPLEMENTED",
+     "KEX31+NEWKEYS"
+    ]
+   ],
+   "ours_det": true,
+   "theirs_det": true,
+   "live_ours": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS",
+    "KEXINIT",
+    "UNIMPL",
+    "NO_CONN"
+   ],
+   "live_theirs": [
+    "NO_RESP",
+    "KEX31+NEWKEYS",
+    "NO_RESP",
+    "SR_ACCEPT",
+    "UA_SUCCESS",
+    "KEXINIT",
+    "UNIMPL",
+    "KEX31+NEWKEYS"
+   ],
+   "ours_live_matches_model": true,
+   "theirs_live_matches_model": true,
+   "live_first_mismatch": 7,
+   "ours_taint_index": 7,
+   "auto_kexinit": false,
+   "comparable": true
+  }
+ ]
+}
