@@ -1,0 +1,214 @@
+{
+  "results/runs/erlang-otp-27.3.2-v3vm/model.dot": [
+    {
+      "pattern": "CONN-BEFORE-AUTH",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "CH_OPEN"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    },
+    {
+      "pattern": "REKEY-KEXINIT-REPLY",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "KEXINIT"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "DISCONNECT+CLOSED"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "DISCONNECT+CLOSED"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    },
+    {
+      "pattern": "STRICT-KEX-NON-KEX-MSG",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "CH_OPEN"
+      ],
+      "model": [
+        "NO_RESP",
+        "NO_RESP"
+      ],
+      "real": [
+        "NO_RESP",
+        "NO_RESP"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    }
+  ],
+  "results/runs/libssh-v3vm/model.dot": [
+    {
+      "pattern": "CH-CLOSE-REPLY",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "UA_PW_OK",
+        "CH_OPEN",
+        "CH_DATA",
+        "CH_CLOSE"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS",
+        "CH_WINDOW_ADJUST",
+        "NO_RESP"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UA_SUCCESS",
+        "CH_OPEN_SUCCESS",
+        "CH_WINDOW_ADJUST",
+        "CH_EOF+CH_CLOSE"
+      ],
+      "deterministic": true,
+      "verdict": "REFUTED"
+    },
+    {
+      "pattern": "CONN-BEFORE-AUTH",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "CH_OPEN"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    },
+    {
+      "pattern": "REKEY-KEXINIT-REPLY",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "KEXINIT"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "NO_RESP"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    },
+    {
+      "pattern": "STRICT-KEX-FIRST-KEXINIT",
+      "level": "MUST",
+      "word": [
+        "DEBUG",
+        "KEXINIT"
+      ],
+      "model": [
+        "NO_RESP",
+        "NO_RESP"
+      ],
+      "real": [
+        "NO_RESP",
+        "NO_RESP"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    },
+    {
+      "pattern": "STRICT-KEX-NON-KEX-MSG",
+      "level": "MUST",
+      "word": [
+        "KEXINIT",
+        "DEBUG"
+      ],
+      "model": [
+        "NO_RESP",
+        "NO_RESP"
+      ],
+      "real": [
+        "NO_RESP",
+        "NO_RESP"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    },
+    {
+      "pattern": "UA-BEFORE-SR-AUTH",
+      "level": "SHOULD",
+      "word": [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "UA_NONE"
+      ],
+      "model": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UA_FAILURE"
+      ],
+      "real": [
+        "NO_RESP",
+        "KEX31+NEWKEYS",
+        "NO_RESP",
+        "UA_FAILURE"
+      ],
+      "deterministic": true,
+      "verdict": "CONFIRMED"
+    }
+  ],
+  "results/runs/golang-xcrypto-v4vm/model.dot": []
+}

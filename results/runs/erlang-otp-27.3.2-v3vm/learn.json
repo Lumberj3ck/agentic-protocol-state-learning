@@ -1,0 +1,90 @@
+{
+  "target": "erlang-otp-27.3.2",
+  "implementation": "Erlang/OTP ssh 5.2.9 (OTP 27.3.2)",
+  "source": "OTP 27.3.2 exactly; official docker.io/library/erlang:27.3.2.0-slim@sha256:eb71f4d1c00ef759d72b2160655c02bd74888713e9e47bed49532da2fe3edd8d",
+  "alphabet": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "SR_CONN",
+    "UA_PW_OK",
+    "UA_PW_NOK",
+    "UA_NONE",
+    "CH_OPEN",
+    "CH_CLOSE",
+    "CH_EOF",
+    "CH_DATA",
+    "CH_REQUEST_EXEC",
+    "IGNORE",
+    "DEBUG",
+    "UNIMPLEMENTED",
+    "DISCONNECT"
+  ],
+  "mapper_kw": {
+    "timeout": 0.4,
+    "quiet": 0.1
+  },
+  "instances": 6,
+  "states": 16,
+  "rounds": 14,
+  "mq": 989,
+  "mq_steps": 6441,
+  "eq": 3641,
+  "eq_steps": 24581,
+  "nondet_events": 0,
+  "seconds": 1939.4,
+  "reset_failures": 0,
+  "eq_oracle": {
+    "seed_paths": [
+      [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "CH_OPEN",
+        "CH_REQUEST_EXEC",
+        "CH_EOF",
+        "CH_CLOSE"
+      ],
+      [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "CH_OPEN",
+        "CH_CLOSE"
+      ],
+      [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_NOK",
+        "UA_PW_NOK",
+        "UA_NONE",
+        "UA_PW_OK",
+        "CH_OPEN"
+      ],
+      [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "CH_OPEN",
+        "CH_OPEN",
+        "CH_CLOSE",
+        "CH_CLOSE"
+      ]
+    ],
+    "walks_per_state": 20,
+    "max_suffix": 6
+  },
+  "strict_kex_active": true
+}

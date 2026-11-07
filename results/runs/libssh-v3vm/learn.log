@@ -1,0 +1,108 @@
+-----------------------------------
+Learning Finished.
+Learning Rounds:  15
+Number of states: 18
+Time (in seconds)
+  Total                : 2957.93
+  Learning algorithm   : 1714.98
+  Conformance checking : 1242.95
+Learning Algorithm
+ # Membership Queries  : 1009
+ # MQ Saved by Caching : 0
+ # Steps               : 6925
+Equivalence Query
+ # Membership Queries  : 4308
+ # Steps               : 29157
+-----------------------------------
+Model saved to results/runs/libssh-v3vm/model.dot.
+{
+  "target": "libssh",
+  "implementation": "libssh (C) server API",
+  "source": "libssh 0.12.2; official release https://www.libssh.org/files/0.12/libssh-0.12.2.tar.xz; SHA256 49560f677d96e3706a904ac2de1116e25f3680937d51e5c92198fcba4a1c1e9f",
+  "alphabet": [
+    "KEXINIT",
+    "KEX30",
+    "NEWKEYS",
+    "SR_AUTH",
+    "SR_CONN",
+    "UA_PW_OK",
+    "UA_PW_NOK",
+    "UA_NONE",
+    "CH_OPEN",
+    "CH_CLOSE",
+    "CH_EOF",
+    "CH_DATA",
+    "CH_REQUEST_EXEC",
+    "IGNORE",
+    "DEBUG",
+    "UNIMPLEMENTED",
+    "DISCONNECT"
+  ],
+  "mapper_kw": {
+    "timeout": 0.4,
+    "quiet": 0.1
+  },
+  "instances": 6,
+  "states": 18,
+  "rounds": 15,
+  "mq": 1009,
+  "mq_steps": 6925,
+  "eq": 4308,
+  "eq_steps": 29157,
+  "nondet_events": 0,
+  "seconds": 2957.9,
+  "reset_failures": 0,
+  "eq_oracle": {
+    "seed_paths": [
+      [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "CH_OPEN",
+        "CH_REQUEST_EXEC",
+        "CH_EOF",
+        "CH_CLOSE"
+      ],
+      [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "CH_OPEN",
+        "CH_CLOSE"
+      ],
+      [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_NOK",
+        "UA_PW_NOK",
+        "UA_NONE",
+        "UA_PW_OK",
+        "CH_OPEN"
+      ],
+      [
+        "KEXINIT",
+        "KEX30",
+        "NEWKEYS",
+        "SR_AUTH",
+        "UA_PW_OK",
+        "CH_OPEN",
+        "CH_OPEN",
+        "CH_CLOSE",
+        "CH_CLOSE"
+      ]
+    ],
+    "walks_per_state": 20,
+    "max_suffix": 6
+  },
+  "strict_kex_active": true
+}
+EXIT 0

@@ -1,20 +1,152 @@
 {
   "id": "STRICT-KEX-NON-KEX-MSG",
   "title": "Strict KEX: non-KEX message tolerated during the initial key exchange",
-  "source": "draft-miller-sshm-strict-kex-01 §3.2; OpenSSH PROTOCOL §1.9 (V_9_6_P1)",
+  "source": "draft-miller-sshm-strict-kex-01 \u00a73.2; OpenSSH PROTOCOL \u00a71.9 (V_9_6_P1)",
   "quote": "When strict KEX is enabled, implementations MUST terminate the connection if they receive a non-KEX message during the initial key exchange. / Unexpected packets for the purpose of strict KEX include messages that are otherwise valid at any time during the connection such as SSH2_MSG_DEBUG and SSH2_MSG_IGNORE.",
   "level": "MUST",
-  "rationale": "After the client KEXINIT (strict KEX is then active, since the mapper offers it and the targets answer with kex-strict-s) and before the client NEWKEYS, any of IGNORE, DEBUG, UNIMPLEMENTED, SR_*, UA_* or CH_OPEN must be answered by DISCONNECT and/or connection close; any other output (NO_RESP, UNIMPLEMENTED, SERVICE_ACCEPT, ...) is a violation. This is the Terrapin countermeasure.",
+  "rationale": "After the client KEXINIT (strict KEX is then active, since the mapper offers it and the targets answer with kex-strict-s) and before the client NEWKEYS, any of IGNORE, DEBUG, UNIMPLEMENTED, SR_*, UA_* or CH_OPEN must lead to termination. The draft does not require the termination to be immediate, so termination up to and including the client NEWKEYS is accepted (libssh 0.12.2 disconnects at NEWKEYS). A violation needs evidence that the connection survived: after the client NEWKEYS the server sends a real message (not NO_RESP or NO_CHANNEL) without closing. This is the Terrapin countermeasure. Revised 2026-11-07 after a replay showed the immediate-termination version flagged libssh's compliant deferred disconnect.",
   "automaton": {
     "initial": "init",
-    "accept": ["bug"],
+    "accept": [
+      "bug"
+    ],
     "transitions": [
-      {"from": "init", "to": "k1", "in": "KEXINIT", "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
-      {"from": "k1", "to": "k2", "in": "KEX30", "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
-      {"from": "k1", "to": "k1", "in": ["CH_CLOSE", "CH_EOF", "CH_DATA", "CH_REQUEST_EXEC"], "out_has": ["NO_CHANNEL"]},
-      {"from": "k2", "to": "k2", "in": ["CH_CLOSE", "CH_EOF", "CH_DATA", "CH_REQUEST_EXEC"], "out_has": ["NO_CHANNEL"]},
-      {"from": "k1", "to": "bug", "in": ["SR_AUTH", "SR_CONN", "UA_PW_OK", "UA_PW_NOK", "UA_NONE", "CH_OPEN", "IGNORE", "DEBUG", "UNIMPLEMENTED"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]},
-      {"from": "k2", "to": "bug", "in": ["SR_AUTH", "SR_CONN", "UA_PW_OK", "UA_PW_NOK", "UA_NONE", "CH_OPEN", "IGNORE", "DEBUG", "UNIMPLEMENTED"], "out_lacks": ["CLOSED", "NO_CONN", "DISCONNECT", "BAD_PACKET"]}
+      {
+        "from": "init",
+        "to": "k1",
+        "in": "KEXINIT",
+        "out_lacks": [
+          "CLOSED",
+          "NO_CONN",
+          "DISCONNECT",
+          "BAD_PACKET"
+        ]
+      },
+      {
+        "from": "k1",
+        "to": "k2",
+        "in": "KEX30",
+        "out_lacks": [
+          "CLOSED",
+          "NO_CONN",
+          "DISCONNECT",
+          "BAD_PACKET"
+        ]
+      },
+      {
+        "from": "k1",
+        "to": "k1",
+        "in": [
+          "CH_CLOSE",
+          "CH_EOF",
+          "CH_DATA",
+          "CH_REQUEST_EXEC"
+        ],
+        "out_has": [
+          "NO_CHANNEL"
+        ]
+      },
+      {
+        "from": "k2",
+        "to": "k2",
+        "in": [
+          "CH_CLOSE",
+          "CH_EOF",
+          "CH_DATA",
+          "CH_REQUEST_EXEC"
+        ],
+        "out_has": [
+          "NO_CHANNEL"
+        ]
+      },
+      {
+        "from": "k1",
+        "to": "deferred",
+        "in": [
+          "SR_AUTH",
+          "SR_CONN",
+          "UA_PW_OK",
+          "UA_PW_NOK",
+          "UA_NONE",
+          "CH_OPEN",
+          "IGNORE",
+          "DEBUG",
+          "UNIMPLEMENTED"
+        ],
+        "out_lacks": [
+          "CLOSED",
+          "NO_CONN",
+          "DISCONNECT",
+          "BAD_PACKET"
+        ]
+      },
+      {
+        "from": "k2",
+        "to": "deferred",
+        "in": [
+          "SR_AUTH",
+          "SR_CONN",
+          "UA_PW_OK",
+          "UA_PW_NOK",
+          "UA_NONE",
+          "CH_OPEN",
+          "IGNORE",
+          "DEBUG",
+          "UNIMPLEMENTED"
+        ],
+        "out_lacks": [
+          "CLOSED",
+          "NO_CONN",
+          "DISCONNECT",
+          "BAD_PACKET"
+        ]
+      },
+      {
+        "from": "deferred",
+        "to": "deferred",
+        "in_not": [
+          "NEWKEYS"
+        ],
+        "out_lacks": [
+          "CLOSED",
+          "NO_CONN",
+          "DISCONNECT",
+          "BAD_PACKET"
+        ]
+      },
+      {
+        "from": "deferred",
+        "to": "keyed",
+        "in": "NEWKEYS",
+        "out_lacks": [
+          "CLOSED",
+          "NO_CONN",
+          "DISCONNECT",
+          "BAD_PACKET"
+        ]
+      },
+      {
+        "from": "keyed",
+        "to": "keyed",
+        "out_lacks": [
+          "CLOSED",
+          "NO_CONN",
+          "DISCONNECT",
+          "BAD_PACKET"
+        ]
+      },
+      {
+        "from": "keyed",
+        "to": "bug",
+        "out_lacks": [
+          "CLOSED",
+          "NO_CONN",
+          "DISCONNECT",
+          "BAD_PACKET",
+          "NO_RESP",
+          "NO_CHANNEL"
+        ]
+      }
     ]
   }
 }

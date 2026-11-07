@@ -124,3 +124,13 @@ Every result, decision and exchange with the team, with links to the outputs.
   auth-without-service-request is **fixed on master** (`91cb9ad`, 2026-10-12, issue #1287, unreleased) — our pipeline independently rediscovered it;
   the RFC 4253 §7.1 violation is **still present on master** and broader: mid-rekey wolfSSH answers UA_SUCCESS and CH_OPEN_SUCCESS before its NEWKEYS.
   Same word on others: OpenSSH and MINA defer the reply until after NEWKEYS, Go and russh disconnect.
+- More v3 models: erlang-otp-27.3.2 16 states, libssh 18; Go relearned with the refuted witness as a seed (`golang-xcrypto-v4vm`) 16 states (was 14).
+  Verify batch 3 (`results/catalogue/verified-batch3.json`): Go v4 has **no catalogue hits**: the counterexample loop removed the false "auth bypass".
+  libssh: CH-CLOSE-REPLY REFUTED (model error); STRICT-KEX-FIRST-KEXINIT and STRICT-KEX-NON-KEX-MSG "confirmed", but the continuation replay
+  (`results/seqnr/libssh-strict-kex-debug.txt`) shows libssh disconnects at the client NEWKEYS, which the draft allows. **Catalogue pattern too strict**:
+  STRICT-KEX-NON-KEX-MSG revised to require survival past the client NEWKEYS plus a real server reply; tests updated and a deferred-termination test added (61 pass).
+  **Calibration**: Erlang/OTP 27.3.2 (pre-CVE-2025-32433 fix) tolerates CH_OPEN during the strict initial KEX and before auth and completes the handshake;
+  patched OTP 29 disconnects immediately (`results/seqnr/erlang-control-vs-patched.txt`). Flagged blind by the catalogue, the known-vulnerable version separated from the patched one.
+- CANDIDATE-004 (Codex conformance trace, `findings/CANDIDATE-004-mina-sshd-service-request-after-auth.md`): MINA SSHD 2.20.1 replaces the active connection service on a post-auth
+  SERVICE_REQUEST(ssh-connection) without closing old channels; failing to answer their CHANNEL_CLOSE conflicts with RFC 4254 §5.3.
+- Re-verification of all 10 finished models with the revised catalogue running (`results/catalogue/verified-all.*`). asyncssh and dropbear still learning on the VM.

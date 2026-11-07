@@ -1,0 +1,50 @@
+
+erlang-otp-27.3.2: KEXINIT CH_OPEN KEX30 NEWKEYS SR_AUTH
+  deterministic over 3: True
+  KEXINIT          -> NO_RESP
+  CH_OPEN          -> NO_RESP
+  KEX30            -> KEX31+NEWKEYS
+  NEWKEYS          -> NO_RESP
+  SR_AUTH          -> SERVICE_ACCEPT
+
+erlang-otp-27.3.2: KEXINIT KEX30 NEWKEYS CH_OPEN SR_AUTH
+  deterministic over 3: True
+  KEXINIT          -> NO_RESP
+  KEX30            -> KEX31+NEWKEYS
+  NEWKEYS          -> NO_RESP
+  CH_OPEN          -> NO_RESP
+  SR_AUTH          -> SERVICE_ACCEPT
+
+erlang-otp-27.3.2: KEXINIT KEX30 NEWKEYS SR_AUTH CH_OPEN UA_PW_OK
+  deterministic over 3: True
+  KEXINIT          -> NO_RESP
+  KEX30            -> KEX31+NEWKEYS
+  NEWKEYS          -> NO_RESP
+  SR_AUTH          -> SERVICE_ACCEPT
+  CH_OPEN          -> NO_RESP
+  UA_PW_OK         -> UA_SUCCESS
+
+erlang-otp: KEXINIT CH_OPEN KEX30 NEWKEYS SR_AUTH
+  deterministic over 3: True
+  KEXINIT          -> NO_RESP
+  CH_OPEN          -> DISCONNECT+CLOSED
+  KEX30            -> NO_CONN
+  NEWKEYS          -> NO_CONN
+  SR_AUTH          -> NO_CONN
+
+erlang-otp: KEXINIT KEX30 NEWKEYS CH_OPEN SR_AUTH
+  deterministic over 3: True
+  KEXINIT          -> NO_RESP
+  KEX30            -> KEX31+NEWKEYS
+  NEWKEYS          -> NO_RESP
+  CH_OPEN          -> CLOSED
+  SR_AUTH          -> NO_CONN
+
+erlang-otp: KEXINIT KEX30 NEWKEYS SR_AUTH CH_OPEN UA_PW_OK
+  deterministic over 3: True
+  KEXINIT          -> NO_RESP
+  KEX30            -> KEX31+NEWKEYS
+  NEWKEYS          -> NO_RESP
+  SR_AUTH          -> SERVICE_ACCEPT
+  CH_OPEN          -> CLOSED
+  UA_PW_OK         -> NO_CONN

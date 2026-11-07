@@ -1,0 +1,44 @@
+
+libssh: KEXINIT DEBUG KEX30 NEWKEYS SR_AUTH UA_PW_OK
+  deterministic over 3: True
+  KEXINIT          -> NO_RESP
+  DEBUG            -> NO_RESP
+  KEX30            -> KEX31+NEWKEYS
+  NEWKEYS          -> DISCONNECT+CLOSED
+  SR_AUTH          -> NO_CONN
+  UA_PW_OK         -> NO_CONN
+
+libssh: KEXINIT IGNORE KEX30 NEWKEYS SR_AUTH UA_PW_OK
+  deterministic over 3: True
+  KEXINIT          -> NO_RESP
+  IGNORE           -> NO_RESP
+  KEX30            -> KEX31+NEWKEYS
+  NEWKEYS          -> DISCONNECT+CLOSED
+  SR_AUTH          -> NO_CONN
+  UA_PW_OK         -> NO_CONN
+
+libssh: DEBUG KEXINIT KEX30 NEWKEYS SR_AUTH UA_PW_OK
+  deterministic over 3: True
+  DEBUG            -> NO_RESP
+  KEXINIT          -> NO_RESP
+  KEX30            -> KEX31+NEWKEYS
+  NEWKEYS          -> DISCONNECT+CLOSED
+  SR_AUTH          -> NO_CONN
+  UA_PW_OK         -> NO_CONN
+
+libssh: KEXINIT KEX30 DEBUG NEWKEYS SR_AUTH UA_PW_OK
+  deterministic over 3: True
+  KEXINIT          -> NO_RESP
+  KEX30            -> KEX31+NEWKEYS
+  DEBUG            -> NO_RESP
+  NEWKEYS          -> DISCONNECT+CLOSED
+  SR_AUTH          -> NO_CONN
+  UA_PW_OK         -> NO_CONN
+
+libssh: KEXINIT KEX30 NEWKEYS SR_AUTH UA_PW_OK
+  deterministic over 3: True
+  KEXINIT          -> NO_RESP
+  KEX30            -> KEX31+NEWKEYS
+  NEWKEYS          -> NO_RESP
+  SR_AUTH          -> SERVICE_ACCEPT
+  UA_PW_OK         -> UA_SUCCESS

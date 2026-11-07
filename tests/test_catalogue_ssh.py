@@ -161,9 +161,11 @@ def test_reference_happy_path():
 KEX = ["KEXINIT", "KEX30", "NEWKEYS"]
 CASES = {
     "ignore-during-strict-kex": (
-        ["STRICT-KEX-NON-KEX-MSG"], [("ki", "IGNORE", "NO_RESP", "ki")], ["KEXINIT", "IGNORE"]),
+        ["STRICT-KEX-NON-KEX-MSG"], [("ki", "IGNORE", "NO_RESP", "ki")],
+        ["KEXINIT", "IGNORE", "KEX30", "NEWKEYS", "KEXINIT"]),
     "debug-after-server-newkeys": (
-        ["STRICT-KEX-NON-KEX-MSG"], [("kr", "DEBUG", "NO_RESP", "kr")], ["KEXINIT", "KEX30", "DEBUG"]),
+        ["STRICT-KEX-NON-KEX-MSG"], [("kr", "DEBUG", "NO_RESP", "kr")],
+        ["KEXINIT", "KEX30", "DEBUG", "NEWKEYS", "KEXINIT"]),
     "kexinit-not-first": (
         ["STRICT-KEX-FIRST-KEXINIT"], [("bad0", "KEXINIT", "NO_RESP", "ki")], "KEXINIT"),
     "second-kex30": (
@@ -265,6 +267,18 @@ def test_strict_kex_small_models():
     lax = model(lambda s: ("NO_RESP", s), ("NO_RESP", "s1"))
     for pid in ("STRICT-KEX-NON-KEX-MSG", "STRICT-KEX-FIRST-KEXINIT", "IGNORE-DEBUG-TOLERATED"):
         assert check(strict, PATTERNS[pid]) is None
-    assert word(check(lax, PATTERNS["STRICT-KEX-NON-KEX-MSG"])) == ["KEXINIT", "IGNORE"]
+    assert word(check(lax, PATTERNS["STRICT-KEX-NON-KEX-MSG"])) == ["KEXINIT", "IGNORE", "KEX30", "NEWKEYS", "KEXINIT"]
     assert word(check(lax, PATTERNS["STRICT-KEX-FIRST-KEXINIT"])) == ["IGNORE", "KEXINIT"]
     assert check(lax, PATTERNS["IGNORE-DEBUG-TOLERATED"]) is None
+
+
+def test_strict_kex_deferred_termination_conforms():
+    # libssh 0.12.2 (results/seqnr/libssh-strict-kex-debug.txt): silent on DEBUG during the initial KEX,
+    # then DISCONNECT at the client NEWKEYS. The draft allows the deferred termination.
+    spec = copy.deepcopy(reference())
+    spec["ki"]["DEBUG"] = ("NO_RESP", "ki_dbg")
+    spec["ki_dbg"] = {a: (FATAL, "dead") for a in spec["ki"]}
+    spec["ki_dbg"]["KEX30"] = ("KEX31+NEWKEYS", "kr_dbg")
+    spec["kr_dbg"] = {a: (FATAL, "dead") for a in spec["kr"]}
+    spec["kr_dbg"]["NEWKEYS"] = ("DISCONNECT+CLOSED", "dead")
+    assert check(mealy(spec), PATTERNS["STRICT-KEX-NON-KEX-MSG"]) is None
